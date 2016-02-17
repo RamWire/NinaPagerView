@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7682409F1BF5D32700788E48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7682409E1BF5D32700788E48 /* main.m */; };
+		768240A21BF5D32700788E48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240A11BF5D32700788E48 /* AppDelegate.m */; };
+		768240A51BF5D32700788E48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240A41BF5D32700788E48 /* ViewController.m */; };
+		768240A81BF5D32700788E48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768240A61BF5D32700788E48 /* Main.storyboard */; };
+		768240AA1BF5D32700788E48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768240A91BF5D32700788E48 /* Assets.xcassets */; };
+		768240AD1BF5D32700788E48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 768240AB1BF5D32700788E48 /* LaunchScreen.storyboard */; };
+		768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240B71BF5D32700788E48 /* NinaPagerViewTests.m */; };
+		768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */; };
+		768240DA1BF5D7EB00788E48 /* PagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240D71BF5D7EB00788E48 /* PagerView.m */; };
+		768240DB1BF5D7EB00788E48 /* TopTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240D91BF5D7EB00788E48 /* TopTabView.m */; };
+		768240DF1BF5DB9600788E48 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240DE1BF5DB9600788E48 /* FirstViewController.m */; };
+		768240E21BF5DBB100788E48 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240E11BF5DBB100788E48 /* SecondViewController.m */; };
+		768240E51BF5DBBA00788E48 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240E41BF5DBBA00788E48 /* ThirdViewController.m */; };
+		768240E81BF5DBC200788E48 /* ForthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240E71BF5DBC200788E48 /* ForthViewController.m */; };
+		7683BEDB1BF9EF2F000BCD66 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7683BEDA1BF9EF2F000BCD66 /* FifthViewController.m */; };
+		76A436E11C00045A005701EC /* Arrows-Right-round-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A436E01C00045A005701EC /* Arrows-Right-round-icon.png */; };
+		76B56B901C72B4CB00FFF051 /* TopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B56B8F1C72B4CB00FFF051 /* TopTableView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		768240B41BF5D32700788E48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768240921BF5D32700788E48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 768240991BF5D32700788E48;
+			remoteInfo = NinaPagerView;
+		};
+		768240BF1BF5D32700788E48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 768240921BF5D32700788E48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 768240991BF5D32700788E48;
+			remoteInfo = NinaPagerView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7682409A1BF5D32700788E48 /* NinaPagerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinaPagerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7682409E1BF5D32700788E48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		768240A01BF5D32700788E48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		768240A11BF5D32700788E48 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		768240A31BF5D32700788E48 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		768240A41BF5D32700788E48 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		768240A71BF5D32700788E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		768240A91BF5D32700788E48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		768240AC1BF5D32700788E48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		768240AE1BF5D32700788E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768240B31BF5D32700788E48 /* NinaPagerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaPagerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		768240B71BF5D32700788E48 /* NinaPagerViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerViewTests.m; sourceTree = "<group>"; };
+		768240B91BF5D32700788E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768240BE1BF5D32700788E48 /* NinaPagerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaPagerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerViewUITests.m; sourceTree = "<group>"; };
+		768240C41BF5D32700788E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768240D61BF5D7EB00788E48 /* PagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagerView.h; sourceTree = "<group>"; };
+		768240D71BF5D7EB00788E48 /* PagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagerView.m; sourceTree = "<group>"; };
+		768240D81BF5D7EB00788E48 /* TopTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTabView.h; sourceTree = "<group>"; };
+		768240D91BF5D7EB00788E48 /* TopTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTabView.m; sourceTree = "<group>"; };
+		768240DD1BF5DB9600788E48 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		768240DE1BF5DB9600788E48 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		768240E01BF5DBB100788E48 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		768240E11BF5DBB100788E48 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		768240E31BF5DBBA00788E48 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		768240E41BF5DBBA00788E48 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		768240E61BF5DBC200788E48 /* ForthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthViewController.h; sourceTree = "<group>"; };
+		768240E71BF5DBC200788E48 /* ForthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthViewController.m; sourceTree = "<group>"; };
+		7683BED91BF9EF2F000BCD66 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
+		7683BEDA1BF9EF2F000BCD66 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
+		76A436E01C00045A005701EC /* Arrows-Right-round-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Right-round-icon.png"; sourceTree = "<group>"; };
+		76B56B8D1C72B19000FFF051 /* Nina.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nina.pch; sourceTree = "<group>"; };
+		76B56B8E1C72B4CB00FFF051 /* TopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTableView.h; sourceTree = "<group>"; };
+		76B56B8F1C72B4CB00FFF051 /* TopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTableView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		768240971BF5D32700788E48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768240B01BF5D32700788E48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768240BB1BF5D32700788E48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		768240911BF5D32700788E48 = {
+			isa = PBXGroup;
+			children = (
+				7682409C1BF5D32700788E48 /* NinaPagerView */,
+				768240B61BF5D32700788E48 /* NinaPagerViewTests */,
+				768240C11BF5D32700788E48 /* NinaPagerViewUITests */,
+				7682409B1BF5D32700788E48 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7682409B1BF5D32700788E48 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7682409A1BF5D32700788E48 /* NinaPagerView.app */,
+				768240B31BF5D32700788E48 /* NinaPagerViewTests.xctest */,
+				768240BE1BF5D32700788E48 /* NinaPagerViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7682409C1BF5D32700788E48 /* NinaPagerView */ = {
+			isa = PBXGroup;
+			children = (
+				768240D01BF5D36000788E48 /* NinaPager */,
+				768240DC1BF5DB8000788E48 /* ChildVC */,
+				768240A01BF5D32700788E48 /* AppDelegate.h */,
+				768240A11BF5D32700788E48 /* AppDelegate.m */,
+				768240A31BF5D32700788E48 /* ViewController.h */,
+				768240A41BF5D32700788E48 /* ViewController.m */,
+				768240A61BF5D32700788E48 /* Main.storyboard */,
+				768240A91BF5D32700788E48 /* Assets.xcassets */,
+				768240AB1BF5D32700788E48 /* LaunchScreen.storyboard */,
+				768240AE1BF5D32700788E48 /* Info.plist */,
+				7682409D1BF5D32700788E48 /* Supporting Files */,
+			);
+			path = NinaPagerView;
+			sourceTree = "<group>";
+		};
+		7682409D1BF5D32700788E48 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7682409E1BF5D32700788E48 /* main.m */,
+				76B56B8D1C72B19000FFF051 /* Nina.pch */,
+				76A436E01C00045A005701EC /* Arrows-Right-round-icon.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		768240B61BF5D32700788E48 /* NinaPagerViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				768240B71BF5D32700788E48 /* NinaPagerViewTests.m */,
+				768240B91BF5D32700788E48 /* Info.plist */,
+			);
+			path = NinaPagerViewTests;
+			sourceTree = "<group>";
+		};
+		768240C11BF5D32700788E48 /* NinaPagerViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */,
+				768240C41BF5D32700788E48 /* Info.plist */,
+			);
+			path = NinaPagerViewUITests;
+			sourceTree = "<group>";
+		};
+		768240D01BF5D36000788E48 /* NinaPager */ = {
+			isa = PBXGroup;
+			children = (
+				768240D61BF5D7EB00788E48 /* PagerView.h */,
+				768240D71BF5D7EB00788E48 /* PagerView.m */,
+				768240D81BF5D7EB00788E48 /* TopTabView.h */,
+				768240D91BF5D7EB00788E48 /* TopTabView.m */,
+				76B56B8E1C72B4CB00FFF051 /* TopTableView.h */,
+				76B56B8F1C72B4CB00FFF051 /* TopTableView.m */,
+			);
+			path = NinaPager;
+			sourceTree = "<group>";
+		};
+		768240DC1BF5DB8000788E48 /* ChildVC */ = {
+			isa = PBXGroup;
+			children = (
+				768240DD1BF5DB9600788E48 /* FirstViewController.h */,
+				768240DE1BF5DB9600788E48 /* FirstViewController.m */,
+				768240E01BF5DBB100788E48 /* SecondViewController.h */,
+				768240E11BF5DBB100788E48 /* SecondViewController.m */,
+				768240E31BF5DBBA00788E48 /* ThirdViewController.h */,
+				768240E41BF5DBBA00788E48 /* ThirdViewController.m */,
+				768240E61BF5DBC200788E48 /* ForthViewController.h */,
+				768240E71BF5DBC200788E48 /* ForthViewController.m */,
+				7683BED91BF9EF2F000BCD66 /* FifthViewController.h */,
+				7683BEDA1BF9EF2F000BCD66 /* FifthViewController.m */,
+			);
+			path = ChildVC;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		768240991BF5D32700788E48 /* NinaPagerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768240C71BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerView" */;
+			buildPhases = (
+				768240961BF5D32700788E48 /* Sources */,
+				768240971BF5D32700788E48 /* Frameworks */,
+				768240981BF5D32700788E48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NinaPagerView;
+			productName = NinaPagerView;
+			productReference = 7682409A1BF5D32700788E48 /* NinaPagerView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		768240B21BF5D32700788E48 /* NinaPagerViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768240CA1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewTests" */;
+			buildPhases = (
+				768240AF1BF5D32700788E48 /* Sources */,
+				768240B01BF5D32700788E48 /* Frameworks */,
+				768240B11BF5D32700788E48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				768240B51BF5D32700788E48 /* PBXTargetDependency */,
+			);
+			name = NinaPagerViewTests;
+			productName = NinaPagerViewTests;
+			productReference = 768240B31BF5D32700788E48 /* NinaPagerViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		768240BD1BF5D32700788E48 /* NinaPagerViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768240CD1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewUITests" */;
+			buildPhases = (
+				768240BA1BF5D32700788E48 /* Sources */,
+				768240BB1BF5D32700788E48 /* Frameworks */,
+				768240BC1BF5D32700788E48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				768240C01BF5D32700788E48 /* PBXTargetDependency */,
+			);
+			name = NinaPagerViewUITests;
+			productName = NinaPagerViewUITests;
+			productReference = 768240BE1BF5D32700788E48 /* NinaPagerViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		768240921BF5D32700788E48 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "赵富阳";
+				TargetAttributes = {
+					768240991BF5D32700788E48 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					768240B21BF5D32700788E48 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 768240991BF5D32700788E48;
+					};
+					768240BD1BF5D32700788E48 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 768240991BF5D32700788E48;
+					};
+				};
+			};
+			buildConfigurationList = 768240951BF5D32700788E48 /* Build configuration list for PBXProject "NinaPagerView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 768240911BF5D32700788E48;
+			productRefGroup = 7682409B1BF5D32700788E48 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				768240991BF5D32700788E48 /* NinaPagerView */,
+				768240B21BF5D32700788E48 /* NinaPagerViewTests */,
+				768240BD1BF5D32700788E48 /* NinaPagerViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		768240981BF5D32700788E48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768240AD1BF5D32700788E48 /* LaunchScreen.storyboard in Resources */,
+				768240AA1BF5D32700788E48 /* Assets.xcassets in Resources */,
+				76A436E11C00045A005701EC /* Arrows-Right-round-icon.png in Resources */,
+				768240A81BF5D32700788E48 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768240B11BF5D32700788E48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768240BC1BF5D32700788E48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		768240961BF5D32700788E48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768240DA1BF5D7EB00788E48 /* PagerView.m in Sources */,
+				768240DF1BF5DB9600788E48 /* FirstViewController.m in Sources */,
+				768240E81BF5DBC200788E48 /* ForthViewController.m in Sources */,
+				768240E51BF5DBBA00788E48 /* ThirdViewController.m in Sources */,
+				76B56B901C72B4CB00FFF051 /* TopTableView.m in Sources */,
+				768240A51BF5D32700788E48 /* ViewController.m in Sources */,
+				768240E21BF5DBB100788E48 /* SecondViewController.m in Sources */,
+				768240A21BF5D32700788E48 /* AppDelegate.m in Sources */,
+				7682409F1BF5D32700788E48 /* main.m in Sources */,
+				7683BEDB1BF9EF2F000BCD66 /* FifthViewController.m in Sources */,
+				768240DB1BF5D7EB00788E48 /* TopTabView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768240AF1BF5D32700788E48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768240BA1BF5D32700788E48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		768240B51BF5D32700788E48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 768240991BF5D32700788E48 /* NinaPagerView */;
+			targetProxy = 768240B41BF5D32700788E48 /* PBXContainerItemProxy */;
+		};
+		768240C01BF5D32700788E48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 768240991BF5D32700788E48 /* NinaPagerView */;
+			targetProxy = 768240BF1BF5D32700788E48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		768240A61BF5D32700788E48 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				768240A71BF5D32700788E48 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		768240AB1BF5D32700788E48 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				768240AC1BF5D32700788E48 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		768240C51BF5D32700788E48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		768240C61BF5D32700788E48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		768240C81BF5D32700788E48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
+				GCC_PREFIX_HEADER = /Users/renrun/Desktop/NinaPagerView/NinaPagerView/Nina.pch;
+				INFOPLIST_FILE = NinaPagerView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		768240C91BF5D32700788E48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
+				GCC_PREFIX_HEADER = /Users/renrun/Desktop/NinaPagerView/NinaPagerView/Nina.pch;
+				INFOPLIST_FILE = NinaPagerView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		768240CB1BF5D32700788E48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NinaPagerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NinaPagerView.app/NinaPagerView";
+			};
+			name = Debug;
+		};
+		768240CC1BF5D32700788E48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NinaPagerViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NinaPagerView.app/NinaPagerView";
+			};
+			name = Release;
+		};
+		768240CE1BF5D32700788E48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NinaPagerViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NinaPagerView;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		768240CF1BF5D32700788E48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = NinaPagerViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = NinaPagerView;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		768240951BF5D32700788E48 /* Build configuration list for PBXProject "NinaPagerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768240C51BF5D32700788E48 /* Debug */,
+				768240C61BF5D32700788E48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		768240C71BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768240C81BF5D32700788E48 /* Debug */,
+				768240C91BF5D32700788E48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		768240CA1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768240CB1BF5D32700788E48 /* Debug */,
+				768240CC1BF5D32700788E48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		768240CD1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768240CE1BF5D32700788E48 /* Debug */,
+				768240CF1BF5D32700788E48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 768240921BF5D32700788E48 /* Project object */;
+}
