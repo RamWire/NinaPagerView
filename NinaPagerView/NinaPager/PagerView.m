@@ -8,7 +8,7 @@
 
 #import "PagerView.h"
 #import "TopTabView.h"
-
+#import "UIParameter.h"
 @implementation PagerView {
     
     UIView *lineBottom;

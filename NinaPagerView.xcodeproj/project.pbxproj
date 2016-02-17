@@ -44,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DCC4BFD1C749827000ADE09 /* UIParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIParameter.h; sourceTree = "<group>"; };
 		7682409A1BF5D32700788E48 /* NinaPagerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinaPagerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7682409E1BF5D32700788E48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		768240A01BF5D32700788E48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		7683BED91BF9EF2F000BCD66 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
 		7683BEDA1BF9EF2F000BCD66 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
 		76A436E01C00045A005701EC /* Arrows-Right-round-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Right-round-icon.png"; sourceTree = "<group>"; };
-		76B56B8D1C72B19000FFF051 /* Nina.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nina.pch; sourceTree = "<group>"; };
 		76B56B8E1C72B4CB00FFF051 /* TopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTableView.h; sourceTree = "<group>"; };
 		76B56B8F1C72B4CB00FFF051 /* TopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +130,7 @@
 			children = (
 				768240D01BF5D36000788E48 /* NinaPager */,
 				768240DC1BF5DB8000788E48 /* ChildVC */,
+				4DCC4BFD1C749827000ADE09 /* UIParameter.h */,
 				768240A01BF5D32700788E48 /* AppDelegate.h */,
 				768240A11BF5D32700788E48 /* AppDelegate.m */,
 				768240A31BF5D32700788E48 /* ViewController.h */,
@@ -147,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				7682409E1BF5D32700788E48 /* main.m */,
-				76B56B8D1C72B19000FFF051 /* Nina.pch */,
 				76A436E01C00045A005701EC /* Arrows-Right-round-icon.png */,
 			);
 			name = "Supporting Files";
@@ -484,7 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
-				GCC_PREFIX_HEADER = /Users/renrun/Desktop/NinaPagerView/NinaPagerView/Nina.pch;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = NinaPagerView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;
@@ -497,7 +497,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
-				GCC_PREFIX_HEADER = /Users/renrun/Desktop/NinaPagerView/NinaPagerView/Nina.pch;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = NinaPagerView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;

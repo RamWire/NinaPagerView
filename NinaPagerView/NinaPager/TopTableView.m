@@ -7,6 +7,7 @@
 //
 
 #import "TopTableView.h"
+#import "UIParameter.h"
 
 @interface TopTableView()
 
