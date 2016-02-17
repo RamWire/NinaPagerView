@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "PagerView.h"
 #import "UIParameter.h"
+#import "PagerView.h"
 #import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "ThirdViewController.h"

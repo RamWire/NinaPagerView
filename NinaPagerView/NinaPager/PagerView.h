@@ -3,7 +3,7 @@
 //  NinaPagerView
 //
 //  Created by 赵富阳 on 15/9/22.
-//  Copyright © 2015年 renrunkeji. All rights reserved.
+//  Copyright © 2015年 RamWire. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

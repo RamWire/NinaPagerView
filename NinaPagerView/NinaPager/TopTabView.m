@@ -3,7 +3,7 @@
 //  一两理财
 //
 //  Created by 赵富阳 on 15/10/13.
-//  Copyright © 2015年 renrunkeji. All rights reserved.
+//  Copyright © 2015年 RamWire. All rights reserved.
 //
 
 #import "TopTabView.h"
