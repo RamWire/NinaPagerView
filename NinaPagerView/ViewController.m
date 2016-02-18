@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"Nina";
     NSArray *myArray = @[
                          @"大连",
                          @"鞍山",
@@ -47,8 +47,6 @@
     [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:pagerView];
 
-    self.title = @"Nina";
-
     //不透明
     self.navigationController.navigationBar.translucent = NO;
 
@@ -57,32 +55,6 @@
     [pagerView.scrollView addSubview:firstVC.view];
     [self addChildViewController:firstVC];
     [firstVC didMoveToParentViewController:self];
-
-//    secondVC = [[SecondViewController alloc] init];
-//    secondVC.view.frame = CGRectMake(FUll_VIEW_WIDTH, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn - TabbarHeight);
-//    [self addChildViewController:secondVC];    
-//    [pagerView.scrollView addSubview:secondVC.view];
-//    [secondVC didMoveToParentViewController:self];
-//
-//    thirdVC = [[ThirdViewController alloc] init];
-//    thirdVC.view.frame = CGRectMake(FUll_VIEW_WIDTH * 2, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn - TabbarHeight);
-//    [pagerView.scrollView addSubview:thirdVC.view];
-//    [self addChildViewController:thirdVC];
-//    [thirdVC didMoveToParentViewController:self];
-//
-//    forthVC = [[ForthViewController alloc] init];
-//    forthVC.view.frame = CGRectMake(FUll_VIEW_WIDTH * 3, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn - TabbarHeight);
-//    NSLog(@"%@",forthVC.view);
-//    [pagerView.scrollView addSubview:forthVC.view];
-//    [self addChildViewController:forthVC];
-//    [forthVC didMoveToParentViewController:self];
-//    
-//    fifthVC = [[FifthViewController alloc] init];
-//    fifthVC.view.frame = CGRectMake(FUll_VIEW_WIDTH * 4, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn - TabbarHeight);
-//    NSLog(@"%@",forthVC.view);
-//    [pagerView.scrollView addSubview:fifthVC.view];
-//    [self addChildViewController:fifthVC];
-//    [fifthVC didMoveToParentViewController:self];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
