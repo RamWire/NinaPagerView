@@ -9,10 +9,16 @@
 #import "PagerView.h"
 #import "TopTabView.h"
 #import "UIParameter.h"
+
+@interface PagerView ()
+
+@property (strong, nonatomic) UIScrollView *topTab;
+
+@end
+
 @implementation PagerView {
     
     UIView *lineBottom;
-//    NSInteger currentPage;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
     NSArray *titlesArray; /**<  标题   **/
@@ -55,46 +61,79 @@
     return _scrollView;
 }
 
-- (UIView *)topTab {
+- (UIScrollView *)topTab {
     
     if (!_topTab) {
         
-        _topTab = [[UIView alloc] init];
-        
-        btnArray = [NSMutableArray array];
-        
-        for (NSInteger i = 0; i < titlesArray.count; i++) {
-            
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//            [button setTitle:titleArray[i] forState:UIControlStateNormal];
-//            TopTabView *topTabView = [[TopTabView alloc] initWithFrame:CGRectMake(FUll_VIEW_WIDTH / titleArray.count * i, 0, FUll_VIEW_WIDTH / titleArray.count, PageBtn) withTitle:titleArray[i] withTitleColor:[UIColor grayColor] withUnselectedImage:nil withSelectedImage:nil];
-//            [button addSubview:topTabView];
-            button.tag = i;
-            button.titleLabel.font = [UIFont systemFontOfSize:14];
-            [button setTitle:titlesArray[i] forState:UIControlStateNormal];
-            button.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * i, 0, FUll_VIEW_WIDTH / titlesArray.count, PageBtn);
-            [_topTab addSubview:button];
-            [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
-            [btnArray addObject:button];
-            
-            if (i == 0) {
-                
-                [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-                
-            } else {
-                
-                [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-                
-            }
-            
+        _topTab = [[UIScrollView alloc] init];
+        _topTab.scrollEnabled = YES;
+        _topTab.alwaysBounceHorizontal = YES;
+        _topTab.showsHorizontalScrollIndicator = NO;
+        CGFloat additionCount = 0;
+        if (arrayCount > 5) {
+            additionCount = (arrayCount - 5.0) / 5.0;
         }
+
+        _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, 0);
+        btnArray = [NSMutableArray array];
+    
+//        if (titlesArray.count <= 5) {
+            for (NSInteger i = 0; i < titlesArray.count; i++) {
+                
+                UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+                button.tag = i;
+                button.titleLabel.font = [UIFont systemFontOfSize:14];
+                [button setTitle:titlesArray[i] forState:UIControlStateNormal];
+                if (titlesArray.count > 5) {
+                    button.frame = CGRectMake(FUll_VIEW_WIDTH / 5 * i, 0, FUll_VIEW_WIDTH / 5, PageBtn);
+                }else {
+                    button.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * i, 0, FUll_VIEW_WIDTH / titlesArray.count, PageBtn);
+                }
+                [_topTab addSubview:button];
+                [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
+                [btnArray addObject:button];
+                
+                if (i == 0) {
+                    
+                    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    
+                } else {
+                    
+                    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                }
+            }
+
+//        }else {
+//            
+//            for (NSInteger i = 0; i < titlesArray.count; i++) {
+//                
+//                UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+//                button.tag = i;
+//                button.titleLabel.font = [UIFont systemFontOfSize:14];
+//                [button setTitle:titlesArray[i] forState:UIControlStateNormal];
+//                button.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * i, 0, FUll_VIEW_WIDTH / titlesArray.count, PageBtn);
+//                [_topTab addSubview:button];
+//                [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
+//                [btnArray addObject:button];
+//                
+//                if (i == 0) {
+//                    
+//                    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//                    
+//                } else {
+//                    
+//                    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+//                }
+//            }
+//            
+//        }
         
-        topTabBottomLine = [[UIView alloc] init];
+        topTabBottomLine = [UIView new];
         topTabBottomLine.backgroundColor = UIColorFromRGB(0xcecece);
         [_topTab addSubview:topTabBottomLine];
         
         
-        lineBottom = [[UIView alloc] init];
+        lineBottom = [UIView new];
         lineBottom.backgroundColor = UIColorFromRGB(0xff6262);
         [_topTab addSubview:lineBottom];
         
@@ -144,8 +183,12 @@
 - (void)initUI {
     
     CGFloat yourCount = 1.0 / arrayCount;
+    CGFloat additionCount = 0;
+    if (arrayCount > 5) {
+        additionCount = (arrayCount - 5.0) / 5.0;
+    }
     lineBottom.frame = CGRectMake(0, PageBtn - 2,yourCount * FUll_VIEW_WIDTH, 2);
-    topTabBottomLine.frame = CGRectMake(0, PageBtn - 1, FUll_VIEW_WIDTH, 1);
+    topTabBottomLine.frame = CGRectMake(0, PageBtn - 1, (1 + additionCount) * FUll_VIEW_WIDTH, 1);
     
 }
 

@@ -27,6 +27,7 @@
     ThirdViewController *thirdVC;
     ForthViewController *forthVC;
     FifthViewController *fifthVC;
+    
 }
 
 - (void)viewDidLoad {
@@ -37,7 +38,8 @@
                          @"鞍山",
                          @"本溪",
                          @"阜新",
-                         @"铁岭"
+                         @"铁岭",
+                         @"沈阳"
                          ];
     
     pagerView = [[PagerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT)];

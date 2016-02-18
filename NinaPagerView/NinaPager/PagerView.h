@@ -12,12 +12,7 @@
 @interface PagerView : UIView <UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) UIView *topTab;
-
-//@property (assign, nonatomic) NSInteger titleNum; /**<  标题数量   **/
 @property (assign, nonatomic) NSInteger currentPage; /**<  页码   **/
 @property (strong, nonatomic) NSArray *titleArray; /**<  标题   **/
-
-//- (instancetype)initWithFrame:(CGRect)frame WithSectionNameArray:(NSArray *)nameArray;
 
 @end
