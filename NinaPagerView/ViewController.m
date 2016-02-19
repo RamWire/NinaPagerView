@@ -27,20 +27,23 @@
     ThirdViewController *thirdVC;
     ForthViewController *forthVC;
     FifthViewController *fifthVC;
-    
+    NSArray *myArray;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Nina";
-    NSArray *myArray = @[
-                         @"大连",
-                         @"鞍山",
-                         @"本溪",
-                         @"阜新",
-                         @"铁岭",
-                         @"沈阳"
-                         ];
+    myArray =   @[
+                 @"大连",
+                 @"鞍山",
+                 @"本溪",
+                 @"阜新",
+                 @"铁岭",
+                 @"沈阳",
+                 @"营口",
+                 @"抚顺",
+                 @"辽阳"
+                 ];
     
     pagerView = [[PagerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT)];
     pagerView.titleArray = myArray;
@@ -63,6 +66,33 @@
         
         NSInteger page = [change[@"new"] integerValue];
         NSLog(@"当前页码为:%li",page);
+        
+        if (myArray.count > 5) {
+            
+            CGFloat topTabOffsetX = 0;
+            if (page >= 2) {
+                if (page <= myArray.count - 3) {
+                    topTabOffsetX = (page - 2) * More5LineWidth;
+                }
+                else {
+                    if (page == myArray.count - 2) {
+                        topTabOffsetX = (page - 3) * More5LineWidth;
+                    }else {
+                        topTabOffsetX = (page - 4) * More5LineWidth;
+                    }
+                }
+            }
+            else {
+                if (page == 1) {
+                    topTabOffsetX = 0 * More5LineWidth;
+                }else {
+                    topTabOffsetX = page * More5LineWidth;
+                }                
+            }
+            [pagerView.topTab setContentOffset:CGPointMake(topTabOffsetX, 0) animated:YES];
+//            pagerView.topTab.contentOffset = CGPointMake(topTabOffsetX, 0);
+            NSLog(@"上方的topTab横向移动了%f",topTabOffsetX);
+        }
         if (page == 0) {
             if (!firstVC.view) {
                 

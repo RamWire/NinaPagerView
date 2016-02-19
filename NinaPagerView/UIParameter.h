@@ -38,6 +38,7 @@
 #define RightTitleX 0.015 * FUll_VIEW_WIDTH //右侧文字X
 
 #define LinbottomWidth (132.0/375)*FUll_VIEW_WIDTH //下面红线的宽度
+#define More5LineWidth FUll_VIEW_WIDTH / 5.0 //超过5个标题的宽度
 
 #endif /* UIParameter_h */
 

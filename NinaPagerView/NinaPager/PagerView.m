@@ -12,7 +12,7 @@
 
 @interface PagerView ()
 
-@property (strong, nonatomic) UIScrollView *topTab;
+
 
 @end
 
@@ -29,8 +29,7 @@
     
     if (self = [super initWithFrame:frame]) {
         
-    }
-    
+    }    
     return self;
 }
 
@@ -51,6 +50,7 @@
         
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.delegate = self;
+        _scrollView.tag = 318;
         _scrollView.backgroundColor = UIColorFromRGB(0xfafafa);
         _scrollView.contentSize = CGSizeMake(FUll_VIEW_WIDTH * titlesArray.count, 0);
         _scrollView.pagingEnabled = YES;
@@ -66,6 +66,8 @@
     if (!_topTab) {
         
         _topTab = [[UIScrollView alloc] init];
+        _topTab.delegate = self;
+        _topTab.tag = 917;
         _topTab.scrollEnabled = YES;
         _topTab.alwaysBounceHorizontal = YES;
         _topTab.showsHorizontalScrollIndicator = NO;
@@ -124,29 +126,43 @@
 }
 
 #pragma mark - UIScrollViewDelegate
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     
-    self.currentPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
+    if (scrollView.tag == 318) {
+        self.currentPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    NSInteger yourPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
-    CGFloat additionCount = 0;
-    CGFloat yourCount = 1.0 / arrayCount;
-    if (arrayCount > 5) {
-        additionCount = (arrayCount - 5.0) / 5.0;
-        yourCount = 1.0 / 5.0;
-        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
-    }else {
-        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+    if (scrollView.tag == 318) {
+        NSInteger yourPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
+        CGFloat additionCount = 0;
+        CGFloat yourCount = 1.0 / arrayCount;
+        if (arrayCount > 5) {
+            additionCount = (arrayCount - 5.0) / 5.0;
+            yourCount = 1.0 / 5.0;
+            lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+        }else {
+            lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+        }
+        for (NSInteger i = 0;  i < btnArray.count; i++) {
+            
+            [btnArray[i] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            UIButton *changeButton = btnArray[i];
+            changeButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        }
+        [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        UIButton *changeButton = btnArray[yourPage];
+        changeButton.titleLabel.font = [UIFont systemFontOfSize:18];
     }
-    for (NSInteger i = 0;  i < btnArray.count; i++) {
-        
-        [btnArray[i] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-    }
-    [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    else if (scrollView.tag == 917) {
+//
+//        NSLog(@"上面的%li",self.currentPage);
+//        
+//        
+//    }
+    
 }
 
 
