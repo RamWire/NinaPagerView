@@ -23,7 +23,6 @@
 		768240E81BF5DBC200788E48 /* ForthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240E71BF5DBC200788E48 /* ForthViewController.m */; };
 		7683BEDB1BF9EF2F000BCD66 /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7683BEDA1BF9EF2F000BCD66 /* FifthViewController.m */; };
 		76A436E11C00045A005701EC /* Arrows-Right-round-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A436E01C00045A005701EC /* Arrows-Right-round-icon.png */; };
-		76B56B901C72B4CB00FFF051 /* TopTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B56B8F1C72B4CB00FFF051 /* TopTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,8 +75,6 @@
 		7683BED91BF9EF2F000BCD66 /* FifthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthViewController.h; sourceTree = "<group>"; };
 		7683BEDA1BF9EF2F000BCD66 /* FifthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthViewController.m; sourceTree = "<group>"; };
 		76A436E01C00045A005701EC /* Arrows-Right-round-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrows-Right-round-icon.png"; sourceTree = "<group>"; };
-		76B56B8E1C72B4CB00FFF051 /* TopTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTableView.h; sourceTree = "<group>"; };
-		76B56B8F1C72B4CB00FFF051 /* TopTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +175,6 @@
 				768240D71BF5D7EB00788E48 /* PagerView.m */,
 				768240D81BF5D7EB00788E48 /* TopTabView.h */,
 				768240D91BF5D7EB00788E48 /* TopTabView.m */,
-				76B56B8E1C72B4CB00FFF051 /* TopTableView.h */,
-				76B56B8F1C72B4CB00FFF051 /* TopTableView.m */,
 			);
 			path = NinaPager;
 			sourceTree = "<group>";
@@ -336,7 +331,6 @@
 				768240DF1BF5DB9600788E48 /* FirstViewController.m in Sources */,
 				768240E81BF5DBC200788E48 /* ForthViewController.m in Sources */,
 				768240E51BF5DBBA00788E48 /* ThirdViewController.m in Sources */,
-				76B56B901C72B4CB00FFF051 /* TopTableView.m in Sources */,
 				768240A51BF5D32700788E48 /* ViewController.m in Sources */,
 				768240E21BF5DBB100788E48 /* SecondViewController.m in Sources */,
 				768240A21BF5D32700788E48 /* AppDelegate.m in Sources */,

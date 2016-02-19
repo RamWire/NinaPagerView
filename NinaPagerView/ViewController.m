@@ -90,7 +90,6 @@
                 }                
             }
             [pagerView.topTab setContentOffset:CGPointMake(topTabOffsetX, 0) animated:YES];
-//            pagerView.topTab.contentOffset = CGPointMake(topTabOffsetX, 0);
             NSLog(@"上方的topTab横向移动了%f",topTabOffsetX);
         }
         if (page == 0) {
@@ -101,7 +100,6 @@
                 [pagerView.scrollView addSubview:firstVC.view];
             }
         }
-        
         if (page == 1) {
             if (!secondVC.view) {
                 
@@ -110,7 +108,6 @@
                 [pagerView.scrollView addSubview:secondVC.view];
             }
         }
-        
         if (page == 2) {
             
             if (!thirdVC.view) {
@@ -120,7 +117,6 @@
                 [pagerView.scrollView addSubview:thirdVC.view];
             }
         }
-        
         if (page == 3) {
             
             if (!forthVC.view) {
@@ -130,7 +126,6 @@
                 [pagerView.scrollView addSubview:forthVC.view];
             }
         }
-        
         if (page == 4) {
             
             if (!fifthVC.view) {

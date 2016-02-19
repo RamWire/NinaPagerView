@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor cyanColor];
+    NSLog(@"加载了控制器1");
 }
 
 - (void)didReceiveMemoryWarning {

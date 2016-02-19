@@ -12,8 +12,6 @@
 
 @interface PagerView ()
 
-
-
 @end
 
 @implementation PagerView {
@@ -56,7 +54,6 @@
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.alwaysBounceHorizontal = YES;
-        
     }
     return _scrollView;
 }
@@ -75,10 +72,8 @@
         if (arrayCount > 5) {
             additionCount = (arrayCount - 5.0) / 5.0;
         }
-
         _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, 0);
         btnArray = [NSMutableArray array];
-
         for (NSInteger i = 0; i < titlesArray.count; i++) {
             
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -97,6 +92,7 @@
             if (i == 0) {
                 
                 [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                button.titleLabel.font = [UIFont systemFontOfSize:18];
                 
             } else {
                 
@@ -104,17 +100,16 @@
             }
         }
 
+        //创建tabTop下方总览线
         topTabBottomLine = [UIView new];
         topTabBottomLine.backgroundColor = UIColorFromRGB(0xcecece);
         [_topTab addSubview:topTabBottomLine];
-        
-        
+
+        //创建选中移动线
         lineBottom = [UIView new];
         lineBottom.backgroundColor = UIColorFromRGB(0xff6262);
         [_topTab addSubview:lineBottom];
-        
     }
-    
     return _topTab;
 }
 
