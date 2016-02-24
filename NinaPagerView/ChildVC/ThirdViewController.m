@@ -7,6 +7,7 @@
 //
 
 #import "ThirdViewController.h"
+#import "UIParameter.h"
 
 @interface ThirdViewController ()
 
@@ -19,6 +20,12 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor redColor];
     NSLog(@"加载了控制器3");
+    
+    UILabel *middleLabel = [[UILabel alloc] initWithFrame:CGRectMake(FUll_VIEW_WIDTH / 2 - 80, FUll_VIEW_HEIGHT / 2 - 40 - 64 - PageBtn, 160, 80)];
+    middleLabel.text = @"第三个视图控制器";
+    middleLabel.textColor =[UIColor blackColor];
+    middleLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:middleLabel];
 }
 
 - (void)didReceiveMemoryWarning {
