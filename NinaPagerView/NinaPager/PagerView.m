@@ -151,15 +151,7 @@
         UIButton *changeButton = btnArray[yourPage];
         changeButton.titleLabel.font = [UIFont systemFontOfSize:18];
     }
-//    else if (scrollView.tag == 917) {
-//
-//        NSLog(@"上面的%li",self.currentPage);
-//        
-//        
-//    }
-    
 }
-
 
 #pragma mark - LayOutSubViews
 - (void)layoutSubviews {

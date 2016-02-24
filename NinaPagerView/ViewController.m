@@ -32,27 +32,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.title = @"Nina";
-    myArray =   @[
-                 @"大连",
-                 @"鞍山",
-                 @"本溪",
-                 @"阜新",
-                 @"铁岭",
-                 @"沈阳",
-                 @"营口",
-                 @"抚顺",
-                 @"辽阳"
-                 ];
     
+    //Need You Edit
+    myArray =   @[
+                  @"大连",
+                  @"鞍山",
+                  @"本溪",
+                  @"阜新",
+                  @"铁岭",
+                  @"沈阳",
+                  @"营口",
+                  @"抚顺",
+                  @"辽阳"
+                  ];
+    //No Need to edit
     pagerView = [[PagerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT)];
     pagerView.titleArray = myArray;
     [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:pagerView];
-
     //不透明
     self.navigationController.navigationBar.translucent = NO;
 
+    //First ViewController，Need U Edit
     firstVC = [[FirstViewController alloc] init];
     firstVC.view.frame = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn - TabbarHeight);
     [pagerView.scrollView addSubview:firstVC.view];
@@ -61,7 +64,7 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    
+
     if ([keyPath isEqualToString:@"currentPage"]) {
         
         NSInteger page = [change[@"new"] integerValue];
@@ -95,15 +98,15 @@
         if (page == 0) {
             if (!firstVC.view) {
                 
-                firstVC = [[FirstViewController alloc] init];
+                firstVC = [FirstViewController new];
                 firstVC.view.frame = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:firstVC.view];
             }
         }
         if (page == 1) {
             if (!secondVC.view) {
-                
-                secondVC = [[SecondViewController alloc] init];
+            
+                secondVC = [SecondViewController new];
                 secondVC.view.frame = CGRectMake(FUll_VIEW_WIDTH, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:secondVC.view];
             }
@@ -112,7 +115,7 @@
             
             if (!thirdVC.view) {
                 
-                thirdVC = [[ThirdViewController alloc] init];
+                thirdVC = [ThirdViewController new];
                 thirdVC.view.frame = CGRectMake(FUll_VIEW_WIDTH * 2, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:thirdVC.view];
             }
@@ -121,7 +124,7 @@
             
             if (!forthVC.view) {
                 
-                forthVC = [[ForthViewController alloc] init];
+                forthVC = [ForthViewController new];
                 forthVC.view.frame = CGRectMake(FUll_VIEW_WIDTH * 3, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:forthVC.view];
             }
@@ -130,7 +133,7 @@
             
             if (!fifthVC.view) {
                 
-                fifthVC = [[FifthViewController alloc] init];
+                fifthVC = [FifthViewController new];
                 fifthVC.view.frame = CGRectMake(FUll_VIEW_WIDTH * 4, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:fifthVC.view];
             }
