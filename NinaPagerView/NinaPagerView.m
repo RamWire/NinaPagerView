@@ -16,58 +16,63 @@
     PagerView *pagerView;
     NSArray *myArray;
     NSArray *classArray;
+    NSArray *colorArray;
     NSMutableArray *viewNumArray;
     BOOL viewAlloc[MaxNums];
     BOOL fontChangeColor;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs {
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)initWithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors {
+    if (self = [super init]) {
         //Need You Edit,title for the toptabbar
+        self.frame = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
         myArray = titles;
         classArray = childVCs;
+        colorArray = colors;
+         [self createPagerView:myArray WithVCs:classArray WithColors:colorArray];
     }
     return self;
 }
 
-#pragma mark - SetMethod
-- (void)setSelectColor:(UIColor *)selectColor {
-    _selectColor = selectColor;
-    [self initUI];
-}
-- (void)setUnselectColor:(UIColor *)unselectColor {
-    _unselectColor = unselectColor;
-   [self initUI];
-}
-- (void)setUnderlineColor:(UIColor *)underlineColor {
-    _underlineColor = underlineColor;
-    [self initUI];
-}
-
-- (void)initUI {
-    if (_underlineColor || _unselectColor || _selectColor) {
-        [self createPagerView:myArray WithVCs:classArray];
-    }
-}
-
 #pragma mark - CreateView
-- (void)createPagerView:(NSArray *)titles WithVCs:(NSArray *)childVCs {
+- (void)createPagerView:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColors:(NSArray *)colors {
     viewNumArray = [NSMutableArray array];
     //No Need to edit
-    pagerView = [[PagerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor];
-    pagerView.titleArray = myArray;
-    [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
-    [self addSubview:pagerView];
-    //First ViewController present to the screen
-    if (classArray.count > 0) {
-        NSString *className = classArray[0];
-        Class class = NSClassFromString(className);
-        if (class) {
-            UIViewController *ctrl = class.new;
-            ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn);
-            [pagerView.scrollView addSubview:ctrl.view];
-            viewAlloc[0] = YES;
+    if (colors.count > 0) {
+        for (NSInteger i = 0; i < colors.count; i++) {
+            switch (i) {
+                case 0:
+                     _selectColor = colors[0];
+                    break;
+                case 1:
+                    _unselectColor = colors[1];
+                    break;
+                case 2:
+                    _underlineColor = colors[2];
+                    break;
+                default:
+                    break;
+            }  
         }
+    }
+    if (titles.count > 0 && childVCs.count > 0) {
+        pagerView = [[PagerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor];
+        pagerView.titleArray = myArray;
+        [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+        [self addSubview:pagerView];
+        //First ViewController present to the screen
+        if (classArray.count > 0 && myArray.count > 0) {
+            NSString *className = classArray[0];
+            Class class = NSClassFromString(className);
+            if (class) {
+                UIViewController *ctrl = class.new;
+                ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+                [pagerView.scrollView addSubview:ctrl.view];
+                viewAlloc[0] = YES;
+            }
+        }
+    }else {
+        NSLog(@"You should correct titlesArray or childVCs count!");
     }
 }
 
@@ -106,12 +111,12 @@
                 Class class = NSClassFromString(className);
                 if (class && viewAlloc[i] == NO) {
                     UIViewController *ctrl = class.new;
-                    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT - PageBtn);
+                    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                     [pagerView.scrollView addSubview:ctrl.view];
                     viewAlloc[i] = YES;
                 }
             }else if (page == i && i > classArray.count - 1) {
-                NSLog(@"您没有配置对应Title的VC");
+                NSLog(@"您没有配置对应Title%li的VC",i + 1);
             }
         }
     }

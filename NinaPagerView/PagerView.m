@@ -91,13 +91,21 @@
             [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
             [btnArray addObject:button];
             if (i == 0) {
-                [button setTitleColor:selectBtn forState:UIControlStateNormal];
+                if (selectBtn) {
+                    [button setTitleColor:selectBtn forState:UIControlStateNormal];
+                }else {
+                    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                }
 //                button.titleLabel.font = [UIFont systemFontOfSize:18];
                 [UIView animateWithDuration:0.3 animations:^{
                     button.transform = CGAffineTransformMakeScale(1.15, 1.15);
                 }];
             } else {
-                [button setTitleColor:unselectBtn forState:UIControlStateNormal];
+                if (unselectBtn) {
+                     [button setTitleColor:unselectBtn forState:UIControlStateNormal];
+                }else {
+                     [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                }
             }
         }
         //创建tabTop下方总览线
@@ -106,7 +114,11 @@
         [_topTab addSubview:topTabBottomLine];
         //创建选中移动线
         lineBottom = [UIView new];
-        lineBottom.backgroundColor = underline;
+        if (underline) {
+            lineBottom.backgroundColor = underline;
+        }else {
+            lineBottom.backgroundColor = UIColorFromRGB(0xff6262);
+        }
         [_topTab addSubview:lineBottom];
     }
     return _topTab;
@@ -138,14 +150,22 @@
             lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
         }
         for (NSInteger i = 0;  i < btnArray.count; i++) {
-            [btnArray[i] setTitleColor:unselectBtn forState:UIControlStateNormal];
+            if (unselectBtn) {
+                [btnArray[i] setTitleColor:unselectBtn forState:UIControlStateNormal];
+            }else {
+                [btnArray[i] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            }
             UIButton *changeButton = btnArray[i];
 //            changeButton.titleLabel.font = [UIFont systemFontOfSize:14];
             [UIView animateWithDuration:0.3 animations:^{
                 changeButton.transform = CGAffineTransformMakeScale(1, 1);
             }];
         }
-        [btnArray[yourPage] setTitleColor:selectBtn forState:UIControlStateNormal];
+        if (selectBtn) {
+            [btnArray[yourPage] setTitleColor:selectBtn forState:UIControlStateNormal];
+        }else {
+            [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        }
         UIButton *changeButton = btnArray[yourPage];
 //        changeButton.titleLabel.font = [UIFont systemFontOfSize:18];
         [UIView animateWithDuration:0.3 animations:^{

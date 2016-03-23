@@ -10,7 +10,7 @@
 
 @interface NinaPagerView : UIView
 
-- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs;
+- (instancetype)initWithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors;
 @property (strong, nonatomic) UIColor *selectColor; /**<  选中时的颜色   **/
 @property (strong, nonatomic) UIColor *unselectColor; /**<  未选中时的颜色   **/
 @property (strong, nonatomic) UIColor *underlineColor; /**<  下划线的颜色   **/
