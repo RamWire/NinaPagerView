@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		764D4B661CA27F01006BF56F /* ChildBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764D4B651CA27F01006BF56F /* ChildBaseViewController.m */; };
+		764D4B691CA2819D006BF56F /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764D4B681CA2819D006BF56F /* SixthViewController.m */; };
+		764D4B6C1CA281D9006BF56F /* SeventhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764D4B6B1CA281D9006BF56F /* SeventhViewController.m */; };
+		764D4B6F1CA28229006BF56F /* EighthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764D4B6E1CA28229006BF56F /* EighthViewController.m */; };
+		764D4B721CA28251006BF56F /* NinthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764D4B711CA28251006BF56F /* NinthViewController.m */; };
+		764D4B751CA28709006BF56F /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 764D4B741CA28709006BF56F /* NinaPagerView.m */; };
 		7682409F1BF5D32700788E48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7682409E1BF5D32700788E48 /* main.m */; };
 		768240A21BF5D32700788E48 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240A11BF5D32700788E48 /* AppDelegate.m */; };
 		768240A51BF5D32700788E48 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240A41BF5D32700788E48 /* ViewController.m */; };
@@ -43,7 +49,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4DCC4BFD1C749827000ADE09 /* UIParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIParameter.h; sourceTree = "<group>"; };
+		4DCC4BFD1C749827000ADE09 /* UIParameter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = UIParameter.h; path = ../UIParameter.h; sourceTree = "<group>"; };
+		764D4B641CA27F01006BF56F /* ChildBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBaseViewController.h; sourceTree = "<group>"; };
+		764D4B651CA27F01006BF56F /* ChildBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBaseViewController.m; sourceTree = "<group>"; };
+		764D4B671CA2819D006BF56F /* SixthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixthViewController.h; sourceTree = "<group>"; };
+		764D4B681CA2819D006BF56F /* SixthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewController.m; sourceTree = "<group>"; };
+		764D4B6A1CA281D9006BF56F /* SeventhViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeventhViewController.h; sourceTree = "<group>"; };
+		764D4B6B1CA281D9006BF56F /* SeventhViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeventhViewController.m; sourceTree = "<group>"; };
+		764D4B6D1CA28229006BF56F /* EighthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EighthViewController.h; sourceTree = "<group>"; };
+		764D4B6E1CA28229006BF56F /* EighthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EighthViewController.m; sourceTree = "<group>"; };
+		764D4B701CA28251006BF56F /* NinthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinthViewController.h; sourceTree = "<group>"; };
+		764D4B711CA28251006BF56F /* NinthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NinthViewController.m; sourceTree = "<group>"; };
+		764D4B731CA28709006BF56F /* NinaPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinaPagerView.h; sourceTree = "<group>"; };
+		764D4B741CA28709006BF56F /* NinaPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NinaPagerView.m; sourceTree = "<group>"; };
 		7682409A1BF5D32700788E48 /* NinaPagerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinaPagerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7682409E1BF5D32700788E48 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		768240A01BF5D32700788E48 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,7 +145,6 @@
 			children = (
 				768240D01BF5D36000788E48 /* NinaPager */,
 				768240DC1BF5DB8000788E48 /* ChildVC */,
-				4DCC4BFD1C749827000ADE09 /* UIParameter.h */,
 				768240A01BF5D32700788E48 /* AppDelegate.h */,
 				768240A11BF5D32700788E48 /* AppDelegate.m */,
 				768240A31BF5D32700788E48 /* ViewController.h */,
@@ -171,10 +188,13 @@
 		768240D01BF5D36000788E48 /* NinaPager */ = {
 			isa = PBXGroup;
 			children = (
+				764D4B731CA28709006BF56F /* NinaPagerView.h */,
+				764D4B741CA28709006BF56F /* NinaPagerView.m */,
 				768240D61BF5D7EB00788E48 /* PagerView.h */,
 				768240D71BF5D7EB00788E48 /* PagerView.m */,
 				768240D81BF5D7EB00788E48 /* TopTabView.h */,
 				768240D91BF5D7EB00788E48 /* TopTabView.m */,
+				4DCC4BFD1C749827000ADE09 /* UIParameter.h */,
 			);
 			path = NinaPager;
 			sourceTree = "<group>";
@@ -182,6 +202,8 @@
 		768240DC1BF5DB8000788E48 /* ChildVC */ = {
 			isa = PBXGroup;
 			children = (
+				764D4B641CA27F01006BF56F /* ChildBaseViewController.h */,
+				764D4B651CA27F01006BF56F /* ChildBaseViewController.m */,
 				768240DD1BF5DB9600788E48 /* FirstViewController.h */,
 				768240DE1BF5DB9600788E48 /* FirstViewController.m */,
 				768240E01BF5DBB100788E48 /* SecondViewController.h */,
@@ -192,6 +214,14 @@
 				768240E71BF5DBC200788E48 /* ForthViewController.m */,
 				7683BED91BF9EF2F000BCD66 /* FifthViewController.h */,
 				7683BEDA1BF9EF2F000BCD66 /* FifthViewController.m */,
+				764D4B671CA2819D006BF56F /* SixthViewController.h */,
+				764D4B681CA2819D006BF56F /* SixthViewController.m */,
+				764D4B6A1CA281D9006BF56F /* SeventhViewController.h */,
+				764D4B6B1CA281D9006BF56F /* SeventhViewController.m */,
+				764D4B6D1CA28229006BF56F /* EighthViewController.h */,
+				764D4B6E1CA28229006BF56F /* EighthViewController.m */,
+				764D4B701CA28251006BF56F /* NinthViewController.h */,
+				764D4B711CA28251006BF56F /* NinthViewController.m */,
 			);
 			path = ChildVC;
 			sourceTree = "<group>";
@@ -327,6 +357,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764D4B721CA28251006BF56F /* NinthViewController.m in Sources */,
+				764D4B6C1CA281D9006BF56F /* SeventhViewController.m in Sources */,
 				768240DA1BF5D7EB00788E48 /* PagerView.m in Sources */,
 				768240DF1BF5DB9600788E48 /* FirstViewController.m in Sources */,
 				768240E81BF5DBC200788E48 /* ForthViewController.m in Sources */,
@@ -334,8 +366,12 @@
 				768240A51BF5D32700788E48 /* ViewController.m in Sources */,
 				768240E21BF5DBB100788E48 /* SecondViewController.m in Sources */,
 				768240A21BF5D32700788E48 /* AppDelegate.m in Sources */,
+				764D4B6F1CA28229006BF56F /* EighthViewController.m in Sources */,
 				7682409F1BF5D32700788E48 /* main.m in Sources */,
+				764D4B751CA28709006BF56F /* NinaPagerView.m in Sources */,
+				764D4B691CA2819D006BF56F /* SixthViewController.m in Sources */,
 				7683BEDB1BF9EF2F000BCD66 /* FifthViewController.m in Sources */,
+				764D4B661CA27F01006BF56F /* ChildBaseViewController.m in Sources */,
 				768240DB1BF5D7EB00788E48 /* TopTabView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

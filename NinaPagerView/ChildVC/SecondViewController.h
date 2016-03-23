@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChildBaseViewController.h"
 
-@interface SecondViewController : UIViewController
+@interface SecondViewController : ChildBaseViewController
 
 @end

@@ -16,4 +16,5 @@
 @property (strong, nonatomic) UIScrollView *topTab; /**<  顶部tab   **/
 @property (strong, nonatomic) NSArray *titleArray; /**<  标题   **/
 
+- (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor;
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChildBaseViewController.h"
 
-@interface ForthViewController : UIViewController
+@interface ForthViewController : ChildBaseViewController
 
 @end

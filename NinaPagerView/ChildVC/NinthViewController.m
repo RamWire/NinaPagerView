@@ -1,25 +1,24 @@
 //
-//  SecondViewController.m
+//  NinthViewController.m
 //  NinaPagerView
 //
-//  Created by 赵富阳 on 15/11/13.
-//  Copyright © 2015年 赵富阳. All rights reserved.
+//  Created by RamWire on 16/3/23.
+//  Copyright © 2016年 赵富阳. All rights reserved.
 //
 
-#import "SecondViewController.h"
-#import "UIParameter.h"
+#import "NinthViewController.h"
 
-@interface SecondViewController ()
+@interface NinthViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation NinthViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor yellowColor];
-    [self createLabel:@"2"];
+    self.view.backgroundColor = [UIColor brownColor];
+    [self createLabel:@"9"];
 }
 
 - (void)didReceiveMemoryWarning {
