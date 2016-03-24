@@ -8,12 +8,12 @@
 
 #import "NinaPagerView.h"
 #import "UIParameter.h"
-#import "PagerView.h"
+#import "NinaBaseView.h"
 #define MaxNums  10
 
 @implementation NinaPagerView
 {
-    PagerView *pagerView;
+    NinaBaseView *pagerView;
     NSArray *myArray;
     NSArray *classArray;
     NSArray *colorArray;
@@ -56,7 +56,7 @@
         }
     }
     if (titles.count > 0 && childVCs.count > 0) {
-        pagerView = [[PagerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor];
+        pagerView = [[NinaBaseView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor];
         pagerView.titleArray = myArray;
         [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
         [self addSubview:pagerView];
@@ -114,6 +114,8 @@
                     ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                     [pagerView.scrollView addSubview:ctrl.view];
                     viewAlloc[i] = YES;
+                }else if (!class) {
+                    NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",i + 1,i + 1);
                 }
             }else if (page == i && i > classArray.count - 1) {
                 NSLog(@"您没有配置对应Title%li的VC",i + 1);

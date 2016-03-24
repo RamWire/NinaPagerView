@@ -6,15 +6,15 @@
 //  Copyright © 2015年 RamWire. All rights reserved.
 //
 
-#import "PagerView.h"
+#import "NinaBaseView.h"
 #import "TopTabView.h"
 #import "UIParameter.h"
 
-@interface PagerView ()
+@interface NinaBaseView ()
 
 @end
 
-@implementation PagerView {
+@implementation NinaBaseView {
     UIView *lineBottom;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
@@ -29,9 +29,15 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        selectBtn = selectColor;
-        unselectBtn = unselectColor;
-        underline = underlineColor;
+        if ([selectColor isKindOfClass:[UIColor class]]) {
+            selectBtn = selectColor;
+        }
+        if ([unselectColor isKindOfClass:[UIColor class]]) {
+            unselectBtn = unselectColor;
+        }
+        if ([underlineColor isKindOfClass:[UIColor class]]) {
+            underline = underlineColor;
+        }        
     }
     return self;
 }
@@ -62,7 +68,6 @@
 }
 
 - (UIScrollView *)topTab {
-    
     if (!_topTab) {
         _topTab = [[UIScrollView alloc] init];
         _topTab.delegate = self;
@@ -76,12 +81,15 @@
         }
         _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, 0);
         btnArray = [NSMutableArray array];
-        for (NSInteger i = 0; i < titlesArray.count; i++) {
-            
+        for (NSInteger i = 0; i < titlesArray.count; i++) {            
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i;
             button.titleLabel.font = [UIFont systemFontOfSize:14];
-            [button setTitle:titlesArray[i] forState:UIControlStateNormal];
+            if ([titlesArray[i] isKindOfClass:[NSString class]]) {
+                 [button setTitle:titlesArray[i] forState:UIControlStateNormal];
+            }else {
+                NSLog(@"您所提供的标题%li格式不正确。 Your title%li not fit for topTab,please correct it to NSString!",i + 1,i + 1);
+            }
             if (titlesArray.count > 5) {
                 button.frame = CGRectMake(FUll_VIEW_WIDTH / 5 * i, 0, FUll_VIEW_WIDTH / 5, PageBtn);
             }else {

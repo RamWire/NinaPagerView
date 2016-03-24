@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TopTabView.h"
 
-@interface PagerView : UIView <UIScrollViewDelegate>
+@interface NinaBaseView : UIView <UIScrollViewDelegate>
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 @property (assign, nonatomic) NSInteger currentPage; /**<  页码   **/
