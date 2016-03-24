@@ -115,12 +115,10 @@
                     [pagerView.scrollView addSubview:ctrl.view];
                     viewAlloc[i] = YES;
                 }else if (!class) {
-                    NSString *numberVC = @(i + 1).stringValue;
-                    NSLog(@"您所提供的vc%@类并没有找到。  Your Vc%@ is not found in this project!",numberVC,numberVC);
+//                    NSLog(@"您所提供的vc%ld类并没有找到。  Your Vc%ld is not found in this project!",(long)(i + 1),(long)(i + 1));
                 }
             }else if (page == i && i > classArray.count - 1) {
-                NSString *numberTitle = @(i + 1).stringValue;
-                NSLog(@"您没有配置对应Title%@的VC",numberTitle);
+//                NSLog(@"您没有配置对应Title%ld的VC",(long)(i + 1));
             }
         }
     }
