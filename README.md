@@ -39,39 +39,39 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray 
 ### Other Settings and Tips
 ```objc
 //Need You Edit
-/**<  上方显示标题，如果您只传入  Titles showing on the topTab   **/
+/**<  上方显示标题  Titles showing on the topTab   **/
 NSArray *titleArray =   @[
-@"大连市",
-@"甘井子",
-@"星海广场",
-@"西岗",
-@"马栏子",
-@"革镇堡",
-@"中山",
-@"人民广场",
-@"中山广场"
-];
+                                            @"大连市",
+                                            @"甘井子",
+                                            @"星海广场",
+                                            @"西岗",
+                                            @"马栏子",
+                                            @"革镇堡",
+                                            @"中山",
+                                            @"人民广场",
+                                            @"中山广场"
+                                            ];
 /**< 每个标题下对应的控制器，只需将您创建的控制器类名加入下列数组即可(注意:数量应与上方的titles数量保持一致，若少于titles数量，下方会打印您缺少相应的控制器，同时默认设置的最大控制器数量为10=。=)  。
 ViewControllers to the titles on the topTab.Just add your VCs' Class Name to the array. Wanning:the number of ViewControllers should equal to the titles.Meanwhile,default max VC number is 10.
 **/
 NSArray *vcsArray = @[
-@"FirstViewController",
-@"SecondViewController",
-@"ThirdViewController",
-@"ForthViewController",
-@"FifthViewController",
-@"SixthViewController",
-@"SeventhViewController",
-@"EighthViewController",
-@"NinthViewController",
-];
+                                        @"FirstViewController",
+                                        @"SecondViewController",
+                                        @"ThirdViewController",
+                                        @"ForthViewController",
+                                        @"FifthViewController",
+                                        @"SixthViewController",
+                                        @"SeventhViewController",
+                                        @"EighthViewController",
+                                        @"NinthViewController",
+                                        ];
 /**< 您可以选择是否要改变标题选中的颜色(默认为黑色)、未选中的颜色(默认为灰色)或者下划线的颜色(默认为色值是ff6262)。如果传入颜色数量不够，则按顺序给相应的部分添加颜色。
 You can choose whether change your titles' selectColor(default is black),unselectColor(default is gray) and underline color(default is Color value ff6262).**/
 NSArray *colorArray = @[
-[UIColor brownColor], /**< 选中的标题颜色 Title SelectColor  **/
-[UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
-[UIColor redColor], /**< 下划线颜色 Underline Color   **/
-];
+                                            [UIColor brownColor], /**< 选中的标题颜色 Title SelectColor  **/
+                                            [UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
+                                            [UIColor redColor], /**< 下划线颜色 Underline Color   **/
+                                            ];
 ```
 
 ## Licence
