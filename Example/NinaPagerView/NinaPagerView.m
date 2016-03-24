@@ -80,7 +80,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"currentPage"]) {
         NSInteger page = [change[@"new"] integerValue];
-//        NSLog(@"当前页码为:%li",page);        
         if (myArray.count > 5) {
             CGFloat topTabOffsetX = 0;
             if (page >= 2) {
@@ -103,7 +102,6 @@
                 }
             }
             [pagerView.topTab setContentOffset:CGPointMake(topTabOffsetX, 0) animated:YES];
-//            NSLog(@"上方的topTab横向移动了%f",topTabOffsetX);
         }
         for (NSInteger i = 0; i < myArray.count; i++) {
             if (page == i && i <= classArray.count - 1) {
