@@ -116,7 +116,7 @@
                     viewAlloc[i] = YES;
                 }
             }else if (page == i && i > classArray.count - 1) {
-                NSLog(@"您没有配置对应Title%li的VC",i + 1);
+                NSLog(@"您没有配置对应Title的VC");
             }
         }
     }
