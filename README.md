@@ -9,7 +9,7 @@
 - [x] 菜单栏中选中未选中的颜色可自己定制
 
 ## Preview
-![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/gifs/NinaPagerViewGif1.gif)
+![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif1.gif)
 
 ## Installation
 
