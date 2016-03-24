@@ -3,8 +3,8 @@
 * 一行代码搞定顶部菜单栏。类似网易新闻、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
 
 ## Features
-- [x] 低耦合，您只需创建自己的vc即可，后续的操作都在自己的vc中
-- [x] 可分步加载您所添加的vc，实现类似网易新闻，虎扑看球的效果。
+- [x] 低耦合，您只需创建自己的ViewController即可，后续的操作都在自己的ViewController中
+- [x] 可分步加载您所添加的ViewController，实现类似网易新闻，虎扑看球的效果。
 - [x] 只需一行代码创建即可实现所有功能。
 - [x] 菜单栏中选中未选中的颜色可自己定制
 
@@ -18,10 +18,10 @@ You can also use cocoapods.
 
 #### Using [cocoapods](http://cocoapods.org/)
 
-Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`. Also add `use_frameworks!` to the `Podfile`.
+Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
 ```
-pod 'NinaPagerView'
+pod 'NinaPagerView','~> 0.1' 
 ```
 
 ## Usage
@@ -36,6 +36,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray 
 即可完成~
 
 ### Other Settings and Tips
+* 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置。
 ```objc
 //Need You Edit
 /**<  上方显示标题  Titles showing on the topTab   **/
@@ -72,6 +73,8 @@ NSArray *colorArray = @[
                         [UIColor redColor], /**< 下划线颜色 Underline Color   **/
                        ];
 ```
+* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我，帮助我来完善它。
+* If you find bugs in this project or any suggestions,hope you can give me feedback by issues.
 
 ## Licence
 
