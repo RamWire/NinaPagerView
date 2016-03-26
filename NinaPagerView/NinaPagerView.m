@@ -17,7 +17,6 @@
     NSArray *myArray;
     NSArray *classArray;
     NSArray *colorArray;
-    NSMutableArray *viewNumArray;
     BOOL viewAlloc[MaxNums];
     BOOL fontChangeColor;
 }
@@ -36,7 +35,6 @@
 
 #pragma mark - CreateView
 - (void)createPagerView:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColors:(NSArray *)colors {
-    viewNumArray = [NSMutableArray array];
     //No Need to edit
     if (colors.count > 0) {
         for (NSInteger i = 0; i < colors.count; i++) {
@@ -120,6 +118,10 @@
             }
         }
     }
+}
+
+- (void)dealloc {
+    [pagerView removeObserver:self forKeyPath:@"currentPage"];
 }
 
 @end
