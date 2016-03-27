@@ -24,7 +24,7 @@ You can also use cocoapods.
 Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
 ```
-pod 'NinaPagerView','~> 0.1' 
+pod 'NinaPagerView','~> 0.2' 
 ```
 
 ## Usage
