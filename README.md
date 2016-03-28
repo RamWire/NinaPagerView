@@ -1,4 +1,4 @@
-# NinaPagerView
+# NinaPagerView ![](http://cocoapod-badges.herokuapp.com/v/NinaPagerView/badge.png) ![](http://cocoapod-badges.herokuapp.com/p/NinaPagerView/badge.png)
 * NinaPagerView is a view easy to page your controllers.
 * 一行代码搞定顶部菜单栏。类似网易新闻、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
 

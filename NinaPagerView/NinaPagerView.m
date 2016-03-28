@@ -18,6 +18,8 @@
     NSArray *classArray;
     NSArray *colorArray;
     NSMutableArray *viewNumArray;
+    NSMutableArray *vcsTagArray;
+    NSMutableArray *vcsArray;
     BOOL viewAlloc[MaxNums];
     BOOL fontChangeColor;
 }
@@ -37,6 +39,8 @@
 #pragma mark - CreateView
 - (void)createPagerView:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColors:(NSArray *)colors {
     viewNumArray = [NSMutableArray array];
+    vcsArray = [NSMutableArray array];
+    vcsTagArray = [NSMutableArray array];
     //No Need to edit
     if (colors.count > 0) {
         for (NSInteger i = 0; i < colors.count; i++) {
@@ -50,13 +54,16 @@
                 case 2:
                     _underlineColor = colors[2];
                     break;
+                case 3:
+                    _topTabColor = colors[3];
+                    break;
                 default:
                     break;
             }  
         }
     }
     if (titles.count > 0 && childVCs.count > 0) {
-        pagerView = [[NinaBaseView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor];
+        pagerView = [[NinaBaseView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor WithtopTabColor:_topTabColor];
         pagerView.titleArray = myArray;
         [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
         [self addSubview:pagerView];
@@ -69,6 +76,8 @@
                 ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:ctrl.view];
                 viewAlloc[0] = YES;
+                [vcsArray addObject:ctrl];
+                [vcsTagArray addObject:@"0"];
             }
         }
     }else {
@@ -109,6 +118,21 @@
                 Class class = NSClassFromString(className);
                 if (class && viewAlloc[i] == NO) {
                     UIViewController *ctrl = class.new;
+                    [vcsArray addObject:ctrl];
+                    NSString *tagStr = @(i).stringValue;
+                    [vcsTagArray addObject:tagStr];
+                     /**<  内存管理限制控制器最大数量为5个   **/
+                    if (vcsArray.count > 5) {
+                        UIViewController *deallocVC = [vcsArray firstObject];
+                        [deallocVC.view removeFromSuperview];
+                        deallocVC.view = nil;
+                        deallocVC = nil;
+                        [vcsArray removeObjectAtIndex:0];
+                        NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
+                        viewAlloc[deallocTag] = NO;
+                        NSLog(@"控制器%li没了",(long)deallocTag + 1);
+                        [vcsTagArray removeObjectAtIndex:0];
+                    }
                     ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                     [pagerView.scrollView addSubview:ctrl.view];
                     viewAlloc[i] = YES;
@@ -117,6 +141,18 @@
                 }
             }else if (page == i && i > classArray.count - 1) {
                 NSLog(@"您没有配置对应Title%li的VC",(long)i + 1);
+            }else {
+                /**<  内存管理限制控制器最大数量为5个   **/
+                if (vcsArray.count > 5) {
+                    UIViewController *deallocVC = [vcsArray firstObject];
+                    [deallocVC.view removeFromSuperview];
+                    deallocVC.view = nil;
+                    deallocVC = nil;
+                    [vcsArray removeObjectAtIndex:0];
+                    NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
+                    viewAlloc[deallocTag] = NO;
+                    [vcsTagArray removeObjectAtIndex:0];
+                }
             }
         }
     }
