@@ -8,8 +8,9 @@
 
 #import "FirstViewController.h"
 #import "UIParameter.h"
+#import "FirstTableView.h"
 
-@interface FirstViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface FirstViewController ()
 @property (nonatomic, strong) UITableView *myTableView;
 @end
 
@@ -19,32 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor cyanColor];
-//    [self createLabel:@"1"];
-    self.myTableView.delegate = self;
-    self.myTableView.dataSource = self;
-    [self.view addSubview:self.myTableView];
-}
-
-#pragma mark - myTableView
-- (UITableView *)myTableView {
-    if (!_myTableView) {
-        _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn) style:UITableViewStylePlain];
-    }
-    return _myTableView;
-}
-
-#pragma mark - UITableViewDelegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-        cell.textLabel.text = @"NinaPagerView";
-    }
-    return cell;
+    FirstTableView *firstTV = [[FirstTableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn) style:UITableViewStylePlain];
+    [self.view addSubview:firstTV];
 }
 
 @end
