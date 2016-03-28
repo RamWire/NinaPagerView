@@ -39,9 +39,9 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray 
 即可完成~
 
 ### Other Settings and Tips
-* 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器下加入:
+* 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
 ```objc
-self.navigationController.navigationBar.translucent = NO;
+self.navigationBar.translucent = NO;
 ```
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置。
 ```objc
