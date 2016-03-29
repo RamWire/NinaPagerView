@@ -19,7 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor yellowColor];
-    [self createLabel:@"2"];
+//    [self createLabel:@"2"];
 }
 
 - (void)didReceiveMemoryWarning {

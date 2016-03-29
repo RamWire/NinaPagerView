@@ -8,6 +8,7 @@
 
 #import "ChildBaseViewController.h"
 #import "UIParameter.h"
+#import "FirstTableView.h"
 
 @interface ChildBaseViewController ()
 
@@ -17,6 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    FirstTableView *firstTV = [[FirstTableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn) style:UITableViewStylePlain];
+    [self.view addSubview:firstTV];
 }
 
 - (void)createLabel:(NSString *)yourTitleStr {

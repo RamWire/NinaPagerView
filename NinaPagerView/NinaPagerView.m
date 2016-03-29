@@ -11,6 +11,10 @@
 #import "NinaBaseView.h"
 #define MaxNums  10
 
+@interface NinaPagerView()<NSCacheDelegate>
+@property (nonatomic, strong)NSCache *limitControllerCache; /**< 内存管理，避免创建过多的控制器所导致内存过于庞大   **/
+@end
+
 @implementation NinaPagerView
 {
     NinaBaseView *pagerView;
@@ -34,6 +38,17 @@
          [self createPagerView:myArray WithVCs:classArray WithColors:colorArray];
     }
     return self;
+}
+
+#pragma mark - NSCache
+- (NSCache *)limitControllerCache {
+    if (!_limitControllerCache) {
+        _limitControllerCache = [NSCache new];
+        _limitControllerCache.delegate = self;
+    }
+    /**< 设置最大控制器的数量   **/
+    _limitControllerCache.countLimit = 5;
+    return _limitControllerCache;
 }
 
 #pragma mark - CreateView
@@ -78,6 +93,10 @@
                 viewAlloc[0] = YES;
                 [vcsArray addObject:ctrl];
                 [vcsTagArray addObject:@"0"];
+//                UIView *view = class.new;
+//                view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+//                [pagerView.scrollView addSubview:view];
+//                viewAlloc[0] = YES;
             }
         }
     }else {
@@ -136,6 +155,10 @@
                     ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                     [pagerView.scrollView addSubview:ctrl.view];
                     viewAlloc[i] = YES;
+//                    UIView *view = class.new;
+//                    view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+//                    [pagerView.scrollView addSubview:view];
+//                    viewAlloc[i] = YES;
                 }else if (!class) {
                     NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
                 }
@@ -156,6 +179,18 @@
             }
         }
     }
+}
+
+- (void)dealloc {
+    [pagerView removeObserver:self forKeyPath:@"currentPage"];
+}
+
+/**
+ *  NSCache的代理方法，打印当前清除对象 */
+- (void)cache:(NSCache *)cache willEvictObject:(id)obj {
+    //[NSThread sleepForTimeInterval:0.5];
+    
+    NSLog(@"清除了-------> %@", obj);
 }
 
 @end

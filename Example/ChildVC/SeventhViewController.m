@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor cyanColor];
-    [self createLabel:@"7"];
+//    [self createLabel:@"7"];
 }
 
 @end
