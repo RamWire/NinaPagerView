@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # NinaPagerView 
 [![Pod Version](http://img.shields.io/cocoapods/v/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
 [![Pod Platform](http://img.shields.io/cocoapods/p/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
@@ -82,16 +81,19 @@ NSArray *colorArray = @[
 ```objc
 self.navigationBar.translucent = NO;
 ```
-* 如果您想在创建的子控制器中加入TableView，直接在子控制器上直接添加可能会出现滑动的问题，所以您需要将TableView子类化后将view添加到控制器上方可解决此问题。(以后若解决此条作废=。=)
-* 关于内存管理
-    如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
-    If you care the vcs causes huge memory,please try this delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO
+* 如果您想在创建的子控制器中加入**TableView**，直接在子控制器上直接添加可能会出现滑动内容消失的问题，所以您需要将**TableView子类化**后将view添加到控制器上方可解决此问题。(以后若解决此条作废=。=)
+
+### 关于内存管理
+* 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
+    If you care the vcs causes huge memory,please try NinaPagerViewDelegate delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO.
 ```objc
-//Add <NinaPagerViewDelegate> to the ViewController and add codes(you can get more details in example):
+/**<  Add <NinaPagerViewDelegate> to the ViewController and add codes(you can get more details in example)   **/
 - (BOOL)deallocVCsIfUnnecessary {
-    return YES;
+  return YES;
 }
 ```
+
+## FeedBack
 * 如果您在使用的过程中遇到任何问题或者建议，希望您issue我，帮助我来完善它。
 * If you find bugs in this project or any suggestions,hope you can give me feedback by issues.
 
