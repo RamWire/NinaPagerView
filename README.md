@@ -41,10 +41,6 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray 
 即可完成~
 
 ### Other Settings and Tips
-* 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
-```objc
-self.navigationBar.translucent = NO;
-```
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置。
 ```objc
 //Need You Edit
@@ -81,6 +77,20 @@ NSArray *colorArray = @[
                         [UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
                         [UIColor redColor], /**< 下划线颜色 Underline Color   **/
                        ];
+```
+* 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
+```objc
+self.navigationBar.translucent = NO;
+```
+* 如果您想在创建的子控制器中加入TableView，直接在子控制器上直接添加可能会出现滑动的问题，所以您需要将TableView子类化后将view添加到控制器上方可解决此问题。(以后若解决此条作废=。=)
+* 关于内存管理
+    如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
+    If you care the vcs causes huge memory,please try this delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO
+```objc
+//Add <NinaPagerViewDelegate> to the ViewController and add codes(you can get more details in example):
+- (BOOL)deallocVCsIfUnnecessary {
+    return YES;
+}
 ```
 * 如果您在使用的过程中遇到任何问题或者建议，希望您issue我，帮助我来完善它。
 * If you find bugs in this project or any suggestions,hope you can give me feedback by issues.
