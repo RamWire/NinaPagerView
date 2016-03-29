@@ -26,6 +26,7 @@
 		4D3C85CA1CA4471B00514E62 /* NinaBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C41CA4471B00514E62 /* NinaBaseView.m */; };
 		4D3C85CB1CA4471B00514E62 /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C61CA4471B00514E62 /* NinaPagerView.m */; };
 		4D3C85CC1CA4471B00514E62 /* TopTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C81CA4471B00514E62 /* TopTabView.m */; };
+		4D56B8541CAABAB90050FB9D /* FirstTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D56B8531CAABAB90050FB9D /* FirstTableView.m */; };
 		768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240B71BF5D32700788E48 /* NinaPagerViewTests.m */; };
 		768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,8 @@
 		4D3C85C71CA4471B00514E62 /* TopTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTabView.h; sourceTree = "<group>"; };
 		4D3C85C81CA4471B00514E62 /* TopTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTabView.m; sourceTree = "<group>"; };
 		4D3C85C91CA4471B00514E62 /* UIParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIParameter.h; sourceTree = "<group>"; };
+		4D56B8521CAABAB90050FB9D /* FirstTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableView.h; sourceTree = "<group>"; };
+		4D56B8531CAABAB90050FB9D /* FirstTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableView.m; sourceTree = "<group>"; };
 		7682409A1BF5D32700788E48 /* NinaPagerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinaPagerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		768240B31BF5D32700788E48 /* NinaPagerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaPagerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		768240B71BF5D32700788E48 /* NinaPagerViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerViewTests.m; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 			children = (
 				4D0354161CA2E45000576C7B /* ChildBaseViewController.h */,
 				4D0354171CA2E45000576C7B /* ChildBaseViewController.m */,
+				4D56B8521CAABAB90050FB9D /* FirstTableView.h */,
+				4D56B8531CAABAB90050FB9D /* FirstTableView.m */,
 				4D0354181CA2E45000576C7B /* EighthViewController.h */,
 				4D0354191CA2E45000576C7B /* EighthViewController.m */,
 				4D03541A1CA2E45000576C7B /* FifthViewController.h */,
@@ -345,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D56B8541CAABAB90050FB9D /* FirstTableView.m in Sources */,
 				4D3C85CB1CA4471B00514E62 /* NinaPagerView.m in Sources */,
 				4D0354381CA2E45000576C7B /* NinthViewController.m in Sources */,
 				4D0354351CA2E45000576C7B /* FifthViewController.m in Sources */,
