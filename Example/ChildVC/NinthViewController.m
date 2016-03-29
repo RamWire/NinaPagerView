@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor brownColor];
-    [self createLabel:@"9"];
+//    [self createLabel:@"9"];
 }
 
 - (void)didReceiveMemoryWarning {

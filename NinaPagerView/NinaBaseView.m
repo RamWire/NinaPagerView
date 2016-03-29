@@ -23,21 +23,33 @@
     UIColor *selectBtn;
     UIColor *unselectBtn;
     UIColor *underline;
+    UIColor *topTabColors;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor
+- (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor WithtopTabColor:(UIColor *)topTabColor
 {
     self = [super initWithFrame:frame];
     if (self) {
         if ([selectColor isKindOfClass:[UIColor class]]) {
             selectBtn = selectColor;
+        }else {
+            NSLog(@"please change the selectColor into UIColor!");
         }
         if ([unselectColor isKindOfClass:[UIColor class]]) {
             unselectBtn = unselectColor;
+        }else {
+            NSLog(@"please change the unselectColor into UIColor!");
         }
         if ([underlineColor isKindOfClass:[UIColor class]]) {
             underline = underlineColor;
-        }        
+        }else {
+            NSLog(@"please change the underlineColor into UIColor!");
+        }
+        if ([topTabColor isKindOfClass:[UIColor class]]) {
+            topTabColors = topTabColor;
+        }else {
+            NSLog(@"please change the topTabColor into UIColor!");
+        }
     }
     return self;
 }
@@ -71,6 +83,11 @@
     if (!_topTab) {
         _topTab = [[UIScrollView alloc] init];
         _topTab.delegate = self;
+        if (topTabColors) {
+            _topTab.backgroundColor = topTabColors;
+        }else {
+            _topTab.backgroundColor = [UIColor whiteColor];
+        }
         _topTab.tag = 917;
         _topTab.scrollEnabled = YES;
         _topTab.alwaysBounceHorizontal = YES;
@@ -135,6 +152,7 @@
 - (void)touchAction:(UIButton *)button {
     [_scrollView setContentOffset:CGPointMake(FUll_VIEW_WIDTH * button.tag, 0) animated:YES];
     self.currentPage = (FUll_VIEW_WIDTH * button.tag + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH;
+    
 }
 
 #pragma mark - UIScrollViewDelegate

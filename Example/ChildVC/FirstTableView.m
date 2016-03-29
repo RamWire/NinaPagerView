@@ -46,8 +46,4 @@
     return 40;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {    
-    NSLog(@"第%li个单元格被点击了",indexPath.row);
-}
-
 @end
