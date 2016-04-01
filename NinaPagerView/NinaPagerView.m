@@ -9,6 +9,8 @@
 #import "NinaPagerView.h"
 #import "UIParameter.h"
 #import "NinaBaseView.h"
+#import "ShareInstanceViewController.h"
+#import "UIView+ViewController.h"
 #define MaxNums  10
 
 @interface NinaPagerView()<NSCacheDelegate>
@@ -88,12 +90,20 @@
             Class class = NSClassFromString(className);
             if (class) {
                 UIViewController *ctrl = class.new;
+                [self.viewController addChildViewController:ctrl];
+//                ShareInstanceViewController *ctrl = [ShareInstanceViewController shareInstance];
+//                UIViewController *ctrl =
                 ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:ctrl.view];
+                /**<  新添加测试cache   **/
+                if (![self.limitControllerCache objectForKey:@(0)]) {
+                    [self.limitControllerCache setObject:ctrl forKey:@(0)];
+                };
                 viewAlloc[0] = YES;
                 [vcsArray addObject:ctrl];
                 [vcsTagArray addObject:@"0"];
                 NSLog(@"现在是控制器1");
+                NSLog(@"使用了新建的控制器0");
                 self.PageIndex = @"1";
                 /**< 利用NSCache对内存进行管理测试 **/
 //                [self.limitControllerCache setObject:ctrl forKey:@(0)];
@@ -143,24 +153,40 @@
                 NSString *className = classArray[i];
                 Class class = NSClassFromString(className);
                 if (class && viewAlloc[i] == NO) {
-                    UIViewController *ctrl = class.new;
-                    [vcsArray addObject:ctrl];
-                    NSString *tagStr = @(i).stringValue;
-                    [vcsTagArray addObject:tagStr];
-                    /**< 利用NSCache管理内存的尝试 **/
-//                    [self.limitControllerCache setObject:ctrl forKey:@(i + 1)];
-//                    NSLog(@"%@", [self.limitControllerCache objectForKey:@(i + 1)]);
+                    UIViewController *ctrl = nil;
+//                    if ([self.limitControllerCache objectForKey:@(i)]) {
+//                        ctrl = [self.limitControllerCache objectForKey:@(i)];
+//                        NSLog(@"使用了缓存的控制器%li",(long)i + 1);
+//                        [vcsArray addObject:ctrl];
+//                        NSString *tagStr = @(i).stringValue;
+//                        [vcsTagArray addObject:tagStr];
+//                    }else {
+                        ctrl = class.new;
+                    [self.viewController addChildViewController:ctrl];
+                        //                    ShareInstanceViewController *ctrl = [ShareInstanceViewController shareInstance];
+                        [vcsArray addObject:ctrl];
+                        NSString *tagStr = @(i).stringValue;
+                        [vcsTagArray addObject:tagStr];
+                        NSLog(@"使用了新创建的控制器%li",(long)i + 1);
+                        /**< 利用NSCache管理内存的尝试 **/
+                        //                    [self.limitControllerCache setObject:ctrl forKey:@(i + 1)];
+                        //                    NSLog(@"%@", [self.limitControllerCache objectForKey:@(i + 1)]);
+//                    }
                      /**<  内存管理限制控制器最大数量为5个   **/
                     if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
                         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
                             UIViewController *deallocVC = [vcsArray firstObject];
+                            NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
+                            if (![self.limitControllerCache objectForKey:@(deallocTag)]) {
+                                 [self.limitControllerCache setObject:deallocVC forKey:@(deallocTag)];
+                            };
                             [deallocVC.view removeFromSuperview];
                             deallocVC.view = nil;
+                            [deallocVC removeFromParentViewController];
                             deallocVC = nil;
                             [vcsArray removeObjectAtIndex:0];
-                            NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
                             viewAlloc[deallocTag] = NO;
-                            NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
+//                            NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
                             [vcsTagArray removeObjectAtIndex:0];
                         }
                     }
@@ -181,11 +207,15 @@
                 if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
                     if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
                         UIViewController *deallocVC = [vcsArray firstObject];
+                        NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
+                        if (![self.limitControllerCache objectForKey:@(deallocTag)]) {
+                            [self.limitControllerCache setObject:deallocVC forKey:@(deallocTag)];
+                        };
                         [deallocVC.view removeFromSuperview];
                         deallocVC.view = nil;
+                         [deallocVC removeFromParentViewController];
                         deallocVC = nil;
                         [vcsArray removeObjectAtIndex:0];
-                        NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
                         viewAlloc[deallocTag] = NO;
                         [vcsTagArray removeObjectAtIndex:0];
                     }
