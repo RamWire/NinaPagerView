@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor purpleColor];
 //    [self createLabel:@"6"];
+    [self createTableViewFromVC:@"6"];
 }
 
 @end

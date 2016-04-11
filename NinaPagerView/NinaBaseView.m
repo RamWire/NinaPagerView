@@ -165,10 +165,8 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView.tag == 318) {
         NSInteger yourPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
-        CGFloat additionCount = 0;
         CGFloat yourCount = 1.0 / arrayCount;
         if (arrayCount > 5) {
-            additionCount = (arrayCount - 5.0) / 5.0;
             yourCount = 1.0 / 5.0;
             lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
         }else {

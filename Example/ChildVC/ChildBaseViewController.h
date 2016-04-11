@@ -10,6 +10,7 @@
 
 @interface ChildBaseViewController : UIViewController
 
-- (void)createLabel:(NSString *)yourTitleStr ;
+- (void)createLabel:(NSString *)yourTitleStr;
+- (void)createTableViewFromVC:(NSString *)yourTag;
 
 @end

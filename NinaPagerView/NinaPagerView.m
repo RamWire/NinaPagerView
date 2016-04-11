@@ -9,7 +9,6 @@
 #import "NinaPagerView.h"
 #import "UIParameter.h"
 #import "NinaBaseView.h"
-#import "ShareInstanceViewController.h"
 #import "UIView+ViewController.h"
 #define MaxNums  10
 
@@ -91,8 +90,6 @@
             if (class) {
                 UIViewController *ctrl = class.new;
                 [self.viewController addChildViewController:ctrl];
-//                ShareInstanceViewController *ctrl = [ShareInstanceViewController shareInstance];
-//                UIViewController *ctrl =
                 ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:ctrl.view];
                 /**<  新添加测试cache   **/
@@ -163,7 +160,6 @@
 //                    }else {
                         ctrl = class.new;
                     [self.viewController addChildViewController:ctrl];
-                        //                    ShareInstanceViewController *ctrl = [ShareInstanceViewController shareInstance];
                         [vcsArray addObject:ctrl];
                         NSString *tagStr = @(i).stringValue;
                         [vcsTagArray addObject:tagStr];
@@ -186,7 +182,7 @@
                             deallocVC = nil;
                             [vcsArray removeObjectAtIndex:0];
                             viewAlloc[deallocTag] = NO;
-//                            NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
+                            NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
                             [vcsTagArray removeObjectAtIndex:0];
                         }
                     }

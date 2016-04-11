@@ -8,10 +8,9 @@
 
 #import "FirstViewController.h"
 #import "UIParameter.h"
-#import "FirstTableView.h"
 
 @interface FirstViewController ()
-@property (nonatomic, strong) UITableView *myTableView;
+
 @end
 
 @implementation FirstViewController
@@ -21,6 +20,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor cyanColor];
 //    [self createLabel:@"1"];
+    [self createTableViewFromVC:@"1"];
 }
 
 @end

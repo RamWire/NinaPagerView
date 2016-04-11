@@ -46,15 +46,6 @@
                                                @"SeventhViewController",
                                                @"EighthViewController",
                                                @"NinthViewController",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
-//                          @"FirstTableView",
                                                ];
     /**< 您可以选择是否要改变标题选中的颜色(默认为黑色)、未选中的颜色(默认为灰色)或者下划线的颜色(默认为色值是ff6262)，上方菜单栏背景色(默认为白色)。如果传入颜色数量不够，则按顺序给相应的部分添加颜色。
         You can choose whether change your titles' selectColor(default is black),unselectColor(default is gray) and underline color(default is Color value ff6262),topTabBackGround color(default is white).**/
@@ -71,7 +62,7 @@
     [self.view addSubview:ninaPagerView];
 }
 
-/**< 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放
+/**< 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
         If you care the vcs causes huge memory,please try this delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO **/
 - (BOOL)deallocVCsIfUnnecessary {
     return YES;

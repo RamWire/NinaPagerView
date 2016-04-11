@@ -20,13 +20,7 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor cyanColor];
 //    [self createLabel:@"5"];
+    [self createTableViewFromVC:@"5"];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 
 @end

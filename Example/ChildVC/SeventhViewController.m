@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor cyanColor];
 //    [self createLabel:@"7"];
+    [self createTableViewFromVC:@"7"];
 }
 
 @end

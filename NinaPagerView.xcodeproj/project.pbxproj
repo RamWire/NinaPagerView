@@ -26,9 +26,7 @@
 		4D3C85CC1CA4471B00514E62 /* TopTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C81CA4471B00514E62 /* TopTabView.m */; };
 		768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240B71BF5D32700788E48 /* NinaPagerViewTests.m */; };
 		768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */; };
-		76B369F31CAE24C2002151EE /* ShareInstanceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B369F21CAE24C2002151EE /* ShareInstanceViewController.m */; };
 		76B369FC1CAE6E16002151EE /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B369FB1CAE6E16002151EE /* UIView+ViewController.m */; };
-		76BC415E1CABC46700E9AC1D /* FirstTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76BC415D1CABC46700E9AC1D /* FirstTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,12 +88,8 @@
 		768240BE1BF5D32700788E48 /* NinaPagerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaPagerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerViewUITests.m; sourceTree = "<group>"; };
 		768240C41BF5D32700788E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		76B369F11CAE24C2002151EE /* ShareInstanceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareInstanceViewController.h; sourceTree = "<group>"; };
-		76B369F21CAE24C2002151EE /* ShareInstanceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareInstanceViewController.m; sourceTree = "<group>"; };
 		76B369FA1CAE6E16002151EE /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
 		76B369FB1CAE6E16002151EE /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
-		76BC415C1CABC46700E9AC1D /* FirstTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableView.h; sourceTree = "<group>"; };
-		76BC415D1CABC46700E9AC1D /* FirstTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +137,6 @@
 		4D0354151CA2E45000576C7B /* ChildVC */ = {
 			isa = PBXGroup;
 			children = (
-				76BC415C1CABC46700E9AC1D /* FirstTableView.h */,
-				76BC415D1CABC46700E9AC1D /* FirstTableView.m */,
-				76B369F11CAE24C2002151EE /* ShareInstanceViewController.h */,
-				76B369F21CAE24C2002151EE /* ShareInstanceViewController.m */,
 				4D0354161CA2E45000576C7B /* ChildBaseViewController.h */,
 				4D0354171CA2E45000576C7B /* ChildBaseViewController.m */,
 				4D0354181CA2E45000576C7B /* EighthViewController.h */,
@@ -352,7 +342,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76BC415E1CABC46700E9AC1D /* FirstTableView.m in Sources */,
 				4D3C85CB1CA4471B00514E62 /* NinaPagerView.m in Sources */,
 				76B369FC1CAE6E16002151EE /* UIView+ViewController.m in Sources */,
 				4D0354381CA2E45000576C7B /* NinthViewController.m in Sources */,
@@ -366,7 +355,6 @@
 				4D0354391CA2E45000576C7B /* SecondViewController.m in Sources */,
 				4D0354361CA2E45000576C7B /* FirstViewController.m in Sources */,
 				4D0354331CA2E45000576C7B /* ChildBaseViewController.m in Sources */,
-				76B369F31CAE24C2002151EE /* ShareInstanceViewController.m in Sources */,
 				4D3C85CC1CA4471B00514E62 /* TopTabView.m in Sources */,
 				4D03542E1CA2E45000576C7B /* AppDelegate.m in Sources */,
 				4D03543E1CA2E45000576C7B /* main.m in Sources */,
