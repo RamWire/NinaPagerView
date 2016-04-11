@@ -1,8 +1,8 @@
 //
 //  TopTabView.m
-//  一两理财
+//  NinaPagerView
 //
-//  Created by 赵富阳 on 15/10/13.
+//  Created by RamWire on 15/10/13.
 //  Copyright © 2015年 RamWire. All rights reserved.
 //
 

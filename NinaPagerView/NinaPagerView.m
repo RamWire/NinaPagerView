@@ -9,7 +9,7 @@
 #import "NinaPagerView.h"
 #import "UIParameter.h"
 #import "NinaBaseView.h"
-#import "UIView+ViewController.h"
+//#import "UIView+ViewController.h"
 #define MaxNums  10
 
 @interface NinaPagerView()<NSCacheDelegate>
@@ -89,7 +89,7 @@
             Class class = NSClassFromString(className);
             if (class) {
                 UIViewController *ctrl = class.new;
-                [self.viewController addChildViewController:ctrl];
+//                [self.viewController addChildViewController:ctrl];
                 ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:ctrl.view];
                 /**<  新添加测试cache   **/
@@ -159,7 +159,7 @@
 //                        [vcsTagArray addObject:tagStr];
 //                    }else {
                         ctrl = class.new;
-                    [self.viewController addChildViewController:ctrl];
+//                    [self.viewController addChildViewController:ctrl];
                         [vcsArray addObject:ctrl];
                         NSString *tagStr = @(i).stringValue;
                         [vcsTagArray addObject:tagStr];
