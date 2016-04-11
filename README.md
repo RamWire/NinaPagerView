@@ -25,7 +25,7 @@ You can also use cocoapods.
 Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
 ```
-pod 'NinaPagerView','~> 0.2' 
+pod 'NinaPagerView','~> 0.4' 
 ```
 
 ## Usage
@@ -75,13 +75,13 @@ NSArray *colorArray = @[
                         [UIColor brownColor], /**< 选中的标题颜色 Title SelectColor  **/
                         [UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
                         [UIColor redColor], /**< 下划线颜色 Underline Color   **/
+                        [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
                        ];
 ```
 * 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
 ```objc
 self.navigationBar.translucent = NO;
 ```
-* 如果您想在创建的子控制器中加入**TableView**，直接在子控制器上直接添加可能会出现滑动内容消失的问题，所以您需要将**TableView子类化**后将view添加到控制器上方可解决此问题。(以后若解决此条作废=。=)
 
 ### 关于内存管理
 * 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
