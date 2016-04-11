@@ -60,6 +60,10 @@
     NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
     ninaPagerView.delegate = self;
     [self.view addSubview:ninaPagerView];
+    /**< 因为在框架里设置的问题，所以您如果需要在第一个控制器中需要push到二级控制器的话，需要多加上下方的这行代码，并且
+     此行代码需要在addSubView的后面。
+        Because of the framework setting,you must add following codes under the line after addSubView codes in order to push second level VC. **/
+    ninaPagerView.pushEnabled = YES;
 }
 
 /**< 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。

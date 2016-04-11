@@ -25,7 +25,7 @@ You can also use cocoapods.
 Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
 ```
-pod 'NinaPagerView','~> 0.4.1' 
+pod 'NinaPagerView','~> 0.4.2' 
 ```
 
 ## Usage
@@ -81,6 +81,11 @@ NSArray *colorArray = @[
 * 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
 ```objc
 self.navigationBar.translucent = NO;
+```
+* 因为在框架里设置的问题，所以您如果需要在第一个控制器中需要push到二级控制器的话，需要多加上下方的这行代码，并且此行代码需要在addSubView的后面，具体请看Example中的实现。
+    Because of the framework setting,you must add following codes under the line after addSubView codes in order to push second level VC. 
+```objc
+ninaPagerView.pushEnabled = YES;
 ```
 
 ### 关于内存管理

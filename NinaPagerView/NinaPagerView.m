@@ -9,7 +9,7 @@
 #import "NinaPagerView.h"
 #import "UIParameter.h"
 #import "NinaBaseView.h"
-//#import "UIView+ViewController.h"
+#import "UIView+ViewController.h"
 #define MaxNums  10
 
 @interface NinaPagerView()<NSCacheDelegate>
@@ -27,6 +27,7 @@
     NSMutableArray *vcsArray;
     BOOL viewAlloc[MaxNums];
     BOOL fontChangeColor;
+    UIViewController *firstVC;
 }
 
 - (instancetype)initWithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors {
@@ -39,6 +40,13 @@
          [self createPagerView:myArray WithVCs:classArray WithColors:colorArray];
     }
     return self;
+}
+
+#pragma mark - SetMethod
+- (void)setPushEnabled:(BOOL )pushEnabled {
+    if (pushEnabled == YES) {
+        [self.viewController addChildViewController:firstVC];
+    }
 }
 
 #pragma mark - NSCache
@@ -89,7 +97,7 @@
             Class class = NSClassFromString(className);
             if (class) {
                 UIViewController *ctrl = class.new;
-//                [self.viewController addChildViewController:ctrl];
+                firstVC = ctrl;
                 ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                 [pagerView.scrollView addSubview:ctrl.view];
                 /**<  新添加测试cache   **/
@@ -158,12 +166,12 @@
 //                        NSString *tagStr = @(i).stringValue;
 //                        [vcsTagArray addObject:tagStr];
 //                    }else {
-                        ctrl = class.new;
-//                    [self.viewController addChildViewController:ctrl];
-                        [vcsArray addObject:ctrl];
-                        NSString *tagStr = @(i).stringValue;
-                        [vcsTagArray addObject:tagStr];
-                        NSLog(@"使用了新创建的控制器%li",(long)i + 1);
+                    ctrl = class.new;
+                    [self.viewController addChildViewController:ctrl];
+                    [vcsArray addObject:ctrl];
+                    NSString *tagStr = @(i).stringValue;
+                    [vcsTagArray addObject:tagStr];
+                    NSLog(@"使用了新创建的控制器%li",(long)i + 1);
                         /**< 利用NSCache管理内存的尝试 **/
                         //                    [self.limitControllerCache setObject:ctrl forKey:@(i + 1)];
                         //                    NSLog(@"%@", [self.limitControllerCache objectForKey:@(i + 1)]);

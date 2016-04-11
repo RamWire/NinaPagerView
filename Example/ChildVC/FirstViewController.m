@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "UIParameter.h"
+#import "TestViewController.h"
 
 @interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myTableView;
@@ -49,6 +50,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"点击了控制器1单元格的%li",indexPath.row);
+    TestViewController *testVC = [TestViewController new];
+    [self.navigationController pushViewController:testVC animated:YES];
 }
 
 @end
