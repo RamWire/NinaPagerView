@@ -25,7 +25,7 @@ You can also use cocoapods.
 Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
 ```
-pod 'NinaPagerView','~> 0.4.2' 
+pod 'NinaPagerView','~> 0.5' 
 ```
 
 ## Usage
@@ -78,6 +78,8 @@ NSArray *colorArray = @[
                         [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
                        ];
 ```
+* version 0.5 添加:适用于**IB创建**或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可(在NinaPagerView的initWithVCs)，具体实现可参照Example中的代码。
+    If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
 * 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
 ```objc
 self.navigationBar.translucent = NO;

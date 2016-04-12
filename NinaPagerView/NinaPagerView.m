@@ -93,30 +93,18 @@
         [self addSubview:pagerView];
         //First ViewController present to the screen
         if (classArray.count > 0 && myArray.count > 0) {
-            NSString *className = classArray[0];
-            Class class = NSClassFromString(className);
-            if (class) {
-                UIViewController *ctrl = class.new;
-                firstVC = ctrl;
-                ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-                [pagerView.scrollView addSubview:ctrl.view];
-                /**<  新添加测试cache   **/
-                if (![self.limitControllerCache objectForKey:@(0)]) {
-                    [self.limitControllerCache setObject:ctrl forKey:@(0)];
-                };
-                viewAlloc[0] = YES;
-                [vcsArray addObject:ctrl];
-                [vcsTagArray addObject:@"0"];
-                NSLog(@"现在是控制器1");
-                NSLog(@"使用了新建的控制器0");
-                self.PageIndex = @"1";
-                /**< 利用NSCache对内存进行管理测试 **/
-//                [self.limitControllerCache setObject:ctrl forKey:@(0)];
-//                NSLog(@"%@", [self.limitControllerCache objectForKey:@(0)]);
-//                UIView *view = class.new;
-//                view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-//                [pagerView.scrollView addSubview:view];
-//                viewAlloc[0] = YES;
+            if ([classArray[0] isKindOfClass:[NSString class]]) {
+                NSString *className = classArray[0];
+                Class class = NSClassFromString(className);
+                if (class) {
+                    UIViewController *ctrl = class.new;
+                    [self createFirstViewController:ctrl];
+                }
+            }else {
+                if ([classArray[0] isKindOfClass:[UIViewController class]]) {
+                    UIViewController *ctrl = classArray[0];
+                    [self createFirstViewController:ctrl];
+                }
             }
         }
     }else {
@@ -155,54 +143,25 @@
         }
         for (NSInteger i = 0; i < myArray.count; i++) {
             if (page == i && i <= classArray.count - 1) {
-                NSString *className = classArray[i];
-                Class class = NSClassFromString(className);
-                if (class && viewAlloc[i] == NO) {
-                    UIViewController *ctrl = nil;
-//                    if ([self.limitControllerCache objectForKey:@(i)]) {
-//                        ctrl = [self.limitControllerCache objectForKey:@(i)];
-//                        NSLog(@"使用了缓存的控制器%li",(long)i + 1);
-//                        [vcsArray addObject:ctrl];
-//                        NSString *tagStr = @(i).stringValue;
-//                        [vcsTagArray addObject:tagStr];
-//                    }else {
-                    ctrl = class.new;
-                    [self.viewController addChildViewController:ctrl];
-                    [vcsArray addObject:ctrl];
-                    NSString *tagStr = @(i).stringValue;
-                    [vcsTagArray addObject:tagStr];
-                    NSLog(@"使用了新创建的控制器%li",(long)i + 1);
-                        /**< 利用NSCache管理内存的尝试 **/
-                        //                    [self.limitControllerCache setObject:ctrl forKey:@(i + 1)];
-                        //                    NSLog(@"%@", [self.limitControllerCache objectForKey:@(i + 1)]);
-//                    }
-                     /**<  内存管理限制控制器最大数量为5个   **/
-                    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
-                        if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
-                            UIViewController *deallocVC = [vcsArray firstObject];
-                            NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
-                            if (![self.limitControllerCache objectForKey:@(deallocTag)]) {
-                                 [self.limitControllerCache setObject:deallocVC forKey:@(deallocTag)];
-                            };
-                            [deallocVC.view removeFromSuperview];
-                            deallocVC.view = nil;
-                            [deallocVC removeFromParentViewController];
-                            deallocVC = nil;
-                            [vcsArray removeObjectAtIndex:0];
-                            viewAlloc[deallocTag] = NO;
-                            NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
-                            [vcsTagArray removeObjectAtIndex:0];
+                if ([classArray[i] isKindOfClass:[NSString class]]) {
+                    NSString *className = classArray[i];
+                    Class class = NSClassFromString(className);
+                    if (class && viewAlloc[i] == NO) {
+                        UIViewController *ctrl = nil;
+                        ctrl = class.new;
+                        [self createOtherViewControllers:ctrl WithControllerTag:i];
+                    }else if (!class) {
+                        NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
+                    }
+                }else {
+                    if ([classArray[i] isKindOfClass:[UIViewController class]]) {
+                        UIViewController *ctrl = classArray[i];
+                        if (ctrl && viewAlloc[i] == NO) {
+                            [self createOtherViewControllers:ctrl WithControllerTag:i];
+                        }else if (!ctrl) {
+                            NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
                         }
                     }
-                    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-                    [pagerView.scrollView addSubview:ctrl.view];
-                    viewAlloc[i] = YES;
-//                    UIView *view = class.new;
-//                    view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-//                    [pagerView.scrollView addSubview:view];
-//                    viewAlloc[i] = YES;
-                }else if (!class) {
-                    NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
                 }
             }else if (page == i && i > classArray.count - 1) {
                 NSLog(@"您没有配置对应Title%li的VC",(long)i + 1);
@@ -233,10 +192,57 @@
     [pagerView removeObserver:self forKeyPath:@"currentPage"];
 }
 
-/**
- *  NSCache的代理方法，打印当前清除对象 */
+/**<  NSCache的代理方法，打印当前清除对象 **/
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
     NSLog(@"清除了-------> %@", obj);
+}
+
+#pragma mark - Private Method
+/**<  创建第一个控制器   **/
+- (void)createFirstViewController:(UIViewController *)ctrl {
+    firstVC = ctrl;
+    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+    [pagerView.scrollView addSubview:ctrl.view];
+    /**<  新添加测试cache   **/
+    if (![self.limitControllerCache objectForKey:@(0)]) {
+        [self.limitControllerCache setObject:ctrl forKey:@(0)];
+    };
+    viewAlloc[0] = YES;
+    [vcsArray addObject:ctrl];
+    [vcsTagArray addObject:@"0"];
+    NSLog(@"现在是控制器1");
+    NSLog(@"使用了新建的控制器0");
+    self.PageIndex = @"1";
+}
+
+/**<  创建其他控制器   **/
+- (void)createOtherViewControllers:(UIViewController *)ctrl WithControllerTag:(NSInteger)i {
+    [self.viewController addChildViewController:ctrl];
+    [vcsArray addObject:ctrl];
+    NSString *tagStr = @(i).stringValue;
+    [vcsTagArray addObject:tagStr];
+    NSLog(@"使用了新创建的控制器%li",(long)i + 1);
+    /**<  内存管理限制控制器最大数量为5个   **/
+    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
+        if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
+            UIViewController *deallocVC = [vcsArray firstObject];
+            NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
+            if (![self.limitControllerCache objectForKey:@(deallocTag)]) {
+                [self.limitControllerCache setObject:deallocVC forKey:@(deallocTag)];
+            };
+            [deallocVC.view removeFromSuperview];
+            deallocVC.view = nil;
+            [deallocVC removeFromParentViewController];
+            deallocVC = nil;
+            [vcsArray removeObjectAtIndex:0];
+            viewAlloc[deallocTag] = NO;
+            NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
+            [vcsTagArray removeObjectAtIndex:0];
+        }
+    }
+    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+    [pagerView.scrollView addSubview:ctrl.view];
+    viewAlloc[i] = YES;
 }
 
 @end

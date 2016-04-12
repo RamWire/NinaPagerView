@@ -12,6 +12,8 @@
 
 @interface ChildBaseViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *myTableView;
+@property (weak, nonatomic) IBOutlet UIButton *TestBtn;
+@property (weak, nonatomic) IBOutlet UITableView *XibTableView;
 @end
 
 @implementation ChildBaseViewController {
@@ -20,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self xibSettings];
 }
 
 #pragma mark - public method
@@ -65,6 +68,16 @@
     NSLog(@"点击了控制器%@单元格的%li",indexTag,indexPath.row);
     TestViewController *testVC = [TestViewController new];
     [self.navigationController pushViewController:testVC animated:YES];
+}
+
+- (void)testAction {
+    NSLog(@"测试点击事件");
+}
+
+- (void)xibSettings {
+    [self.TestBtn addTarget:self action:@selector(testAction) forControlEvents:UIControlEventTouchUpInside];
+    self.XibTableView.delegate = self;
+    self.XibTableView.dataSource = self;
 }
 
 @end
