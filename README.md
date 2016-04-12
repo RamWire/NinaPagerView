@@ -78,20 +78,20 @@ NSArray *colorArray = @[
                         [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
                        ];
 ```
-* version 0.5 添加:适用于**IB创建**或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可(在NinaPagerView的initWithVCs)，具体实现可参照Example中的代码。
+* **version 0.5** 添加:适用于**IB创建**或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可(在NinaPagerView的initWithVCs)，具体实现可参照Example中的代码。<br />
     If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
 * 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
 ```objc
 self.navigationBar.translucent = NO;
 ```
-* 因为在框架里设置的问题，所以您如果需要在第一个控制器中需要push到二级控制器的话，需要多加上下方的这行代码，并且此行代码需要在**addSubView的后面**，具体请看Example中的实现。
+* 因为在框架里设置的问题，所以您如果需要在第一个控制器中需要push到二级控制器的话，需要多加上下方的这行代码，并且此行代码需要在**addSubView的后面**，具体请看Example中的实现。<br />
     Because of the framework setting,you must add following codes under the line after addSubView codes in order to push second level VC. 
 ```objc
 ninaPagerView.pushEnabled = YES;
 ```
 
 ### 关于内存管理
-* 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
+* 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。<br />
     If you care the vcs causes huge memory,please try NinaPagerViewDelegate delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO.
 ```objc
 /**<  Add <NinaPagerViewDelegate> to the ViewController and add codes(you can get more details in example)   **/
