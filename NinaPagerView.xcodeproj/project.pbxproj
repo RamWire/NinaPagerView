@@ -33,11 +33,11 @@
 		76CEDFE71CBF79380074765F /* NinaPagerViewCarthageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CEDFE61CBF79380074765F /* NinaPagerViewCarthageTests.m */; };
 		76CEDFEB1CBF79380074765F /* NinaPagerViewCarthage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */; };
 		76CEDFEC1CBF79380074765F /* NinaPagerViewCarthage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		76CEDFF31CBF79920074765F /* NinaBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C31CA4471B00514E62 /* NinaBaseView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76CEDFF41CBF79920074765F /* NinaPagerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C51CA4471B00514E62 /* NinaPagerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76CEDFF61CBF79920074765F /* UIParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C91CA4471B00514E62 /* UIParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76CEDFF71CBF79B00074765F /* NinaBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C41CA4471B00514E62 /* NinaBaseView.m */; };
 		76CEDFF81CBF79B00074765F /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C61CA4471B00514E62 /* NinaPagerView.m */; };
+		76CEE0001CBF80A30074765F /* NinaBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C31CA4471B00514E62 /* NinaBaseView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76CEE0011CBF80B00074765F /* NinaBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C41CA4471B00514E62 /* NinaBaseView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -322,9 +322,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				76CEDFD91CBF79370074765F /* NinaPagerViewCarthage.h in Headers */,
-				76CEDFF31CBF79920074765F /* NinaBaseView.h in Headers */,
 				76CEDFF41CBF79920074765F /* NinaPagerView.h in Headers */,
 				76CEDFF61CBF79920074765F /* UIParameter.h in Headers */,
+				76CEE0001CBF80A30074765F /* NinaBaseView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,7 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76CEDFF71CBF79B00074765F /* NinaBaseView.m in Sources */,
+				76CEE0011CBF80B00074765F /* NinaBaseView.m in Sources */,
 				76CEDFF81CBF79B00074765F /* NinaPagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -692,7 +692,7 @@
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -706,7 +706,7 @@
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -877,6 +877,7 @@
 				76CEDFEF1CBF79380074765F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76CEDFF01CBF79380074765F /* Build configuration list for PBXNativeTarget "NinaPagerViewCarthageTests" */ = {
 			isa = XCConfigurationList;
@@ -885,6 +886,7 @@
 				76CEDFF21CBF79380074765F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
