@@ -28,7 +28,9 @@
 #pragma mark - public method
 - (void)createLabel:(NSString *)yourTitleStr {
     UILabel *middleLabel = [[UILabel alloc] initWithFrame:CGRectMake(FUll_VIEW_WIDTH / 2 - 80, FUll_VIEW_HEIGHT / 2 - 40 - 64 - PageBtn, 160, 80)];
-    NSLog(@"加载了控制器%@",yourTitleStr);
+    if (isDebug) {
+        NSLog(@"加载了控制器%@",yourTitleStr);
+    }
     middleLabel.text = [NSString stringWithFormat:@"第%@个视图控制器",yourTitleStr];
     middleLabel.textColor =[UIColor blackColor];
     middleLabel.textAlignment = NSTextAlignmentCenter;
@@ -65,13 +67,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"点击了控制器%@单元格的%li",indexTag,indexPath.row);
+    if (isDebug) {
+        NSLog(@"点击了控制器%@单元格的%li",indexTag,indexPath.row);
+    }
     TestViewController *testVC = [TestViewController new];
     [self.navigationController pushViewController:testVC animated:YES];
 }
 
 - (void)testAction {
-    NSLog(@"测试点击事件");
+    if (isDebug) {
+        NSLog(@"测试点击事件");
+    }
 }
 
 - (void)xibSettings {

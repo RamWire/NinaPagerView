@@ -7,7 +7,6 @@
 //
 
 #import "NinaBaseView.h"
-#import "TopTabView.h"
 #import "UIParameter.h"
 
 @interface NinaBaseView ()

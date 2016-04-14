@@ -9,6 +9,8 @@
 #ifndef UIParameter_h
 #define UIParameter_h
 
+//是否需要打印调试
+#define isDebug NO
 //全屏宽和高大小
 #define FUll_VIEW_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define FUll_VIEW_HEIGHT ([[UIScreen mainScreen] bounds].size.height)

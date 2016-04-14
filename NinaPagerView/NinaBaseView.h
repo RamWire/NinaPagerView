@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TopTabView.h"
 
 @interface NinaBaseView : UIView <UIScrollViewDelegate>
 

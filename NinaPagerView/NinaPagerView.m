@@ -116,7 +116,9 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:@"currentPage"]) {
         NSInteger page = [change[@"new"] integerValue];
-        NSLog(@"现在是控制器%li",(long)page + 1);
+        if (isDebug) {
+            NSLog(@"现在是控制器%li",(long)page + 1);
+        }
         self.PageIndex = @(page + 1).stringValue;
         if (myArray.count > 5) {
             CGFloat topTabOffsetX = 0;
@@ -194,7 +196,9 @@
 
 /**<  NSCache的代理方法，打印当前清除对象 **/
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
-    NSLog(@"清除了-------> %@", obj);
+    if (isDebug) {
+        NSLog(@"清除了-------> %@", obj);
+    }
 }
 
 #pragma mark - Private Method
@@ -210,8 +214,10 @@
     viewAlloc[0] = YES;
     [vcsArray addObject:ctrl];
     [vcsTagArray addObject:@"0"];
-    NSLog(@"现在是控制器1");
-    NSLog(@"使用了新建的控制器0");
+    if (isDebug) {
+        NSLog(@"现在是控制器1");
+        NSLog(@"使用了新建的控制器0");
+    }
     self.PageIndex = @"1";
 }
 
@@ -221,7 +227,9 @@
     [vcsArray addObject:ctrl];
     NSString *tagStr = @(i).stringValue;
     [vcsTagArray addObject:tagStr];
-    NSLog(@"使用了新创建的控制器%li",(long)i + 1);
+    if (isDebug) {
+        NSLog(@"使用了新创建的控制器%li",(long)i + 1);
+    }
     /**<  内存管理限制控制器最大数量为5个   **/
     if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
@@ -236,7 +244,9 @@
             deallocVC = nil;
             [vcsArray removeObjectAtIndex:0];
             viewAlloc[deallocTag] = NO;
-            NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
+            if (isDebug) {
+                NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
+            }            
             [vcsTagArray removeObjectAtIndex:0];
         }
     }
