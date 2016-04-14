@@ -1,5 +1,6 @@
 # NinaPagerView 
 [![Pod Version](http://img.shields.io/cocoapods/v/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
+![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Pod Platform](http://img.shields.io/cocoapods/p/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
 [![Pod License](http://img.shields.io/cocoapods/l/NinaPagerView.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
@@ -18,18 +19,24 @@
 ## Installation
 
 Drop in the Classes folder to your Xcode project.  
-You can also use cocoapods.
+You can also use cocoapods or Carthage.
 
 #### Using [cocoapods](http://cocoapods.org/)
 
 Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
 ```
-pod 'NinaPagerView','~> 0.5' 
+pod 'NinaPagerView','~> 0.5.1' 
+```
+
+#### Using Carthage
+Add the following line to your Cartfile:
+```
+github "RamWire/NinaPagerView"
 ```
 
 ## Usage
-You need add '**NinaPagerView.h**' to your project.Then load the codes:
+You need add '**NinaPagerView.h**' (CocoaPods) or <NinaPagerViewCarthage/NinaPagerViewCarthage.h>(Carthage) to your project.Then load the codes:
 然后执行下列代码:
 ```objc
 /**< 创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度再减去Tabbar的高度，如果这个高度不是您想要的，您可以去UIParameter.h中进行设置XD。
