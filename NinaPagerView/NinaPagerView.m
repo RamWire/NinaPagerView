@@ -49,9 +49,9 @@
     }
 }
 
-- (void)setTitleSize:(CGFloat)titleSize {
-    _titleSize = titleSize;
-    pagerView.titleSize = _titleSize;
+- (void)setTitleScale:(CGFloat)titleScale {
+    _titleScale = titleScale;
+    pagerView.titleScale = _titleScale;
 }
 
 #pragma mark - NSCache

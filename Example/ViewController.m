@@ -98,7 +98,7 @@
     NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray WithVCs:detailVCsArray WithColorArrays:colorArray];
     /**<  Tag0.5.2 添加:您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。
         Tag0.5.2 Add:You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15. **/
-//    ninaPagerView.titleSize = 1.5;
+//    ninaPagerView.titleScale = 1.5;
     ninaPagerView.delegate = self;
     [self.view addSubview:ninaPagerView];
     /**< 因为在框架里设置的问题，所以您如果需要在第一个控制器中需要push到二级控制器的话，需要多加上下方的这行代码，并且
