@@ -87,6 +87,11 @@ NSArray *colorArray = @[
 ```
 * **version 0.5** 添加:适用于**IB创建**或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可(在NinaPagerView的initWithVCs)，具体实现可参照Example中的代码。<br />
     If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
+* **version 0.5.2**添加:您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。<br />
+    Tag0.5.2 Add:You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.
+```objc
+ninaPagerView.titleScale = 1.5;
+```
 * 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
 ```objc
 self.navigationBar.translucent = NO;
