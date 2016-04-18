@@ -63,6 +63,14 @@
     [self addSubview:self.scrollView];
 }
 
+- (void)setTitleSize:(CGFloat)titleSize {
+    _titleSize = titleSize;
+    UIButton *buttonZero = btnArray[0];
+    [UIView animateWithDuration:0.3 animations:^{
+        buttonZero.transform = CGAffineTransformMakeScale(_titleSize, _titleSize);
+    }];
+}
+
 #pragma mark - GetMethod
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
@@ -188,9 +196,15 @@
             [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         }
         UIButton *changeButton = btnArray[yourPage];
-        [UIView animateWithDuration:0.3 animations:^{
-            changeButton.transform = CGAffineTransformMakeScale(1.15, 1.15);
-        }];
+        if (_titleSize > 0) {
+            [UIView animateWithDuration:0.3 animations:^{
+                changeButton.transform = CGAffineTransformMakeScale(_titleSize, _titleSize);
+            }];
+        }else {
+            [UIView animateWithDuration:0.3 animations:^{
+                changeButton.transform = CGAffineTransformMakeScale(1.15, 1.15);
+            }];
+        }       
     }
 }
 

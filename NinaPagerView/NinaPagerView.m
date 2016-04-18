@@ -49,6 +49,11 @@
     }
 }
 
+- (void)setTitleSize:(CGFloat)titleSize {
+    _titleSize = titleSize;
+    pagerView.titleSize = _titleSize;
+}
+
 #pragma mark - NSCache
 - (NSCache *)limitControllerCache {
     if (!_limitControllerCache) {
