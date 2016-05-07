@@ -50,7 +50,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray 
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置。
 ```objc
 //Need You Edit
-/**<  上方显示标题  Titles showing on the topTab   **/
+/**<  上方显示标题(您需要注意的是，虽然框架中对长标题进行了优化处理，但是建议您设置标题时汉字的长度不要超过10)  Titles showing on the topTab   **/
 NSArray *titleArray =   @[
                           @"大连市",
                           @"甘井子",
@@ -85,13 +85,6 @@ NSArray *colorArray = @[
                         [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
                        ];
 ```
-* **version 0.5** 添加:适用于**IB创建**或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可(在NinaPagerView的initWithVCs)，具体实现可参照Example中的代码。<br />
-    If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
-* **version 0.5.2**添加:您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。<br />
-    You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.
-```objc
-ninaPagerView.titleScale = 1.5;
-```
 * 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
 ```objc
 self.navigationBar.translucent = NO;
@@ -101,6 +94,17 @@ self.navigationBar.translucent = NO;
 ```objc
 ninaPagerView.pushEnabled = YES;
 ```
+
+### 版本更新说明
+**0.6**:添加对长标题的支持，最大可以支持长度为10的汉字。<br />
+     Support long-length title.<br />
+**0.5.2**:您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。<br />
+    You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.
+```objc
+ninaPagerView.titleScale = 1.5;
+```
+**0.5**:适用于**IB创建**或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可(在NinaPagerView的initWithVCs)，具体实现可参照Example中的代码。<br />
+    If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
 
 ### 关于内存管理
 * 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。<br />
