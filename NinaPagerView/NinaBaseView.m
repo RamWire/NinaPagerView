@@ -2,7 +2,7 @@
 //  PagerView.m
 //  NinaPagerView
 //
-//  Created by 赵富阳 on 15/9/22.
+//  Created by RamWire on 15/9/22.
 //  Copyright © 2015年 RamWire. All rights reserved.
 //
 
@@ -111,6 +111,7 @@
             button.titleLabel.font = [UIFont systemFontOfSize:14];
             if ([titlesArray[i] isKindOfClass:[NSString class]]) {
                  [button setTitle:titlesArray[i] forState:UIControlStateNormal];
+                button.titleLabel.numberOfLines = 0;
             }else {
                 NSLog(@"您所提供的标题%li格式不正确。 Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1,(long)i + 1);
             }

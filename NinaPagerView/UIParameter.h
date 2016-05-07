@@ -2,8 +2,8 @@
 //  UIParameter.h
 //  NinaPagerView
 //
-//  Created by 赵富阳 on 15/11/13.
-//  Copyright © 2015年 赵富阳. All rights reserved.
+//  Created by RamWire on 15/11/13.
+//  Copyright © 2015年 RamWire. All rights reserved.
 //
 
 #ifndef UIParameter_h

@@ -3,7 +3,7 @@
 //  NinaPagerView
 //
 //  Created by RamWire on 16/3/23.
-//  Copyright © 2016年 赵富阳. All rights reserved.
+//  Copyright © 2016年 RamWire. All rights reserved.
 //
 
 #import "NinaPagerView.h"
@@ -11,6 +11,7 @@
 #import "NinaBaseView.h"
 #import "UIView+ViewController.h"
 #define MaxNums  10
+static NSString *const kObserverPage = @"currentPage";
 
 @interface NinaPagerView()<NSCacheDelegate>
 @property (nonatomic, strong)NSCache *limitControllerCache; /**< 内存管理，避免创建过多的控制器所导致内存过于庞大   **/
@@ -119,7 +120,7 @@
 
 #pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:@"currentPage"]) {
+    if ([keyPath isEqualToString:kObserverPage]) {
         NSInteger page = [change[@"new"] integerValue];
         if (isDebug) {
             NSLog(@"现在是控制器%li",(long)page + 1);
