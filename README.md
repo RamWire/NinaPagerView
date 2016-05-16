@@ -96,8 +96,10 @@ ninaPagerView.pushEnabled = YES;
 ```
 
 ### 版本更新说明
+**0.7**:修复UITabBarController出现的拖动问题；添加对view数组的支持，您如果觉得viewController数组对于您的项目来说太重并且在呈现界面时不需要这么多Controller进行处理，您可以通过相同的形式将您所想添加的view加入数组中传入NinaPagerView。<br />
+    If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~<br />
 **0.6**:添加对长标题的支持，最大可以支持长度为10的汉字。<br />
-     Support long-length title.<br />
+    Support long-length title.<br />
 **0.5.2**:您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。<br />
     You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.
 ```objc
