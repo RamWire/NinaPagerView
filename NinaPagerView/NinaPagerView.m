@@ -45,7 +45,7 @@ static NSString *const kObserverPage = @"currentPage";
 
 #pragma mark - SetMethod
 - (void)setPushEnabled:(BOOL )pushEnabled {
-    if (pushEnabled == YES) {
+    if (pushEnabled == YES && firstVC != nil) {
         [self.viewController addChildViewController:firstVC];
     }
 }
@@ -102,14 +102,22 @@ static NSString *const kObserverPage = @"currentPage";
             if ([classArray[0] isKindOfClass:[NSString class]]) {
                 NSString *className = classArray[0];
                 Class class = NSClassFromString(className);
-                if (class) {
+                if ([class isSubclassOfClass:[UIViewController class]]) {
                     UIViewController *ctrl = class.new;
                     [self createFirstViewController:ctrl];
+                }else if ([class isSubclassOfClass:[UIView class]]) {
+                    UIView *singleView =class.new;
+                    singleView.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+                    [pagerView.scrollView addSubview:singleView];
                 }
             }else {
                 if ([classArray[0] isKindOfClass:[UIViewController class]]) {
                     UIViewController *ctrl = classArray[0];
                     [self createFirstViewController:ctrl];
+                }else if ([classArray[0] isKindOfClass:[UIView class]]) {
+                    UIView *singleView = classArray[0];
+                    singleView.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+                    [pagerView.scrollView addSubview:singleView];
                 }
             }
         }
@@ -154,10 +162,14 @@ static NSString *const kObserverPage = @"currentPage";
                 if ([classArray[i] isKindOfClass:[NSString class]]) {
                     NSString *className = classArray[i];
                     Class class = NSClassFromString(className);
-                    if (class && viewAlloc[i] == NO) {
+                    if ([class isSubclassOfClass:[UIViewController class]] && viewAlloc[i] == NO) {
                         UIViewController *ctrl = nil;
                         ctrl = class.new;
                         [self createOtherViewControllers:ctrl WithControllerTag:i];
+                    }else if ([class isSubclassOfClass:[UIView class]]) {
+                        UIView *singleView =class.new;
+                        singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+                        [pagerView.scrollView addSubview:singleView];
                     }else if (!class) {
                         NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
                     }
@@ -169,6 +181,10 @@ static NSString *const kObserverPage = @"currentPage";
                         }else if (!ctrl) {
                             NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
                         }
+                    }else if ([classArray[i] isKindOfClass:[UIView class]]) {
+                        UIView *singleView = classArray[i];
+                        singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+                        [pagerView.scrollView addSubview:singleView];
                     }
                 }
             }else if (page == i && i > classArray.count - 1) {

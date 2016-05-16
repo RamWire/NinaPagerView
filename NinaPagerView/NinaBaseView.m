@@ -99,6 +99,7 @@
         _topTab.scrollEnabled = YES;
         _topTab.alwaysBounceHorizontal = YES;
         _topTab.showsHorizontalScrollIndicator = NO;
+        _topTab.bounces = NO;
         CGFloat additionCount = 0;
         if (arrayCount > 5) {
             additionCount = (arrayCount - 5.0) / 5.0;
