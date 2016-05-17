@@ -8,10 +8,11 @@
 * 一行代码搞定顶部菜单栏。类似网易新闻、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
 
 ## Features
-- [x] 低耦合，您只需创建自己的ViewController即可，后续的操作都在自己的ViewController中
+- [x] 低耦合，您只需创建自己的ViewController即可，后续的操作都在自己的ViewController中。
 - [x] 可分步加载您所添加的ViewController，实现类似网易新闻，虎扑看球的效果。
 - [x] 只需一行代码创建即可实现所有功能。
-- [x] 菜单栏中选中未选中的颜色可自己定制
+- [x] 菜单栏中选中未选中的颜色可自己定制。
+- [x] 不仅仅是UIViewController，您可以根据您的需求创建UIView添加到NinaPagerView中。
 
 ## Preview
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif1.gif)
