@@ -24,6 +24,9 @@
     ViewController *viewC = [[ViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewC];
     self.window.rootViewController = navController;
+//    UITabBarController *tab = [UITabBarController new];
+//    tab.viewControllers = @[navController];
+//    self.window.rootViewController = tab;
     return YES;
 }
 

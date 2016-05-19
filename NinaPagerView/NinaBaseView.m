@@ -107,7 +107,7 @@
         if (arrayCount > 5) {
             additionCount = (arrayCount - 5.0) / 5.0;
         }
-        _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, 0);
+        _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, PageBtn - TabbarHeight);
         btnArray = [NSMutableArray array];
         for (NSInteger i = 0; i < titlesArray.count; i++) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
