@@ -100,6 +100,8 @@ ninaPagerView.pushEnabled = YES;
 ```
 
 ### 版本更新说明
+**0.8.1**:彻底修复了在特定情况下上方可以上下滑动的问题。<br />
+    Fix topTab vertical-scroll in some conditions.<br />
 **0.8**:新版本带来了新效果，您可以对上方的滑块进行类型上的选择，我们为您提供了两种选择，NinaPagerStyleBottomLine和NinaPagerStyleSlideBlock，具体效果参照上方Gif图，您可以下载最新代码进行体验。<br />
     New selection of topTab style,now you can choose NinaPagerStyleBottomLine and NinaPagerStyleSlideBlock as gifs showed.<br />
 **0.7**:修复UITabBarController出现的拖动问题；添加对view数组的支持，您如果觉得viewController数组对于您的项目来说太重并且在呈现界面时不需要这么多Controller进行处理，您可以通过相同的形式将您所想添加的view加入数组中传入NinaPagerView。<br />
