@@ -23,11 +23,14 @@
     UIColor *unselectBtn;
     UIColor *underline;
     UIColor *topTabColors;
+    NSInteger topTabType;
+    UIView *ninaMaskView;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor WithtopTabColor:(UIColor *)topTabColor
+- (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor WithtopTabColor:(UIColor *)topTabColor WithTopTabType:(NSInteger)topTabNum
 {
     self = [super initWithFrame:frame];
+    topTabType = topTabNum;
     if (self) {
         if ([selectColor isKindOfClass:[UIColor class]]) {
             selectBtn = selectColor;
@@ -106,7 +109,7 @@
         }
         _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, 0);
         btnArray = [NSMutableArray array];
-        for (NSInteger i = 0; i < titlesArray.count; i++) {            
+        for (NSInteger i = 0; i < titlesArray.count; i++) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i;
             button.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -117,14 +120,14 @@
                 NSLog(@"您所提供的标题%li格式不正确。 Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1,(long)i + 1);
             }
             if (titlesArray.count > 5) {
-                button.frame = CGRectMake(FUll_VIEW_WIDTH / 5 * i, 0, FUll_VIEW_WIDTH / 5, PageBtn);
+                button.frame = CGRectMake(More5LineWidth * i, 0, More5LineWidth, PageBtn);
             }else {
                 button.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * i, 0, FUll_VIEW_WIDTH / titlesArray.count, PageBtn);
             }
             [_topTab addSubview:button];
             [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
             [btnArray addObject:button];
-            if (i == 0) {
+            if (i == 0 && topTabType == 0) {
                 if (selectBtn) {
                     [button setTitleColor:selectBtn forState:UIControlStateNormal];
                 }else {
@@ -152,7 +155,26 @@
         }else {
             lineBottom.backgroundColor = UIColorFromRGB(0xff6262);
         }
+        lineBottom.clipsToBounds = YES;
+        lineBottom.userInteractionEnabled = YES;
         [_topTab addSubview:lineBottom];
+        //创建ninaMaskView
+        ninaMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (1 + additionCount) * FUll_VIEW_WIDTH, SliderHeight)];
+        ninaMaskView.backgroundColor = [UIColor clearColor];
+        for (NSInteger j = 0; j < titlesArray.count; j++) {
+            UILabel *maskLabel = [UILabel new];
+            if (titlesArray.count > 5) {
+                maskLabel.frame = CGRectMake(More5LineWidth * j, 0, More5LineWidth, SliderHeight);
+            }else {
+                maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * j, 0, FUll_VIEW_WIDTH / titlesArray.count, SliderHeight);
+            }
+            maskLabel.text = titlesArray[j];
+            maskLabel.textColor = selectBtn;
+            maskLabel.textAlignment = NSTextAlignmentCenter;
+            maskLabel.font = [UIFont systemFontOfSize:14];
+            [ninaMaskView addSubview:maskLabel];
+        }
+        [lineBottom addSubview:ninaMaskView];
     }
     return _topTab;
 }
@@ -175,38 +197,67 @@
     if (scrollView.tag == 318) {
         NSInteger yourPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
         CGFloat yourCount = 1.0 / arrayCount;
+        CGPoint maskCenter = ninaMaskView.center;
+        if (arrayCount >= 5) {
+            maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * 0.2);
+        }else {
+            maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * yourCount);
+        }
+        ninaMaskView.center = maskCenter;
         if (arrayCount > 5) {
             yourCount = 1.0 / 5.0;
-            lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+            switch (topTabType) {
+                case 0:
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+                    break;
+                case 1:
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, SliderY, yourCount * FUll_VIEW_WIDTH, SliderHeight);
+                    break;
+                default:
+                    break;
+            }
         }else {
-            lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+            switch (topTabType) {
+                case 0:
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+                    break;
+                case 1:
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, SliderY, yourCount * FUll_VIEW_WIDTH, SliderHeight);
+                    break;
+                default:
+                    break;
+            }
         }
         for (NSInteger i = 0;  i < btnArray.count; i++) {
-            if (unselectBtn) {
-                [btnArray[i] setTitleColor:unselectBtn forState:UIControlStateNormal];
-            }else {
-                [btnArray[i] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            if (topTabType == 0) {
+                if (unselectBtn) {
+                    [btnArray[i] setTitleColor:unselectBtn forState:UIControlStateNormal];
+                }else {
+                    [btnArray[i] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+                }
             }
             UIButton *changeButton = btnArray[i];
             [UIView animateWithDuration:0.3 animations:^{
                 changeButton.transform = CGAffineTransformMakeScale(1, 1);
             }];
         }
-        if (selectBtn) {
-            [btnArray[yourPage] setTitleColor:selectBtn forState:UIControlStateNormal];
-        }else {
-            [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        if (topTabType == 0) {
+            if (selectBtn) {
+                [btnArray[yourPage] setTitleColor:selectBtn forState:UIControlStateNormal];
+            }else {
+                [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }
+            UIButton *changeButton = btnArray[yourPage];
+            if (_titleScale > 0) {
+                [UIView animateWithDuration:0.3 animations:^{
+                    changeButton.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
+                }];
+            }else {
+                [UIView animateWithDuration:0.3 animations:^{
+                    changeButton.transform = CGAffineTransformMakeScale(1.15, 1.15);
+                }];
+            }
         }
-        UIButton *changeButton = btnArray[yourPage];
-        if (_titleScale > 0) {
-            [UIView animateWithDuration:0.3 animations:^{
-                changeButton.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
-            }];
-        }else {
-            [UIView animateWithDuration:0.3 animations:^{
-                changeButton.transform = CGAffineTransformMakeScale(1.15, 1.15);
-            }];
-        }       
     }
 }
 
@@ -223,7 +274,17 @@
         additionCount = (arrayCount - 5.0) / 5.0;
         yourCount = 1.0 / 5.0;
     }
-    lineBottom.frame = CGRectMake(0, PageBtn - 2,yourCount * FUll_VIEW_WIDTH, 2);
+    switch (topTabType) {
+        case 0:
+            lineBottom.frame = CGRectMake(0, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+            break;
+        case 1:
+            lineBottom.frame = CGRectMake(0, SliderY, yourCount * FUll_VIEW_WIDTH, SliderHeight);
+            lineBottom.layer.cornerRadius = SliderHeight / 2.0;
+            break;
+        default:
+            break;
+    }
     topTabBottomLine.frame = CGRectMake(0, PageBtn - 1, (1 + additionCount) * FUll_VIEW_WIDTH, 1);    
 }
 

@@ -23,6 +23,7 @@ static NSString *const kObserverPage = @"currentPage";
     NSArray *myArray;
     NSArray *classArray;
     NSArray *colorArray;
+    NSInteger pagerStyle;
     NSMutableArray *viewNumArray;
     NSMutableArray *vcsTagArray;
     NSMutableArray *vcsArray;
@@ -31,13 +32,14 @@ static NSString *const kObserverPage = @"currentPage";
     UIViewController *firstVC;
 }
 
-- (instancetype)initWithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors {
+- (instancetype)initWithNinaPagerStyle:(NinaPagerStyle)ninaPagerStyle WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors {
     if (self = [super init]) {
         //Need You Edit,title for the toptabbar
         self.frame = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
         myArray = titles;
         classArray = childVCs;
         colorArray = colors;
+        pagerStyle = ninaPagerStyle;
          [self createPagerView:myArray WithVCs:classArray WithColors:colorArray];
     }
     return self;
@@ -93,7 +95,7 @@ static NSString *const kObserverPage = @"currentPage";
         }
     }
     if (titles.count > 0 && childVCs.count > 0) {
-        pagerView = [[NinaBaseView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor WithtopTabColor:_topTabColor];
+        pagerView = [[NinaBaseView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor WithtopTabColor:_topTabColor WithTopTabType:pagerStyle];
         pagerView.titleArray = myArray;
         [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
         [self addSubview:pagerView];

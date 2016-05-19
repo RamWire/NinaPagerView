@@ -48,6 +48,16 @@
                ReferencedContainer = "container:NinaPagerView.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "76CEDFDE1CBF79370074765F"
+               BuildableName = "NinaPagerViewCarthageTests.xctest"
+               BlueprintName = "NinaPagerViewCarthageTests"
+               ReferencedContainer = "container:NinaPagerView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

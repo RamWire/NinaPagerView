@@ -8,13 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, NinaPagerStyle) {
+    /**<  上侧为下划线   **/
+    NinaPagerStyleBottomLine = 0,
+    /**<  上侧为滑块   **/
+    NinaPagerStyleSlideBlock = 1,
+};
+
 @protocol NinaPagerViewDelegate <NSObject>
 @optional
 - (BOOL)deallocVCsIfUnnecessary; /**< 只保留最近的5个控制器，释放其他控制器的空间，如果滑到对应位置在对其重新创建加载 **/
 @end
 
 @interface NinaPagerView : UIView
-- (instancetype)initWithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors;
+- (instancetype)initWithNinaPagerStyle:(NinaPagerStyle)ninaPagerStyle WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors;
 @property (strong, nonatomic) UIColor *selectColor; /**<  选中时的颜色   **/
 @property (strong, nonatomic) UIColor *unselectColor; /**<  未选中时的颜色   **/
 @property (strong, nonatomic) UIColor *underlineColor; /**<  下划线的颜色   **/
