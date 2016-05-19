@@ -25,7 +25,7 @@
 Drop in the Classes folder to your Xcode project.  
 You can also use cocoapods or Carthage.
 
-#### Using [cocoapods](http://cocoapods.org/)
+#### Using [CocoaPods](http://cocoapods.org/)
 
 Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
@@ -33,7 +33,7 @@ Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 pod 'NinaPagerView'
 ```
 
-#### Using Carthage
+#### Using [Carthage](https://github.com/Carthage/Carthage)
 Add the following line to your Cartfile:
 ```
 github "RamWire/NinaPagerView"
