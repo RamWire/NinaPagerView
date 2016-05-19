@@ -97,7 +97,7 @@
     NSArray *colorArray = @[
                                                 [UIColor whiteColor], /**< 选中的标题颜色 Title SelectColor  **/
                                                 [UIColor blackColor], /**< 未选中的标题颜色  Title UnselectColor **/
-                                                [UIColor blackColor], /**< 下划线颜色或滑块颜色 Underline Color   **/
+                                                [UIColor blackColor], /**< 下划线颜色或滑块颜色 Underline or SlideBlock Color   **/
                                                 [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
                                                 ];
     /**< 创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度再减去Tabbar的高度，如果这个高度不是您想要的，您可以去UIParameter.h中进行设置XD。
