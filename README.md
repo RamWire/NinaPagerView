@@ -13,9 +13,12 @@
 - [x] 只需一行代码创建即可实现所有功能。
 - [x] 菜单栏中选中未选中的颜色可自己定制。
 - [x] 不仅仅是UIViewController，您可以根据您的需求创建UIView添加到NinaPagerView中。
+- [x] 可根据您的需求对上方的滑块进行选择，无论是背景颜色还是文字颜色。
 
 ## Preview
+
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif1.gif)
+![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif2.gif)
 
 ## Installation
 
@@ -42,7 +45,7 @@ You need add '**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/Ni
 ```objc
 /**< 创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度再减去Tabbar的高度，如果这个高度不是您想要的，您可以去UIParameter.h中进行设置。
 A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just go to UIParameter.h to change it!XD**/
-NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
+NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithNinaPagerStyle:NinaPagerStyleSlideBlock WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
 [self.view addSubview:ninaPagerView];
 ```
 即可完成~
@@ -82,7 +85,7 @@ You can choose whether change your titles' selectColor(default is black),unselec
 NSArray *colorArray = @[
                         [UIColor brownColor], /**< 选中的标题颜色 Title SelectColor  **/
                         [UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
-                        [UIColor redColor], /**< 下划线颜色 Underline Color   **/
+                        [UIColor redColor], /**< 下划线颜色或滑块颜色 Underline or SlideBlock Color   **/
                         [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
                        ];
 ```
@@ -97,6 +100,8 @@ ninaPagerView.pushEnabled = YES;
 ```
 
 ### 版本更新说明
+**0.8**:新版本带来了新效果，您可以对上方的滑块进行类型上的选择，我们为您提供了两种选择，NinaPagerStyleBottomLine和NinaPagerStyleSlideBlock，具体效果参照上方Gif图，您可以下载最新代码进行体验。<br />
+    New selection of topTab style,now you can choose NinaPagerStyleBottomLine and NinaPagerStyleSlideBlock as gifs showed.
 **0.7**:修复UITabBarController出现的拖动问题；添加对view数组的支持，您如果觉得viewController数组对于您的项目来说太重并且在呈现界面时不需要这么多Controller进行处理，您可以通过相同的形式将您所想添加的view加入数组中传入NinaPagerView。<br />
     If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~<br />
 **0.6**:添加对长标题的支持，最大可以支持长度为10的汉字。<br />
