@@ -128,8 +128,8 @@ ninaPagerView.titleScale = 1.5;
 ```
 
 ## FeedBack
-* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我，帮助我来完善它。
-* If you find bugs in this project or any suggestions,hope you can give me feedback by issues.
+* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我或者发邮件至[zhaogengda@126.com](https://zhaogengda@126.com)，帮助我来完善它。
+* If you find bugs in this project or any suggestions,hope you can give me feedback by issues or Email me to [zhaogengda@126.com](https://zhaogengda@126.com).
 
 ## Licence
 
