@@ -21,12 +21,9 @@
 		4D03543C1CA2E45000576C7B /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354291CA2E45000576C7B /* ThirdViewController.m */; };
 		4D03543E1CA2E45000576C7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03542B1CA2E45000576C7B /* main.m */; };
 		4D03543F1CA2E45000576C7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03542D1CA2E45000576C7B /* ViewController.m */; };
-		4D3C85CA1CA4471B00514E62 /* NinaBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C41CA4471B00514E62 /* NinaBaseView.m */; };
-		4D3C85CB1CA4471B00514E62 /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C61CA4471B00514E62 /* NinaPagerView.m */; };
 		76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E271CE1C39F00C922AF /* FirstTableView.m */; };
 		76148E2D1CE1C39F00C922AF /* SecondTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E291CE1C39F00C922AF /* SecondTableView.m */; };
 		76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E2B1CE1C39F00C922AF /* ThirdTableView.m */; };
-		767F0AC71CBB857500D3C420 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC61CBB857500D3C420 /* UIView+ViewController.m */; };
 		767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC91CBB9E0700D3C420 /* TestViewController.m */; };
 		768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240B71BF5D32700788E48 /* NinaPagerViewTests.m */; };
 		768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */; };
@@ -38,9 +35,11 @@
 		76CEDFEC1CBF79380074765F /* NinaPagerViewCarthage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		76CEDFF41CBF79920074765F /* NinaPagerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C51CA4471B00514E62 /* NinaPagerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76CEDFF61CBF79920074765F /* UIParameter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C91CA4471B00514E62 /* UIParameter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76CEDFF81CBF79B00074765F /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C61CA4471B00514E62 /* NinaPagerView.m */; };
-		76CEE0001CBF80A30074765F /* NinaBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C31CA4471B00514E62 /* NinaBaseView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76CEE0011CBF80B00074765F /* NinaBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C41CA4471B00514E62 /* NinaBaseView.m */; };
+		76EF18711CEEBE7B0018375E /* NinaBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C31CA4471B00514E62 /* NinaBaseView.h */; };
+		76EF18721CEEBE850018375E /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C61CA4471B00514E62 /* NinaPagerView.m */; };
+		76EF18731CEEBE880018375E /* UIView+ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 767F0AC51CBB857500D3C420 /* UIView+ViewController.h */; };
+		76EF18741CEEBE8E0018375E /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC61CBB857500D3C420 /* UIView+ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -344,10 +343,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EF18711CEEBE7B0018375E /* NinaBaseView.h in Headers */,
 				76CEDFD91CBF79370074765F /* NinaPagerViewCarthage.h in Headers */,
 				76CEDFF41CBF79920074765F /* NinaPagerView.h in Headers */,
+				76EF18731CEEBE880018375E /* UIView+ViewController.h in Headers */,
 				76CEDFF61CBF79920074765F /* UIParameter.h in Headers */,
-				76CEE0001CBF80A30074765F /* NinaBaseView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,10 +542,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D3C85CB1CA4471B00514E62 /* NinaPagerView.m in Sources */,
 				76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */,
 				4D0354381CA2E45000576C7B /* NinthViewController.m in Sources */,
-				767F0AC71CBB857500D3C420 /* UIView+ViewController.m in Sources */,
 				4D0354351CA2E45000576C7B /* FifthViewController.m in Sources */,
 				4D0354341CA2E45000576C7B /* EighthViewController.m in Sources */,
 				4D0354371CA2E45000576C7B /* ForthViewController.m in Sources */,
@@ -555,7 +553,6 @@
 				4D03543C1CA2E45000576C7B /* ThirdViewController.m in Sources */,
 				4D03543F1CA2E45000576C7B /* ViewController.m in Sources */,
 				76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */,
-				4D3C85CA1CA4471B00514E62 /* NinaBaseView.m in Sources */,
 				4D0354391CA2E45000576C7B /* SecondViewController.m in Sources */,
 				4D0354361CA2E45000576C7B /* FirstViewController.m in Sources */,
 				4D0354331CA2E45000576C7B /* ChildBaseViewController.m in Sources */,
@@ -585,8 +582,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EF18741CEEBE8E0018375E /* UIView+ViewController.m in Sources */,
+				76EF18721CEEBE850018375E /* NinaPagerView.m in Sources */,
 				76CEE0011CBF80B00074765F /* NinaBaseView.m in Sources */,
-				76CEDFF81CBF79B00074765F /* NinaPagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
