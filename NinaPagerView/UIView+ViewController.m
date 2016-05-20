@@ -20,9 +20,7 @@
         }
         //不停的指向下一个响应者
         next = next.nextResponder;
-        
-    }while (next != nil);
-    
+    }while (next != nil);    
     return nil;
 }
 @end

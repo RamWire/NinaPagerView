@@ -20,21 +20,7 @@
 #define PageBtn  0.06 * FUll_VIEW_HEIGHT //6s下高度40(您如果想改变上方TopTab的高度，请设置此值)
 #define SliderHeight PageBtn //默认滑块的高度（您如果想让高度与TopTab一致，请设置此参数为PageBtn）
 #define SliderY (PageBtn - SliderHeight) / 2.0 //默认滑块的Y值
-//tabbar的高度
 #define TabbarHeight 49
-//TopTab相关参数
-#define LeftLength  .6 * 45 //左侧的视图长度 20 / 45
-#define LeftX .12 * self.frame.size.width //左侧视图的X 20 / 375
-#define TotalY .015 * FUll_VIEW_HEIGHT //两边图片的Y 10 / 45
-#define TotalYPlus .009 * FUll_VIEW_HEIGHT //右侧图片的高度调节
-#define TitleWidth  .4 * FUll_VIEW_WIDTH / 2 //标题的宽度 55 / 375
-#define RightImageWidth .085 * FUll_VIEW_WIDTH //右侧图片宽度
-#define RightImageHeight .024 * FUll_VIEW_HEIGHT //右侧图片高度
-#define RightTitleWidth .06 * FUll_VIEW_WIDTH  //右侧文字宽度
-#define RightTitleHeight .021 * FUll_VIEW_HEIGHT //右侧文字高度
-#define RightTitleY 0.0015 * FUll_VIEW_HEIGHT //右侧文字Y
-#define RightTitleX 0.015 * FUll_VIEW_WIDTH //右侧文字X
-#define LinbottomWidth (132.0/375)*FUll_VIEW_WIDTH //下面红线的宽度
 #define More5LineWidth FUll_VIEW_WIDTH / 5.0 //超过5个标题的宽度
 
 #endif /* UIParameter_h */
