@@ -6,7 +6,7 @@
 [![Pod License](http://img.shields.io/cocoapods/l/NinaPagerView.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 * NinaPagerView is a view easy to page your controllers.
-* 一行代码搞定顶部菜单栏。类似网易新闻、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
+* 一行代码搞定顶部菜单栏。类似网易新闻、今日头条、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
 
 ## Features
 - [x] 低耦合，您只需创建自己的ViewController即可，后续的操作都在自己的ViewController中。
@@ -128,8 +128,8 @@ ninaPagerView.titleScale = 1.5;
 ```
 
 ## FeedBack
-* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我或者发邮件至[zhaogengda@126.com](https://zhaogengda@126.com)，帮助我来完善它。
-* If you find bugs in this project or any suggestions,hope you can give me feedback by issues or Email me to [zhaogengda@126.com](https://zhaogengda@126.com).
+* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我或者发邮件至zhaogengda@126.com，帮助我来完善它。
+* If you find bugs in this project or any suggestions,hope you can give me feedback by issues or Email me to zhaogengda@126.com.
 
 ## Licence
 
