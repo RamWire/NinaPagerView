@@ -3,7 +3,7 @@
 //  NinaPagerViewCarthageTests
 //
 //  Created by RamWire on 16/4/14.
-//  Copyright © 2016年 赵富阳. All rights reserved.
+//  Copyright © 2016年 RamWire. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

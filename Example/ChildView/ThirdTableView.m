@@ -3,7 +3,7 @@
 //  NinaPagerView
 //
 //  Created by RamWire on 16/5/10.
-//  Copyright © 2016年 赵富阳. All rights reserved.
+//  Copyright © 2016年 RamWire. All rights reserved.
 //
 
 #import "ThirdTableView.h"

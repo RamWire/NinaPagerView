@@ -13,7 +13,8 @@
 
 @end
 
-@implementation NinaBaseView {
+@implementation NinaBaseView
+{
     UIView *lineBottom;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
