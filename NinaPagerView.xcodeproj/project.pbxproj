@@ -40,7 +40,6 @@
 		76EF18711CEEBE7B0018375E /* NinaBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C31CA4471B00514E62 /* NinaBaseView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76EF18721CEEBE850018375E /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C61CA4471B00514E62 /* NinaPagerView.m */; };
 		76EF18731CEEBE880018375E /* UIView+ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 767F0AC51CBB857500D3C420 /* UIView+ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76EF18741CEEBE8E0018375E /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC61CBB857500D3C420 /* UIView+ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -453,7 +452,7 @@
 		768240921BF5D32700788E48 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "赵富阳";
 				TargetAttributes = {
 					768240991BF5D32700788E48 = {
@@ -584,7 +583,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DDF49571D04647100D0F21B /* UIView+ViewController.m in Sources */,
-				76EF18741CEEBE8E0018375E /* UIView+ViewController.m in Sources */,
 				76EF18721CEEBE850018375E /* NinaPagerView.m in Sources */,
 				76CEE0011CBF80B00074765F /* NinaBaseView.m in Sources */,
 			);
