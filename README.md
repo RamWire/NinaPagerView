@@ -1,11 +1,12 @@
 # NinaPagerView 
+[![Language](https://img.shields.io/badge/Language-%20Objective--C%20-orange.svg)](https://img.shields.io/badge/Language-%20Objective--C%20-orange.svg)
 [![Pod Version](http://img.shields.io/cocoapods/v/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Pod Platform](http://img.shields.io/cocoapods/p/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
 [![Pod License](http://img.shields.io/cocoapods/l/NinaPagerView.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 * NinaPagerView is a view easy to page your controllers.
-* 一行代码搞定顶部菜单栏。类似网易新闻、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
+* 一行代码搞定顶部菜单栏。类似网易新闻、今日头条、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
 
 ## Features
 - [x] 低耦合，您只需创建自己的ViewController即可，后续的操作都在自己的ViewController中。
@@ -100,6 +101,8 @@ ninaPagerView.pushEnabled = YES;
 ```
 
 ### 版本更新说明
+**0.8.1**:彻底修复了在特定情况下上方可以上下滑动的问题。<br />
+    Fix topTab vertical-scroll in some conditions.<br />
 **0.8**:新版本带来了新效果，您可以对上方的滑块进行类型上的选择，我们为您提供了两种选择，NinaPagerStyleBottomLine和NinaPagerStyleSlideBlock，具体效果参照上方Gif图，您可以下载最新代码进行体验。<br />
     New selection of topTab style,now you can choose NinaPagerStyleBottomLine and NinaPagerStyleSlideBlock as gifs showed.<br />
 **0.7**:修复UITabBarController出现的拖动问题；添加对view数组的支持，您如果觉得viewController数组对于您的项目来说太重并且在呈现界面时不需要这么多Controller进行处理，您可以通过相同的形式将您所想添加的view加入数组中传入NinaPagerView。<br />
@@ -125,8 +128,8 @@ ninaPagerView.titleScale = 1.5;
 ```
 
 ## FeedBack
-* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我，帮助我来完善它。
-* If you find bugs in this project or any suggestions,hope you can give me feedback by issues.
+* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我或者发邮件至zhaogengda@126.com，帮助我来完善它。
+* If you find bugs in this project or any suggestions,hope you can give me feedback by issues or Email me to zhaogengda@126.com.
 
 ## Licence
 

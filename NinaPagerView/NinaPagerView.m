@@ -28,7 +28,6 @@ static NSString *const kObserverPage = @"currentPage";
     NSMutableArray *vcsTagArray;
     NSMutableArray *vcsArray;
     BOOL viewAlloc[MaxNums];
-    BOOL fontChangeColor;
     UIViewController *firstVC;
 }
 
