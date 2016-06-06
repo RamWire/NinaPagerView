@@ -165,9 +165,9 @@
         for (NSInteger j = 0; j < titlesArray.count; j++) {
             UILabel *maskLabel = [UILabel new];
             if (titlesArray.count > 5) {
-                maskLabel.frame = CGRectMake(More5LineWidth * j, 0, More5LineWidth, SliderHeight);
+                maskLabel.frame = CGRectMake(More5LineWidth * j - More5LineWidth * (1 - SelectBottomLinePer) / 2, 0, More5LineWidth, SliderHeight);
             }else {
-                maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * j, 0, FUll_VIEW_WIDTH / titlesArray.count, SliderHeight);
+                maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * j - FUll_VIEW_WIDTH / titlesArray.count * (1 - SelectBottomLinePer) / 2, 0, FUll_VIEW_WIDTH / titlesArray.count, SliderHeight);
             }
             maskLabel.text = titlesArray[j];
             maskLabel.textColor = selectBtn;
@@ -197,6 +197,10 @@
     if (scrollView.tag == 318) {
         NSInteger yourPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
         CGFloat yourCount = 1.0 / arrayCount;
+        if (arrayCount > 5) {
+            yourCount = 1.0 / 5.0;
+        }
+        CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -SelectBottomLinePer) / 2;
         CGPoint maskCenter = ninaMaskView.center;
         if (arrayCount >= 5) {
             maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * 0.2);
@@ -205,13 +209,15 @@
         }
         ninaMaskView.center = maskCenter;
         if (arrayCount > 5) {
-            yourCount = 1.0 / 5.0;
             switch (topTabType) {
                 case 0:
-                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+                    if (SelectBottomLineHeight >= 3) {
+                        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5 + lineBottomDis, PageBtn - 3, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, 3);
+                    }
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5 + lineBottomDis, PageBtn - SelectBottomLineHeight, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SelectBottomLineHeight);
                     break;
                 case 1:
-                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5, SliderY, yourCount * FUll_VIEW_WIDTH, SliderHeight);
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / 5 + lineBottomDis, SliderY, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SliderHeight);
                     break;
                 default:
                     break;
@@ -219,10 +225,14 @@
         }else {
             switch (topTabType) {
                 case 0:
-                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+                    if (SelectBottomLineHeight >= 3) {
+                        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount + lineBottomDis, PageBtn - 3, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, 3);
+                    }else {
+                        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount + lineBottomDis, PageBtn - SelectBottomLineHeight, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SelectBottomLineHeight);
+                    }
                     break;
                 case 1:
-                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount, SliderY, yourCount * FUll_VIEW_WIDTH, SliderHeight);
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount + lineBottomDis, SliderY, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SliderHeight);
                     break;
                 default:
                     break;
@@ -274,12 +284,17 @@
         additionCount = (arrayCount - 5.0) / 5.0;
         yourCount = 1.0 / 5.0;
     }
+    CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -SelectBottomLinePer) / 2;
     switch (topTabType) {
         case 0:
-            lineBottom.frame = CGRectMake(0, PageBtn - 2, yourCount * FUll_VIEW_WIDTH, 1);
+            if (SelectBottomLineHeight >= 3) {
+                lineBottom.frame = CGRectMake(lineBottomDis, PageBtn - 3, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, 3);
+            }else {
+                lineBottom.frame = CGRectMake(lineBottomDis, PageBtn - SelectBottomLineHeight, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SelectBottomLineHeight);
+            }
             break;
         case 1:
-            lineBottom.frame = CGRectMake(0, SliderY, yourCount * FUll_VIEW_WIDTH, SliderHeight);
+            lineBottom.frame = CGRectMake(lineBottomDis, SliderY, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SliderHeight);
             lineBottom.layer.cornerRadius = SliderHeight / 2.0;
             break;
         default:
