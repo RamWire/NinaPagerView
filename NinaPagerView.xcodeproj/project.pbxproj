@@ -40,7 +40,6 @@
 		76EF18711CEEBE7B0018375E /* NinaBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C31CA4471B00514E62 /* NinaBaseView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76EF18721CEEBE850018375E /* NinaPagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3C85C61CA4471B00514E62 /* NinaPagerView.m */; };
 		76EF18731CEEBE880018375E /* UIView+ViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 767F0AC51CBB857500D3C420 /* UIView+ViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76EF18741CEEBE8E0018375E /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC61CBB857500D3C420 /* UIView+ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
