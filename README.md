@@ -101,9 +101,9 @@ ninaPagerView.pushEnabled = YES;
 ```
 
 ### 版本更新说明
-**0.9.1**:针对用户需要对上方toptab进行自定义，在UIParameter中加入下划线或滑块的长度比和高度设置，灵活度更高<br />
+**0.9.1**:针对用户需要对上方**toptab**进行自定义，在UIParameter中加入下划线或滑块的长度比和高度设置，灵活度更高。<br />
 Add some parameters to toptab's bottomline or slider,now you can set their width and height to the project.<br />
-**0.8.1**:彻底修复了在特定情况下上方toptab可以上下滑动的问题。<br />
+**0.8.1**:彻底修复了在特定情况下上方**toptab**可以上下滑动的问题。<br />
     Fix topTab vertical-scroll in some conditions.<br />
 **0.8**:新版本带来了新效果，您可以对上方的滑块进行类型上的选择，我们为您提供了两种选择，NinaPagerStyleBottomLine和NinaPagerStyleSlideBlock，具体效果参照上方Gif图，您可以下载最新代码进行体验。<br />
     New selection of topTab style,now you can choose NinaPagerStyleBottomLine and NinaPagerStyleSlideBlock as gifs showed.<br />
