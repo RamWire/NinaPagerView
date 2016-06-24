@@ -44,32 +44,25 @@ github "RamWire/NinaPagerView"
 You need add '**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/NinaPagerViewCarthage.h**>(**Carthage**) to your project.Then load the codes:
 然后执行下列代码:
 ```objc
-/**< 创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度再减去Tabbar的高度，如果这个高度不是您想要的，您可以去UIParameter.h中进行设置。
-A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just go to UIParameter.h to change it!XD**/
 NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithNinaPagerStyle:NinaPagerStyleSlideBlock WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
 [self.view addSubview:ninaPagerView];
 ```
 即可完成~
 
 ### Other Settings and Tips
-* 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置。
+* 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
-//Need You Edit
-/**<  上方显示标题(您需要注意的是，虽然框架中对长标题进行了优化处理，但是建议您设置标题时汉字的长度不要超过10)  Titles showing on the topTab   **/
-NSArray *titleArray =   @[
-                          @"大连市",
-                          @"甘井子",
-                          @"星海广场",
-                          @"西岗",
-                          @"马栏子",
-                          @"革镇堡",
-                          @"中山",
-                          @"人民广场",
-                          @"中山广场"
-                        ];
-/**< 每个标题下对应的控制器，只需将您创建的控制器类名加入下列数组即可(注意:数量应与上方的titles数量保持一致，若少于titles数量，下方会打印您缺少相应的控制器，同时默认设置的最大控制器数量为10)  。
-ViewControllers to the titles on the topTab.Just add your VCs' Class Name to the array. Wanning:the number of ViewControllers should equal to the titles.Meanwhile,default max VC number is 10.
-**/
+NSArray *titleArray = @[
+                        @"大连市",
+                        @"甘井子",
+                        @"星海广场",
+                        @"西岗",
+                        @"马栏子",
+                        @"革镇堡",
+                        @"中山",
+                        @"人民广场",
+                        @"中山广场"
+                      ];
 NSArray *vcsArray = @[
                       @"FirstViewController",
                       @"SecondViewController",
@@ -81,8 +74,6 @@ NSArray *vcsArray = @[
                       @"EighthViewController",
                       @"NinthViewController",
                     ];
-/**< 您可以选择是否要改变标题选中的颜色(默认为黑色)、未选中的颜色(默认为灰色)或者下划线的颜色(默认为色值是ff6262)。如果传入颜色数量不够，则按顺序给相应的部分添加颜色。
-You can choose whether change your titles' selectColor(default is black),unselectColor(default is gray) and underline color(default is Color value ff6262).**/
 NSArray *colorArray = @[
                         [UIColor brownColor], /**< 选中的标题颜色 Title SelectColor  **/
                         [UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
@@ -123,7 +114,6 @@ ninaPagerView.titleScale = 1.5;
 * 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。<br />
     If you care the vcs causes huge memory,please try NinaPagerViewDelegate delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO.
 ```objc
-/**<  Add <NinaPagerViewDelegate> to the ViewController and add codes(you can get more details in example)   **/
 - (BOOL)deallocVCsIfUnnecessary {
   return YES;
 }
