@@ -17,7 +17,7 @@
 #define FUll_CONTENT_HEIGHT     FUll_VIEW_HEIGHT - 64 - 49 //如果您想创建的界面不需要减去Tabbar的高度，您可以将此参数的-49去掉即可
 //十六进制颜色值
 #define UIColorFromRGB(rgbValue)    [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-#define PageBtn     0.06 * FUll_VIEW_HEIGHT //6s下高度40(您如果想改变上方TopTab的高度，请设置此值)
+#define PageBtn     40 //6s下高度40(您如果想改变上方TopTab的高度，请设置此值)
 #define SliderHeight    PageBtn //默认滑块的高度（您如果想让高度与TopTab一致，请设置此参数为PageBtn）
 #define SliderY     (PageBtn - SliderHeight) / 2.0 //默认滑块的Y值
 #define TabbarHeight    49

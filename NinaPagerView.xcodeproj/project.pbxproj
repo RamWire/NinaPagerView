@@ -25,6 +25,7 @@
 		76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E271CE1C39F00C922AF /* FirstTableView.m */; };
 		76148E2D1CE1C39F00C922AF /* SecondTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E291CE1C39F00C922AF /* SecondTableView.m */; };
 		76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E2B1CE1C39F00C922AF /* ThirdTableView.m */; };
+		765674DE1D1A709A00B3CC0D /* ForthCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */; };
 		767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC91CBB9E0700D3C420 /* TestViewController.m */; };
 		768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240B71BF5D32700788E48 /* NinaPagerViewTests.m */; };
 		768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */; };
@@ -133,6 +134,8 @@
 		76148E291CE1C39F00C922AF /* SecondTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableView.m; sourceTree = "<group>"; };
 		76148E2A1CE1C39F00C922AF /* ThirdTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdTableView.h; sourceTree = "<group>"; };
 		76148E2B1CE1C39F00C922AF /* ThirdTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdTableView.m; sourceTree = "<group>"; };
+		765674DC1D1A709A00B3CC0D /* ForthCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthCollectionView.h; sourceTree = "<group>"; };
+		765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthCollectionView.m; sourceTree = "<group>"; };
 		767F0AC51CBB857500D3C420 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
 		767F0AC61CBB857500D3C420 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		767F0AC81CBB9E0700D3C420 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -263,6 +266,8 @@
 				76148E291CE1C39F00C922AF /* SecondTableView.m */,
 				76148E2A1CE1C39F00C922AF /* ThirdTableView.h */,
 				76148E2B1CE1C39F00C922AF /* ThirdTableView.m */,
+				765674DC1D1A709A00B3CC0D /* ForthCollectionView.h */,
+				765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */,
 			);
 			path = ChildView;
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */,
 				76148E2D1CE1C39F00C922AF /* SecondTableView.m in Sources */,
 				4D03543A1CA2E45000576C7B /* SeventhViewController.m in Sources */,
+				765674DE1D1A709A00B3CC0D /* ForthCollectionView.m in Sources */,
 				4D03543C1CA2E45000576C7B /* ThirdViewController.m in Sources */,
 				4D03543F1CA2E45000576C7B /* ViewController.m in Sources */,
 				76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */,
