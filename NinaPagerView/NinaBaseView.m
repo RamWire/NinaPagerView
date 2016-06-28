@@ -295,7 +295,9 @@
             break;
         case 1:
             lineBottom.frame = CGRectMake(lineBottomDis, SliderY, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SliderHeight);
-            lineBottom.layer.cornerRadius = SliderHeight / 2.0;
+            if (SlideBlockCornerRadius > 0) {
+                lineBottom.layer.cornerRadius = SliderHeight / SlideBlockCornerRadius;
+            }
             break;
         default:
             break;
