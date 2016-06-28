@@ -94,11 +94,11 @@
                      @"甘井子",
                      @"星海广场",
                      @"西岗",
-//                     @"马栏子",
-//                     @"革镇堡",
-//                     @"中山",
-//                     @"人民广场",
-//                     @"中山广场"
+                     @"马栏子",
+                     @"革镇堡",
+                     @"中山",
+                     @"人民广场",
+                     @"中山广场"
                      ];
 }
 
@@ -131,6 +131,7 @@
 }
 
 - (NSArray *)ninaDetailVCsArray {
+    //Test init views and viewcontrollers,support creating views or viewcontroller by xib.
     FirstViewController *firstVC = [FirstViewController new];
     SecondViewController *secondVC = [SecondViewController new];
     FirstTableView *firstTV = [[FirstTableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT) style:UITableViewStylePlain];
