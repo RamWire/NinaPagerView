@@ -128,7 +128,7 @@
             [_topTab addSubview:button];
             [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
             [btnArray addObject:button];
-            if (i == 0 && topTabType == 0) {
+            if (i == 0 && (topTabType == 0 || topTabType == 2)) {
                 if (selectBtn) {
                     [button setTitleColor:selectBtn forState:UIControlStateNormal];
                 }else {
@@ -176,6 +176,9 @@
             [ninaMaskView addSubview:maskLabel];
         }
         [lineBottom addSubview:ninaMaskView];
+        if (topTabType == 2) {
+            lineBottom.hidden = YES;
+        }
     }
     return _topTab;
 }
@@ -239,7 +242,7 @@
             }
         }
         for (NSInteger i = 0;  i < btnArray.count; i++) {
-            if (topTabType == 0) {
+            if (topTabType == 0 || topTabType == 2) {
                 if (unselectBtn) {
                     [btnArray[i] setTitleColor:unselectBtn forState:UIControlStateNormal];
                 }else {
@@ -251,7 +254,7 @@
                 changeButton.transform = CGAffineTransformMakeScale(1, 1);
             }];
         }
-        if (topTabType == 0) {
+        if (topTabType == 0 || topTabType == 2) {
             if (selectBtn) {
                 [btnArray[yourPage] setTitleColor:selectBtn forState:UIControlStateNormal];
             }else {

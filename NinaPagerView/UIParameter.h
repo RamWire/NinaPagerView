@@ -25,6 +25,7 @@
 #define SelectBottomLinePer     1 //您可以对此参数进行设置来改变下划线的长度，此参数代表的是选中的整体部分的占比，默认为1，您可以对此进行设置，但推荐您尽量不要设置在0.5以下(此参数设置在两种样式中均可使用)
 #define SelectBottomLineHeight      2 //您可以对此参数进行设置来改变下划线的高度，默认为2，若超过3，则默认为3
 #define SlideBlockCornerRadius      2.0 //滑块的layer.cornerRadius属性，默认的计算公式是(滑块宽度 / SlideBlockCornerRadius)，若您想要自定义调整，请修改此参数，如果不想要圆角，请设置此参数为0。
+#define BottomLineColor     
 
 #endif /* UIParameter_h */
 

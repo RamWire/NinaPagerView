@@ -13,6 +13,8 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
     NinaPagerStyleBottomLine = 0,
     /**<  上侧为滑块   **/
     NinaPagerStyleSlideBlock = 1,
+    /**<  上侧只有文字颜色变化(没有下划线或滑块)   **/
+    NinaPagerStyleStateNormal = 2,
 };
 
 @protocol NinaPagerViewDelegate <NSObject>
