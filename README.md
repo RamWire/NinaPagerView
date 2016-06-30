@@ -92,8 +92,18 @@ ninaPagerView.pushEnabled = YES;
 ```
 
 ### 版本更新说明
+**1.0.0**:1.0.0微调了部分代码同时带来了一些变化，希望您能喜欢:)<br />
+1.0.0 improves some codes,meanwhile brings some changes for the framework,wish you like it:)<br />
+**(1)** 又增加了一种NinaPagerStyle:NinaPagerStyleStateNormal，是不包含下划线或滑块的样式，如果您的项目有此方面需求，可以选择。<br />
+Add a new NinaPagerStyle:NinaPagerStyleStateNormal,it's a style which not has bottomline or sliderblock.You can choose it if needed.<br />
+**(2)** Example的数组创建进行调整，更加明了。<br />
+Creating Arrays in Example is changed,more clearly!<br />
+**(3)** 上方TopTab高度固定在40，如果您想要进行调整，可以去UIParameter.h设置。<br />
+TopTab height fasten to 40,if you wanna to change it,please set it in UIParameter.h.<br />
+**(4)** 在样式NinaPagerStyleSliderBlock中可以对滑块的圆角进行设置啦，同上您可以去UIParameter.h设置。<br />
+In NinaPagerStyleSliderBlock,now you can set block's cornerRadius by setting in UIParameter.h.<br />
 **0.9.1**:针对用户需要对上方**toptab**进行自定义，在UIParameter中加入下划线或滑块的长度比和高度设置，灵活度更高。<br />
-Add some parameters to toptab's bottomline or slider,now you can set their width and height to the project.<br />
+    Add some parameters to toptab's bottomline or slider,now you can set their width and height to the project.<br />
 **0.8.1**:彻底修复了在特定情况下上方**toptab**可以上下滑动的问题。<br />
     Fix topTab vertical-scroll in some conditions.<br />
 **0.8**:新版本带来了新效果，您可以对上方的滑块进行类型上的选择，我们为您提供了两种选择，NinaPagerStyleBottomLine和NinaPagerStyleSlideBlock，具体效果参照上方Gif图，您可以下载最新代码进行体验。<br />
