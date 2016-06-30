@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4D03542E1CA2E45000576C7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03540E1CA2E45000576C7B /* AppDelegate.m */; };
-		4D0354301CA2E45000576C7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D0354101CA2E45000576C7B /* Assets.xcassets */; };
 		4D0354331CA2E45000576C7B /* ChildBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354171CA2E45000576C7B /* ChildBaseViewController.m */; };
 		4D0354341CA2E45000576C7B /* EighthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354191CA2E45000576C7B /* EighthViewController.m */; };
 		4D0354351CA2E45000576C7B /* FifthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03541B1CA2E45000576C7B /* FifthViewController.m */; };
@@ -19,14 +18,16 @@
 		4D03543A1CA2E45000576C7B /* SeventhViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354251CA2E45000576C7B /* SeventhViewController.m */; };
 		4D03543B1CA2E45000576C7B /* SixthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354271CA2E45000576C7B /* SixthViewController.m */; };
 		4D03543C1CA2E45000576C7B /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354291CA2E45000576C7B /* ThirdViewController.m */; };
-		4D03543E1CA2E45000576C7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03542B1CA2E45000576C7B /* main.m */; };
 		4D03543F1CA2E45000576C7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03542D1CA2E45000576C7B /* ViewController.m */; };
 		4DDF49571D04647100D0F21B /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC61CBB857500D3C420 /* UIView+ViewController.m */; };
 		76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E271CE1C39F00C922AF /* FirstTableView.m */; };
 		76148E2D1CE1C39F00C922AF /* SecondTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E291CE1C39F00C922AF /* SecondTableView.m */; };
 		76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E2B1CE1C39F00C922AF /* ThirdTableView.m */; };
 		765674DE1D1A709A00B3CC0D /* ForthCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */; };
-		766422FA1D251CBC00D508F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766422F91D251CBC00D508F2 /* LaunchScreen.storyboard */; };
+		766423001D25209A00D508F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 766422FC1D25209A00D508F2 /* Assets.xcassets */; };
+		766423011D25209A00D508F2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 766422FD1D25209A00D508F2 /* Info.plist */; };
+		766423021D25209A00D508F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766422FE1D25209A00D508F2 /* LaunchScreen.storyboard */; };
+		766423031D25209A00D508F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 766422FF1D25209A00D508F2 /* main.m */; };
 		767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC91CBB9E0700D3C420 /* TestViewController.m */; };
 		768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240B71BF5D32700788E48 /* NinaPagerViewTests.m */; };
 		768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */; };
@@ -99,7 +100,6 @@
 /* Begin PBXFileReference section */
 		4D03540D1CA2E45000576C7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D03540E1CA2E45000576C7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4D0354101CA2E45000576C7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D0354161CA2E45000576C7B /* ChildBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBaseViewController.h; sourceTree = "<group>"; };
 		4D0354171CA2E45000576C7B /* ChildBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBaseViewController.m; sourceTree = "<group>"; };
 		4D0354181CA2E45000576C7B /* EighthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EighthViewController.h; sourceTree = "<group>"; };
@@ -120,8 +120,6 @@
 		4D0354271CA2E45000576C7B /* SixthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixthViewController.m; sourceTree = "<group>"; };
 		4D0354281CA2E45000576C7B /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		4D0354291CA2E45000576C7B /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
-		4D03542A1CA2E45000576C7B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D03542B1CA2E45000576C7B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D03542C1CA2E45000576C7B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4D03542D1CA2E45000576C7B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4D3C85C31CA4471B00514E62 /* NinaBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinaBaseView.h; sourceTree = "<group>"; };
@@ -137,7 +135,10 @@
 		76148E2B1CE1C39F00C922AF /* ThirdTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdTableView.m; sourceTree = "<group>"; };
 		765674DC1D1A709A00B3CC0D /* ForthCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForthCollectionView.h; sourceTree = "<group>"; };
 		765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForthCollectionView.m; sourceTree = "<group>"; };
-		766422F91D251CBC00D508F2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		766422FC1D25209A00D508F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		766422FD1D25209A00D508F2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		766422FE1D25209A00D508F2 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		766422FF1D25209A00D508F2 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		767F0AC51CBB857500D3C420 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
 		767F0AC61CBB857500D3C420 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		767F0AC81CBB9E0700D3C420 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -209,10 +210,7 @@
 				4D0354151CA2E45000576C7B /* ChildVC */,
 				76148E251CE1C36B00C922AF /* ChildView */,
 				769A14E01CBC8ABC002BF591 /* Xib */,
-				4D0354101CA2E45000576C7B /* Assets.xcassets */,
-				4D03542A1CA2E45000576C7B /* Info.plist */,
-				766422F91D251CBC00D508F2 /* LaunchScreen.storyboard */,
-				4D03542B1CA2E45000576C7B /* main.m */,
+				766422FB1D25206600D508F2 /* Supporting Files */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -273,6 +271,17 @@
 				765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */,
 			);
 			path = ChildView;
+			sourceTree = "<group>";
+		};
+		766422FB1D25206600D508F2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				766422FC1D25209A00D508F2 /* Assets.xcassets */,
+				766422FD1D25209A00D508F2 /* Info.plist */,
+				766422FE1D25209A00D508F2 /* LaunchScreen.storyboard */,
+				766422FF1D25209A00D508F2 /* main.m */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		768240911BF5D32700788E48 = {
@@ -510,9 +519,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				766422FA1D251CBC00D508F2 /* LaunchScreen.storyboard in Resources */,
-				4D0354301CA2E45000576C7B /* Assets.xcassets in Resources */,
+				766423001D25209A00D508F2 /* Assets.xcassets in Resources */,
+				766423021D25209A00D508F2 /* LaunchScreen.storyboard in Resources */,
 				769A14E61CBC8C4C002BF591 /* NinaXibVC.storyboard in Resources */,
+				766423011D25209A00D508F2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,7 +577,7 @@
 				4D0354361CA2E45000576C7B /* FirstViewController.m in Sources */,
 				4D0354331CA2E45000576C7B /* ChildBaseViewController.m in Sources */,
 				4D03542E1CA2E45000576C7B /* AppDelegate.m in Sources */,
-				4D03543E1CA2E45000576C7B /* main.m in Sources */,
+				766423031D25209A00D508F2 /* main.m in Sources */,
 				4D03543B1CA2E45000576C7B /* SixthViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -725,7 +735,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;
@@ -739,7 +749,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
 				GCC_PREFIX_HEADER = "";
-				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Example/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerView;
