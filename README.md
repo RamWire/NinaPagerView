@@ -94,8 +94,8 @@ ninaPagerView.pushEnabled = YES;
 ### 版本更新说明
 **1.0.0**:1.0.0微调了部分代码同时带来了一些变化，希望您能喜欢:)<br />
 1.0.0 improves some codes,meanwhile brings some changes for the framework,wish you like it:)<br />
-**(1)** 又增加了一种NinaPagerStyle:NinaPagerStyleStateNormal，是不包含下划线或滑块的样式，如果您的项目有此方面需求，可以选择。<br />
-Add a new NinaPagerStyle:NinaPagerStyleStateNormal,it's a style which not has bottomline or sliderblock.You can choose it if needed.<br />
+**(1)** 又增加了一种NinaPagerStyle:**NinaPagerStyleStateNormal**，是不包含下划线或滑块的样式，如果您的项目有此方面需求，可以选择。<br />
+Add a new NinaPagerStyle:**NinaPagerStyleStateNormal**,it's a style which not has bottomline or sliderblock.You can choose it if needed.<br />
 **(2)** Example的数组创建进行调整，更加明了。<br />
 Creating Arrays in Example is changed,more clearly!<br />
 **(3)** 上方TopTab高度固定在40，如果您想要进行调整，可以去UIParameter.h设置。<br />
