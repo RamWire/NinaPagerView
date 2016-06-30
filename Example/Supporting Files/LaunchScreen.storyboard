@@ -17,19 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="NinaPagerView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbv-kh-isY">
-                                <rect key="frame" x="199" y="269" width="201" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NinaPagerView" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbv-kh-isY">
+                                <rect key="frame" x="238.5" y="269" width="122.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="DEMO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p2-rb-AUS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEMO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p2-rb-AUS">
                                 <rect key="frame" x="271" y="310" width="58" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Copyright © 2016 RamWire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBn-OR-sry">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2016 RamWire" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBn-OR-sry">
                                 <rect key="frame" x="217" y="566" width="155" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,10 +40,10 @@
                         <constraints>
                             <constraint firstItem="qbv-kh-isY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="9or-pf-GWY"/>
                             <constraint firstItem="qbv-kh-isY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="LJH-TR-QSw"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="GBn-OR-sry" secondAttribute="bottom" constant="20" id="NgH-Wf-Wl2"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="GBn-OR-sry" secondAttribute="bottom" constant="19" id="NgH-Wf-Wl2"/>
                             <constraint firstItem="3p2-rb-AUS" firstAttribute="top" secondItem="qbv-kh-isY" secondAttribute="bottom" constant="20" id="OeL-yp-0mi"/>
                             <constraint firstItem="3p2-rb-AUS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="RJK-lv-jiF"/>
-                            <constraint firstItem="GBn-OR-sry" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="e79-uk-iTT"/>
+                            <constraint firstItem="GBn-OR-sry" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="-5.5" id="e79-uk-iTT"/>
                         </constraints>
                     </view>
                 </viewController>

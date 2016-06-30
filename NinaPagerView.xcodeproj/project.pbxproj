@@ -25,7 +25,6 @@
 		76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E2B1CE1C39F00C922AF /* ThirdTableView.m */; };
 		765674DE1D1A709A00B3CC0D /* ForthCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */; };
 		766423001D25209A00D508F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 766422FC1D25209A00D508F2 /* Assets.xcassets */; };
-		766423011D25209A00D508F2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 766422FD1D25209A00D508F2 /* Info.plist */; };
 		766423021D25209A00D508F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766422FE1D25209A00D508F2 /* LaunchScreen.storyboard */; };
 		766423031D25209A00D508F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 766422FF1D25209A00D508F2 /* main.m */; };
 		767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC91CBB9E0700D3C420 /* TestViewController.m */; };
@@ -522,7 +521,6 @@
 				766423001D25209A00D508F2 /* Assets.xcassets in Resources */,
 				766423021D25209A00D508F2 /* LaunchScreen.storyboard in Resources */,
 				769A14E61CBC8C4C002BF591 /* NinaXibVC.storyboard in Resources */,
-				766423011D25209A00D508F2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
