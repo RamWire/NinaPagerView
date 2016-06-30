@@ -1,3 +1,4 @@
+🇨🇳[中文文档说明](https://github.com/RamWire/NinaPagerView/blob/master/README_CN.md)
 # NinaPagerView 
 [![Language](https://img.shields.io/badge/Language-%20Objective--C%20-orange.svg)](https://img.shields.io/badge/Language-%20Objective--C%20-orange.svg)
 [![Pod Version](http://img.shields.io/cocoapods/v/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
@@ -5,7 +6,7 @@
 [![Pod Platform](http://img.shields.io/cocoapods/p/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
 [![Pod License](http://img.shields.io/cocoapods/l/NinaPagerView.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-* NinaPagerView is a view easy to page your controllers.
+* NinaPagerView is a view easy to page your controllers.<br />
 
 ## Features
 - [x] Low coupling,just create your own viewcontrollers or views,that's it!
