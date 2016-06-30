@@ -6,7 +6,7 @@
 [![Pod Platform](http://img.shields.io/cocoapods/p/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
 [![Pod License](http://img.shields.io/cocoapods/l/NinaPagerView.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-* NinaPagerView is a view easy to page your controllers.<br />
+* NinaPagerView is a view easy to page your controllers and views.<br />
 
 ## Features
 - [x] Low coupling,just create your own viewcontrollers or views,that's it!
