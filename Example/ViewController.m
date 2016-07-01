@@ -40,12 +40,12 @@
      *  传入方法2：0.7新增:对view数组的支持，您如果觉得viewController数组对于您的项目来说太重并且在呈现界面时不需要这么多Controller进行处理，您可以通过相同的形式将您所想添加的view加入数组中传入NinaPagerView。
      *  If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~
      */
-    NSArray *viewsArray = [self ninaViewsArray];
+//    NSArray *viewsArray = [self ninaViewsArray];
     /**
      *  传入方法3：适用于IB创建或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可，具体实现可参照下方代码。
      *  If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~
      */
-    NSArray *detailVCsArray = [self ninaDetailVCsArray];
+//    NSArray *detailVCsArray = [self ninaDetailVCsArray];
     /**
      *  您可以选择是否要改变标题选中的颜色(默认为黑色)、未选中的颜色(默认为灰色)或者下划线的颜色(默认为色值是ff6262)，上方菜单栏背景色(默认为白色)。如果传入颜色数量不够，则按顺序给相应的部分添加颜色。
      *  You can choose whether change your titles' selectColor(default is black),unselectColor(default is gray) and underline color(default is Color value ff6262),topTabBackGround color(default is white).
