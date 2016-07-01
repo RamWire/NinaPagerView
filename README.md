@@ -99,28 +99,28 @@ ninaPagerView.pushEnabled = YES;
 ```
 
 ### Version Update
-####1.0.0
+####v1.0.0
 Improves some codes,meanwhile brings some changes for the framework,wish you like it:)<br />
 **(1)** Add a new NinaPagerStyle:**NinaPagerStyleStateNormal**,it's a style which not has bottomline or sliderblock.You can choose it if needed.<br />
 **(2)** Creating Arrays in Example is changed,more clearly!<br />
 **(3)** TopTab height fasten to 40,if you wanna to change it,please set it in UIParameter.h.<br />
 **(4)** In NinaPagerStyleSliderBlock,now you can set block's cornerRadius by setting in UIParameter.h.<br />
-####0.9.1
+####v0.9.1
 Add some parameters to toptab's bottomline or slider,now you can set their width and height to the project.<br />
-####0.8.1
+####v0.8.1
 Fix topTab vertical-scroll in some conditions.<br />
-####0.8.0
+####v0.8.0
 New selection of topTab style,now you can choose **NinaPagerStyleBottomLine** and **NinaPagerStyleSlideBlock** as gifs showed.<br />
-####0.7.0
+####v0.7.0
 If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~<br />
-####0.6.0
+####v0.6.0
 Support long-length title.<br />
-####0.5.2
+####v0.5.2
 You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.
 ```objc
 ninaPagerView.titleScale = 1.5;
 ```
-####0.5.0
+####v0.5.0
 If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
 
 ## FeedBack
