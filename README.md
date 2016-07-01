@@ -110,7 +110,7 @@ Add some parameters to toptab's bottomline or slider,now you can set their width
 ####0.8.1
 Fix topTab vertical-scroll in some conditions.<br />
 ####0.8.0
-New selection of topTab style,now you can choose NinaPagerStyleBottomLine and NinaPagerStyleSlideBlock as gifs showed.<br />
+New selection of topTab style,now you can choose **NinaPagerStyleBottomLine** and **NinaPagerStyleSlideBlock** as gifs showed.<br />
 ####0.7.0
 If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~<br />
 ####0.6.0
