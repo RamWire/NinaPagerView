@@ -98,7 +98,7 @@ ninaPagerView.pushEnabled = YES;
 }
 ```
 
-### Change Log
+## Change Log
 ####v1.0.0
 Improves some codes,meanwhile brings some changes for the framework,wish you like it:)<br />
 **(1)** Add a new NinaPagerStyle:**NinaPagerStyleStateNormal**,it's a style which not has bottomline or sliderblock.You can choose it if needed.<br />
