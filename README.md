@@ -83,11 +83,15 @@ NSArray *colorArray = @[
 ```
 * If TopTab shelters from navigationBar,please try to add the following codes into the controller that you create NinaPagerView:
 ```objc
-self.navigationBar.translucent = NO;
+self.navigationController.navigationBar.translucent = NO;
 ```
 * Because of the framework setting,you must add following codes under the line after addSubView codes in order to push second level VC. 
 ```objc
 ninaPagerView.pushEnabled = YES;
+```
+* If you wanna hidden the navigationBar,you can set nina_navigationBarHidden to YES. 
+```objc
+ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ### Memory Management
