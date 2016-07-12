@@ -88,7 +88,7 @@ self.navigationBar.translucent = NO;
 ```objc
 ninaPagerView.pushEnabled = YES;
 ```
-* 如果您需要将导航栏隐藏，您可以对此参数nina_navigationBarHidden设置成YES。<br />
+* 如果您需要将导航栏隐藏，您可以设置nina_navigationBarHidden为YES。<br />
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
@@ -103,7 +103,7 @@ return YES;
 
 ### 版本更新说明
 ####v1.1.0
-加入了对导航栏隐藏情况的支持，您现在可以切换有无导航栏两种情况。<br />
+加入了对导航栏隐藏情况的支持，您现在可以选择切换有无导航栏两种情况。<br />
 ####v1.0.0
 1.0.0微调了部分代码同时带来了一些变化，希望您能喜欢:)<br />
 **(1)** 又增加了一种NinaPagerStyle:**NinaPagerStyleStateNormal**，是不包含下划线或滑块的样式，如果您的项目有此方面需求，可以选择。<br />
