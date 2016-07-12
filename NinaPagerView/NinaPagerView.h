@@ -45,5 +45,6 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
 @property (assign, nonatomic) BOOL pushEnabled; /**<  使添加的视图可以进行点击push动作   **/
 @property (copy, nonatomic) NSString *PageIndex; /**< 所在的控制器index或点击上方button的index **/
 @property (assign, nonatomic) CGFloat titleScale; /**<  标题缩放比例   **/
+@property (assign, nonatomic) BOOL nina_navigationBarHidden; /**<  是否隐藏了导航栏   **/
 @property (weak, nonatomic) id<NinaPagerViewDelegate>delegate; /**< NinaPagerView代理 **/
 @end

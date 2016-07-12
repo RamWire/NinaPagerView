@@ -24,6 +24,7 @@
     ViewController *viewC = [[ViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewC];
     self.window.rootViewController = navController;
+//    navController.navigationBarHidden = YES;
 //    UITabBarController *tab = [UITabBarController new];
 //    tab.viewControllers = @[navController];
 //    self.window.rootViewController = tab;

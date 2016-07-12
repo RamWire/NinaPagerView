@@ -70,6 +70,14 @@ static NSString *const kObserverPage = @"currentPage";
     pagerView.titleScale = _titleScale;
 }
 
+- (void)setNina_navigationBarHidden:(BOOL)nina_navigationBarHidden {
+    if (nina_navigationBarHidden == YES) {
+        self.viewController.automaticallyAdjustsScrollViewInsets = NO;
+        pagerView.topTab.frame = CGRectMake(0, 20, FUll_VIEW_WIDTH, PageBtn);
+        pagerView.scrollView.frame = CGRectMake(0, PageBtn + 20, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+    }
+}
+
 #pragma mark - NSCache
 - (NSCache *)limitControllerCache {
     if (!_limitControllerCache) {

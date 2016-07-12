@@ -68,6 +68,11 @@
      *  Because of the framework setting,you must add following codes under the line after addSubView codes in order to push second level VC.
      */
     ninaPagerView.pushEnabled = YES;
+    /**
+     *  如果需求中需要将导航栏隐藏，您可以对此参数nina_navigationBarHidden设置成YES。
+     *  If you wanna hidden the navigationBar,you can set nina_navigationBarHidden to YES.
+     */
+    ninaPagerView.nina_navigationBarHidden = YES;
 }
 
 #pragma mark - NinaPagerViewDelegate
