@@ -103,6 +103,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.1.0
+Support navigationBarHidden situation,now you can select navigationBar hidden or not.<br />
 ####v1.0.0
 Improves some codes,meanwhile brings some changes for the framework,wish you like it:)<br />
 **(1)** Add a new NinaPagerStyle:**NinaPagerStyleStateNormal**,it's a style which not has bottomline or sliderblock.You can choose it if needed.<br />
