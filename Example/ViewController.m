@@ -72,7 +72,7 @@
      *  如果您需要将导航栏隐藏，您可以对此参数nina_navigationBarHidden设置成YES。
      *  If you wanna hidden the navigationBar,you can set nina_navigationBarHidden to YES.
      */
-    ninaPagerView.nina_navigationBarHidden = YES;
+//    ninaPagerView.nina_navigationBarHidden = YES;
 }
 
 #pragma mark - NinaPagerViewDelegate
