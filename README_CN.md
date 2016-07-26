@@ -24,7 +24,7 @@
 ## 安装
 
 将NinaPagerView文件夹拖入Xcode工程中
-您也可以使用Cocoapods或者Carthage集成到工程中
+您也可以使用Cocoapods或者Carthage集成到您的工程中
 
 #### 使用 [CocoaPods](http://cocoapods.org/)
 
@@ -48,7 +48,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithNinaPagerStyle:Nin
 ```
 即可完成~
 
-### 其他设置和提示
+### 其他设置和补充
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
 NSArray *titleArray = @[
