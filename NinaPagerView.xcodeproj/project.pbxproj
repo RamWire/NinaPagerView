@@ -28,12 +28,8 @@
 		766423021D25209A00D508F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766422FE1D25209A00D508F2 /* LaunchScreen.storyboard */; };
 		766423031D25209A00D508F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 766422FF1D25209A00D508F2 /* main.m */; };
 		767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC91CBB9E0700D3C420 /* TestViewController.m */; };
-		768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240B71BF5D32700788E48 /* NinaPagerViewTests.m */; };
-		768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */; };
 		769A14E61CBC8C4C002BF591 /* NinaXibVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769A14E51CBC8C4C002BF591 /* NinaXibVC.storyboard */; };
 		76CEDFD91CBF79370074765F /* NinaPagerViewCarthage.h in Headers */ = {isa = PBXBuildFile; fileRef = 76CEDFD81CBF79370074765F /* NinaPagerViewCarthage.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76CEDFE01CBF79380074765F /* NinaPagerViewCarthage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */; };
-		76CEDFE71CBF79380074765F /* NinaPagerViewCarthageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CEDFE61CBF79380074765F /* NinaPagerViewCarthageTests.m */; };
 		76CEDFEB1CBF79380074765F /* NinaPagerViewCarthage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */; };
 		76CEDFEC1CBF79380074765F /* NinaPagerViewCarthage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		76CEDFF41CBF79920074765F /* NinaPagerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D3C85C51CA4471B00514E62 /* NinaPagerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,34 +41,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		768240B41BF5D32700788E48 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 768240921BF5D32700788E48 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 768240991BF5D32700788E48;
-			remoteInfo = NinaPagerView;
-		};
-		768240BF1BF5D32700788E48 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 768240921BF5D32700788E48 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 768240991BF5D32700788E48;
-			remoteInfo = NinaPagerView;
-		};
-		76CEDFE11CBF79380074765F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 768240921BF5D32700788E48 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 76CEDFD51CBF79370074765F;
-			remoteInfo = NinaPagerViewCarthage;
-		};
-		76CEDFE31CBF79380074765F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 768240921BF5D32700788E48 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 768240991BF5D32700788E48;
-			remoteInfo = NinaPagerView;
-		};
 		76CEDFE91CBF79380074765F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 768240921BF5D32700788E48 /* Project object */;
@@ -143,19 +111,10 @@
 		767F0AC81CBB9E0700D3C420 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		767F0AC91CBB9E0700D3C420 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		7682409A1BF5D32700788E48 /* NinaPagerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinaPagerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		768240B31BF5D32700788E48 /* NinaPagerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaPagerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		768240B71BF5D32700788E48 /* NinaPagerViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerViewTests.m; sourceTree = "<group>"; };
-		768240B91BF5D32700788E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		768240BE1BF5D32700788E48 /* NinaPagerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaPagerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerViewUITests.m; sourceTree = "<group>"; };
-		768240C41BF5D32700788E48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		769A14E51CBC8C4C002BF591 /* NinaXibVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NinaXibVC.storyboard; sourceTree = "<group>"; };
 		76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NinaPagerViewCarthage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76CEDFD81CBF79370074765F /* NinaPagerViewCarthage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NinaPagerViewCarthage.h; sourceTree = "<group>"; };
 		76CEDFDA1CBF79370074765F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		76CEDFDF1CBF79370074765F /* NinaPagerViewCarthageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaPagerViewCarthageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		76CEDFE61CBF79380074765F /* NinaPagerViewCarthageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaPagerViewCarthageTests.m; sourceTree = "<group>"; };
-		76CEDFE81CBF79380074765F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,32 +126,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		768240B01BF5D32700788E48 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		768240BB1BF5D32700788E48 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		76CEDFD21CBF79370074765F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76CEDFDC1CBF79370074765F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				76CEDFE01CBF79380074765F /* NinaPagerViewCarthage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,10 +225,7 @@
 			children = (
 				4D03540C1CA2E45000576C7B /* Example */,
 				4D3C85C21CA4471B00514E62 /* NinaPagerView */,
-				768240B61BF5D32700788E48 /* NinaPagerViewTests */,
-				768240C11BF5D32700788E48 /* NinaPagerViewUITests */,
 				76CEDFD71CBF79370074765F /* NinaPagerViewCarthage */,
-				76CEDFE51CBF79380074765F /* NinaPagerViewCarthageTests */,
 				7682409B1BF5D32700788E48 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -300,30 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				7682409A1BF5D32700788E48 /* NinaPagerView.app */,
-				768240B31BF5D32700788E48 /* NinaPagerViewTests.xctest */,
-				768240BE1BF5D32700788E48 /* NinaPagerViewUITests.xctest */,
 				76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */,
-				76CEDFDF1CBF79370074765F /* NinaPagerViewCarthageTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		768240B61BF5D32700788E48 /* NinaPagerViewTests */ = {
-			isa = PBXGroup;
-			children = (
-				768240B71BF5D32700788E48 /* NinaPagerViewTests.m */,
-				768240B91BF5D32700788E48 /* Info.plist */,
-			);
-			path = NinaPagerViewTests;
-			sourceTree = "<group>";
-		};
-		768240C11BF5D32700788E48 /* NinaPagerViewUITests */ = {
-			isa = PBXGroup;
-			children = (
-				768240C21BF5D32700788E48 /* NinaPagerViewUITests.m */,
-				768240C41BF5D32700788E48 /* Info.plist */,
-			);
-			path = NinaPagerViewUITests;
 			sourceTree = "<group>";
 		};
 		769A14E01CBC8ABC002BF591 /* Xib */ = {
@@ -341,15 +254,6 @@
 				76CEDFDA1CBF79370074765F /* Info.plist */,
 			);
 			path = NinaPagerViewCarthage;
-			sourceTree = "<group>";
-		};
-		76CEDFE51CBF79380074765F /* NinaPagerViewCarthageTests */ = {
-			isa = PBXGroup;
-			children = (
-				76CEDFE61CBF79380074765F /* NinaPagerViewCarthageTests.m */,
-				76CEDFE81CBF79380074765F /* Info.plist */,
-			);
-			path = NinaPagerViewCarthageTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,42 +293,6 @@
 			productReference = 7682409A1BF5D32700788E48 /* NinaPagerView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		768240B21BF5D32700788E48 /* NinaPagerViewTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 768240CA1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewTests" */;
-			buildPhases = (
-				768240AF1BF5D32700788E48 /* Sources */,
-				768240B01BF5D32700788E48 /* Frameworks */,
-				768240B11BF5D32700788E48 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				768240B51BF5D32700788E48 /* PBXTargetDependency */,
-			);
-			name = NinaPagerViewTests;
-			productName = NinaPagerViewTests;
-			productReference = 768240B31BF5D32700788E48 /* NinaPagerViewTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		768240BD1BF5D32700788E48 /* NinaPagerViewUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 768240CD1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewUITests" */;
-			buildPhases = (
-				768240BA1BF5D32700788E48 /* Sources */,
-				768240BB1BF5D32700788E48 /* Frameworks */,
-				768240BC1BF5D32700788E48 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				768240C01BF5D32700788E48 /* PBXTargetDependency */,
-			);
-			name = NinaPagerViewUITests;
-			productName = NinaPagerViewUITests;
-			productReference = 768240BE1BF5D32700788E48 /* NinaPagerViewUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		76CEDFD51CBF79370074765F /* NinaPagerViewCarthage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76CEDFED1CBF79380074765F /* Build configuration list for PBXNativeTarget "NinaPagerViewCarthage" */;
@@ -443,25 +311,6 @@
 			productReference = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		76CEDFDE1CBF79370074765F /* NinaPagerViewCarthageTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 76CEDFF01CBF79380074765F /* Build configuration list for PBXNativeTarget "NinaPagerViewCarthageTests" */;
-			buildPhases = (
-				76CEDFDB1CBF79370074765F /* Sources */,
-				76CEDFDC1CBF79370074765F /* Frameworks */,
-				76CEDFDD1CBF79370074765F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				76CEDFE21CBF79380074765F /* PBXTargetDependency */,
-				76CEDFE41CBF79380074765F /* PBXTargetDependency */,
-			);
-			name = NinaPagerViewCarthageTests;
-			productName = NinaPagerViewCarthageTests;
-			productReference = 76CEDFDF1CBF79370074765F /* NinaPagerViewCarthageTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -474,20 +323,8 @@
 					768240991BF5D32700788E48 = {
 						CreatedOnToolsVersion = 7.0;
 					};
-					768240B21BF5D32700788E48 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 768240991BF5D32700788E48;
-					};
-					768240BD1BF5D32700788E48 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = 768240991BF5D32700788E48;
-					};
 					76CEDFD51CBF79370074765F = {
 						CreatedOnToolsVersion = 7.3;
-					};
-					76CEDFDE1CBF79370074765F = {
-						CreatedOnToolsVersion = 7.3;
-						TestTargetID = 768240991BF5D32700788E48;
 					};
 				};
 			};
@@ -505,10 +342,7 @@
 			projectRoot = "";
 			targets = (
 				768240991BF5D32700788E48 /* NinaPagerView */,
-				768240B21BF5D32700788E48 /* NinaPagerViewTests */,
-				768240BD1BF5D32700788E48 /* NinaPagerViewUITests */,
 				76CEDFD51CBF79370074765F /* NinaPagerViewCarthage */,
-				76CEDFDE1CBF79370074765F /* NinaPagerViewCarthageTests */,
 			);
 		};
 /* End PBXProject section */
@@ -524,28 +358,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		768240B11BF5D32700788E48 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		768240BC1BF5D32700788E48 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		76CEDFD41CBF79370074765F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		76CEDFDD1CBF79370074765F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -580,22 +393,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		768240AF1BF5D32700788E48 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				768240B81BF5D32700788E48 /* NinaPagerViewTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		768240BA1BF5D32700788E48 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				768240C31BF5D32700788E48 /* NinaPagerViewUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		76CEDFD11CBF79370074765F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -606,37 +403,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		76CEDFDB1CBF79370074765F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				76CEDFE71CBF79380074765F /* NinaPagerViewCarthageTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		768240B51BF5D32700788E48 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 768240991BF5D32700788E48 /* NinaPagerView */;
-			targetProxy = 768240B41BF5D32700788E48 /* PBXContainerItemProxy */;
-		};
-		768240C01BF5D32700788E48 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 768240991BF5D32700788E48 /* NinaPagerView */;
-			targetProxy = 768240BF1BF5D32700788E48 /* PBXContainerItemProxy */;
-		};
-		76CEDFE21CBF79380074765F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 76CEDFD51CBF79370074765F /* NinaPagerViewCarthage */;
-			targetProxy = 76CEDFE11CBF79380074765F /* PBXContainerItemProxy */;
-		};
-		76CEDFE41CBF79380074765F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 768240991BF5D32700788E48 /* NinaPagerView */;
-			targetProxy = 76CEDFE31CBF79380074765F /* PBXContainerItemProxy */;
-		};
 		76CEDFEA1CBF79380074765F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 76CEDFD51CBF79370074765F /* NinaPagerViewCarthage */;
@@ -755,54 +524,6 @@
 			};
 			name = Release;
 		};
-		768240CB1BF5D32700788E48 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = NinaPagerViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NinaPagerView.app/NinaPagerView";
-			};
-			name = Debug;
-		};
-		768240CC1BF5D32700788E48 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = NinaPagerViewTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NinaPagerView.app/NinaPagerView";
-			};
-			name = Release;
-		};
-		768240CE1BF5D32700788E48 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = NinaPagerViewUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = NinaPagerView;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		768240CF1BF5D32700788E48 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = NinaPagerViewUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zfy.NinaPagerViewUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = NinaPagerView;
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 		76CEDFEE1CBF79380074765F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -847,32 +568,6 @@
 			};
 			name = Release;
 		};
-		76CEDFF11CBF79380074765F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = NinaPagerViewCarthageTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RamWire.NinaPagerViewCarthageTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NinaPagerView.app/NinaPagerView";
-			};
-			name = Debug;
-		};
-		76CEDFF21CBF79380074765F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = NinaPagerViewCarthageTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = RamWire.NinaPagerViewCarthageTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NinaPagerView.app/NinaPagerView";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -894,38 +589,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		768240CA1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				768240CB1BF5D32700788E48 /* Debug */,
-				768240CC1BF5D32700788E48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		768240CD1BF5D32700788E48 /* Build configuration list for PBXNativeTarget "NinaPagerViewUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				768240CE1BF5D32700788E48 /* Debug */,
-				768240CF1BF5D32700788E48 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		76CEDFED1CBF79380074765F /* Build configuration list for PBXNativeTarget "NinaPagerViewCarthage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				76CEDFEE1CBF79380074765F /* Debug */,
 				76CEDFEF1CBF79380074765F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		76CEDFF01CBF79380074765F /* Build configuration list for PBXNativeTarget "NinaPagerViewCarthageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				76CEDFF11CBF79380074765F /* Debug */,
-				76CEDFF21CBF79380074765F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

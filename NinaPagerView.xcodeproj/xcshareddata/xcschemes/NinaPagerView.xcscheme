@@ -28,56 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "768240B21BF5D32700788E48"
-               BuildableName = "NinaPagerViewTests.xctest"
-               BlueprintName = "NinaPagerViewTests"
-               ReferencedContainer = "container:NinaPagerView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "768240BD1BF5D32700788E48"
-               BuildableName = "NinaPagerViewUITests.xctest"
-               BlueprintName = "NinaPagerViewUITests"
-               ReferencedContainer = "container:NinaPagerView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76CEDF991CBF787A0074765F"
-               BuildableName = "NinaPagerViewsTests.xctest"
-               BlueprintName = "NinaPagerViewsTests"
-               ReferencedContainer = "container:NinaPagerView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76CEDFBC1CBF78C90074765F"
-               BuildableName = "MyCathageTests.xctest"
-               BlueprintName = "MyCathageTests"
-               ReferencedContainer = "container:NinaPagerView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "76CEDFDE1CBF79370074765F"
-               BuildableName = "NinaPagerViewCarthageTests.xctest"
-               BlueprintName = "NinaPagerViewCarthageTests"
-               ReferencedContainer = "container:NinaPagerView.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
