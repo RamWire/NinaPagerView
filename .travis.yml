@@ -1,10 +1,7 @@
-osx_image: xcode7.2
 language: objective-c
-script:
-- |
-xcodebuild build \
--project NinaPagerView.xcodeproj \
--scheme NinaPagerView \
--sdk iphonesimulator \
--destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
+osx_image: xcode7
+xcode_project: NinaPagerView.xcodeproj
+xcode_scheme: NinaPagerView
 
+script:
+- xctool -project NinaPagerView.xcodeproj -scheme NinaPagerView -configuration Debug CODE_SIGN_IDENTITY="" -sdk iphonesimulator test
