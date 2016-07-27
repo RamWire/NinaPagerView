@@ -1,5 +1,5 @@
+
+sx_image: xcode7.3
 language: objective-c
-osx_image: xcode7.3
 xcode_project: NinaPagerView.xcodeproj
-xcode_scheme: NinaPagerView
-xcode_sdk: iphonesimulator9.3
+script: xcodebuild -project NinaPagerView.xcodeproj -scheme "NinaPagerView" -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
