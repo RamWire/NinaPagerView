@@ -68,7 +68,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (isDebug) {
-        NSLog(@"点击了控制器%@单元格的%li",indexTag,indexPath.row);
+        NSLog(@"点击了控制器%@单元格的%li",indexTag,(long)indexPath.row);
     }
     TestViewController *testVC = [TestViewController new];
     [self.navigationController pushViewController:testVC animated:YES];

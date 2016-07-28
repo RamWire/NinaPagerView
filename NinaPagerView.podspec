@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name     = 'NinaPagerView'
-s.version  = '1.1.0'
+s.version  = '1.1.1'
 s.license  = 'MIT'
 s.platform      = :ios, '7.0'
 s.summary  = 'NinaPagerView is a view easy to page your controllers.'
