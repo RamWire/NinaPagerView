@@ -104,6 +104,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.1.2
+Optimize two-line title and details in SlideBlock.<br />
 ####v1.1.1
 NinaSlideBlock support two-line display in NinaPagerView.<br />
 ####v1.1.0
