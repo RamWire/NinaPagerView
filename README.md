@@ -7,7 +7,7 @@
 [![Support](https://img.shields.io/badge/support-iOS%206%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)&nbsp;
 [![Pod License](http://img.shields.io/cocoapods/l/NinaPagerView.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0.html)<br />
 🇨🇳[中文文档说明](https://github.com/RamWire/NinaPagerView/blob/master/README_CN.md)
-* NinaPagerView is a view easy to page your controllers and views.<br />
+* NinaPagerView is a segment easy to page your controllers and views.<br />
 
 ## Features
 - [x] Low coupling,just create your own viewcontrollers or views,that's it!
