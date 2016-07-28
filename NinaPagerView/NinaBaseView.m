@@ -185,6 +185,7 @@
             }
             maskLabel.text = titlesArray[j];
             maskLabel.textColor = selectBtn;
+            maskLabel.numberOfLines = 0;
             maskLabel.textAlignment = NSTextAlignmentCenter;
             maskLabel.font = [UIFont systemFontOfSize:14];
             [ninaMaskView addSubview:maskLabel];
