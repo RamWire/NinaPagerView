@@ -104,6 +104,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.1.1
+NinaSlideBlock support two-line display in NinaPagerView.<br />
 ####v1.1.0
 Support navigationBarHidden situation,now you can select navigationBar hidden or not.<br />
 ####v1.0.0
