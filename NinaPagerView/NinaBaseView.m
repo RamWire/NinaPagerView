@@ -84,9 +84,9 @@
 - (void)setTitleScale:(CGFloat)titleScale {
     _titleScale = titleScale;
     UIButton *buttonZero = btnArray[0];
-    [UIView animateWithDuration:0.3 animations:^{
-        buttonZero.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
-    }];
+    if (topTabType != 1) {
+            buttonZero.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
+    }
 }
 
 #pragma mark - GetMethod
@@ -131,6 +131,7 @@
             if ([titlesArray[i] isKindOfClass:[NSString class]]) {
                  [button setTitle:titlesArray[i] forState:UIControlStateNormal];
                 button.titleLabel.numberOfLines = 0;
+                button.titleLabel.textAlignment = NSTextAlignmentCenter;
             }else {
                 NSLog(@"您所提供的标题%li格式不正确。 Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1,(long)i + 1);
             }
@@ -148,9 +149,7 @@
                 }else {
                     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 }
-                [UIView animateWithDuration:0.3 animations:^{
-                    button.transform = CGAffineTransformMakeScale(1.15, 1.15);
-                }];
+                button.transform = CGAffineTransformMakeScale(1.15, 1.15);
             } else {
                 if (unselectBtn) {
                      [button setTitleColor:unselectBtn forState:UIControlStateNormal];
