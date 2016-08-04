@@ -60,8 +60,14 @@ static NSString *const kObserverPage = @"currentPage";
 
 #pragma mark - SetMethod
 - (void)setPushEnabled:(BOOL )pushEnabled {
-    if (pushEnabled == YES && firstVC != nil) {
-        [self.viewController addChildViewController:firstVC];
+    if (LoadWholePage && pushEnabled == YES) {
+        for (NSInteger i = 0; i < vcsArray.count; i++) {
+            [self.viewController addChildViewController:vcsArray[i]];
+        }
+    }else {
+        if (pushEnabled == YES && firstVC != nil) {
+            [self.viewController addChildViewController:firstVC];
+        }
     }
 }
 
@@ -122,26 +128,12 @@ static NSString *const kObserverPage = @"currentPage";
         [self addSubview:pagerView];
         //First ViewController present to the screen
         if (classArray.count > 0 && myArray.count > 0) {
-            if ([classArray[0] isKindOfClass:[NSString class]]) {
-                NSString *className = classArray[0];
-                Class class = NSClassFromString(className);
-                if ([class isSubclassOfClass:[UIViewController class]]) {
-                    UIViewController *ctrl = class.new;
-                    [self createFirstViewController:ctrl];
-                }else if ([class isSubclassOfClass:[UIView class]]) {
-                    UIView *singleView =class.new;
-                    singleView.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-                    [pagerView.scrollView addSubview:singleView];
+            if (LoadWholePage) {
+                for (NSInteger i = 0; i< classArray.count; i++) {
+                    [self loadWholeOrNotWithTag:i WithMode:1];
                 }
             }else {
-                if ([classArray[0] isKindOfClass:[UIViewController class]]) {
-                    UIViewController *ctrl = classArray[0];
-                    [self createFirstViewController:ctrl];
-                }else if ([classArray[0] isKindOfClass:[UIView class]]) {
-                    UIView *singleView = classArray[0];
-                    singleView.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-                    [pagerView.scrollView addSubview:singleView];
-                }
+                [self loadWholeOrNotWithTag:0 WithMode:0];
             }
         }
     }else {
@@ -180,56 +172,58 @@ static NSString *const kObserverPage = @"currentPage";
             }
             [pagerView.topTab setContentOffset:CGPointMake(topTabOffsetX, 0) animated:YES];
         }
-        for (NSInteger i = 0; i < myArray.count; i++) {
-            if (page == i && i <= classArray.count - 1) {
-                if ([classArray[i] isKindOfClass:[NSString class]]) {
-                    NSString *className = classArray[i];
-                    Class class = NSClassFromString(className);
-                    if ([class isSubclassOfClass:[UIViewController class]] && viewAlloc[i] == NO) {
-                        UIViewController *ctrl = nil;
-                        ctrl = class.new;
-                        [self createOtherViewControllers:ctrl WithControllerTag:i];
-                    }else if ([class isSubclassOfClass:[UIView class]]) {
-                        UIView *singleView =class.new;
-                        singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-                        [pagerView.scrollView addSubview:singleView];
-                    }else if (!class) {
-                        NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
-                    }
-                }else {
-                    if ([classArray[i] isKindOfClass:[UIViewController class]]) {
-                        UIViewController *ctrl = classArray[i];
-                        if (ctrl && viewAlloc[i] == NO) {
+        if (!LoadWholePage) {
+            for (NSInteger i = 0; i < myArray.count; i++) {
+                if (page == i && i <= classArray.count - 1) {
+                    if ([classArray[i] isKindOfClass:[NSString class]]) {
+                        NSString *className = classArray[i];
+                        Class class = NSClassFromString(className);
+                        if ([class isSubclassOfClass:[UIViewController class]] && viewAlloc[i] == NO) {
+                            UIViewController *ctrl = nil;
+                            ctrl = class.new;
                             [self createOtherViewControllers:ctrl WithControllerTag:i];
-                        }else if (!ctrl) {
+                        }else if ([class isSubclassOfClass:[UIView class]]) {
+                            UIView *singleView =class.new;
+                            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+                            [pagerView.scrollView addSubview:singleView];
+                        }else if (!class) {
                             NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
                         }
-                    }else if ([classArray[i] isKindOfClass:[UIView class]]) {
-                        UIView *singleView = classArray[i];
-                        singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
-                        [pagerView.scrollView addSubview:singleView];
+                    }else {
+                        if ([classArray[i] isKindOfClass:[UIViewController class]]) {
+                            UIViewController *ctrl = classArray[i];
+                            if (ctrl && viewAlloc[i] == NO) {
+                                [self createOtherViewControllers:ctrl WithControllerTag:i];
+                            }else if (!ctrl) {
+                                NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
+                            }
+                        }else if ([classArray[i] isKindOfClass:[UIView class]]) {
+                            UIView *singleView = classArray[i];
+                            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+                            [pagerView.scrollView addSubview:singleView];
+                        }
                     }
+                }else if (page == i && i > classArray.count - 1) {
+                    NSLog(@"您没有配置对应Title%li的VC",(long)i + 1);
+                }else {
+                    /**<  内存管理限制控制器最大数量为5个   **/
+                    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
+                        if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
+                            UIViewController *deallocVC = [vcsArray firstObject];
+                            NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
+                            if (![self.limitControllerCache objectForKey:@(deallocTag)]) {
+                                [self.limitControllerCache setObject:deallocVC forKey:@(deallocTag)];
+                            };
+                            [deallocVC.view removeFromSuperview];
+                            deallocVC.view = nil;
+                            [deallocVC removeFromParentViewController];
+                            deallocVC = nil;
+                            [vcsArray removeObjectAtIndex:0];
+                            viewAlloc[deallocTag] = NO;
+                            [vcsTagArray removeObjectAtIndex:0];
+                        }
+                    }                
                 }
-            }else if (page == i && i > classArray.count - 1) {
-                NSLog(@"您没有配置对应Title%li的VC",(long)i + 1);
-            }else {
-                /**<  内存管理限制控制器最大数量为5个   **/
-                if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
-                    if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
-                        UIViewController *deallocVC = [vcsArray firstObject];
-                        NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
-                        if (![self.limitControllerCache objectForKey:@(deallocTag)]) {
-                            [self.limitControllerCache setObject:deallocVC forKey:@(deallocTag)];
-                        };
-                        [deallocVC.view removeFromSuperview];
-                        deallocVC.view = nil;
-                         [deallocVC removeFromParentViewController];
-                        deallocVC = nil;
-                        [vcsArray removeObjectAtIndex:0];
-                        viewAlloc[deallocTag] = NO;
-                        [vcsTagArray removeObjectAtIndex:0];
-                    }
-                }                
             }
         }
     }
@@ -298,6 +292,44 @@ static NSString *const kObserverPage = @"currentPage";
     ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
     [pagerView.scrollView addSubview:ctrl.view];
     viewAlloc[i] = YES;
+}
+
+/**
+ *  Load whole page or not.
+ *
+ *  @param ninaTag Viewcontroller or view tag.
+ *  @param mode Load whole page mode.
+ */
+- (void)loadWholeOrNotWithTag:(NSInteger)ninaTag WithMode:(NSInteger)mode {
+    if ([classArray[ninaTag] isKindOfClass:[NSString class]]) {
+        NSString *className = classArray[ninaTag];
+        Class class = NSClassFromString(className);
+        if ([class isSubclassOfClass:[UIViewController class]]) {
+            UIViewController *ctrl = class.new;
+            if (mode == 0) {
+                [self createFirstViewController:ctrl];
+            }else {
+                [self createOtherViewControllers:ctrl WithControllerTag:ninaTag];
+            }
+        }else if ([class isSubclassOfClass:[UIView class]]) {
+            UIView *singleView =class.new;
+            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * ninaTag, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+            [pagerView.scrollView addSubview:singleView];
+        }
+    }else {
+        if ([classArray[ninaTag] isKindOfClass:[UIViewController class]]) {
+            UIViewController *ctrl = classArray[ninaTag];
+            if (mode == 0) {
+                [self createFirstViewController:ctrl];
+            }else {
+                [self createOtherViewControllers:ctrl WithControllerTag:ninaTag];
+            }
+        }else if ([classArray[ninaTag] isKindOfClass:[UIView class]]) {
+            UIView *singleView = classArray[ninaTag];
+            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * ninaTag, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+            [pagerView.scrollView addSubview:singleView];
+        }
+    }
 }
 
 @end
