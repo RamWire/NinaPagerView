@@ -95,15 +95,26 @@ ninaPagerView.pushEnabled = YES;
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
-### Memory Management
+### NinaPagerViewDelegate
+#### Memory Management
 * If you care the vcs causes huge memory,please try NinaPagerViewDelegate delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO.
 ```objc
 - (BOOL)deallocVCsIfUnnecessary {
   return YES;
 }
 ```
+#### Current Page
+* Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it. 
+```objc
+- (void)ninaCurrentPageIndex:(NSString *)currentPage {
+NSLog(@"Current page is %@",currentPage);
+}
+```
 
 ## Change Log
+####v1.2.0
+Add LoadWholePage in parameter.h that you can set YES to load all controllers or views at the same time. <br />
+New delegate method for NinaPagerView to get current page easily.<br />
 ####v1.1.2
 Optimize two-line title and details in SlideBlock.<br />
 ####v1.1.1

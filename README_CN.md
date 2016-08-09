@@ -95,15 +95,26 @@ ninaPagerView.pushEnabled = YES;
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
-### 关于内存管理
+### NinaPagerViewDelegate
+#### 关于内存管理
 * 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。<br />
 ```objc
 - (BOOL)deallocVCsIfUnnecessary {
 return YES;
 }
 ```
+#### 关于获取到当前显示的界面
+* 通过此代理方法您可以获取到当前页码进而对相关的控制器进行操作。
+```objc
+- (void)ninaCurrentPageIndex:(NSString *)currentPage {
+NSLog(@"Current page is %@",currentPage);
+}
+```
 
 ### 版本更新说明
+####v1.2.0
+新增一次性加载所有界面模式(可以在UIParameter.h的LoadWholePage中进行设置)<br />
+获取到当前显示界面的代理方法，方便在根控制器中进行数据等操作。<br />
 ####v1.1.2
 修复了在滑块模式下的长标题显示稍微不对称的问题同时优化滑块模式细节。<br />
 ####v1.1.1
