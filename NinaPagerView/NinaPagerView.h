@@ -33,7 +33,18 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
 
 @protocol NinaPagerViewDelegate <NSObject>
 @optional
-- (BOOL)deallocVCsIfUnnecessary; /**< 只保留最近的5个控制器，释放其他控制器的空间，如果滑到对应位置在对其重新创建加载 **/
+/**
+ *  Dealloc Method
+ *
+ *  @return If YES,just keep recent five views or controllers,dealloc others,init them again when needed.If NO,keep all.
+ */
+- (BOOL)deallocVCsIfUnnecessary;
+/**
+ *  Get current page
+ *
+ *  @param currentPage Current page when you scroll to or choose the view or controller.
+ */
+- (void)ninaCurrentPageIndex:(NSString *)currentPage;
 @end
 
 @interface NinaPagerView : UIView

@@ -83,6 +83,13 @@
     return YES;
 }
 
+/**
+ *  通过此代理方法您可以获取到当前页码进而对相关的控制器进行操作。
+ *  Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it. */
+- (void)ninaCurrentPageIndex:(NSString *)currentPage {
+    NSLog(@"Current page is %@",currentPage);
+}
+
 #pragma mark - NinaParaArrays
 - (NSArray *)ninaColorArray {
     return @[

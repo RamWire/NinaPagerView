@@ -148,7 +148,10 @@ static NSString *const kObserverPage = @"currentPage";
         if (isDebug) {
             NSLog(@"现在是控制器%li",(long)page + 1);
         }
-        self.PageIndex = @(page + 1).stringValue;
+        self.PageIndex = @(page).stringValue;
+        if ([self.delegate respondsToSelector:@selector(ninaCurrentPageIndex:)]) {
+            [self.delegate ninaCurrentPageIndex:self.PageIndex];
+        }
         if (myArray.count > 5) {
             CGFloat topTabOffsetX = 0;
             if (page >= 2) {
