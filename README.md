@@ -107,7 +107,7 @@ ninaPagerView.nina_navigationBarHidden = YES;
 * Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it. 
 ```objc
 - (void)ninaCurrentPageIndex:(NSString *)currentPage {
-NSLog(@"Current page is %@",currentPage);
+  NSLog(@"Current page is %@",currentPage);
 }
 ```
 
