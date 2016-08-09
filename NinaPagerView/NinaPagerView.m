@@ -210,7 +210,7 @@ static NSString *const kObserverPage = @"currentPage";
                     NSLog(@"您没有配置对应Title%li的VC",(long)i + 1);
                 }else {
                     /**<  内存管理限制控制器最大数量为5个   **/
-                    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
+                    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage) {
                         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
                             UIViewController *deallocVC = [vcsArray firstObject];
                             NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
@@ -273,7 +273,7 @@ static NSString *const kObserverPage = @"currentPage";
         NSLog(@"使用了新创建的控制器%li",(long)i + 1);
     }
     /**<  内存管理限制控制器最大数量为5个   **/
-    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)]) {
+    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage) {
         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
             UIViewController *deallocVC = [vcsArray firstObject];
             NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
