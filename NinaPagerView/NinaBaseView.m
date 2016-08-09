@@ -32,8 +32,8 @@
     UIView *lineBottom;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
-    NSArray *titlesArray; /**<  标题   **/
-    NSInteger arrayCount; /**<  topTab数量   **/
+    NSArray *titlesArray;
+    NSInteger arrayCount;
     UIColor *selectBtn;
     UIColor *unselectBtn;
     UIColor *underline;
@@ -133,7 +133,7 @@
                 button.titleLabel.numberOfLines = 0;
                 button.titleLabel.textAlignment = NSTextAlignmentCenter;
             }else {
-                NSLog(@"您所提供的标题%li格式不正确。 Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1,(long)i + 1);
+                NSLog(@"Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1);
             }
             if (titlesArray.count > 5) {
                 button.frame = CGRectMake(More5LineWidth * i, 0, More5LineWidth, PageBtn);
@@ -158,11 +158,11 @@
                 }
             }
         }
-        //创建tabTop下方总览线
+        //Create Toptab underline.
         topTabBottomLine = [UIView new];
         topTabBottomLine.backgroundColor = UIColorFromRGB(0xcecece);
         [_topTab addSubview:topTabBottomLine];
-        //创建选中移动线
+        //Create Toptab bottomline.
         lineBottom = [UIView new];
         if (underline) {
             lineBottom.backgroundColor = underline;
@@ -172,7 +172,7 @@
         lineBottom.clipsToBounds = YES;
         lineBottom.userInteractionEnabled = YES;
         [_topTab addSubview:lineBottom];
-        //创建ninaMaskView
+        //Create ninaMaskView.
         ninaMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (1 + additionCount) * FUll_VIEW_WIDTH, SliderHeight)];
         ninaMaskView.backgroundColor = [UIColor clearColor];
         for (NSInteger j = 0; j < titlesArray.count; j++) {

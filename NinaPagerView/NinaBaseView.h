@@ -29,6 +29,16 @@
 @property (strong, nonatomic) UIScrollView *topTab; /**<  顶部tab   **/
 @property (strong, nonatomic) NSArray *titleArray; /**<  标题   **/
 @property (assign, nonatomic) CGFloat titleScale; /**< 标题缩放比例 **/
-
+/**
+ *  Init Method.
+ *
+ *  @param frame          NinaBaseView frame.
+ *  @param selectColor    Toptab button's select color.
+ *  @param unselectColor  Toptab button's unselect color.
+ *  @param underlineColor Toptab underline color.
+ *  @param topTabColor    Toptab background color.
+ *  @param topTabNum      Toptab styles.
+ *
+ */
 - (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor WithtopTabColor:(UIColor *)topTabColor WithTopTabType:(NSInteger)topTabNum;
 @end

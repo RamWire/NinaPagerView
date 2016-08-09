@@ -28,7 +28,7 @@
 static NSString *const kObserverPage = @"currentPage";
 
 @interface NinaPagerView()<NSCacheDelegate>
-@property (nonatomic, strong)NSCache *limitControllerCache; /**< 内存管理，避免创建过多的控制器所导致内存过于庞大   **/
+@property (nonatomic, strong)NSCache *limitControllerCache;
 @end
 
 @implementation NinaPagerView
@@ -90,7 +90,7 @@ static NSString *const kObserverPage = @"currentPage";
         _limitControllerCache = [NSCache new];
         _limitControllerCache.delegate = self;
     }
-    /**< 设置最大控制器的数量   **/
+    /**< Set max of controller's number   **/
     _limitControllerCache.countLimit = 5;
     return _limitControllerCache;
 }
@@ -146,7 +146,7 @@ static NSString *const kObserverPage = @"currentPage";
     if ([keyPath isEqualToString:kObserverPage]) {
         NSInteger page = [change[@"new"] integerValue];
         if (isDebug) {
-            NSLog(@"现在是控制器%li",(long)page + 1);
+            NSLog(@"It's controller %li",(long)page + 1);
         }
         self.PageIndex = @(page).stringValue;
         if ([self.delegate respondsToSelector:@selector(ninaCurrentPageIndex:)]) {
@@ -190,7 +190,7 @@ static NSString *const kObserverPage = @"currentPage";
                             singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
                             [pagerView.scrollView addSubview:singleView];
                         }else if (!class) {
-                            NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
+                            NSLog(@"Your Vc%li is not found in this project!",(long)i + 1);
                         }
                     }else {
                         if ([classArray[i] isKindOfClass:[UIViewController class]]) {
@@ -198,7 +198,7 @@ static NSString *const kObserverPage = @"currentPage";
                             if (ctrl && viewAlloc[i] == NO) {
                                 [self createOtherViewControllers:ctrl WithControllerTag:i];
                             }else if (!ctrl) {
-                                NSLog(@"您所提供的vc%li类并没有找到。  Your Vc%li is not found in this project!",(long)i + 1,(long)i + 1);
+                                NSLog(@"Your Vc%li is not found in this project!",(long)i + 1);
                             }
                         }else if ([classArray[i] isKindOfClass:[UIView class]]) {
                             UIView *singleView = classArray[i];
@@ -207,9 +207,9 @@ static NSString *const kObserverPage = @"currentPage";
                         }
                     }
                 }else if (page == i && i > classArray.count - 1) {
-                    NSLog(@"您没有配置对应Title%li的VC",(long)i + 1);
+                    NSLog(@"You are not set title%li 's controller.",(long)i + 1);
                 }else {
-                    /**<  内存管理限制控制器最大数量为5个   **/
+                    /**<  The number of controllers max is 5.   **/
                     if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage) {
                         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
                             UIViewController *deallocVC = [vcsArray firstObject];
@@ -236,20 +236,24 @@ static NSString *const kObserverPage = @"currentPage";
     [pagerView removeObserver:self forKeyPath:@"currentPage"];
 }
 
-/**<  NSCache的代理方法，打印当前清除对象 **/
+/**<  NSCache delegate method，print current dealloc object. **/
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
     if (isDebug) {
-        NSLog(@"清除了-------> %@", obj);
+        NSLog(@"Dealloc -------> %@", obj);
     }
 }
 
 #pragma mark - Private Method
-/**<  创建第一个控制器   **/
+/**
+ *  Create first controller or views.
+ *
+ *  @param ctrl first controller.
+ */
 - (void)createFirstViewController:(UIViewController *)ctrl {
     firstVC = ctrl;
     ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
     [pagerView.scrollView addSubview:ctrl.view];
-    /**<  新添加测试cache   **/
+    /**<  Add new test cache   **/
     if (![self.limitControllerCache objectForKey:@(0)]) {
         [self.limitControllerCache setObject:ctrl forKey:@(0)];
     };
@@ -257,22 +261,27 @@ static NSString *const kObserverPage = @"currentPage";
     [vcsArray addObject:ctrl];
     [vcsTagArray addObject:@"0"];
     if (isDebug) {
-        NSLog(@"现在是控制器1");
-        NSLog(@"使用了新建的控制器0");
+        NSLog(@"Controller or view 1");
+        NSLog(@"Use new created controller or view 0");
     }
     self.PageIndex = @"1";
 }
 
-/**<  创建其他控制器   **/
+/**
+ *  Create other controllers or views.
+ *
+ *  @param ctrl controllers.
+ *  @param i    controller's tag.
+ */
 - (void)createOtherViewControllers:(UIViewController *)ctrl WithControllerTag:(NSInteger)i {
     [self.viewController addChildViewController:ctrl];
     [vcsArray addObject:ctrl];
     NSString *tagStr = @(i).stringValue;
     [vcsTagArray addObject:tagStr];
     if (isDebug) {
-        NSLog(@"使用了新创建的控制器%li",(long)i + 1);
+        NSLog(@"Use new created controller or view%li",(long)i + 1);
     }
-    /**<  内存管理限制控制器最大数量为5个   **/
+    /**<  The number of controllers max is 5.   **/
     if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage) {
         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
             UIViewController *deallocVC = [vcsArray firstObject];
@@ -287,7 +296,7 @@ static NSString *const kObserverPage = @"currentPage";
             [vcsArray removeObjectAtIndex:0];
             viewAlloc[deallocTag] = NO;
             if (isDebug) {
-                NSLog(@"控制器%li被清除了",(long)deallocTag + 1);
+                NSLog(@"Controller or view %li is dealloced",(long)deallocTag + 1);
             }            
             [vcsTagArray removeObjectAtIndex:0];
         }
