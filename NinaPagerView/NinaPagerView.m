@@ -43,16 +43,17 @@ static NSString *const kObserverPage = @"currentPage";
     NSMutableArray *vcsArray;
     BOOL viewAlloc[MaxNums];
     UIViewController *firstVC;
+    NSInteger defaultPage;
 }
 
 - (instancetype)initWithNinaPagerStyle:(NinaPagerStyle)ninaPagerStyle WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors {
     if (self = [super init]) {
-        //Need You Edit,title for the toptabbar
         self.frame = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
         myArray = titles;
         classArray = childVCs;
         colorArray = colors;
         pagerStyle = ninaPagerStyle;
+        defaultPage = (NinaDefaultPageIndex > 0 && NinaDefaultPageIndex < titles.count)?NinaDefaultPageIndex:0;
          [self createPagerView:myArray WithVCs:classArray WithColors:colorArray];
     }
     return self;
@@ -100,7 +101,6 @@ static NSString *const kObserverPage = @"currentPage";
     viewNumArray = [NSMutableArray array];
     vcsArray = [NSMutableArray array];
     vcsTagArray = [NSMutableArray array];
-    //No Need to edit
     if (colors.count > 0) {
         for (NSInteger i = 0; i < colors.count; i++) {
             switch (i) {
@@ -125,6 +125,9 @@ static NSString *const kObserverPage = @"currentPage";
         pagerView = [[NinaBaseView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor WithtopTabColor:_topTabColor WithTopTabType:pagerStyle];
         pagerView.titleArray = myArray;
         [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+        if (defaultPage > 0) {
+            pagerView.scrollView.contentOffset = CGPointMake(FUll_VIEW_WIDTH * defaultPage, 0);
+        }
         [self addSubview:pagerView];
         //First ViewController present to the screen
         if (classArray.count > 0 && myArray.count > 0) {
@@ -133,7 +136,7 @@ static NSString *const kObserverPage = @"currentPage";
                     [self loadWholeOrNotWithTag:i WithMode:1];
                 }
             }else {
-                [self loadWholeOrNotWithTag:0 WithMode:0];
+                [self loadWholeOrNotWithTag:defaultPage WithMode:0];
             }
         }
     }else {
@@ -210,7 +213,7 @@ static NSString *const kObserverPage = @"currentPage";
                     NSLog(@"You are not set title%li 's controller.",(long)i + 1);
                 }else {
                     /**<  The number of controllers max is 5.   **/
-                    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage) {
+                    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage && defaultPage == 0) {
                         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
                             UIViewController *deallocVC = [vcsArray firstObject];
                             NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
@@ -251,18 +254,19 @@ static NSString *const kObserverPage = @"currentPage";
  */
 - (void)createFirstViewController:(UIViewController *)ctrl {
     firstVC = ctrl;
-    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * 0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
+    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * defaultPage, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn);
     [pagerView.scrollView addSubview:ctrl.view];
     /**<  Add new test cache   **/
     if (![self.limitControllerCache objectForKey:@(0)]) {
         [self.limitControllerCache setObject:ctrl forKey:@(0)];
     };
-    viewAlloc[0] = YES;
+    viewAlloc[defaultPage] = YES;
     [vcsArray addObject:ctrl];
-    [vcsTagArray addObject:@"0"];
+    NSString *transString = [NSString stringWithFormat:@"%li",(long)defaultPage];
+    [vcsTagArray addObject:transString];
     if (isDebug) {
-        NSLog(@"Controller or view 1");
-        NSLog(@"Use new created controller or view 0");
+        NSLog(@"Controller or view %@",transString);
+        NSLog(@"Use new created controller or view %@",transString);
     }
     self.PageIndex = @"1";
 }
@@ -282,7 +286,7 @@ static NSString *const kObserverPage = @"currentPage";
         NSLog(@"Use new created controller or view%li",(long)i + 1);
     }
     /**<  The number of controllers max is 5.   **/
-    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage) {
+    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage && defaultPage == 0) {
         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
             UIViewController *deallocVC = [vcsArray firstObject];
             NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];

@@ -123,6 +123,13 @@
             additionCount = (arrayCount - 5.0) / 5.0;
         }
         _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, PageBtn - TabbarHeight);
+        if (NinaDefaultPageIndex > 2 && NinaDefaultPageIndex < titlesArray.count) {
+            if (titlesArray.count >= 5) {
+                _topTab.contentOffset = CGPointMake(1.0 / 5.0 * FUll_VIEW_WIDTH * (NinaDefaultPageIndex - 2), 0);
+            }else {
+                _topTab.contentOffset = CGPointMake(1.0 / titlesArray.count * FUll_VIEW_WIDTH * (NinaDefaultPageIndex - 2), 0);
+            }
+        }
         btnArray = [NSMutableArray array];
         for (NSInteger i = 0; i < titlesArray.count; i++) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -308,7 +315,8 @@
             if (SelectBottomLineHeight >= 3) {
                 lineBottom.frame = CGRectMake(lineBottomDis, PageBtn - 3, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, 3);
             }else {
-                lineBottom.frame = CGRectMake(lineBottomDis, PageBtn - SelectBottomLineHeight, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SelectBottomLineHeight);
+                NSInteger defaultPage = (NinaDefaultPageIndex > 0 && NinaDefaultPageIndex < titlesArray.count)?NinaDefaultPageIndex:0;
+                lineBottom.frame = CGRectMake(lineBottomDis + FUll_VIEW_WIDTH * yourCount * defaultPage, PageBtn - SelectBottomLineHeight, yourCount * FUll_VIEW_WIDTH * SelectBottomLinePer, SelectBottomLineHeight);
             }
             break;
         case 1:

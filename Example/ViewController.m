@@ -38,12 +38,12 @@
     NSArray *vcsArray = [self ninaVCsArray];
     /**
      *  传入方法2：0.7新增:对view数组的支持，您如果觉得viewController数组对于您的项目来说太重并且在呈现界面时不需要这么多Controller进行处理，您可以通过相同的形式将您所想添加的view加入数组中传入NinaPagerView。
-     *  If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~
+     *  If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array.
      */
 //    NSArray *viewsArray = [self ninaViewsArray];
     /**
      *  传入方法3：适用于IB创建或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可，具体实现可参照下方代码。
-     *  If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~
+     *  If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array.
      */
 //    NSArray *detailVCsArray = [self ninaDetailVCsArray];
     /**
@@ -52,8 +52,8 @@
      */
     NSArray *colorArray = [self ninaColorArray];
     /**
-     *  创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度再减去Tabbar的高度，如果这个高度不是您想要的，您可以去UIParameter.h中进行设置XD。
-     *  A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just go to UIParameter.h to change it!XD
+     *  创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度再减去Tabbar的高度，如果这个高度不是您想要的，您可以去UIParameter.h中进行设置。
+     *  A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just go to UIParameter.h to change it.
      */
     NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithNinaPagerStyle:NinaPagerStyleBottomLine WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
     /**
@@ -78,14 +78,16 @@
 #pragma mark - NinaPagerViewDelegate
 /**
  *  如果您觉得创建的控制器(0.7:只适用于控制器情况)过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
- *  If you care the vcs causes huge memory,please try this delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO. */
+ *  If you care the vcs causes huge memory,please try this delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO. 
+ */
 - (BOOL)deallocVCsIfUnnecessary {
     return YES;
 }
 
 /**
  *  通过此代理方法您可以获取到当前页码进而对相关的控制器进行操作。
- *  Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it. */
+ *  Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it. 
+ */
 - (void)ninaCurrentPageIndex:(NSString *)currentPage {
     NSLog(@"Current page is %@",currentPage);
 }
