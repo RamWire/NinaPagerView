@@ -112,6 +112,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.3.0
+Add NinaDefaultPageIndex in UIParameter.h to select default page. <br />
 ####v1.2.0
 Add LoadWholePage in parameter.h that you can set YES to load all controllers or views at the same time. <br />
 New delegate method for NinaPagerView to get current page easily.<br />

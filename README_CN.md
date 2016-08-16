@@ -112,6 +112,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ### 版本更新说明
+####v1.3.0
+在UIParameter.h中新添加NinaDefaultPageIndex，您可以通过设置它来设置默认加载的页面，具体说明请看框架中的说明。 <br />
 ####v1.2.0
 新增一次性加载所有界面模式(可以在UIParameter.h的LoadWholePage中进行设置)。<br />
 获取到当前显示界面的代理方法，方便在根控制器中进行数据等操作。<br />
