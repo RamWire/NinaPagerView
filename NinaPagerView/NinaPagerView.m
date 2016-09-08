@@ -60,8 +60,8 @@ static NSString *const kObserverPage = @"currentPage";
 }
 
 #pragma mark - SetMethod
-- (void)setPushEnabled:(BOOL )pushEnabled {
-    if (LoadWholePage && pushEnabled == YES) {
+- (void)setPushEnabled:(BOOL)pushEnabled {
+    if (LoadWholePages && pushEnabled == YES) {
         for (NSInteger i = 0; i < vcsArray.count; i++) {
             [self.viewController addChildViewController:vcsArray[i]];
         }
@@ -131,7 +131,7 @@ static NSString *const kObserverPage = @"currentPage";
         [self addSubview:pagerView];
         //First ViewController present to the screen
         if (classArray.count > 0 && myArray.count > 0) {
-            if (LoadWholePage) {
+            if (LoadWholePages) {
                 for (NSInteger i = 0; i< classArray.count; i++) {
                     [self loadWholeOrNotWithTag:i WithMode:1];
                 }
@@ -178,7 +178,7 @@ static NSString *const kObserverPage = @"currentPage";
             }
             [pagerView.topTab setContentOffset:CGPointMake(topTabOffsetX, 0) animated:YES];
         }
-        if (!LoadWholePage) {
+        if (!LoadWholePages) {
             for (NSInteger i = 0; i < myArray.count; i++) {
                 if (page == i && i <= classArray.count - 1) {
                     if ([classArray[i] isKindOfClass:[NSString class]]) {
@@ -213,7 +213,7 @@ static NSString *const kObserverPage = @"currentPage";
                     NSLog(@"You are not set title%li 's controller.",(long)i + 1);
                 }else {
                     /**<  The number of controllers max is 5.   **/
-                    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage && defaultPage == 0) {
+                    if ([self.delegate respondsToSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePages && defaultPage == 0) {
                         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
                             UIViewController *deallocVC = [vcsArray firstObject];
                             NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
@@ -286,7 +286,7 @@ static NSString *const kObserverPage = @"currentPage";
         NSLog(@"Use new created controller or view%li",(long)i + 1);
     }
     /**<  The number of controllers max is 5.   **/
-    if ([self.delegate performSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePage && defaultPage == 0) {
+    if ([self.delegate respondsToSelector:@selector(deallocVCsIfUnnecessary)] && !LoadWholePages && defaultPage == 0) {
         if (vcsArray.count > 5 && [self.delegate deallocVCsIfUnnecessary] == YES) {
             UIViewController *deallocVC = [vcsArray firstObject];
             NSInteger deallocTag = [[vcsTagArray firstObject] integerValue];
