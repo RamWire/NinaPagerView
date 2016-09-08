@@ -45,12 +45,13 @@ github "RamWire/NinaPagerView"
 ## 使用
 您需要将'**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/NinaPagerViewCarthage.h**>(**Carthage**) 加入到您的工程中，然后执行下列代码:
 ```objc
-NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithNinaPagerStyle:NinaPagerStyleSlideBlock WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
+NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
 [self.view addSubview:ninaPagerView];
 ```
 即可完成~
 
 ### 其他设置和补充
+* 庞大的**自定义属性**您可以在NinaPagerView中设置🍻
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
 NSArray *titleArray = @[
@@ -86,10 +87,6 @@ NSArray *colorArray = @[
 ```objc
 self.navigationBar.translucent = NO;
 ```
-* 因为在框架里设置的问题，所以您如果需要在第一个控制器中需要push到二级控制器的话，需要多加上下方的这行代码，并且此行代码需要在**addSubView的后面**，具体请看Example中的实现。<br />
-```objc
-ninaPagerView.pushEnabled = YES;
-```
 * 如果您需要将导航栏隐藏，您可以设置nina_navigationBarHidden为YES。<br />
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
@@ -112,6 +109,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ### 版本更新说明
+####v1.4.0
+将设置默认加载界面等宏定义更改为NinaPagerView的属性，方便在项目中复用，自定义更加灵活。 <br />
 ####v1.3.0
 在UIParameter.h中新添加NinaDefaultPageIndex，您可以通过设置它来设置默认加载的页面，具体说明请看框架中的说明。 <br />
 ####v1.2.0
