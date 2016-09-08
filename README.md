@@ -45,12 +45,13 @@ github "RamWire/NinaPagerView"
 ## Usage
 You need add '**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/NinaPagerViewCarthage.h**>(**Carthage**) to your project.Then load the codes:
 ```objc
-NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithNinaPagerStyle:NinaPagerStyleSlideBlock WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
+NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
 [self.view addSubview:ninaPagerView];
 ```
 That's all!
 
 ### Other Settings and Tips
+* Numerous **properties** in NinaPagerView you can set as you wish🍻
 * You can set three necessary Array by following codes(please read the Example notes if you wanna to know more).
 ```objc
 NSArray *titleArray = @[
@@ -86,10 +87,6 @@ NSArray *colorArray = @[
 ```objc
 self.navigationController.navigationBar.translucent = NO;
 ```
-* Because of the framework setting,you must add following codes under the line after addSubView codes in order to push second level VC. 
-```objc
-ninaPagerView.pushEnabled = YES;
-```
 * If you wanna hidden the navigationBar,you can set nina_navigationBarHidden to YES. 
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
@@ -112,6 +109,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.4.0
+Change numerous marco definitions to NinaPagerView's properties.More flexible to use NinaPagerView in different situations.<br />
 ####v1.3.0
 Add NinaDefaultPageIndex in UIParameter.h to select default page. <br />
 ####v1.2.0
