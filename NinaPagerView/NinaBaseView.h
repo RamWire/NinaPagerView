@@ -30,9 +30,10 @@
 @property (strong, nonatomic) NSArray *titleArray; /**<  标题   **/
 @property (assign, nonatomic) CGFloat titleScale; /**< 标题缩放比例 **/
 @property (assign, nonatomic) NSInteger baseDefaultPage; /**< 设置默认加载的界面 **/
-@property (assign, nonatomic) CGFloat blockHeight; /**< 模块高度 **/
+@property (assign, nonatomic) CGFloat blockHeight; /**< 滑块高度 **/
 @property (assign, nonatomic) CGFloat bottomLinePer; /**< 下划线占比 **/
 @property (assign, nonatomic) CGFloat bottomLineHeight; /**< 下划线高度 **/
+@property (assign, nonatomic) CGFloat sliderCornerRadius; /**< 滑块圆角 **/
 /**
  *  Init Method.
  *

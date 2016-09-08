@@ -27,6 +27,7 @@
     self.navigationController.navigationBar.translucent = NO;
     //Need You Edit
     NSArray *titleArray = [self ninaTitleArray];
+    //Three choices 
     NSArray *vcsArray = [self ninaVCsArray];
 //    NSArray *viewsArray = [self ninaViewsArray];
 //    NSArray *detailVCsArray = [self ninaDetailVCsArray];
@@ -38,28 +39,9 @@
     CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
     NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
     ninaPagerView.ninaPagerStyles = NinaPagerStyleBottomLine;
-    //    ninaPagerView.delegate = self;
     ninaPagerView.ninaDefaultPage = 0;
-    ninaPagerView.loadWholePages = YES;
-    ninaPagerView.titleScale = 1.15;
+    ninaPagerView.loadWholePages = NO;
     [self.view addSubview:ninaPagerView];
-}
-
-#pragma mark - NinaPagerViewDelegate
-/**
- *  如果您觉得创建的控制器(0.7:只适用于控制器情况)过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
- *  If you care the vcs causes huge memory,please try this delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO. 
- */
-- (BOOL)deallocVCsIfUnnecessary {
-    return YES;
-}
-
-/**
- *  通过此代理方法您可以获取到当前页码进而对相关的控制器进行操作。
- *  Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it. 
- */
-- (void)ninaCurrentPageIndex:(NSString *)currentPage {
-    NSLog(@"Current page is %@",currentPage);
 }
 
 #pragma mark - NinaParaArrays
@@ -71,9 +53,9 @@
  */
 - (NSArray *)ninaColorArray {
     return @[
-                      [UIColor whiteColor], /**< 选中的标题颜色 Title SelectColor  **/
-                      [UIColor blackColor], /**< 未选中的标题颜色  Title UnselectColor **/
-                      [UIColor blackColor], /**< 下划线颜色或滑块颜色 Underline or SlideBlock Color   **/
+                      [UIColor blackColor], /**< 选中的标题颜色 Title SelectColor  **/
+                      [UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
+                      [UIColor redColor], /**< 下划线颜色或滑块颜色 Underline or SlideBlock Color   **/
                       [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
                       ];
 }

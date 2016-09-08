@@ -94,6 +94,10 @@ static NSString *const kObserverPage = @"currentPage";
     _selectBottomLineHeight = selectBottomLineHeight;
 }
 
+- (void)setSlideBlockCornerRadius:(CGFloat)slideBlockCornerRadius {
+    _slideBlockCornerRadius = slideBlockCornerRadius;
+}
+
 #pragma mark - LayOutSubViews
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -109,10 +113,11 @@ static NSString *const kObserverPage = @"currentPage";
         pagerView.scrollView.frame = CGRectMake(0, PageBtn + 20, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
     }
     pagerView.baseDefaultPage = _ninaDefaultPage;
-    pagerView.titleScale = _titleScale > 0?_titleScale:1;
+    pagerView.titleScale = _titleScale > 0?_titleScale:1.15;
     pagerView.blockHeight = _sliderHeight > 0?_sliderHeight:PageBtn;
     pagerView.bottomLinePer = _selectBottomLinePer > 0?_selectBottomLinePer:1;
     pagerView.bottomLineHeight = _selectBottomLineHeight > 0?_selectBottomLineHeight:2;
+    pagerView.sliderCornerRadius = _slideBlockCornerRadius > 0?_slideBlockCornerRadius:0;
     pagerView.titleArray = titlesArray;
     if (_ninaDefaultPage > 0) {
         pagerView.scrollView.contentOffset = CGPointMake(FUll_VIEW_WIDTH * _ninaDefaultPage, 0);

@@ -105,6 +105,10 @@
     _bottomLineHeight = bottomLineHeight;
 }
 
+- (void)setSliderCornerRadius:(CGFloat)sliderCornerRadius {
+    _sliderCornerRadius = sliderCornerRadius;
+}
+
 #pragma mark - GetMethod
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
@@ -326,20 +330,21 @@
         yourCount = 1.0 / 5.0;
     }
     CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -_bottomLinePer) / 2;
+    NSInteger defaultPage = (_baseDefaultPage > 0 && _baseDefaultPage < titlesArray.count)?_baseDefaultPage:0;
     switch (topTabType) {
         case 0:
             if (_bottomLineHeight >= 3) {
                 lineBottom.frame = CGRectMake(lineBottomDis, PageBtn - 3, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, 3);
             }else {
-                NSInteger defaultPage = (_baseDefaultPage > 0 && _baseDefaultPage < titlesArray.count)?_baseDefaultPage:0;
                 lineBottom.frame = CGRectMake(lineBottomDis + FUll_VIEW_WIDTH * yourCount * defaultPage, PageBtn - _bottomLineHeight, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _bottomLineHeight);
             }
             break;
-        case 1:
-            lineBottom.frame = CGRectMake(lineBottomDis, (PageBtn - _blockHeight) / 2.0, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _blockHeight);
-            if (SlideBlockCornerRadius > 0) {
-                lineBottom.layer.cornerRadius = _blockHeight / SlideBlockCornerRadius;
+        case 1: {
+            lineBottom.frame = CGRectMake(lineBottomDis + FUll_VIEW_WIDTH * yourCount * defaultPage, (PageBtn - _blockHeight) / 2.0, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _blockHeight);
+            if (_sliderCornerRadius > 0) {
+                lineBottom.layer.cornerRadius = _blockHeight / _sliderCornerRadius;
             }
+        }
             break;
         default:
             break;

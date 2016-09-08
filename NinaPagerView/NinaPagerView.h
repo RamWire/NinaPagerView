@@ -34,13 +34,15 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
 @protocol NinaPagerViewDelegate <NSObject>
 @optional
 /**
- *  Dealloc Method
+ *  如果您觉得创建的控制器(0.7:只适用于控制器情况)过多(>5)占用内存过大，可以尝试此代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。
+ *  If you care the vcs causes huge memory,please try this delegate,default is load recent 5 vcs,others will dealloc.If you scroll to the dealloc page, it will load again.If you don't use the delegate,default is NO.
  *
  *  @return If YES,just keep recent five views or controllers,dealloc others,init them again when needed.If NO,keep all.
  */
 - (BOOL)deallocVCsIfUnnecessary;
 /**
- *  Get current page
+ *  通过此代理方法您可以获取到当前页码进而对相关的控制器进行操作。
+ *  Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it.
  *
  *  @param currentPage Current page when you scroll to or choose the view or controller.
  */
@@ -94,6 +96,11 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  SliderBlock's height in NinaPagerStyleSlideBlock.
  **/
 @property (assign, nonatomic) CGFloat sliderHeight;
+/**<
+ *  滑块的layer.cornerRadius属性，默认的计算公式是(滑块宽度 / SlideBlockCornerRadius)，若您想要自定义调整，请修改此参数，如果不想要圆角，请设置此参数为0。
+ *  Sliderblock's layer.cornerRadius,if you don't want cornerRadius,please set this to 0.
+ **/
+@property (assign, nonatomic) CGFloat slideBlockCornerRadius;
 /**<
  *  是否隐藏了导航栏，您需要将您的导航栏设置为隐藏，然后才可以将此属性设置为YES。
  *  Hide NavigationBar or not,if you wanna set this to YES,you must hide your NavigationBar first.
