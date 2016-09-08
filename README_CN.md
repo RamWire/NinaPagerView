@@ -51,7 +51,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect Wi
 即可完成~
 
 ### 其他设置和补充
-* 庞大的**自定义属性**您可以在NinaPagerView中设置🍻
+* 庞大的**自定义属性**您可以在NinaPagerView中设置🍻。
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
 NSArray *titleArray = @[
