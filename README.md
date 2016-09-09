@@ -105,6 +105,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.4.1
+Fix some bugs and now you need not set navigationBar.translucent to NO,NinaPagerView will do it.<br />
 ####v1.4.0
 Change numerous macro definitions to NinaPagerView's properties.More flexible to use NinaPagerView in different situations.<br />
 ####v1.3.0

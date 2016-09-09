@@ -105,6 +105,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ### 版本更新说明
+####v1.4.1
+修复了上一版本出现的一些小错误，同时您现在不需要手动再对navigationController.navigationBar.translucent设置成NO了，NinaPagerView会在内部对此进行处理。 <br />
 ####v1.4.0
 将设置默认加载界面等宏定义更改为NinaPagerView的属性，方便在项目中复用，自定义更加灵活。 <br />
 ####v1.3.0
