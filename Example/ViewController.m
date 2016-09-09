@@ -24,7 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Nina";
-    self.navigationController.navigationBar.translucent = NO;
     //Need You Edit
     NSArray *titleArray = [self ninaTitleArray];
     //Three choices 

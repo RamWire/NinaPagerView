@@ -140,6 +140,7 @@ static NSString *const kObserverPage = @"currentPage";
             [self.viewController addChildViewController:firstVC];
         }
     }
+    self.viewController.navigationController.navigationBar.translucent = NO;
 }
 
 #pragma mark - NSCache

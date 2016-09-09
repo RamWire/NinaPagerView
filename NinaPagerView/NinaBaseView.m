@@ -32,8 +32,6 @@
     UIView *lineBottom;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
-    NSArray *titlesArray;
-    NSInteger arrayCount;
     UIColor *selectBtn;
     UIColor *unselectBtn;
     UIColor *underline;
@@ -73,12 +71,8 @@
 
 #pragma mark - SetMethod
 - (void)setTitleArray:(NSArray *)titleArray {
-    titlesArray = titleArray;
-    arrayCount = titleArray.count;
-    self.topTab.frame = CGRectMake(0, 0, FUll_VIEW_WIDTH, PageBtn);
-    self.scrollView.frame = CGRectMake(0, PageBtn, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
-    [self addSubview:self.topTab];
-    [self addSubview:self.scrollView];
+    _titleArray = titleArray;
+    [self baseViewLoadData];
 }
 
 - (void)setBaseDefaultPage:(NSInteger)baseDefaultPage {
@@ -87,10 +81,6 @@
 
 - (void)setTitleScale:(CGFloat)titleScale {
     _titleScale = titleScale;
-    UIButton *buttonZero = btnArray[0];
-    if (topTabType != 1) {
-        buttonZero.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
-    }
 }
 
 - (void)setBlockHeight:(CGFloat)blockHeight {
@@ -116,7 +106,7 @@
         _scrollView.delegate = self;
         _scrollView.tag = 318;
         _scrollView.backgroundColor = UIColorFromRGB(0xfafafa);
-        _scrollView.contentSize = CGSizeMake(FUll_VIEW_WIDTH * titlesArray.count, 0);
+        _scrollView.contentSize = CGSizeMake(FUll_VIEW_WIDTH * _titleArray.count, 0);
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.alwaysBounceHorizontal = YES;
@@ -139,33 +129,33 @@
         _topTab.showsHorizontalScrollIndicator = NO;
         _topTab.bounces = NO;
         CGFloat additionCount = 0;
-        if (arrayCount > 5) {
-            additionCount = (arrayCount - 5.0) / 5.0;
+        if (_titleArray.count > 5) {
+            additionCount = (_titleArray.count - 5.0) / 5.0;
         }
         _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, PageBtn - TabbarHeight);
-        if (_baseDefaultPage > 2 && _baseDefaultPage < titlesArray.count) {
-            if (titlesArray.count >= 5) {
+        if (_baseDefaultPage > 2 && _baseDefaultPage < _titleArray.count) {
+            if (_titleArray.count >= 5) {
                 _topTab.contentOffset = CGPointMake(1.0 / 5.0 * FUll_VIEW_WIDTH * (_baseDefaultPage - 2), 0);
             }else {
-                _topTab.contentOffset = CGPointMake(1.0 / titlesArray.count * FUll_VIEW_WIDTH * (_baseDefaultPage - 2), 0);
+                _topTab.contentOffset = CGPointMake(1.0 / _titleArray.count * FUll_VIEW_WIDTH * (_baseDefaultPage - 2), 0);
             }
         }
         btnArray = [NSMutableArray array];
-        for (NSInteger i = 0; i < titlesArray.count; i++) {
+        for (NSInteger i = 0; i < _titleArray.count; i++) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i;
             button.titleLabel.font = [UIFont systemFontOfSize:14];
-            if ([titlesArray[i] isKindOfClass:[NSString class]]) {
-                [button setTitle:titlesArray[i] forState:UIControlStateNormal];
+            if ([_titleArray[i] isKindOfClass:[NSString class]]) {
+                [button setTitle:_titleArray[i] forState:UIControlStateNormal];
                 button.titleLabel.numberOfLines = 0;
                 button.titleLabel.textAlignment = NSTextAlignmentCenter;
             }else {
                 NSLog(@"Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1);
             }
-            if (titlesArray.count > 5) {
+            if (_titleArray.count > 5) {
                 button.frame = CGRectMake(More5LineWidth * i, 0, More5LineWidth, PageBtn);
             }else {
-                button.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * i, 0, FUll_VIEW_WIDTH / titlesArray.count, PageBtn);
+                button.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * i, 0, FUll_VIEW_WIDTH / _titleArray.count, PageBtn);
             }
             [_topTab addSubview:button];
             [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -176,7 +166,9 @@
                 }else {
                     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 }
-                button.transform = CGAffineTransformMakeScale(1.15, 1.15);
+                if (_titleScale > 0) {
+                    button.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
+                }
             } else {
                 if (unselectBtn) {
                     [button setTitleColor:unselectBtn forState:UIControlStateNormal];
@@ -202,14 +194,14 @@
         //Create ninaMaskView.
         ninaMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (1 + additionCount) * FUll_VIEW_WIDTH, _blockHeight)];
         ninaMaskView.backgroundColor = [UIColor clearColor];
-        for (NSInteger j = 0; j < titlesArray.count; j++) {
+        for (NSInteger j = 0; j < _titleArray.count; j++) {
             UILabel *maskLabel = [UILabel new];
-            if (titlesArray.count > 5) {
+            if (_titleArray.count > 5) {
                 maskLabel.frame = CGRectMake(More5LineWidth * j - More5LineWidth * (1 - _bottomLinePer) / 2, 0, More5LineWidth, _blockHeight);
             }else {
-                maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / titlesArray.count * j - FUll_VIEW_WIDTH / titlesArray.count * (1 - _bottomLinePer) / 2, 0, FUll_VIEW_WIDTH / titlesArray.count, _blockHeight);
+                maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * j - FUll_VIEW_WIDTH / _titleArray.count * (1 - _bottomLinePer) / 2, 0, FUll_VIEW_WIDTH / _titleArray.count, _blockHeight);
             }
-            maskLabel.text = titlesArray[j];
+            maskLabel.text = _titleArray[j];
             maskLabel.textColor = selectBtn;
             maskLabel.numberOfLines = 0;
             maskLabel.textAlignment = NSTextAlignmentCenter;
@@ -240,19 +232,19 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView.tag == 318) {
         NSInteger yourPage = (NSInteger)((scrollView.contentOffset.x + FUll_VIEW_WIDTH / 2) / FUll_VIEW_WIDTH);
-        CGFloat yourCount = 1.0 / arrayCount;
-        if (arrayCount > 5) {
+        CGFloat yourCount = 1.0 / _titleArray.count;
+        if (_titleArray.count > 5) {
             yourCount = 1.0 / 5.0;
         }
         CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -_bottomLinePer) / 2;
         CGPoint maskCenter = ninaMaskView.center;
-        if (arrayCount >= 5) {
+        if (_titleArray.count >= 5) {
             maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * 0.2);
         }else {
             maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * yourCount);
         }
         ninaMaskView.center = maskCenter;
-        if (arrayCount > 5) {
+        if (_titleArray.count > 5) {
             switch (topTabType) {
                 case 0:
                     if (_bottomLineHeight >= 3) {
@@ -271,13 +263,13 @@
             switch (topTabType) {
                 case 0:
                     if (_bottomLineHeight >= 3) {
-                        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount + lineBottomDis, PageBtn - 3, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, 3);
+                        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / _titleArray.count + lineBottomDis, PageBtn - 3, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, 3);
                     }else {
-                        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount + lineBottomDis, PageBtn - _bottomLineHeight, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _bottomLineHeight);
+                        lineBottom.frame = CGRectMake(scrollView.contentOffset.x / _titleArray.count + lineBottomDis, PageBtn - _bottomLineHeight, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _bottomLineHeight);
                     }
                     break;
                 case 1:
-                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / arrayCount + lineBottomDis, (PageBtn - _blockHeight) / 2.0, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _blockHeight);
+                    lineBottom.frame = CGRectMake(scrollView.contentOffset.x / _titleArray.count + lineBottomDis, (PageBtn - _blockHeight) / 2.0, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _blockHeight);
                     break;
                 default:
                     break;
@@ -316,6 +308,14 @@
     }
 }
 
+#pragma mark - LoadData
+- (void)baseViewLoadData {
+    self.topTab.frame = CGRectMake(0, 0, FUll_VIEW_WIDTH, PageBtn);
+    self.scrollView.frame = CGRectMake(0, PageBtn, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
+    [self addSubview:self.topTab];
+    [self addSubview:self.scrollView];
+}
+
 #pragma mark - LayOutSubViews
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -323,14 +323,14 @@
 }
 
 - (void)initUI {
-    CGFloat yourCount = 1.0 / arrayCount;
+    CGFloat yourCount = 1.0 / _titleArray.count;
     CGFloat additionCount = 0;
-    if (arrayCount > 5) {
-        additionCount = (arrayCount - 5.0) / 5.0;
+    if (_titleArray.count > 5) {
+        additionCount = (_titleArray.count - 5.0) / 5.0;
         yourCount = 1.0 / 5.0;
     }
     CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -_bottomLinePer) / 2;
-    NSInteger defaultPage = (_baseDefaultPage > 0 && _baseDefaultPage < titlesArray.count)?_baseDefaultPage:0;
+    NSInteger defaultPage = (_baseDefaultPage > 0 && _baseDefaultPage < _titleArray.count)?_baseDefaultPage:0;
     switch (topTabType) {
         case 0:
             if (_bottomLineHeight >= 3) {
