@@ -83,10 +83,6 @@ NSArray *colorArray = @[
                         [UIColor whiteColor], /**< TopTab Background Color   **/
                        ];
 ```
-* If TopTab shelters from navigationBar,please try to add the following codes into the controller that you create NinaPagerView:
-```objc
-self.navigationController.navigationBar.translucent = NO;
-```
 * If you wanna hidden the navigationBar,you can set nina_navigationBarHidden to YES. 
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;

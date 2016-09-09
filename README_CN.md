@@ -83,10 +83,6 @@ NSArray *colorArray = @[
                         [UIColor whiteColor], /**<  上方菜单栏的背景颜色 **/
                        ];
 ```
-* 如果您在配置NinaPagerView时出现TopTab被导航栏遮挡的情况(上移情况)，请尝试在您调用NinaPagerView的控制器所在的**导航控制器**中加入:
-```objc
-self.navigationBar.translucent = NO;
-```
 * 如果您需要将导航栏隐藏，您可以设置nina_navigationBarHidden为YES。<br />
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
