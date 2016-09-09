@@ -110,7 +110,7 @@ ninaPagerView.nina_navigationBarHidden = YES;
 
 ## Change Log
 ####v1.4.0
-Change numerous marco definitions to NinaPagerView's properties.More flexible to use NinaPagerView in different situations.<br />
+Change numerous macro definitions to NinaPagerView's properties.More flexible to use NinaPagerView in different situations.<br />
 ####v1.3.0
 Add NinaDefaultPageIndex in UIParameter.h to select default page. <br />
 ####v1.2.0
