@@ -77,8 +77,18 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  **/
 @property (assign, nonatomic) NSInteger ninaDefaultPage;
 /**
- *  您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。
- *  You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.
+ *  上方TopTab的高度值，如果不设置默认值为40，请设置值大于25。
+ *  TopTab height,default height is 40,please set it above 25.
+ */
+@property (assign, nonatomic) CGFloat topTabHeight;
+/**
+ *  上方标题的字体大小设置，默认为14。
+ *  Title font in TopTab,default font is 14.
+ */
+@property (assign, nonatomic) CGFloat titleFont;
+/**
+ *  您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。(需要注意的是，此属性不适用于NinaPagerStyleSlideBlock样式)
+ *  You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.(TitleScale is not working on NinaPagerStyleSlideBlock)
  */
 @property (assign, nonatomic) CGFloat titleScale;
 /**<
@@ -111,6 +121,11 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  Load whole viewcontrollers or views.
  **/
 @property (assign, nonatomic) BOOL loadWholePages;
+/**<
+ *  上方TopTab下面的总览线是否隐藏。
+ *  Hide the topTab's underline(not the select underline) or not.
+ **/
+@property (assign, nonatomic) BOOL underLineHidden;
 
 @property (weak, nonatomic) id<NinaPagerViewDelegate>delegate; /**< NinaPagerView代理 **/
 

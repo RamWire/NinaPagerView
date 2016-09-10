@@ -49,7 +49,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (isDebug) {
+    if (isDebugging) {
         NSLog(@"点击了控制器1单元格的%li",(long)indexPath.row);
     }    
     TestViewController *testVC = [TestViewController new];

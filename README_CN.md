@@ -87,6 +87,7 @@ NSArray *colorArray = @[
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
+* 您可以自定义设置的控制器或视图最多为10，如果您想创建更多，可以对NinaPagerView中的**MaxNums**进行设置。
 
 ### NinaPagerViewDelegate
 #### 关于内存管理
@@ -105,6 +106,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ### 版本更新说明
+####v1.4.2
+新添加了设置topTab高度、标题字体大小的属性，同时您现在可以对topTab下方的总览线进行隐藏设置了。 <br />
 ####v1.4.1
 修复了上一版本出现的一些小错误，同时您现在不需要手动再对navigationController.navigationBar.translucent设置成NO了，NinaPagerView会在内部对此进行处理。 <br />
 ####v1.4.0

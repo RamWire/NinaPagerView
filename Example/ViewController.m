@@ -38,7 +38,7 @@
     CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
     NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
     ninaPagerView.ninaPagerStyles = NinaPagerStyleBottomLine;
-    ninaPagerView.ninaDefaultPage = 0;
+    ninaPagerView.ninaDefaultPage = 3;
     ninaPagerView.loadWholePages = NO;
     [self.view addSubview:ninaPagerView];
 }
@@ -73,7 +73,7 @@
                      @"西岗",
                      @"马栏子",
                      @"革镇堡",
-                     @"中山",
+                     @"沙河口",
                      @"人民广场",
                      @"中山广场"
                      ];

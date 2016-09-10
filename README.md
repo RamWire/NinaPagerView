@@ -87,6 +87,7 @@ NSArray *colorArray = @[
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
+* Superior limit number of creating  controllers or views is 10,if wanna more,please modify MaxNums in NinaPagerView.
 
 ### NinaPagerViewDelegate
 #### Memory Management
@@ -105,6 +106,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.4.2
+Add properties for setting topTab's height and title font,what's more,able to set toptab whole underline hidden.<br />
 ####v1.4.1
 Fix some bugs and now you need not set navigationBar.translucent to NO,NinaPagerView will do it.<br />
 ####v1.4.0

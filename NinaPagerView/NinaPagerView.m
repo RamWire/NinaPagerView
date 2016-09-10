@@ -24,7 +24,7 @@
 #import "UIParameter.h"
 #import "NinaBaseView.h"
 #import "UIView+ViewController.h"
-#define MaxNums  10
+#define MaxNums  10 //Max limit number,recommand below 10.
 static NSString *const kObserverPage = @"currentPage";
 
 @interface NinaPagerView()<NSCacheDelegate>
@@ -65,6 +65,10 @@ static NSString *const kObserverPage = @"currentPage";
     _titleScale = titleScale;
 }
 
+- (void)setTitleFont:(CGFloat)titleFont {
+    _titleFont = titleFont;
+}
+
 - (void)setNina_navigationBarHidden:(BOOL)nina_navigationBarHidden {
     _nina_navigationBarHidden = nina_navigationBarHidden;
 }
@@ -98,6 +102,14 @@ static NSString *const kObserverPage = @"currentPage";
     _slideBlockCornerRadius = slideBlockCornerRadius;
 }
 
+- (void)setUnderLineHidden:(BOOL)underLineHidden {
+    _underLineHidden = underLineHidden;
+}
+
+- (void)setTopTabHeight:(CGFloat)topTabHeight {
+    _topTabHeight = topTabHeight;
+}
+
 #pragma mark - LayOutSubViews
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -107,18 +119,22 @@ static NSString *const kObserverPage = @"currentPage";
 #pragma mark - LoadData
 - (void)loadDataForView {
     [self createPagerView:titlesArray WithVCs:classArray WithColors:colorArray];
-    if (_nina_navigationBarHidden == YES) {
-        self.viewController.automaticallyAdjustsScrollViewInsets = NO;
-        pagerView.topTab.frame = CGRectMake(0, 20, FUll_VIEW_WIDTH, PageBtn);
-        pagerView.scrollView.frame = CGRectMake(0, PageBtn + 20, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
-    }
+    CGFloat tabHeight = _topTabHeight > 25?_topTabHeight:40;
+    pagerView.topHeight = tabHeight;
     pagerView.baseDefaultPage = _ninaDefaultPage;
     pagerView.titleScale = _titleScale > 0?_titleScale:1.15;
-    pagerView.blockHeight = _sliderHeight > 0?_sliderHeight:PageBtn;
+    pagerView.titlesFont = _titleFont > 0?_titleFont:14;
+    pagerView.topTabUnderLineHidden = _underLineHidden;
+    pagerView.blockHeight = _sliderHeight > 0?_sliderHeight:_topTabHeight;
     pagerView.bottomLinePer = _selectBottomLinePer > 0?_selectBottomLinePer:1;
     pagerView.bottomLineHeight = _selectBottomLineHeight > 0?_selectBottomLineHeight:2;
     pagerView.sliderCornerRadius = _slideBlockCornerRadius > 0?_slideBlockCornerRadius:0;
     pagerView.titleArray = titlesArray;
+    if (_nina_navigationBarHidden == YES) {
+        self.viewController.automaticallyAdjustsScrollViewInsets = NO;
+        pagerView.topTab.frame = CGRectMake(0, 20, FUll_VIEW_WIDTH, tabHeight);
+        pagerView.scrollView.frame = CGRectMake(0, tabHeight + 20, FUll_VIEW_WIDTH, self.frame.size.height - tabHeight);
+    }
     if (_ninaDefaultPage > 0) {
         pagerView.scrollView.contentOffset = CGPointMake(FUll_VIEW_WIDTH * _ninaDefaultPage, 0);
     }
@@ -194,7 +210,7 @@ static NSString *const kObserverPage = @"currentPage";
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
     if ([keyPath isEqualToString:kObserverPage]) {
         NSInteger page = [change[@"new"] integerValue];
-        if (isDebug) {
+        if (isDebugging) {
             NSLog(@"It's controller %li",(long)page + 1);
         }
         self.PageIndex = @(page).stringValue;
@@ -236,7 +252,7 @@ static NSString *const kObserverPage = @"currentPage";
                             [self createOtherViewControllers:ctrl WithControllerTag:i];
                         }else if ([class isSubclassOfClass:[UIView class]]) {
                             UIView *singleView =class.new;
-                            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
+                            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
                             [pagerView.scrollView addSubview:singleView];
                         }else if (!class) {
                             NSLog(@"Your Vc%li is not found in this project!",(long)i + 1);
@@ -251,7 +267,7 @@ static NSString *const kObserverPage = @"currentPage";
                             }
                         }else if ([classArray[i] isKindOfClass:[UIView class]]) {
                             UIView *singleView = classArray[i];
-                            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
+                            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
                             [pagerView.scrollView addSubview:singleView];
                         }
                     }
@@ -281,13 +297,14 @@ static NSString *const kObserverPage = @"currentPage";
     }
 }
 
+#pragma mark - Dealloc
 - (void)dealloc {
     [pagerView removeObserver:self forKeyPath:@"currentPage"];
 }
 
 /**<  NSCache delegate method，print current dealloc object. **/
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
-    if (isDebug) {
+    if (isDebugging) {
         NSLog(@"Dealloc -------> %@", obj);
     }
 }
@@ -300,7 +317,7 @@ static NSString *const kObserverPage = @"currentPage";
  */
 - (void)createFirstViewController:(UIViewController *)ctrl {
     firstVC = ctrl;
-    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * _ninaDefaultPage, 0, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
+    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * _ninaDefaultPage, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
     [pagerView.scrollView addSubview:ctrl.view];
     /**<  Add new test cache   **/
     if (![self.limitControllerCache objectForKey:@(0)]) {
@@ -310,7 +327,7 @@ static NSString *const kObserverPage = @"currentPage";
     [vcsArray addObject:ctrl];
     NSString *transString = [NSString stringWithFormat:@"%li",(long)_ninaDefaultPage];
     [vcsTagArray addObject:transString];
-    if (isDebug) {
+    if (isDebugging) {
         NSLog(@"Controller or view %@",transString);
         NSLog(@"Use new created controller or view %@",transString);
     }
@@ -328,7 +345,7 @@ static NSString *const kObserverPage = @"currentPage";
     [vcsArray addObject:ctrl];
     NSString *tagStr = @(i).stringValue;
     [vcsTagArray addObject:tagStr];
-    if (isDebug) {
+    if (isDebugging) {
         NSLog(@"Use new created controller or view%li",(long)i + 1);
     }
     /**<  The number of controllers max is 5.   **/
@@ -345,13 +362,13 @@ static NSString *const kObserverPage = @"currentPage";
             deallocVC = nil;
             [vcsArray removeObjectAtIndex:0];
             viewAlloc[deallocTag] = NO;
-            if (isDebug) {
+            if (isDebugging) {
                 NSLog(@"Controller or view %li is dealloced",(long)deallocTag + 1);
             }
             [vcsTagArray removeObjectAtIndex:0];
         }
     }
-    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
+    ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * i, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
     [pagerView.scrollView addSubview:ctrl.view];
     viewAlloc[i] = YES;
 }
@@ -375,7 +392,7 @@ static NSString *const kObserverPage = @"currentPage";
             }
         }else if ([class isSubclassOfClass:[UIView class]]) {
             UIView *singleView =class.new;
-            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * ninaTag, 0, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
+            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * ninaTag, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
             [pagerView.scrollView addSubview:singleView];
         }
     }else {
@@ -388,7 +405,7 @@ static NSString *const kObserverPage = @"currentPage";
             }
         }else if ([classArray[ninaTag] isKindOfClass:[UIView class]]) {
             UIView *singleView = classArray[ninaTag];
-            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * ninaTag, 0, FUll_VIEW_WIDTH, self.frame.size.height - PageBtn);
+            singleView.frame = CGRectMake(FUll_VIEW_WIDTH * ninaTag, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
             [pagerView.scrollView addSubview:singleView];
         }
     }

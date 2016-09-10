@@ -28,7 +28,7 @@
 #pragma mark - public method
 - (void)createLabel:(NSString *)yourTitleStr {
     UILabel *middleLabel = [[UILabel alloc] initWithFrame:CGRectMake(FUll_VIEW_WIDTH / 2 - 80, FUll_VIEW_HEIGHT / 2 - 40 - 64 - PageBtn, 160, 80)];
-    if (isDebug) {
+    if (isDebugging) {
         NSLog(@"加载了控制器%@",yourTitleStr);
     }
     middleLabel.text = [NSString stringWithFormat:@"第%@个视图控制器",yourTitleStr];
@@ -67,7 +67,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (isDebug) {
+    if (isDebugging) {
         NSLog(@"点击了控制器%@单元格的%li",indexTag,(long)indexPath.row);
     }
     TestViewController *testVC = [TestViewController new];
@@ -75,7 +75,7 @@
 }
 
 - (void)testAction {
-    if (isDebug) {
+    if (isDebugging) {
         NSLog(@"测试点击事件");
     }
 }
