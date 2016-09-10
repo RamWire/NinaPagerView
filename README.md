@@ -51,7 +51,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect Wi
 That's all!
 
 ### Other Settings and Tips
-* Numerous **properties** in NinaPagerView you can set as you wish🍻
+* Numerous **properties** in NinaPagerView you can set as you wish🍻🍻🍻
 * You can set three necessary Array by following codes(please read the Example notes if you wanna to know more).
 ```objc
 NSArray *titleArray = @[
