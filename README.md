@@ -83,11 +83,11 @@ NSArray *colorArray = @[
                         [UIColor whiteColor], /**< TopTab Background Color   **/
                        ];
 ```
-* If you wanna hidden the navigationBar,you can set nina_navigationBarHidden to YES. 
+* If you wanna hidden the navigationBar,you can set **nina_navigationBarHidden** to YES. 
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
-* Superior limit number of creating  controllers or views is 10,if wanna more,please modify MaxNums in NinaPagerView.
+* Superior limit of creating  controllers or views is **10**,if wanna more,please modify **MaxNums** in NinaPagerView.
 
 ### NinaPagerViewDelegate
 #### Memory Management
