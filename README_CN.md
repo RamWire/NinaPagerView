@@ -83,11 +83,11 @@ NSArray *colorArray = @[
                         [UIColor whiteColor], /**<  上方菜单栏的背景颜色 **/
                        ];
 ```
-* 如果您需要将导航栏隐藏，您可以设置nina_navigationBarHidden为YES。<br />
+* 如果您需要将导航栏隐藏，您可以设置**nina_navigationBarHidden**为YES。<br />
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
-* 您可以自定义设置的控制器或视图最多为10，如果您想创建更多，可以对NinaPagerView中的**MaxNums**进行设置。
+* 您可以自定义设置的控制器或视图最多为**10**，如果您想创建更多，可以对NinaPagerView中的**MaxNums**进行设置。
 
 ### NinaPagerViewDelegate
 #### 关于内存管理
