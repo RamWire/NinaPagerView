@@ -45,7 +45,7 @@ github "RamWire/NinaPagerView"
 ## 使用
 您需要将'**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/NinaPagerViewCarthage.h**>(**Carthage**) 加入到您的工程中，然后执行下列代码:
 ```objc
-NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
+NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
 [self.view addSubview:ninaPagerView];
 ```
 即可完成~
@@ -76,12 +76,6 @@ NSArray *vcsArray = @[
                       @"EighthViewController",
                       @"NinthViewController",
                     ];
-NSArray *colorArray = @[
-                        [UIColor brownColor], /**< 选中的标题颜色 **/
-                        [UIColor grayColor], /**< 未选中的标题颜色 **/
-                        [UIColor redColor], /**< 下划线颜色或滑块颜色 **/
-                        [UIColor whiteColor], /**<  上方菜单栏的背景颜色 **/
-                       ];
 ```
 * 如果您需要将导航栏隐藏，您可以设置**nina_navigationBarHidden**为YES。<br />
 ```objc
@@ -106,6 +100,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ### 版本更新说明
+####v1.4.3
+新添加了标题选中未选中等设置颜色的属性，您现在不需要再在init方法中设置它们的颜色了。 <br />
 ####v1.4.2
 新添加了设置topTab高度、标题字体大小的属性，同时您现在可以对topTab下方的总览线进行隐藏设置了。 <br />
 ####v1.4.1

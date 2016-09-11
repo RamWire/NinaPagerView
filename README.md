@@ -45,7 +45,7 @@ github "RamWire/NinaPagerView"
 ## Usage
 You need add '**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/NinaPagerViewCarthage.h**>(**Carthage**) to your project.Then load the codes:
 ```objc
-NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
+NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
 [self.view addSubview:ninaPagerView];
 ```
 That's all!
@@ -76,12 +76,6 @@ NSArray *vcsArray = @[
                       @"EighthViewController",
                       @"NinthViewController",
                     ];
-NSArray *colorArray = @[
-                        [UIColor brownColor], /**< Title SelectColor  **/
-                        [UIColor grayColor], /**< Title UnselectColor **/
-                        [UIColor redColor], /**< Underline or SlideBlock Color   **/
-                        [UIColor whiteColor], /**< TopTab Background Color   **/
-                       ];
 ```
 * If you wanna hidden the navigationBar,you can set **nina_navigationBarHidden** to YES. 
 ```objc
@@ -106,6 +100,8 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```
 
 ## Change Log
+####v1.4.3
+Add properties for setting colors,now you just set frame,titleArray and vcsArray in init method.<br />
 ####v1.4.2
 Add properties for setting topTab's height and title font,what's more,able to set toptab whole underline hidden.<br />
 ####v1.4.1
