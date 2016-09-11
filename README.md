@@ -77,7 +77,7 @@ NSArray *vcsArray = @[
                       @"NinthViewController",
                     ];
 ```
-* If you wanna hidden the navigationBar,you can set **nina_navigationBarHidden** to YES. 
+* If your controller doesn't have navigationBar or you hide the navigationBar,you need set **nina_navigationBarHidden** to YES. 
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
 ```

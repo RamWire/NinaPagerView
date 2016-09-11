@@ -77,7 +77,7 @@ NSArray *vcsArray = @[
                       @"NinthViewController",
                     ];
 ```
-* 如果您需要将导航栏隐藏，您可以设置**nina_navigationBarHidden**为YES。<br />
+* 如果您将导航栏隐藏或者没有导航栏，您需要设置**nina_navigationBarHidden**为YES。<br />
 ```objc
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
