@@ -59,7 +59,7 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  @param colors         Several colors can set in NinaPagerView.
  *
  */
-- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors;
+- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs;
 
 /**<
  *  顶部菜单栏的展示样式。
@@ -67,13 +67,39 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  **/
 @property (assign, nonatomic) NinaPagerStyle ninaPagerStyles;
 /**<
+ *  上方标题未选中时颜色，默认颜色为灰色。
+ *  The titles' color when not selected,default color is gray.
+ **/
+@property (strong, nonatomic) UIColor *unSelectTitleColor;
+/**<
+ *  上方标题选中时颜色，默认颜色为黑色。
+ *  The titles' color when selected,default color is black.
+ **/
+@property (strong, nonatomic) UIColor *selectTitleColor;
+/**<
+ *  在下划线模式下的下划线的颜色，默认十六进制颜色码为#ff6262。
+ *  Underline's color in NinaPagerStyleBottomLine mode,default color code is #ff6262.
+ **/
+@property (strong, nonatomic) UIColor *underlineColor;
+/**<
+ *  在滑块模式下滑块颜色，默认十六进制颜色码为#ff6262。
+ *  SliderBlock's color in NinaPagerStyleSlideBlock mode,default color code is #ff6262.
+ **/
+@property (strong, nonatomic) UIColor *sliderBlockColor;
+/**<
+ *  上方topTab背景颜色，默认颜色为白色。
+ *  TopTab's background colordefault color is white.
+ **/
+@property (strong, nonatomic) UIColor *topTabBackGroundColor;
+
+/**<
  *  所在的控制器index或点击上方button的index。
  *  Current controller's or view's index and click button's index.
  **/
 @property (copy, nonatomic) NSString *PageIndex;
-/**<  
-  *  设置默认加载的界面，默认加载的界面是第一页，您可以选择要加载第几页的页面，不仅仅局限于第一页这样的展示方法，更加灵活。
-  *  Set default loading page,you can set this for index of your page.Not only loads first page,but also choose other pages as default page.More flexible.
+/**<
+ *  设置默认加载的界面，默认加载的界面是第一页，您可以选择要加载第几页的页面，不仅仅局限于第一页这样的展示方法，更加灵活。
+ *  Set default loading page,you can set this for index of your page.Not only loads first page,but also choose other pages as default page.More flexible.
  **/
 @property (assign, nonatomic) NSInteger ninaDefaultPage;
 /**

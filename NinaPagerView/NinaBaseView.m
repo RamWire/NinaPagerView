@@ -23,49 +23,19 @@
 #import "NinaBaseView.h"
 #import "UIParameter.h"
 
-@interface NinaBaseView ()
-
-@end
-
 @implementation NinaBaseView
 {
     UIView *lineBottom;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
-    UIColor *selectBtn;
-    UIColor *unselectBtn;
-    UIColor *underline;
-    UIColor *topTabColors;
     NSInteger topTabType;
     UIView *ninaMaskView;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor WithtopTabColor:(UIColor *)topTabColor WithTopTabType:(NSInteger)topTabNum
+- (instancetype)initWithFrame:(CGRect)frame WithTopTabType:(NSInteger)topTabNum
 {
     self = [super initWithFrame:frame];
     topTabType = topTabNum;
-    if (self) {
-        if ([selectColor isKindOfClass:[UIColor class]]) {
-            selectBtn = selectColor;
-        }else {
-            NSLog(@"please change the selectColor into UIColor!");
-        }
-        if ([unselectColor isKindOfClass:[UIColor class]]) {
-            unselectBtn = unselectColor;
-        }else {
-            NSLog(@"please change the unselectColor into UIColor!");
-        }
-        if ([underlineColor isKindOfClass:[UIColor class]]) {
-            underline = underlineColor;
-        }else {
-            NSLog(@"please change the underlineColor into UIColor!");
-        }
-        if ([topTabColor isKindOfClass:[UIColor class]]) {
-            topTabColors = topTabColor;
-        }else {
-            NSLog(@"please change the topTabColor into UIColor!");
-        }
-    }
     return self;
 }
 
@@ -111,7 +81,23 @@
     _topHeight = topHeight;
 }
 
-#pragma mark - GetMethod
+- (void)setBtnUnSelectColor:(UIColor *)btnUnSelectColor {
+    _btnUnSelectColor = btnUnSelectColor;
+}
+
+- (void)setBtnSelectColor:(UIColor *)btnSelectColor {
+    _btnSelectColor = btnSelectColor;
+}
+
+- (void)setUnderlineBlockColor:(UIColor *)underlineBlockColor {
+    _underlineBlockColor = underlineBlockColor;
+}
+
+- (void)setTopTabColor:(UIColor *)topTabColor {
+    _topTabColor = topTabColor;
+}
+
+#pragma mark - LazyLoad
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
@@ -130,8 +116,8 @@
     if (!_topTab) {
         _topTab = [[UIScrollView alloc] init];
         _topTab.delegate = self;
-        if (topTabColors) {
-            _topTab.backgroundColor = topTabColors;
+        if (_topTabColor) {
+            _topTab.backgroundColor = _topTabColor;
         }else {
             _topTab.backgroundColor = [UIColor whiteColor];
         }
@@ -173,8 +159,8 @@
             [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
             [btnArray addObject:button];
             if (i == 0 && (topTabType == 0 || topTabType == 2)) {
-                if (selectBtn) {
-                    [button setTitleColor:selectBtn forState:UIControlStateNormal];
+                if (_btnSelectColor) {
+                    [button setTitleColor:_btnSelectColor forState:UIControlStateNormal];
                 }else {
                     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
                 }
@@ -182,8 +168,8 @@
                     button.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
                 }
             } else {
-                if (unselectBtn) {
-                    [button setTitleColor:unselectBtn forState:UIControlStateNormal];
+                if (_btnUnSelectColor) {
+                    [button setTitleColor:_btnUnSelectColor forState:UIControlStateNormal];
                 }else {
                     [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
                 }
@@ -197,8 +183,8 @@
         }
         //Create Toptab bottomline.
         lineBottom = [UIView new];
-        if (underline) {
-            lineBottom.backgroundColor = underline;
+        if (_underlineBlockColor) {
+            lineBottom.backgroundColor = _underlineBlockColor;
         }else {
             lineBottom.backgroundColor = UIColorFromRGB(0xff6262);
         }
@@ -216,7 +202,7 @@
                 maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * j - FUll_VIEW_WIDTH / _titleArray.count * (1 - _bottomLinePer) / 2, 0, FUll_VIEW_WIDTH / _titleArray.count, _blockHeight);
             }
             maskLabel.text = _titleArray[j];
-            maskLabel.textColor = selectBtn;
+            maskLabel.textColor = _btnSelectColor?_btnSelectColor:[UIColor whiteColor];
             maskLabel.numberOfLines = 0;
             maskLabel.textAlignment = NSTextAlignmentCenter;
             maskLabel.font = [UIFont systemFontOfSize:_titlesFont];
@@ -291,8 +277,8 @@
         }
         for (NSInteger i = 0;  i < btnArray.count; i++) {
             if (topTabType == 0 || topTabType == 2) {
-                if (unselectBtn) {
-                    [btnArray[i] setTitleColor:unselectBtn forState:UIControlStateNormal];
+                if (_btnUnSelectColor) {
+                    [btnArray[i] setTitleColor:_btnUnSelectColor forState:UIControlStateNormal];
                 }else {
                     [btnArray[i] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
                 }
@@ -303,8 +289,8 @@
             }];
         }
         if (topTabType == 0 || topTabType == 2) {
-            if (selectBtn) {
-                [btnArray[yourPage] setTitleColor:selectBtn forState:UIControlStateNormal];
+            if (_btnSelectColor) {
+                [btnArray[yourPage] setTitleColor:_btnSelectColor forState:UIControlStateNormal];
             }else {
                 [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             }

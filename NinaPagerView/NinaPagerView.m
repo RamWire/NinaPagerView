@@ -28,10 +28,6 @@
 static NSString *const kObserverPage = @"currentPage";
 
 @interface NinaPagerView()<NSCacheDelegate>
-@property (strong, nonatomic) UIColor *selectColor; /**<  选中时的颜色   **/
-@property (strong, nonatomic) UIColor *unselectColor; /**<  未选中时的颜色   **/
-@property (strong, nonatomic) UIColor *underlineColor; /**<  下划线的颜色   **/
-@property (strong, nonatomic) UIColor *topTabColor; /**<  顶部菜单栏的背景颜色   **/
 @property (nonatomic, strong)NSCache *limitControllerCache; /**<  缓存限制   **/
 @end
 
@@ -40,7 +36,6 @@ static NSString *const kObserverPage = @"currentPage";
     NinaBaseView *pagerView;
     NSArray *titlesArray;
     NSArray *classArray;
-    NSArray *colorArray;
     NSMutableArray *viewNumArray;
     NSMutableArray *vcsTagArray;
     NSMutableArray *vcsArray;
@@ -50,12 +45,11 @@ static NSString *const kObserverPage = @"currentPage";
     BOOL ableLoadData;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColorArrays:(NSArray *)colors {
+- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs {
     if (self = [super init]) {
         self.frame = frame;
         titlesArray = titles;
         classArray = childVCs;
-        colorArray = colors;
     }
     return self;
 }
@@ -110,6 +104,26 @@ static NSString *const kObserverPage = @"currentPage";
     _topTabHeight = topTabHeight;
 }
 
+- (void)setUnSelectTitleColor:(UIColor *)unSelectTitleColor {
+    _unSelectTitleColor = unSelectTitleColor;
+}
+
+- (void)setSelectTitleColor:(UIColor *)selectTitleColor {
+    _selectTitleColor = selectTitleColor;
+}
+
+- (void)setUnderlineColor:(UIColor *)underlineColor {
+    _underlineColor = underlineColor;
+}
+
+- (void)setSliderBlockColor:(UIColor *)sliderBlockColor {
+    _sliderBlockColor = sliderBlockColor;
+}
+
+- (void)setTopTabBackGroundColor:(UIColor *)topTabBackGroundColor {
+    _topTabBackGroundColor = topTabBackGroundColor;
+}
+
 #pragma mark - LayOutSubViews
 - (void)layoutSubviews {
     [super layoutSubviews];
@@ -118,14 +132,18 @@ static NSString *const kObserverPage = @"currentPage";
 
 #pragma mark - LoadData
 - (void)loadDataForView {
-    [self createPagerView:titlesArray WithVCs:classArray WithColors:colorArray];
+    [self createPagerView:titlesArray WithVCs:classArray];
+    pagerView.btnUnSelectColor = _unSelectTitleColor;
+    pagerView.btnSelectColor = _selectTitleColor;
+    pagerView.underlineBlockColor = (_ninaPagerStyles == 1)?_sliderBlockColor:_underlineColor;
+    pagerView.topTabColor = _topTabBackGroundColor;
     CGFloat tabHeight = _topTabHeight > 25?_topTabHeight:40;
     pagerView.topHeight = tabHeight;
     pagerView.baseDefaultPage = _ninaDefaultPage;
     pagerView.titleScale = _titleScale > 0?_titleScale:1.15;
     pagerView.titlesFont = _titleFont > 0?_titleFont:14;
     pagerView.topTabUnderLineHidden = _underLineHidden;
-    pagerView.blockHeight = _sliderHeight > 0?_sliderHeight:_topTabHeight;
+    pagerView.blockHeight = _sliderHeight > 0?_sliderHeight:tabHeight;
     pagerView.bottomLinePer = _selectBottomLinePer > 0?_selectBottomLinePer:1;
     pagerView.bottomLineHeight = _selectBottomLineHeight > 0?_selectBottomLineHeight:2;
     pagerView.sliderCornerRadius = _slideBlockCornerRadius > 0?_slideBlockCornerRadius:0;
@@ -171,32 +189,12 @@ static NSString *const kObserverPage = @"currentPage";
 }
 
 #pragma mark - CreateView
-- (void)createPagerView:(NSArray *)titles WithVCs:(NSArray *)childVCs WithColors:(NSArray *)colors {
+- (void)createPagerView:(NSArray *)titles WithVCs:(NSArray *)childVCs {
     viewNumArray = [NSMutableArray array];
     vcsArray = [NSMutableArray array];
     vcsTagArray = [NSMutableArray array];
-    if (colors.count > 0) {
-        for (NSInteger i = 0; i < colors.count; i++) {
-            switch (i) {
-                case 0:
-                    _selectColor = colors[0];
-                    break;
-                case 1:
-                    _unselectColor = colors[1];
-                    break;
-                case 2:
-                    _underlineColor = colors[2];
-                    break;
-                case 3:
-                    _topTabColor = colors[3];
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
     if (titles.count > 0 && childVCs.count > 0) {
-        pagerView = [[NinaBaseView alloc] initWithFrame:self.frame WithSelectColor:_selectColor WithUnselectorColor:_unselectColor WithUnderLineColor:_underlineColor WithtopTabColor:_topTabColor WithTopTabType:_ninaPagerStyles];
+        pagerView = [[NinaBaseView alloc] initWithFrame:self.frame WithTopTabType:_ninaPagerStyles];
         [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
         [self addSubview:pagerView];
         //First ViewController present to the screen

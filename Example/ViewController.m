@@ -26,39 +26,23 @@
     self.title = @"Nina";
     //Need You Edit
     NSArray *titleArray = [self ninaTitleArray];
-    //Three choices 
+    //Three choices
     NSArray *vcsArray = [self ninaVCsArray];
-//    NSArray *viewsArray = [self ninaViewsArray];
-//    NSArray *detailVCsArray = [self ninaDetailVCsArray];
-    NSArray *colorArray = [self ninaColorArray];
+    //    NSArray *viewsArray = [self ninaViewsArray];
+    //    NSArray *detailVCsArray = [self ninaDetailVCsArray];
     /**
      *  创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度，如果这个高度不是您想要的，您可以去在下面的frame自定义设置。
      *  A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just set frame as you wish.
      */
     CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
-    NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray WithColorArrays:colorArray];
+    NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
     ninaPagerView.ninaPagerStyles = NinaPagerStyleBottomLine;
-    ninaPagerView.ninaDefaultPage = 3;
+    ninaPagerView.ninaDefaultPage = 0;
     ninaPagerView.loadWholePages = NO;
     [self.view addSubview:ninaPagerView];
 }
 
 #pragma mark - NinaParaArrays
-/**
- *  您可以选择是否要改变标题选中的颜色(默认为黑色)、未选中的颜色(默认为灰色)或者下划线的颜色(默认为色值是ff6262)，上方菜单栏背景色(默认为白色)。如果传入颜色数量不够，则按顺序给相应的部分添加颜色。
- *  You can choose whether change your titles' selectColor(default is black),unselectColor(default is gray) and underline color(default is Color value ff6262),topTabBackGround color(default is white).
- *
- *  @return Array of colors.
- */
-- (NSArray *)ninaColorArray {
-    return @[
-                      [UIColor blackColor], /**< 选中的标题颜色 Title SelectColor  **/
-                      [UIColor grayColor], /**< 未选中的标题颜色  Title UnselectColor **/
-                      [UIColor redColor], /**< 下划线颜色或滑块颜色 Underline or SlideBlock Color   **/
-                      [UIColor whiteColor], /**<  上方菜单栏的背景颜色 TopTab Background Color   **/
-                      ];
-}
-
 /**
  *  上方显示标题(您需要注意的是，虽然框架中对长标题进行了优化处理，但是建议您设置标题时汉字的长度不要超过10)。
  *  Titles showing on the topTab
@@ -146,16 +130,16 @@
     UIStoryboard *ninthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
     ChildBaseViewController *ninthVC = [ninthStory instantiateViewControllerWithIdentifier:@"555"];
     return @[
-                     firstVC,
-                     secondVC,
-                     firstTV,
-                     forthCollectionView,
-                     fifthVC,
-                     sixthVC,
-                     seventhVC,
-                     eighthVC,
-                     ninthVC
-                     ];
+             firstVC,
+             secondVC,
+             firstTV,
+             forthCollectionView,
+             fifthVC,
+             sixthVC,
+             seventhVC,
+             eighthVC,
+             ninthVC
+             ];
 }
 
 @end

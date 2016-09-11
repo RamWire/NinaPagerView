@@ -24,7 +24,7 @@
 
 @interface NinaBaseView : UIView <UIScrollViewDelegate>
 
-@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UIScrollView *scrollView; /**<  滑动视图   **/
 @property (assign, nonatomic) NSInteger currentPage; /**<  页码   **/
 @property (strong, nonatomic) UIScrollView *topTab; /**<  顶部tab   **/
 @property (strong, nonatomic) NSArray *titleArray; /**<  标题   **/
@@ -37,6 +37,10 @@
 @property (assign, nonatomic) CGFloat titlesFont; /**< 标题字体大小 **/
 @property (assign, nonatomic) CGFloat topHeight; /**< TopTab高度 **/
 @property (assign, nonatomic) BOOL topTabUnderLineHidden; /**< 是否显示下方的下划线 **/
+@property (strong, nonatomic) UIColor *btnUnSelectColor; /**< 未选中的标题颜色 **/
+@property (strong, nonatomic) UIColor *btnSelectColor; /**< 选中的标题颜色 **/
+@property (strong, nonatomic) UIColor *underlineBlockColor; /**< 下划线或滑块颜色 **/
+@property (strong, nonatomic) UIColor *topTabColor; /**< topTab背景颜色 **/
 /**
  *  Init Method.
  *
@@ -48,5 +52,6 @@
  *  @param topTabNum      Toptab styles.
  *
  */
-- (instancetype)initWithFrame:(CGRect)frame WithSelectColor:(UIColor *)selectColor WithUnselectorColor:(UIColor *)unselectColor WithUnderLineColor:(UIColor *)underlineColor WithtopTabColor:(UIColor *)topTabColor WithTopTabType:(NSInteger)topTabNum;
+- (instancetype)initWithFrame:(CGRect)frame WithTopTabType:(NSInteger)topTabNum;
+
 @end
