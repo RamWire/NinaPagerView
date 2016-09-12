@@ -45,7 +45,8 @@ static NSString *const kObserverPage = @"currentPage";
     BOOL ableLoadData;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs {
+- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs
+{
     if (self = [super init]) {
         self.frame = frame;
         titlesArray = titles;
@@ -300,6 +301,7 @@ static NSString *const kObserverPage = @"currentPage";
     [pagerView removeObserver:self forKeyPath:@"currentPage"];
 }
 
+#pragma mark - NSCacheDelegate
 /**<  NSCache delegate method，print current dealloc object. **/
 - (void)cache:(NSCache *)cache willEvictObject:(id)obj {
     if (isDebugging) {
