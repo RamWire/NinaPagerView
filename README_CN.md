@@ -82,6 +82,10 @@ NSArray *vcsArray = @[
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
 * 您可以自定义设置的控制器或视图最多为**10**，如果您想创建更多，可以对NinaPagerView中的**MaxNums**进行设置。
+* 如果您需要push到包含NinaPagerView的控制器，请确保前一级的控制器导航栏的translucent为NO，如果没有，您可以按照如下代码进行设置:
+```objc
+self.navigationController.navigationBar.translucent = NO;
+```
 
 ### NinaPagerViewDelegate
 #### 关于内存管理

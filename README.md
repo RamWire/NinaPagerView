@@ -82,6 +82,10 @@ NSArray *vcsArray = @[
 ninaPagerView.nina_navigationBarHidden = YES;
 ```
 * Superior limit of creating  controllers or views is **10**,if wanna more,please modify **MaxNums** in NinaPagerView.
+* If you need push to the controller which contains NinaPagerView,please make sure your **navigationBar's translucent** is **NO**.You can set like this:
+```objc
+self.navigationController.navigationBar.translucent = NO;
+```
 
 ### NinaPagerViewDelegate
 #### Memory Management
