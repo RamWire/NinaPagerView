@@ -108,6 +108,7 @@
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.alwaysBounceHorizontal = YES;
+        _scrollView.scrollsToTop = NO;
     }
     return _scrollView;
 }
@@ -126,6 +127,7 @@
         _topTab.alwaysBounceHorizontal = YES;
         _topTab.showsHorizontalScrollIndicator = NO;
         _topTab.bounces = NO;
+        _topTab.scrollsToTop = NO;
         CGFloat additionCount = 0;
         if (_titleArray.count > 5) {
             additionCount = (_titleArray.count - 5.0) / 5.0;
