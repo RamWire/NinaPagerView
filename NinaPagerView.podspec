@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
 s.name     = 'NinaPagerView'
-s.version  = '1.4.3'
+s.version  = '1.4.5'
 s.license  = 'MIT'
 s.platform      = :ios, '7.0'
-s.summary  = 'NinaPagerView is a view easy to page your controllers.'
+s.summary  = 'NinaPagerView is a low-coupling segment easy to page your controllers and views.'
 s.homepage = 'https://github.com/RamWire/NinaPagerView'
 s.author   = { 'RamWire' => 'RamWire' }
 s.source   = { :git => 'https://github.com/RamWire/NinaPagerView.git', :tag => s.version.to_s }

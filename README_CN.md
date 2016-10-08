@@ -104,6 +104,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ### 版本更新说明
+####v1.4.5
+修复一个可能引起scrollsToTop冲突的问题。 <br />
 ####v1.4.3
 新添加了标题选中未选中等设置颜色的属性，您现在不需要再在init方法中设置它们的颜色了。 <br />
 ####v1.4.2

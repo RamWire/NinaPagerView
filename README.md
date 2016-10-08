@@ -104,6 +104,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ## Change Log
+####v1.4.5
+Fix scrollsToTop conflict issue.<br />
 ####v1.4.3
 Add properties for setting colors,now you just set frame,titleArray and vcsArray in init method.<br />
 ####v1.4.2
