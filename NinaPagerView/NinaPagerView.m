@@ -195,7 +195,7 @@ static NSString *const kObserverPage = @"currentPage";
     vcsArray = [NSMutableArray array];
     vcsTagArray = [NSMutableArray array];
     if (titles.count > 0 && childVCs.count > 0) {
-        pagerView = [[NinaBaseView alloc] initWithFrame:self.frame WithTopTabType:_ninaPagerStyles];
+        pagerView = [[NinaBaseView alloc] initWithFrame:self.bounds WithTopTabType:_ninaPagerStyles];
         [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
         [self addSubview:pagerView];
         //First ViewController present to the screen
