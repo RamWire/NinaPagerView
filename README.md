@@ -104,6 +104,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ## Change Log
+####v1.4.6
+Fix a bug may cause NinaPagerView in wrong location.<br />
 ####v1.4.5
 Fix scrollsToTop conflict issue.<br />
 ####v1.4.3

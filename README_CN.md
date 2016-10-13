@@ -104,6 +104,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ### 版本更新说明
+####v1.4.6
+修复可能引起整体View坐标出错的问题。 <br />
 ####v1.4.5
 修复一个可能引起scrollsToTop冲突的问题。 <br />
 ####v1.4.3
