@@ -24,8 +24,10 @@
 #import "UIParameter.h"
 #import "NinaBaseView.h"
 #import "UIView+ViewController.h"
+
 #define MaxNums  10 //Max limit number,recommand below 10.
 static NSString *const kObserverPage = @"currentPage";
+static void *NinaCurrent = &NinaCurrent;
 
 @interface NinaPagerView()<NSCacheDelegate>
 @property (nonatomic, strong)NSCache *limitControllerCache; /**<  缓存限制   **/
@@ -196,7 +198,7 @@ static NSString *const kObserverPage = @"currentPage";
     vcsTagArray = [NSMutableArray array];
     if (titles.count > 0 && childVCs.count > 0) {
         pagerView = [[NinaBaseView alloc] initWithFrame:self.bounds WithTopTabType:_ninaPagerStyles];
-        [pagerView addObserver:self forKeyPath:@"currentPage" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+        [pagerView addObserver:self forKeyPath:kObserverPage options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:NinaCurrent];
         [self addSubview:pagerView];
         //First ViewController present to the screen
         ableLoadData = YES;
@@ -207,7 +209,7 @@ static NSString *const kObserverPage = @"currentPage";
 
 #pragma mark - KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context {
-    if ([keyPath isEqualToString:kObserverPage]) {
+    if (object == pagerView && [keyPath isEqualToString:kObserverPage] && context == NinaCurrent) {
         NSInteger page = [change[@"new"] integerValue];
         if (isDebugging) {
             NSLog(@"It's controller %li",(long)page + 1);
@@ -298,7 +300,7 @@ static NSString *const kObserverPage = @"currentPage";
 
 #pragma mark - Dealloc
 - (void)dealloc {
-    [pagerView removeObserver:self forKeyPath:@"currentPage"];
+    [pagerView removeObserver:self forKeyPath:kObserverPage context:NinaCurrent];
 }
 
 #pragma mark - NSCacheDelegate
