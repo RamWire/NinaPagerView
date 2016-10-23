@@ -109,6 +109,7 @@
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.alwaysBounceHorizontal = YES;
         _scrollView.scrollsToTop = NO;
+        _scrollView.bounces = NO;
     }
     return _scrollView;
 }
