@@ -194,23 +194,25 @@
         lineBottom.userInteractionEnabled = YES;
         [_topTab addSubview:lineBottom];
         //Create ninaMaskView.
-        ninaMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (1 + additionCount) * FUll_VIEW_WIDTH, _blockHeight)];
-        ninaMaskView.backgroundColor = [UIColor clearColor];
-        for (NSInteger j = 0; j < _titleArray.count; j++) {
-            UILabel *maskLabel = [UILabel new];
-            if (_titleArray.count > 5) {
-                maskLabel.frame = CGRectMake(More5LineWidth * j - More5LineWidth * (1 - _bottomLinePer) / 2, 0, More5LineWidth, _blockHeight);
-            }else {
-                maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * j - FUll_VIEW_WIDTH / _titleArray.count * (1 - _bottomLinePer) / 2, 0, FUll_VIEW_WIDTH / _titleArray.count, _blockHeight);
+        if (topTabType == 1) {
+            ninaMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (1 + additionCount) * FUll_VIEW_WIDTH, _blockHeight)];
+            ninaMaskView.backgroundColor = [UIColor clearColor];
+            for (NSInteger j = 0; j < _titleArray.count; j++) {
+                UILabel *maskLabel = [UILabel new];
+                if (_titleArray.count > 5) {
+                    maskLabel.frame = CGRectMake(More5LineWidth * j - More5LineWidth * (1 - _bottomLinePer) / 2, 0, More5LineWidth, _blockHeight);
+                }else {
+                    maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * j - FUll_VIEW_WIDTH / _titleArray.count * (1 - _bottomLinePer) / 2, 0, FUll_VIEW_WIDTH / _titleArray.count, _blockHeight);
+                }
+                maskLabel.text = _titleArray[j];
+                maskLabel.textColor = _btnSelectColor?_btnSelectColor:[UIColor whiteColor];
+                maskLabel.numberOfLines = 0;
+                maskLabel.textAlignment = NSTextAlignmentCenter;
+                maskLabel.font = [UIFont systemFontOfSize:_titlesFont];
+                [ninaMaskView addSubview:maskLabel];
             }
-            maskLabel.text = _titleArray[j];
-            maskLabel.textColor = _btnSelectColor?_btnSelectColor:[UIColor whiteColor];
-            maskLabel.numberOfLines = 0;
-            maskLabel.textAlignment = NSTextAlignmentCenter;
-            maskLabel.font = [UIFont systemFontOfSize:_titlesFont];
-            [ninaMaskView addSubview:maskLabel];
+            [lineBottom addSubview:ninaMaskView];
         }
-        [lineBottom addSubview:ninaMaskView];
         if (topTabType == 2) {
             lineBottom.hidden = YES;
         }
@@ -239,13 +241,15 @@
             yourCount = 1.0 / 5.0;
         }
         CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -_bottomLinePer) / 2;
-        CGPoint maskCenter = ninaMaskView.center;
-        if (_titleArray.count >= 5) {
-            maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * 0.2);
-        }else {
-            maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * yourCount);
+        if (topTabType == 1) {
+            CGPoint maskCenter = ninaMaskView.center;
+            if (_titleArray.count >= 5) {
+                maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * 0.2);
+            }else {
+                maskCenter.x = ninaMaskView.frame.size.width / 2.0 - (scrollView.contentOffset.x * yourCount);
+            }
+            ninaMaskView.center = maskCenter;
         }
-        ninaMaskView.center = maskCenter;
         if (_titleArray.count > 5) {
             switch (topTabType) {
                 case 0:
