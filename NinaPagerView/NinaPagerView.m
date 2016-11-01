@@ -31,6 +31,7 @@ static NSString *const kObserverPage = @"currentPage";
 @interface NinaPagerView()<NSCacheDelegate>
 @property (nonatomic, strong) NSCache *limitControllerCache; /**<  缓存限制   **/
 @property (nonatomic, strong) NinaBaseView *ninaBaseView; /**<  创建NinaBaseView   **/
+@property (nonatomic, assign) BOOL hasSettingScrollEnabled;
 @end
 
 @implementation NinaPagerView
@@ -102,6 +103,11 @@ static NSString *const kObserverPage = @"currentPage";
     _underLineHidden = underLineHidden;
 }
 
+- (void)setNina_scrollEnabled:(BOOL)nina_scrollEnabled {
+    _nina_scrollEnabled = nina_scrollEnabled;
+    _hasSettingScrollEnabled = YES;
+}
+
 - (void)setTopTabHeight:(CGFloat)topTabHeight {
     _topTabHeight = topTabHeight;
 }
@@ -154,6 +160,7 @@ static NSString *const kObserverPage = @"currentPage";
     self.ninaBaseView.titleScale = _titleScale > 0?_titleScale:1.15;
     self.ninaBaseView.titlesFont = _titleFont > 0?_titleFont:14;
     self.ninaBaseView.topTabUnderLineHidden = _underLineHidden;
+    self.ninaBaseView.slideEnabled = _hasSettingScrollEnabled?_nina_scrollEnabled:YES;
     self.ninaBaseView.blockHeight = _sliderHeight > 0?_sliderHeight:tabHeight;
     self.ninaBaseView.bottomLinePer = _selectBottomLinePer > 0?_selectBottomLinePer:1;
     self.ninaBaseView.bottomLineHeight = _selectBottomLineHeight > 0?_selectBottomLineHeight:2;

@@ -143,15 +143,20 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  **/
 @property (assign, nonatomic) BOOL nina_navigationBarHidden;
 /**<
- *  是否一次性加载全部页面或控制器。
- *  Load whole viewcontrollers or views.
+ *  是否一次性加载全部页面或控制器，默认为否。
+ *  Load whole viewcontrollers or views,default is NO.
  **/
 @property (assign, nonatomic) BOOL loadWholePages;
 /**<
- *  上方TopTab下面的总览线是否隐藏。
- *  Hide the topTab's underline(not the select underline) or not.
+ *  上方TopTab下面的总览线是否隐藏，默认为不隐藏。
+ *  Hide the topTab's underline(not the select underline) or not,default is NO.
  **/
 @property (assign, nonatomic) BOOL underLineHidden;
+/**<
+ *  允许下方视图进行左右滑动，默认为允许。
+ *  Able to scroll scrollview in main view,default is YES.
+ **/
+@property (assign, nonatomic) BOOL nina_scrollEnabled;
 
 @property (weak, nonatomic) id<NinaPagerViewDelegate>delegate; /**< NinaPagerView代理 **/
 

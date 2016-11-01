@@ -37,6 +37,7 @@
 @property (assign, nonatomic) CGFloat titlesFont; /**< 标题字体大小 **/
 @property (assign, nonatomic) CGFloat topHeight; /**< TopTab高度 **/
 @property (assign, nonatomic) BOOL topTabUnderLineHidden; /**< 是否显示下方的下划线 **/
+@property (assign, nonatomic) BOOL slideEnabled; /**< 允许下方左右滑动 **/
 @property (strong, nonatomic) UIColor *btnUnSelectColor; /**< 未选中的标题颜色 **/
 @property (strong, nonatomic) UIColor *btnSelectColor; /**< 选中的标题颜色 **/
 @property (strong, nonatomic) UIColor *underlineBlockColor; /**< 下划线或滑块颜色 **/

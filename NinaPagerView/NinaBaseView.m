@@ -77,6 +77,10 @@
     _topTabUnderLineHidden = topTabUnderLineHidden;
 }
 
+- (void)setSlideEnabled:(BOOL)slideEnabled {
+    _slideEnabled = slideEnabled;
+}
+
 - (void)setTopHeight:(CGFloat)topHeight {
     _topHeight = topHeight;
 }
@@ -105,6 +109,9 @@
         _scrollView.tag = 318;
         _scrollView.backgroundColor = UIColorFromRGB(0xfafafa);
         _scrollView.contentSize = CGSizeMake(FUll_VIEW_WIDTH * _titleArray.count, 0);
+        if (!_slideEnabled) {
+            _scrollView.scrollEnabled = NO;
+        }
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.alwaysBounceHorizontal = YES;
@@ -127,6 +134,7 @@
         _topTab.scrollEnabled = YES;
         _topTab.alwaysBounceHorizontal = YES;
         _topTab.showsHorizontalScrollIndicator = NO;
+        _topTab.showsVerticalScrollIndicator = NO;
         _topTab.bounces = NO;
         _topTab.scrollsToTop = NO;
         CGFloat additionCount = 0;
