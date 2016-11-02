@@ -157,6 +157,11 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  Able to scroll scrollview in main view,default is YES.
  **/
 @property (assign, nonatomic) BOOL nina_scrollEnabled;
+/**<
+ *  是否选择自适应下划线长度(与当前标题文字长度相同)，默认为NO，如果设置了selectBottomLinePer属性，此属性将不起作用。
+ *  Auto-calculate bottomline's width,the same with current title's width,default is NO,if you set selectBottomLinePer,this property will not work.
+ **/
+@property (assign, nonatomic) BOOL nina_autoBottomLineEnable;
 
 @property (weak, nonatomic) id<NinaPagerViewDelegate>delegate; /**< NinaPagerView代理 **/
 

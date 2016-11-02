@@ -28,6 +28,7 @@
     UIView *lineBottom;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
+    NSMutableArray *bottomLineWidthArray;
     NSInteger topTabType;
     UIView *ninaMaskView;
 }
@@ -79,6 +80,10 @@
 
 - (void)setSlideEnabled:(BOOL)slideEnabled {
     _slideEnabled = slideEnabled;
+}
+
+- (void)setAutoFitTitleLine:(BOOL)autoFitTitleLine {
+    _autoFitTitleLine = autoFitTitleLine;
 }
 
 - (void)setTopHeight:(CGFloat)topHeight {
@@ -150,11 +155,13 @@
             }
         }
         btnArray = [NSMutableArray array];
+        bottomLineWidthArray = [NSMutableArray array];
         for (NSInteger i = 0; i < _titleArray.count; i++) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i;
             button.titleLabel.font = [UIFont systemFontOfSize:_titlesFont];
             if ([_titleArray[i] isKindOfClass:[NSString class]]) {
+                [bottomLineWidthArray addObject:[NSString stringWithFormat:@"%f",[_titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:_titlesFont]}].width]];
                 [button setTitle:_titleArray[i] forState:UIControlStateNormal];
                 button.titleLabel.numberOfLines = 0;
                 button.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -248,6 +255,9 @@
         CGFloat yourCount = 1.0 / _titleArray.count;
         if (_titleArray.count > 5) {
             yourCount = 1.0 / 5.0;
+        }
+        if (_autoFitTitleLine) {
+            _bottomLinePer = [bottomLineWidthArray[yourPage] floatValue] / (FUll_VIEW_WIDTH * yourCount);
         }
         CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -_bottomLinePer) / 2;
         if (topTabType == 1) {
@@ -343,6 +353,9 @@
     if (_titleArray.count > 5) {
         additionCount = (_titleArray.count - 5.0) / 5.0;
         yourCount = 1.0 / 5.0;
+    }
+    if (_autoFitTitleLine) {
+        _bottomLinePer = [bottomLineWidthArray[0] floatValue] / (FUll_VIEW_WIDTH * yourCount);
     }
     CGFloat lineBottomDis = yourCount * FUll_VIEW_WIDTH * (1 -_bottomLinePer) / 2;
     NSInteger defaultPage = (_baseDefaultPage > 0 && _baseDefaultPage < _titleArray.count)?_baseDefaultPage:0;

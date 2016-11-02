@@ -32,6 +32,7 @@ static NSString *const kObserverPage = @"currentPage";
 @property (nonatomic, strong) NSCache *limitControllerCache; /**<  缓存限制   **/
 @property (nonatomic, strong) NinaBaseView *ninaBaseView; /**<  创建NinaBaseView   **/
 @property (nonatomic, assign) BOOL hasSettingScrollEnabled;
+@property (nonatomic, assign) BOOL hasSettingLinePer;
 @end
 
 @implementation NinaPagerView
@@ -89,6 +90,7 @@ static NSString *const kObserverPage = @"currentPage";
 
 - (void)setSelectBottomLinePer:(CGFloat)selectBottomLinePer {
     _selectBottomLinePer = selectBottomLinePer;
+    _hasSettingLinePer = YES;
 }
 
 - (void)setSelectBottomLineHeight:(CGFloat)selectBottomLineHeight {
@@ -106,6 +108,10 @@ static NSString *const kObserverPage = @"currentPage";
 - (void)setNina_scrollEnabled:(BOOL)nina_scrollEnabled {
     _nina_scrollEnabled = nina_scrollEnabled;
     _hasSettingScrollEnabled = YES;
+}
+
+- (void)setNina_autoBottomLineEnable:(BOOL)nina_autoBottomLineEnable {
+    _nina_autoBottomLineEnable = nina_autoBottomLineEnable;
 }
 
 - (void)setTopTabHeight:(CGFloat)topTabHeight {
@@ -162,7 +168,8 @@ static NSString *const kObserverPage = @"currentPage";
     self.ninaBaseView.topTabUnderLineHidden = _underLineHidden;
     self.ninaBaseView.slideEnabled = _hasSettingScrollEnabled?_nina_scrollEnabled:YES;
     self.ninaBaseView.blockHeight = _sliderHeight > 0?_sliderHeight:tabHeight;
-    self.ninaBaseView.bottomLinePer = _selectBottomLinePer > 0?_selectBottomLinePer:1;
+    self.ninaBaseView.bottomLinePer = (_selectBottomLinePer > 0 && _selectBottomLinePer < 1 && _hasSettingLinePer)?_selectBottomLinePer:1;
+    self.ninaBaseView.autoFitTitleLine = (_nina_autoBottomLineEnable && !_hasSettingLinePer)?_nina_autoBottomLineEnable:NO;
     self.ninaBaseView.bottomLineHeight = _selectBottomLineHeight > 0?_selectBottomLineHeight:2;
     self.ninaBaseView.sliderCornerRadius = _slideBlockCornerRadius > 0?_slideBlockCornerRadius:0;
     self.ninaBaseView.titleArray = titlesArray;
