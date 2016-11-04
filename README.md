@@ -104,6 +104,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ## Change Log
+####v1.4.8
+Add nina_scrollEnabled and nina_autoBottomLineEnable functions to NinaPagerView,meanwhile try to fix KVO crash in some conditions.<br />
 ####v1.4.6
 Fix a bug may cause NinaPagerView in wrong location.<br />
 ####v1.4.5
