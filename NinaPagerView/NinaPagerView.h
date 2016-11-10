@@ -113,8 +113,8 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  */
 @property (assign, nonatomic) CGFloat titleFont;
 /**
- *  您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。(需要注意的是，此属性不适用于NinaPagerStyleSlideBlock样式)
- *  You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.(TitleScale is not working on NinaPagerStyleSlideBlock)
+ *  您可以设置titleSize这个属性来设置标题的缩放比例(相对于原比例标题)。同时，在加入了顶部自定义视图之后，您可以通过设置此属性来对选中的view整体进行缩放，推荐您设置的范围在1~1.5之间，如果不设置此属性，默认的缩放比例为1.15。(需要注意的是，此属性不适用于NinaPagerStyleSlideBlock样式)
+ *  You can set titleSize for title animation(compare to origin title).Meanwhile,after adding custom topTab,you also can set the property to the topTab view which selected.Command range between 1 and 1.5.If don't set this,default scale is 1.15.(TitleScale is not working on NinaPagerStyleSlideBlock)
  */
 @property (assign, nonatomic) CGFloat titleScale;
 /**<
@@ -162,6 +162,16 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  Auto-calculate bottomline's width,the same with current title's width,default is NO,if you set selectBottomLinePer,this property will not work.
  **/
 @property (assign, nonatomic) BOOL nina_autoBottomLineEnable;
+/**<
+ *  自定义顶部栏视图，支持用户替代原有的固态标题样式。该属性是需要传入未选中(普通状态)时顶部样式，具体设置可参照Example中的方式(此自定义方式在NinaPagerStyleSlideBlock中并不适用)。
+ *  Custom topTab views,you can set views as you wish.The property needs to your unselected(normal) views array,you can set it like Example's setting(This property doesn't support NinaPagerStyleSlideBlock mode).
+ **/
+@property (strong, nonatomic) NSArray *topTabViews;
+/**<
+ *  自定义顶部栏视图，支持用户替代原有的固态标题样式。该属性是需要传入选中时顶部样式，具体设置可参照Example中的方式(此自定义方式在NinaPagerStyleSlideBlock中并不适用)。
+ *  Custom topTab views,you can set views as you wish.The property needs to your selected views array,you can set it like Example's setting(This property doesn't support NinaPagerStyleSlideBlock mode).
+ **/
+@property (strong, nonatomic) NSArray *selectedTopTabViews;
 
 @property (weak, nonatomic) id<NinaPagerViewDelegate>delegate; /**< NinaPagerView代理 **/
 

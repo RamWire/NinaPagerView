@@ -28,6 +28,7 @@
     UIView *lineBottom;
     UIView *topTabBottomLine;
     NSMutableArray *btnArray;
+    NSMutableArray *topTabArray;
     NSMutableArray *bottomLineWidthArray;
     NSInteger topTabType;
     UIView *ninaMaskView;
@@ -44,6 +45,14 @@
 - (void)setTitleArray:(NSArray *)titleArray {
     _titleArray = titleArray;
     [self baseViewLoadData];
+}
+
+- (void)setTopArray:(NSArray *)topArray {
+    _topArray = topArray;
+}
+
+- (void)setChangeTopArray:(NSArray *)changeTopArray {
+    _changeTopArray = changeTopArray;
 }
 
 - (void)setBaseDefaultPage:(NSInteger)baseDefaultPage {
@@ -156,22 +165,32 @@
         }
         btnArray = [NSMutableArray array];
         bottomLineWidthArray = [NSMutableArray array];
+        topTabArray = [NSMutableArray array];
         for (NSInteger i = 0; i < _titleArray.count; i++) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.tag = i;
-            button.titleLabel.font = [UIFont systemFontOfSize:_titlesFont];
-            if ([_titleArray[i] isKindOfClass:[NSString class]]) {
-                [bottomLineWidthArray addObject:[NSString stringWithFormat:@"%f",[_titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:_titlesFont]}].width]];
-                [button setTitle:_titleArray[i] forState:UIControlStateNormal];
-                button.titleLabel.numberOfLines = 0;
-                button.titleLabel.textAlignment = NSTextAlignmentCenter;
-            }else {
-                NSLog(@"Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1);
-            }
             if (_titleArray.count > 5) {
                 button.frame = CGRectMake(More5LineWidth * i, 0, More5LineWidth, _topHeight);
             }else {
                 button.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * i, 0, FUll_VIEW_WIDTH / _titleArray.count, _topHeight);
+            }
+            if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count && (topTabType == 0 || topTabType == 2)) {
+                UIView *customTopView = _topArray[i];
+                customTopView.frame = button.bounds;
+                customTopView.userInteractionEnabled = NO;
+                customTopView.exclusiveTouch = NO;
+                [topTabArray addObject:customTopView];
+                [button addSubview:customTopView];
+            }else {
+                button.titleLabel.font = [UIFont systemFontOfSize:_titlesFont];
+                if ([_titleArray[i] isKindOfClass:[NSString class]]) {
+                    [bottomLineWidthArray addObject:[NSString stringWithFormat:@"%f",[_titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:_titlesFont]}].width]];
+                    [button setTitle:_titleArray[i] forState:UIControlStateNormal];
+                    button.titleLabel.numberOfLines = 0;
+                    button.titleLabel.textAlignment = NSTextAlignmentCenter;
+                }else {
+                    NSLog(@"Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1);
+                }
             }
             [_topTab addSubview:button];
             [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -184,6 +203,20 @@
                 }
                 if (_titleScale > 0) {
                     button.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
+                }
+                if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count) {
+                    for (NSInteger i = [button.subviews count] - 1; i >= 0; i--) {
+                        if ([[button.subviews objectAtIndex:i] isKindOfClass:[UIView class]]) {
+                            [[button.subviews objectAtIndex:i] removeFromSuperview];
+                        }
+                    }
+                    if (![button.subviews isKindOfClass:[UIView class]]) {
+                        UIView *whites = _changeTopArray[0];
+                        whites.frame = button.bounds;
+                        whites.userInteractionEnabled = NO;
+                        whites.exclusiveTouch = NO;
+                        [btnArray[0] addSubview:whites];
+                    }
                 }
             } else {
                 if (_btnUnSelectColor) {
@@ -307,6 +340,19 @@
                 }else {
                     [btnArray[i] setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
                 }
+                if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count && (topTabType == 0 || topTabType == 2)) {
+                    UIView *customTopView = _topArray[i];
+                    UIButton *customTopButton = btnArray[i];
+                    for (NSInteger i = [customTopButton.subviews count] - 1; i>=0; i--) {
+                        if ([[customTopButton.subviews objectAtIndex:i] isKindOfClass:[UIView class]]) {
+                            [[customTopButton.subviews objectAtIndex:i] removeFromSuperview];
+                        }
+                    }
+                    customTopView.frame = customTopButton.bounds;
+                    customTopView.userInteractionEnabled = NO;
+                    customTopView.exclusiveTouch = NO;
+                    [customTopButton addSubview:customTopView];
+                }
             }
             UIButton *changeButton = btnArray[i];
             [UIView animateWithDuration:0.3 animations:^{
@@ -318,6 +364,21 @@
                 [btnArray[yourPage] setTitleColor:_btnSelectColor forState:UIControlStateNormal];
             }else {
                 [btnArray[yourPage] setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }
+            if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count) {
+                UIButton *customTopButton = btnArray[yourPage];
+                for (NSInteger i = [customTopButton.subviews count] - 1; i>=0; i--) {
+                    if ([[customTopButton.subviews objectAtIndex:i] isKindOfClass:[UIView class]]) {
+                        [[customTopButton.subviews objectAtIndex:i] removeFromSuperview];
+                    }
+                }
+                if (![customTopButton.subviews isKindOfClass:[UIView class]]) {
+                    UIView *whites = _changeTopArray[yourPage];
+                    whites.frame = customTopButton.bounds;
+                    whites.userInteractionEnabled = NO;
+                    whites.exclusiveTouch = NO;
+                    [btnArray[yourPage] addSubview:whites];
+                }
             }
             UIButton *changeButton = btnArray[yourPage];
             if (_titleScale > 0) {

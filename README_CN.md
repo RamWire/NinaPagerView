@@ -13,7 +13,7 @@
 - [x] 低耦合，您只需创建自己的ViewController即可，后续的操作都在自己的ViewController中。
 - [x] 可分步加载您所添加的ViewController，实现类似网易新闻，虎扑看球的效果。
 - [x] 只需一行代码创建即可实现所有功能。
-- [x] 菜单栏中选中未选中的颜色可自己定制。
+- [x] 菜单栏可随需求自己定制，不仅仅局限于标题样式。
 - [x] 不仅仅是UIViewController，您可以根据您的需求创建UIView添加到NinaPagerView中。
 - [x] 可根据您的需求对上方的滑块进行选择，无论是背景颜色还是文字颜色。
 
@@ -22,6 +22,7 @@
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif1.gif)
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif2.gif)
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif3.gif)
+![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif4.gif)
 
 ## 安装
 
@@ -52,6 +53,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect Wi
 
 ### 其他设置和补充
 * 庞大的**自定义属性**您可以在NinaPagerView中设置🍻🍻🍻。
+* NinaPagerView支持顶部菜单栏自定义配置，创建自己想要的样式，加入到NinaPagerView中吧(具体说明配置请看Example中的注释)。
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
 NSArray *titleArray = @[

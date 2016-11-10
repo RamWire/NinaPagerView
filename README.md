@@ -13,7 +13,7 @@
 - [x] Low coupling,just create your own viewcontrollers or views,that's it!
 - [x] Load your viewcontrollers or views.Not load at the same time.
 - [x] Just one line codes to finish the mission.
-- [x] Edit everything in TopTab as you wish.
+- [x] Edit everything in TopTab as you wish,you can custom your own views here.
 - [x] Not only fits UIViewController,but also fits UIView.
 - [x] Select NinaPagerStyle as you wish.
 
@@ -22,6 +22,7 @@
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif1.gif)
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif2.gif)
 ![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif3.gif)
+![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/NinaPagerViewGif4.gif)
 
 ## Installation
 
@@ -51,7 +52,8 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect Wi
 That's all!
 
 ### Other Settings and Tips
-* Numerous **properties** in NinaPagerView you can set as you wish🍻🍻🍻
+* Numerous **properties** in NinaPagerView you can set as you wish.🍻🍻🍻
+* NinaPagerView now supports custom topTab menus.Creating your own views into NinaPagerView!(please read the Example notes if you wanna to know more)🍻🍻🍻
 * You can set three necessary Array by following codes(please read the Example notes if you wanna to know more).
 ```objc
 NSArray *titleArray = @[

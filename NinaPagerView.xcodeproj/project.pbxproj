@@ -28,6 +28,7 @@
 		766423021D25209A00D508F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 766422FE1D25209A00D508F2 /* LaunchScreen.storyboard */; };
 		766423031D25209A00D508F2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 766422FF1D25209A00D508F2 /* main.m */; };
 		767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC91CBB9E0700D3C420 /* TestViewController.m */; };
+		768136D11DD45737008B420A /* TopTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 768136D01DD45737008B420A /* TopTabView.m */; };
 		769A14E61CBC8C4C002BF591 /* NinaXibVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 769A14E51CBC8C4C002BF591 /* NinaXibVC.storyboard */; };
 		76CEDFD91CBF79370074765F /* NinaPagerViewCarthage.h in Headers */ = {isa = PBXBuildFile; fileRef = 76CEDFD81CBF79370074765F /* NinaPagerViewCarthage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		76CEDFEB1CBF79380074765F /* NinaPagerViewCarthage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */; };
@@ -110,6 +111,8 @@
 		767F0AC61CBB857500D3C420 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		767F0AC81CBB9E0700D3C420 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		767F0AC91CBB9E0700D3C420 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		768136CF1DD45737008B420A /* TopTabView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTabView.h; sourceTree = "<group>"; };
+		768136D01DD45737008B420A /* TopTabView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTabView.m; sourceTree = "<group>"; };
 		7682409A1BF5D32700788E48 /* NinaPagerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinaPagerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		769A14E51CBC8C4C002BF591 /* NinaXibVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NinaXibVC.storyboard; sourceTree = "<group>"; };
 		76CEDFD61CBF79370074765F /* NinaPagerViewCarthage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NinaPagerViewCarthage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +208,8 @@
 				76148E2B1CE1C39F00C922AF /* ThirdTableView.m */,
 				765674DC1D1A709A00B3CC0D /* ForthCollectionView.h */,
 				765674DD1D1A709A00B3CC0D /* ForthCollectionView.m */,
+				768136CF1DD45737008B420A /* TopTabView.h */,
+				768136D01DD45737008B420A /* TopTabView.m */,
 			);
 			path = ChildView;
 			sourceTree = "<group>";
@@ -382,6 +387,7 @@
 				76148E2D1CE1C39F00C922AF /* SecondTableView.m in Sources */,
 				4D03543A1CA2E45000576C7B /* SeventhViewController.m in Sources */,
 				765674DE1D1A709A00B3CC0D /* ForthCollectionView.m in Sources */,
+				768136D11DD45737008B420A /* TopTabView.m in Sources */,
 				4D03543C1CA2E45000576C7B /* ThirdViewController.m in Sources */,
 				4D03543F1CA2E45000576C7B /* ViewController.m in Sources */,
 				76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */,

@@ -14,6 +14,7 @@
 #import "FirstTableView.h"
 #import "SecondTableView.h"
 #import "ForthCollectionView.h"
+#import "TopTabView.h"
 
 @interface ViewController()<NinaPagerViewDelegate>
 
@@ -31,7 +32,7 @@
     //    NSArray *viewsArray = [self ninaViewsArray];
     //    NSArray *detailVCsArray = [self ninaDetailVCsArray];
     /**
-     *  创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能，低耦合。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度，如果这个高度不是您想要的，您可以去在下面的frame自定义设置。
+     *  创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度，如果这个高度不是您想要的，您可以去在下面的frame自定义设置。
      *  A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just set frame as you wish.
      */
     CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
@@ -39,6 +40,9 @@
     ninaPagerView.ninaPagerStyles = NinaPagerStyleBottomLine;
     ninaPagerView.ninaDefaultPage = 0;
     ninaPagerView.loadWholePages = NO;
+    //Custom TopTab menus(optional)
+    ninaPagerView.topTabViews = [self topTabViewArray];
+    ninaPagerView.selectedTopTabViews = [self changeTopArray];
     [self.view addSubview:ninaPagerView];
 }
 
@@ -51,16 +55,16 @@
  */
 - (NSArray *)ninaTitleArray {
     return @[
-                     @"大连市",
-                     @"甘井子",
-                     @"星海广场",
-                     @"西岗",
-                     @"马栏子",
-                     @"革镇堡",
-                     @"沙河口",
-                     @"人民广场",
-                     @"中山广场"
-                     ];
+             @"大连市",
+             @"甘井子",
+             @"星海广场",
+             @"西岗",
+             @"马栏子",
+             @"革镇堡",
+             @"沙河口",
+             @"人民广场",
+             @"中山广场"
+             ];
 }
 
 /**
@@ -71,16 +75,16 @@
  */
 - (NSArray *)ninaVCsArray {
     return @[
-                     @"FirstViewController",
-                     @"SecondViewController",
-                     @"ThirdViewController",
-                     @"ForthViewController",
-                     @"FifthViewController",
-                     @"SixthViewController",
-                     @"SeventhViewController",
-                     @"EighthViewController",
-                     @"NinthViewController",
-                     ];
+             @"FirstViewController",
+             @"SecondViewController",
+             @"ThirdViewController",
+             @"ForthViewController",
+             @"FifthViewController",
+             @"SixthViewController",
+             @"SeventhViewController",
+             @"EighthViewController",
+             @"NinthViewController",
+             ];
 }
 
 /**
@@ -91,16 +95,16 @@
  */
 - (NSArray *)ninaViewsArray {
     return @[
-                     @"FirstTableView",
-                     @"SecondTableView",
-                     @"ThirdTableView",
-                     @"FirstTableView",
-                     @"SecondTableView",
-                     @"ThirdTableView",
-                     @"FirstTableView",
-                     @"SecondTableView",
-                     @"ThirdTableView",
-                     ];
+             @"FirstTableView",
+             @"SecondTableView",
+             @"ThirdTableView",
+             @"FirstTableView",
+             @"SecondTableView",
+             @"ThirdTableView",
+             @"FirstTableView",
+             @"SecondTableView",
+             @"ThirdTableView",
+             ];
 }
 
 /**
@@ -139,6 +143,46 @@
              seventhVC,
              eighthVC,
              ninthVC
+             ];
+}
+
+/**
+ *  未选中的自定义视图创建：示例展示的为左图右文字的一种样式，您可以根据需求对里面的内容进行子类化的创建，此数组包含的成员数量应与上方的标题和控制器数量一致(此自定义方式在NinaPagerStyleSlideBlock中并不适用)。
+ *  Normal custom topTab views creation:Example codes shows a kind of type which is left-image right-label.You can custom your views if you want.Please set topTabViewArray's count is the same with title and vcs array's count(This function doesn't support NinaPagerStyleSlideBlock mode).
+ *
+ *  @return Array of views or controllers
+ */
+- (NSArray *)topTabViewArray {
+    return @[
+             [[TopTabView alloc] initWithLeftImageName:@"bank_un" WithRightTitle:@"bank" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"clock_un" WithRightTitle:@"clock" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"cup_un" WithRightTitle:@"cup" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"heart_un" WithRightTitle:@"heart"WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"lab_un" WithRightTitle:@"lab" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"like_un" WithRightTitle:@"like" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"data_un" WithRightTitle:@"data" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"tv_un" WithRightTitle:@"tv" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             [[TopTabView alloc] initWithLeftImageName:@"display_un" WithRightTitle:@"pc" WithTitleColor:UIColorFromRGB(0xcdcdcd)],
+             ];
+}
+
+/**
+ *  选中的自定义视图创建：示例展示的为左图右文字的一种样式，您可以根据需求对里面的内容进行子类化的创建，此数组包含的成员数量应与上方的标题和控制器数量一致(此自定义方式在NinaPagerStyleSlideBlock中并不适用)。
+ *  Selected custom topTab views creation:Example codes shows a kind of type which is left-image right-label.You can custom your views if you want.Please set topTabViewArray's count is the same with title and vcs array's count(This function doesn't support NinaPagerStyleSlideBlock mode).
+ *
+ *  @return Array of views or controllers
+ */
+- (NSArray *)changeTopArray {
+    return @[
+             [[TopTabView alloc] initWithLeftImageName:@"bank" WithRightTitle:@"bank" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"clock" WithRightTitle:@"clock" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"cup" WithRightTitle:@"cup" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"heart" WithRightTitle:@"heart" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"lab" WithRightTitle:@"lab" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"like" WithRightTitle:@"like" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"data" WithRightTitle:@"data" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"tv" WithRightTitle:@"tv" WithTitleColor:UIColorFromRGB(0x333333)],
+             [[TopTabView alloc] initWithLeftImageName:@"display" WithRightTitle:@"pc" WithTitleColor:UIColorFromRGB(0x333333)],
              ];
 }
 

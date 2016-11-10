@@ -138,6 +138,14 @@ static NSString *const kObserverPage = @"currentPage";
     _topTabBackGroundColor = topTabBackGroundColor;
 }
 
+- (void)setTopTabViews:(NSArray *)topTabViews {
+    _topTabViews = topTabViews;
+}
+
+- (void)setSelectedTopTabViews:(NSArray *)selectedTopTabViews {
+    _selectedTopTabViews = selectedTopTabViews;
+}
+
 #pragma mark - LazyLoad
 - (NinaBaseView *)ninaBaseView {
     if (!_ninaBaseView) {
@@ -163,6 +171,8 @@ static NSString *const kObserverPage = @"currentPage";
     CGFloat tabHeight = _topTabHeight > 25?_topTabHeight:40;
     self.ninaBaseView.topHeight = tabHeight;
     self.ninaBaseView.baseDefaultPage = _ninaDefaultPage;
+    self.ninaBaseView.topArray = _topTabViews;
+    self.ninaBaseView.changeTopArray = _selectedTopTabViews;
     self.ninaBaseView.titleScale = _titleScale > 0?_titleScale:1.15;
     self.ninaBaseView.titlesFont = _titleFont > 0?_titleFont:14;
     self.ninaBaseView.topTabUnderLineHidden = _underLineHidden;
