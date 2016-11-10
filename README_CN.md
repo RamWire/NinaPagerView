@@ -53,7 +53,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect Wi
 
 ### 其他设置和补充
 * 庞大的**自定义属性**您可以在NinaPagerView中设置🍻🍻🍻。
-* NinaPagerView支持顶部菜单栏自定义配置，创建自己想要的样式，加入到NinaPagerView中吧(具体说明配置请看Example中的注释)。
+* NinaPagerView支持**顶部菜单栏自定义配置**，创建自己想要的样式，加入到NinaPagerView中吧(具体说明配置请看Example中的注释)。
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
 NSArray *titleArray = @[
