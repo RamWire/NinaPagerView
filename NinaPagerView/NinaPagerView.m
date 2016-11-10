@@ -209,7 +209,7 @@ static NSString *const kObserverPage = @"currentPage";
             [self.viewController addChildViewController:firstVC];
         }
     }
-    self.viewController.navigationController.navigationBar.translucent = NO;
+    self.viewController.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 #pragma mark - NSCache
