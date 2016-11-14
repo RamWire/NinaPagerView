@@ -106,6 +106,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ### 版本更新说明
+####v1.5.1
+新增了自定义顶部菜单栏，现在您可以定制您自己的菜单栏！ <br />
 ####v1.4.8
 新增控制下方视图左右的属性nina_scrollEnabled和根据当前标题自动计算下划线宽度的属性nina_autoBottomLineEnable，同时继续尝试修复KVO引起的小概率crash问题。 <br />
 ####v1.4.6
