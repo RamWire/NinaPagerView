@@ -163,6 +163,11 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  **/
 @property (assign, nonatomic) BOOL nina_autoBottomLineEnable;
 /**<
+ *  是否允许topTab根据下方视图上下滑动进行隐藏显示的功能，需要注意的是此属性必须跟您的子控制器或者子视图进行对应的显示或隐藏，您可以参考Example的ChildBaseController中设置来自定义，默认的隐藏显示动画时间为0.3秒。
+ *  Make topTab hidden when scrollview scrolling down.This property must be changed by your vcs or views.You can refer to detail codes in ChildBaseController,default animation duration is 0.3.
+ **/
+@property (assign, nonatomic) BOOL topTabScrollHidden;
+/**<
  *  自定义顶部栏视图，支持用户替代原有的固态标题样式。该属性是需要传入未选中(普通状态)时顶部样式，具体设置可参照Example中的方式(此自定义方式在NinaPagerStyleSlideBlock中并不适用)。
  *  Custom topTab views,you can set views as you wish.The property needs to your unselected(normal) views array,you can set it like Example's setting(This property doesn't support NinaPagerStyleSlideBlock mode).
  **/

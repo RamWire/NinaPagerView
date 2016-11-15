@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ScrollHiddenDelegate <NSObject>
+
+@optional
+- (void)upScrollAction:(BOOL)show;
+
+@end
+
 @interface ChildBaseViewController : UIViewController
 
 - (void)createLabel:(NSString *)yourTitleStr;
 - (void)createTableViewFromVC:(NSString *)yourTag;
+
+@property (nonatomic, weak)id<ScrollHiddenDelegate> upScrollDelegate;
 
 @end

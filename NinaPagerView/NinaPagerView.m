@@ -146,6 +146,11 @@ static NSString *const kObserverPage = @"currentPage";
     _selectedTopTabViews = selectedTopTabViews;
 }
 
+- (void)setTopTabScrollHidden:(BOOL)topTabScrollHidden {
+    _topTabScrollHidden = topTabScrollHidden;
+    self.ninaBaseView.topTabHiddenEnable = _topTabScrollHidden;
+}
+
 #pragma mark - LazyLoad
 - (NinaBaseView *)ninaBaseView {
     if (!_ninaBaseView) {

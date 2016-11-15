@@ -41,6 +41,7 @@
 @property (assign, nonatomic) BOOL topTabUnderLineHidden; /**< 是否显示下方的下划线 **/
 @property (assign, nonatomic) BOOL slideEnabled; /**< 允许下方左右滑动 **/
 @property (assign, nonatomic) BOOL autoFitTitleLine; /**< 下划线是否自适应标题宽度 **/
+@property (assign, nonatomic) BOOL topTabHiddenEnable; /**< 是否允许下方滑动时候隐藏上方的toptab **/
 @property (strong, nonatomic) UIColor *btnUnSelectColor; /**< 未选中的标题颜色 **/
 @property (strong, nonatomic) UIColor *btnSelectColor; /**< 选中的标题颜色 **/
 @property (strong, nonatomic) UIColor *underlineBlockColor; /**< 下划线或滑块颜色 **/

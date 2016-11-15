@@ -16,8 +16,8 @@
 #import "ForthCollectionView.h"
 #import "TopTabView.h"
 
-@interface ViewController()<NinaPagerViewDelegate>
-
+@interface ViewController()<NinaPagerViewDelegate,ScrollHiddenDelegate>
+@property (nonatomic, strong) NinaPagerView *ninaPagerView;
 @end
 
 @implementation ViewController
@@ -25,25 +25,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Nina";
-    //Need You Edit
-    NSArray *titleArray = [self ninaTitleArray];
-    //Three choices
-    NSArray *vcsArray = [self ninaVCsArray];
-    //    NSArray *viewsArray = [self ninaViewsArray];
-    //    NSArray *detailVCsArray = [self ninaDetailVCsArray];
-    /**
-     *  创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度，如果这个高度不是您想要的，您可以去在下面的frame自定义设置。
-     *  A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just set frame as you wish.
-     */
-    CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
-    NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
-    ninaPagerView.ninaPagerStyles = NinaPagerStyleBottomLine;
-    ninaPagerView.ninaDefaultPage = 0;
-    ninaPagerView.loadWholePages = NO;
-    //Custom TopTab menus(optional)
-    ninaPagerView.topTabViews = [self topTabViewArray];
-    ninaPagerView.selectedTopTabViews = [self changeTopArray];
-    [self.view addSubview:ninaPagerView];
+    [self.view addSubview:self.ninaPagerView];
+}
+
+#pragma mark - LazyLoad
+- (NinaPagerView *)ninaPagerView {
+    if (!_ninaPagerView) {
+        //Need You Edit
+        NSArray *titleArray = [self ninaTitleArray];
+        //Three choices
+        //    NSArray *vcsArray = [self ninaVCsArray];
+        //    NSArray *viewsArray = [self ninaViewsArray];
+        NSArray *detailVCsArray = [self ninaDetailVCsArray];
+        /**
+         *  创建ninaPagerView，控制器第一次是根据您划的位置进行相应的添加的，类似网易新闻虎扑看球等的效果，后面再滑动到相应位置时不再重新添加，如果想刷新数据，您可以在相应的控制器里加入刷新功能。需要注意的是，在创建您的控制器时，设置的frame为FUll_CONTENT_HEIGHT，即全屏高减去导航栏高度，如果这个高度不是您想要的，您可以去在下面的frame自定义设置。
+         *  A tip you should know is that when init the VCs frames,the default frame i set is FUll_CONTENT_HEIGHT,it means fullscreen height - NavigationHeight - TabbarHeight.If the frame is not what you want,just set frame as you wish.
+         */
+        CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
+        _ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:detailVCsArray];
+        _ninaPagerView.ninaPagerStyles = NinaPagerStyleBottomLine;
+        _ninaPagerView.ninaDefaultPage = 0;
+        _ninaPagerView.loadWholePages = NO;
+        //Custom TopTab menus(optional)
+        _ninaPagerView.topTabViews = [self topTabViewArray];
+        _ninaPagerView.selectedTopTabViews = [self changeTopArray];
+    }
+    return _ninaPagerView;
+}
+
+#pragma mark - ScrollHiddenDelegate
+- (void)upScrollAction:(BOOL)show {
+    self.ninaPagerView.topTabScrollHidden = show?NO:YES;
 }
 
 #pragma mark - NinaParaArrays
@@ -116,7 +128,9 @@
 - (NSArray *)ninaDetailVCsArray {
     //Test init views and viewcontrollers,support creating views or viewcontroller by xib.
     FirstViewController *firstVC = [FirstViewController new];
+    firstVC.upScrollDelegate = self;
     SecondViewController *secondVC = [SecondViewController new];
+    secondVC.upScrollDelegate = self;
     FirstTableView *firstTV = [[FirstTableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT) style:UITableViewStylePlain];
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;

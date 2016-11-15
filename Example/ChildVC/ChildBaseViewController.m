@@ -10,7 +10,7 @@
 #import "UIParameter.h"
 #import "TestViewController.h"
 
-@interface ChildBaseViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ChildBaseViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, strong) UITableView *myTableView;
 @property (weak, nonatomic) IBOutlet UIButton *TestBtn;
 @property (weak, nonatomic) IBOutlet UITableView *XibTableView;
@@ -18,6 +18,7 @@
 
 @implementation ChildBaseViewController {
     NSString *indexTag;
+    CGFloat offsetY;
 }
 
 - (void)viewDidLoad {
@@ -47,7 +48,7 @@
 #pragma mark - myTableView
 - (UITableView *)myTableView {
     if (!_myTableView) {
-        _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT - PageBtn) style:UITableViewStylePlain];
+        _myTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) style:UITableViewStylePlain];
     }
     return _myTableView;
 }
@@ -84,6 +85,23 @@
     [self.TestBtn addTarget:self action:@selector(testAction) forControlEvents:UIControlEventTouchUpInside];
     self.XibTableView.delegate = self;
     self.XibTableView.dataSource = self;
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.upScrollDelegate respondsToSelector:@selector(upScrollAction:)]) {
+        if (scrollView.contentOffset.y > 0) {
+            if (scrollView.contentOffset.y > offsetY) {
+                [self.upScrollDelegate upScrollAction:NO];
+            }
+            if (scrollView.contentOffset.y < offsetY && scrollView.contentOffset.y < PageBtn) {
+                [self.upScrollDelegate upScrollAction:YES];
+            }
+        }else {
+            [self.upScrollDelegate upScrollAction:YES];
+        }
+    }
+    offsetY = scrollView.contentOffset.y;
 }
 
 @end

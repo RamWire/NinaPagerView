@@ -115,6 +115,15 @@
     _topTabColor = topTabColor;
 }
 
+- (void)setTopTabHiddenEnable:(BOOL)topTabHiddenEnable {
+    _topTabHiddenEnable = topTabHiddenEnable;
+    CGFloat minusDistance = _topTabHiddenEnable?_topHeight:0;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.topTab.frame = CGRectMake(0, 0 - minusDistance, FUll_VIEW_WIDTH, _topHeight);
+        self.scrollView.frame = CGRectMake(0, _topHeight - minusDistance, FUll_VIEW_WIDTH, self.frame.size.height - (_topHeight - minusDistance));
+    }];
+}
+
 #pragma mark - LazyLoad
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
@@ -400,11 +409,6 @@
     self.scrollView.frame = CGRectMake(0, _topHeight, FUll_VIEW_WIDTH, self.frame.size.height - _topHeight);
     [self addSubview:self.topTab];
     [self addSubview:self.scrollView];
-}
-
-#pragma mark - LayOutSubViews
-- (void)layoutSubviews {
-    [super layoutSubviews];
     [self initUI];
 }
 
