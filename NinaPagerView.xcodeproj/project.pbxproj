@@ -20,6 +20,7 @@
 		4D03543C1CA2E45000576C7B /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354291CA2E45000576C7B /* ThirdViewController.m */; };
 		4D03543F1CA2E45000576C7B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03542D1CA2E45000576C7B /* ViewController.m */; };
 		4DDF49571D04647100D0F21B /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 767F0AC61CBB857500D3C420 /* UIView+ViewController.m */; };
+		760598AB1DDB08FF00741595 /* TopTabTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 760598AA1DDB08FF00741595 /* TopTabTestController.m */; };
 		76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E271CE1C39F00C922AF /* FirstTableView.m */; };
 		76148E2D1CE1C39F00C922AF /* SecondTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E291CE1C39F00C922AF /* SecondTableView.m */; };
 		76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76148E2B1CE1C39F00C922AF /* ThirdTableView.m */; };
@@ -95,6 +96,8 @@
 		4D3C85C51CA4471B00514E62 /* NinaPagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinaPagerView.h; sourceTree = "<group>"; };
 		4D3C85C61CA4471B00514E62 /* NinaPagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NinaPagerView.m; sourceTree = "<group>"; };
 		4D3C85C91CA4471B00514E62 /* UIParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIParameter.h; sourceTree = "<group>"; };
+		760598A91DDB08FF00741595 /* TopTabTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopTabTestController.h; sourceTree = "<group>"; };
+		760598AA1DDB08FF00741595 /* TopTabTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopTabTestController.m; sourceTree = "<group>"; };
 		76148E261CE1C39F00C922AF /* FirstTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstTableView.h; sourceTree = "<group>"; };
 		76148E271CE1C39F00C922AF /* FirstTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstTableView.m; sourceTree = "<group>"; };
 		76148E281CE1C39F00C922AF /* SecondTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableView.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				4D0354291CA2E45000576C7B /* ThirdViewController.m */,
 				767F0AC81CBB9E0700D3C420 /* TestViewController.h */,
 				767F0AC91CBB9E0700D3C420 /* TestViewController.m */,
+				760598A91DDB08FF00741595 /* TopTabTestController.h */,
+				760598AA1DDB08FF00741595 /* TopTabTestController.m */,
 			);
 			path = ChildVC;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				765674DE1D1A709A00B3CC0D /* ForthCollectionView.m in Sources */,
 				768136D11DD45737008B420A /* TopTabView.m in Sources */,
 				4D03543C1CA2E45000576C7B /* ThirdViewController.m in Sources */,
+				760598AB1DDB08FF00741595 /* TopTabTestController.m in Sources */,
 				4D03543F1CA2E45000576C7B /* ViewController.m in Sources */,
 				76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */,
 				4D0354391CA2E45000576C7B /* SecondViewController.m in Sources */,

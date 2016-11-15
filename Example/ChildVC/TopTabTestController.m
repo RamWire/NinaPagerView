@@ -1,48 +1,33 @@
 //
-//  ChildBaseViewController.m
+//  TopTabTestController.m
 //  NinaPagerView
 //
-//  Created by RamWire on 16/3/23.
-//  Copyright © 2016年 RamWire. All rights reserved.
+//  Created by RamWire on 2016/11/15.
+//  Copyright © 2016年 赵富阳. All rights reserved.
 //
 
-#import "ChildBaseViewController.h"
+#import "TopTabTestController.h"
 #import "UIParameter.h"
 #import "TestViewController.h"
 
-@interface ChildBaseViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface TopTabTestController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, strong) UITableView *myTableView;
-@property (weak, nonatomic) IBOutlet UIButton *TestBtn;
-@property (weak, nonatomic) IBOutlet UITableView *XibTableView;
 @end
 
-@implementation ChildBaseViewController {
-    NSString *indexTag;
+@implementation TopTabTestController {
     CGFloat offsetY;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self xibSettings];
+    [self createTableViewFromVC];
 }
 
-#pragma mark - public method
-- (void)createLabel:(NSString *)yourTitleStr {
-    UILabel *middleLabel = [[UILabel alloc] initWithFrame:CGRectMake(FUll_VIEW_WIDTH / 2 - 80, FUll_VIEW_HEIGHT / 2 - 40 - 64 - PageBtn, 160, 80)];
-    if (isDebugging) {
-        NSLog(@"加载了控制器%@",yourTitleStr);
-    }
-    middleLabel.text = [NSString stringWithFormat:@"第%@个视图控制器",yourTitleStr];
-    middleLabel.textColor =[UIColor blackColor];
-    middleLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:middleLabel];
-}
-
-- (void)createTableViewFromVC:(NSString *)yourTag {
+#pragma mark - Private Method
+- (void)createTableViewFromVC {
     self.myTableView.delegate = self;
     self.myTableView.dataSource = self;
     [self.view addSubview:self.myTableView];
-    indexTag = yourTag;
 }
 
 #pragma mark - myTableView
@@ -68,9 +53,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (isDebugging) {
-        NSLog(@"点击了控制器%@单元格的%li",indexTag,(long)indexPath.row);
-    }
     TestViewController *testVC = [TestViewController new];
     [self.navigationController pushViewController:testVC animated:YES];
 }
@@ -81,10 +63,21 @@
     }
 }
 
-- (void)xibSettings {
-    [self.TestBtn addTarget:self action:@selector(testAction) forControlEvents:UIControlEventTouchUpInside];
-    self.XibTableView.delegate = self;
-    self.XibTableView.dataSource = self;
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([self.upScrollDelegate respondsToSelector:@selector(upScrollAction:)]) {
+        if (scrollView.contentOffset.y > 0) {
+            if (scrollView.contentOffset.y > offsetY) {
+                [self.upScrollDelegate upScrollAction:NO];
+            }
+            if (scrollView.contentOffset.y < offsetY && scrollView.contentOffset.y < PageBtn) {
+                [self.upScrollDelegate upScrollAction:YES];
+            }
+        }else {
+            [self.upScrollDelegate upScrollAction:YES];
+        }
+    }
+    offsetY = scrollView.contentOffset.y;
 }
 
 @end
