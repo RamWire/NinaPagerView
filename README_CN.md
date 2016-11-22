@@ -107,7 +107,7 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ### 版本更新说明
-####v1.5.2
+####v1.5.3
 新增滑动隐藏菜单栏属性。 <br />
 ####v1.5.1
 新增了自定义顶部菜单栏，现在您可以定制您自己的菜单栏！ <br />

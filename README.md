@@ -107,7 +107,7 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ## Change Log
-####v1.5.2
+####v1.5.3
 Add **topTabScrollHidden** function.<br />
 ####v1.5.1
 Add **custom topTab menus** function,custom your own topTab!<br />
