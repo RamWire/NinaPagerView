@@ -29,8 +29,8 @@
 static NSString *const kObserverPage = @"currentPage";
 
 @interface NinaPagerView()<NSCacheDelegate>
-@property (nonatomic, strong) NSCache *limitControllerCache; /**<  缓存限制   **/
-@property (nonatomic, strong) NinaBaseView *ninaBaseView; /**<  创建NinaBaseView   **/
+@property (nonatomic, strong) NSCache *limitControllerCache;
+@property (nonatomic, strong) NinaBaseView *ninaBaseView;
 @property (nonatomic, assign) BOOL hasSettingScrollEnabled;
 @property (nonatomic, assign) BOOL hasSettingLinePer;
 @end
