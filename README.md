@@ -107,57 +107,57 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ## Change Log
-####v1.5.3
+#### v1.5.3
 Add **topTabScrollHidden** function.<br />
-####v1.5.1
+#### v1.5.1
 Add **custom topTab menus** function,custom your own topTab!<br />
-####v1.4.8
+#### v1.4.8
 Add nina_scrollEnabled and nina_autoBottomLineEnable functions to NinaPagerView,meanwhile try to fix KVO crash in some conditions.<br />
-####v1.4.6
+#### v1.4.6
 Fix a bug may cause NinaPagerView in wrong location.<br />
-####v1.4.5
+#### v1.4.5
 Fix scrollsToTop conflict issue.<br />
-####v1.4.3
+#### v1.4.3
 Add properties for setting colors,now you just set frame,titleArray and vcsArray in init method.<br />
-####v1.4.2
+#### v1.4.2
 Add properties for setting topTab's height and title font,what's more,able to set toptab whole underline hidden.<br />
-####v1.4.1
+#### v1.4.1
 Fix some bugs and now you need not set navigationBar.translucent to NO,NinaPagerView will do it.<br />
-####v1.4.0
+#### v1.4.0
 Change numerous macro definitions to NinaPagerView's properties.More flexible to use NinaPagerView in different situations.<br />
-####v1.3.0
+#### v1.3.0
 Add NinaDefaultPageIndex in UIParameter.h to select default page. <br />
-####v1.2.0
+#### v1.2.0
 Add LoadWholePage in parameter.h that you can set YES to load all controllers or views at the same time. <br />
 New delegate method for NinaPagerView to get current page easily.<br />
-####v1.1.2
+#### v1.1.2
 Optimize two-line title and details in SlideBlock.<br />
-####v1.1.1
+#### v1.1.1
 NinaSlideBlock support two-line display in NinaPagerView.<br />
-####v1.1.0
+#### v1.1.0
 Support navigationBarHidden situation,now you can select navigationBar hidden or not.<br />
-####v1.0.0
+#### v1.0.0
 Improves some codes,meanwhile brings some changes for the framework,wish you like it:)<br />
 **(1)** Add a new NinaPagerStyle:**NinaPagerStyleStateNormal**,it's a style which not has bottomline or sliderblock.You can choose it if needed.<br />
 **(2)** Creating Arrays in Example is changed,more clearly!<br />
 **(3)** TopTab height fasten to 40,if you wanna to change it,please set it in UIParameter.h.<br />
 **(4)** In NinaPagerStyleSliderBlock,now you can set block's cornerRadius by setting in UIParameter.h.<br />
-####v0.9.1
+#### v0.9.1
 Add some parameters to toptab's bottomline or slider,now you can set their width and height to the project.<br />
-####v0.8.1
+#### v0.8.1
 Fix topTab vertical-scroll in some conditions.<br />
-####v0.8.0
+#### v0.8.0
 New selection of topTab style,now you can choose **NinaPagerStyleBottomLine** and **NinaPagerStyleSlideBlock** as gifs showed.<br />
-####v0.7.0
+#### v0.7.0
 If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array~<br />
-####v0.6.0
+#### v0.6.0
 Support long-length title.<br />
-####v0.5.2
+#### v0.5.2
 You can set titleSize for title animation(compare to origin title),command range between 1 and 1.5.If don't set this,default scale is 1.15.
 ```objc
 ninaPagerView.titleScale = 1.5;
 ```
-####v0.5.0
+#### v0.5.0
 If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
 
 ## FeedBack
