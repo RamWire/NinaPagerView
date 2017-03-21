@@ -1,4 +1,4 @@
-![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/Slice 1.png)
+![image](https://github.com/RamWire/NinaPagerView/blob/master/Example/Gifs/Slice1.png)
 [![Language](https://img.shields.io/badge/Language-%20Objective--C%20-orange.svg)](https://img.shields.io/badge/Language-%20Objective--C%20-orange.svg)
 [![Build Status](https://travis-ci.org/RamWire/NinaPagerView.svg?branch=master)](https://travis-ci.org/RamWire/NinaPagerView)
 [![Pod Version](http://img.shields.io/cocoapods/v/NinaPagerView.svg?style=flat)](http://cocoadocs.org/docsets/NinaPagerView/)
