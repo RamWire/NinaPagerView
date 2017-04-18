@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F647E7A1EA5EDD50093E945 /* ShowControllersStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F647E791EA5EDD50093E945 /* ShowControllersStyleController.m */; };
+		1F647E7D1EA5EDE30093E945 /* ShowViewsStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F647E7C1EA5EDE30093E945 /* ShowViewsStyleController.m */; };
+		1F647E801EA5EE110093E945 /* ShowMixtureStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F647E7F1EA5EE110093E945 /* ShowMixtureStyleController.m */; };
+		1F647E831EA5EE540093E945 /* CostomTopStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F647E821EA5EE540093E945 /* CostomTopStyleController.m */; };
 		4D03542E1CA2E45000576C7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03540E1CA2E45000576C7B /* AppDelegate.m */; };
 		4D0354331CA2E45000576C7B /* ChildBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354171CA2E45000576C7B /* ChildBaseViewController.m */; };
 		4D0354341CA2E45000576C7B /* EighthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354191CA2E45000576C7B /* EighthViewController.m */; };
@@ -67,6 +71,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F647E781EA5EDD50093E945 /* ShowControllersStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowControllersStyleController.h; sourceTree = "<group>"; };
+		1F647E791EA5EDD50093E945 /* ShowControllersStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowControllersStyleController.m; sourceTree = "<group>"; };
+		1F647E7B1EA5EDE30093E945 /* ShowViewsStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowViewsStyleController.h; sourceTree = "<group>"; };
+		1F647E7C1EA5EDE30093E945 /* ShowViewsStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowViewsStyleController.m; sourceTree = "<group>"; };
+		1F647E7E1EA5EE110093E945 /* ShowMixtureStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowMixtureStyleController.h; sourceTree = "<group>"; };
+		1F647E7F1EA5EE110093E945 /* ShowMixtureStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMixtureStyleController.m; sourceTree = "<group>"; };
+		1F647E811EA5EE540093E945 /* CostomTopStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostomTopStyleController.h; sourceTree = "<group>"; };
+		1F647E821EA5EE540093E945 /* CostomTopStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostomTopStyleController.m; sourceTree = "<group>"; };
 		4D03540D1CA2E45000576C7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D03540E1CA2E45000576C7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4D0354161CA2E45000576C7B /* ChildBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBaseViewController.h; sourceTree = "<group>"; };
@@ -142,6 +154,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F647E751EA5EB2A0093E945 /* Example Styles */ = {
+			isa = PBXGroup;
+			children = (
+				1F647E781EA5EDD50093E945 /* ShowControllersStyleController.h */,
+				1F647E791EA5EDD50093E945 /* ShowControllersStyleController.m */,
+				1F647E7B1EA5EDE30093E945 /* ShowViewsStyleController.h */,
+				1F647E7C1EA5EDE30093E945 /* ShowViewsStyleController.m */,
+				1F647E7E1EA5EE110093E945 /* ShowMixtureStyleController.h */,
+				1F647E7F1EA5EE110093E945 /* ShowMixtureStyleController.m */,
+				1F647E811EA5EE540093E945 /* CostomTopStyleController.h */,
+				1F647E821EA5EE540093E945 /* CostomTopStyleController.m */,
+			);
+			path = "Example Styles";
+			sourceTree = "<group>";
+		};
 		4D03540C1CA2E45000576C7B /* Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +176,7 @@
 				4D03540E1CA2E45000576C7B /* AppDelegate.m */,
 				4D03542C1CA2E45000576C7B /* ViewController.h */,
 				4D03542D1CA2E45000576C7B /* ViewController.m */,
+				1F647E751EA5EB2A0093E945 /* Example Styles */,
 				4D0354151CA2E45000576C7B /* ChildVC */,
 				76148E251CE1C36B00C922AF /* ChildView */,
 				769A14E01CBC8ABC002BF591 /* Xib */,
@@ -385,9 +413,11 @@
 			files = (
 				76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */,
 				4D0354381CA2E45000576C7B /* NinthViewController.m in Sources */,
+				1F647E801EA5EE110093E945 /* ShowMixtureStyleController.m in Sources */,
 				4D0354351CA2E45000576C7B /* FifthViewController.m in Sources */,
 				4D0354341CA2E45000576C7B /* EighthViewController.m in Sources */,
 				4D0354371CA2E45000576C7B /* ForthViewController.m in Sources */,
+				1F647E7A1EA5EDD50093E945 /* ShowControllersStyleController.m in Sources */,
 				767F0ACA1CBB9E0700D3C420 /* TestViewController.m in Sources */,
 				76148E2D1CE1C39F00C922AF /* SecondTableView.m in Sources */,
 				4D03543A1CA2E45000576C7B /* SeventhViewController.m in Sources */,
@@ -399,8 +429,10 @@
 				76148E2C1CE1C39F00C922AF /* FirstTableView.m in Sources */,
 				4D0354391CA2E45000576C7B /* SecondViewController.m in Sources */,
 				4D0354361CA2E45000576C7B /* FirstViewController.m in Sources */,
+				1F647E831EA5EE540093E945 /* CostomTopStyleController.m in Sources */,
 				4D0354331CA2E45000576C7B /* ChildBaseViewController.m in Sources */,
 				4D03542E1CA2E45000576C7B /* AppDelegate.m in Sources */,
+				1F647E7D1EA5EDE30093E945 /* ShowViewsStyleController.m in Sources */,
 				766423031D25209A00D508F2 /* main.m in Sources */,
 				4D03543B1CA2E45000576C7B /* SixthViewController.m in Sources */,
 			);

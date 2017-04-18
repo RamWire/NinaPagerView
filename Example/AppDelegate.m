@@ -23,6 +23,7 @@
     [self.window makeKeyAndVisible];
     ViewController *viewC = [[ViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewC];
+    navController.navigationBar.translucent = NO;
     self.window.rootViewController = navController;
     //For test
 //    navController.navigationBarHidden = YES;
