@@ -59,33 +59,9 @@ static NSString *const kObserverPage = @"currentPage";
 }
 
 #pragma mark - SetMethod
-- (void)setTitleScale:(CGFloat)titleScale {
-    _titleScale = titleScale;
-}
-
-- (void)setTitleFont:(CGFloat)titleFont {
-    _titleFont = titleFont;
-}
-
-- (void)setNina_navigationBarHidden:(BOOL)nina_navigationBarHidden {
-    _nina_navigationBarHidden = nina_navigationBarHidden;
-}
-
 - (void)setNinaDefaultPage:(NSInteger)ninaDefaultPage {
     _ninaDefaultPage = ninaDefaultPage;
     _ninaDefaultPage = (_ninaDefaultPage > 0 && _ninaDefaultPage < titlesArray.count)?_ninaDefaultPage:0;
-}
-
-- (void)setLoadWholePages:(BOOL)loadWholePages {
-    _loadWholePages = loadWholePages;
-}
-
-- (void)setNinaPagerStyles:(NinaPagerStyle)ninaPagerStyles {
-    _ninaPagerStyles = ninaPagerStyles;
-}
-
-- (void)setSliderHeight:(CGFloat)sliderHeight {
-    _sliderHeight = sliderHeight;
 }
 
 - (void)setSelectBottomLinePer:(CGFloat)selectBottomLinePer {
@@ -93,57 +69,9 @@ static NSString *const kObserverPage = @"currentPage";
     _hasSettingLinePer = YES;
 }
 
-- (void)setSelectBottomLineHeight:(CGFloat)selectBottomLineHeight {
-    _selectBottomLineHeight = selectBottomLineHeight;
-}
-
-- (void)setSlideBlockCornerRadius:(CGFloat)slideBlockCornerRadius {
-    _slideBlockCornerRadius = slideBlockCornerRadius;
-}
-
-- (void)setUnderLineHidden:(BOOL)underLineHidden {
-    _underLineHidden = underLineHidden;
-}
-
 - (void)setNina_scrollEnabled:(BOOL)nina_scrollEnabled {
     _nina_scrollEnabled = nina_scrollEnabled;
     _hasSettingScrollEnabled = YES;
-}
-
-- (void)setNina_autoBottomLineEnable:(BOOL)nina_autoBottomLineEnable {
-    _nina_autoBottomLineEnable = nina_autoBottomLineEnable;
-}
-
-- (void)setTopTabHeight:(CGFloat)topTabHeight {
-    _topTabHeight = topTabHeight;
-}
-
-- (void)setUnSelectTitleColor:(UIColor *)unSelectTitleColor {
-    _unSelectTitleColor = unSelectTitleColor;
-}
-
-- (void)setSelectTitleColor:(UIColor *)selectTitleColor {
-    _selectTitleColor = selectTitleColor;
-}
-
-- (void)setUnderlineColor:(UIColor *)underlineColor {
-    _underlineColor = underlineColor;
-}
-
-- (void)setSliderBlockColor:(UIColor *)sliderBlockColor {
-    _sliderBlockColor = sliderBlockColor;
-}
-
-- (void)setTopTabBackGroundColor:(UIColor *)topTabBackGroundColor {
-    _topTabBackGroundColor = topTabBackGroundColor;
-}
-
-- (void)setTopTabViews:(NSArray *)topTabViews {
-    _topTabViews = topTabViews;
-}
-
-- (void)setSelectedTopTabViews:(NSArray *)selectedTopTabViews {
-    _selectedTopTabViews = selectedTopTabViews;
 }
 
 - (void)setTopTabScrollHidden:(BOOL)topTabScrollHidden {
