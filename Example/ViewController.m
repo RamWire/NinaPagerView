@@ -12,6 +12,7 @@
 #import "ShowViewsStyleController.h"
 #import "ShowMixtureStyleController.h"
 #import "CostomTopStyleController.h"
+#import "ReloadTabsObjectsController.h"
 
 #define CELL_IDENTIFIER     @"cell"
 
@@ -25,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"NinaPagerView";
-    self.showTitlesArray = @[@"ShowControllersWithBottomLineStyle",@"ShowViewsWithSlideBlockStyle",@"ShowMixtureWithNormalStyle",@"CostomTopWithBottomLineStyle"];
+    self.showTitlesArray = @[@"ShowControllersWithBottomLineStyle",@"ShowViewsWithSlideBlockStyle",@"ShowMixtureWithNormalStyle",@"CostomTopWithBottomLineStyle",@"ReloadTabsObjects"];
     [self.view addSubview:self.ninaPagerStyleTV];
 }
 
@@ -33,6 +34,7 @@
 - (UITableView *)ninaPagerStyleTV {
     if (!_ninaPagerStyleTV) {
         _ninaPagerStyleTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) style:UITableViewStyleGrouped];
+        _ninaPagerStyleTV.separatorStyle = UITableViewCellSeparatorStyleNone;
         _ninaPagerStyleTV.delegate = self;
         _ninaPagerStyleTV.dataSource = self;
     }
@@ -78,6 +80,10 @@
         case 3: {
             CostomTopStyleController *costomTopVC = [CostomTopStyleController new];
             [self.navigationController pushViewController:costomTopVC animated:YES];
+        }
+        case 4: {
+            ReloadTabsObjectsController *reloadDataVC = [ReloadTabsObjectsController new];
+            [self.navigationController pushViewController:reloadDataVC animated:YES];
         }
             break;
         default:

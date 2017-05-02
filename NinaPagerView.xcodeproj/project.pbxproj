@@ -11,6 +11,7 @@
 		1F647E7D1EA5EDE30093E945 /* ShowViewsStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F647E7C1EA5EDE30093E945 /* ShowViewsStyleController.m */; };
 		1F647E801EA5EE110093E945 /* ShowMixtureStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F647E7F1EA5EE110093E945 /* ShowMixtureStyleController.m */; };
 		1F647E831EA5EE540093E945 /* CostomTopStyleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F647E821EA5EE540093E945 /* CostomTopStyleController.m */; };
+		1FE33FFE1EB89602004805B4 /* ReloadTabsObjectsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE33FFD1EB89602004805B4 /* ReloadTabsObjectsController.m */; };
 		4D03542E1CA2E45000576C7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D03540E1CA2E45000576C7B /* AppDelegate.m */; };
 		4D0354331CA2E45000576C7B /* ChildBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354171CA2E45000576C7B /* ChildBaseViewController.m */; };
 		4D0354341CA2E45000576C7B /* EighthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0354191CA2E45000576C7B /* EighthViewController.m */; };
@@ -79,6 +80,8 @@
 		1F647E7F1EA5EE110093E945 /* ShowMixtureStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowMixtureStyleController.m; sourceTree = "<group>"; };
 		1F647E811EA5EE540093E945 /* CostomTopStyleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CostomTopStyleController.h; sourceTree = "<group>"; };
 		1F647E821EA5EE540093E945 /* CostomTopStyleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CostomTopStyleController.m; sourceTree = "<group>"; };
+		1FE33FFC1EB89602004805B4 /* ReloadTabsObjectsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReloadTabsObjectsController.h; sourceTree = "<group>"; };
+		1FE33FFD1EB89602004805B4 /* ReloadTabsObjectsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReloadTabsObjectsController.m; sourceTree = "<group>"; };
 		4D03540D1CA2E45000576C7B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D03540E1CA2E45000576C7B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4D0354161CA2E45000576C7B /* ChildBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBaseViewController.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				1F647E7F1EA5EE110093E945 /* ShowMixtureStyleController.m */,
 				1F647E811EA5EE540093E945 /* CostomTopStyleController.h */,
 				1F647E821EA5EE540093E945 /* CostomTopStyleController.m */,
+				1FE33FFC1EB89602004805B4 /* ReloadTabsObjectsController.h */,
+				1FE33FFD1EB89602004805B4 /* ReloadTabsObjectsController.m */,
 			);
 			path = "Example Styles";
 			sourceTree = "<group>";
@@ -412,6 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76148E2E1CE1C39F00C922AF /* ThirdTableView.m in Sources */,
+				1FE33FFE1EB89602004805B4 /* ReloadTabsObjectsController.m in Sources */,
 				4D0354381CA2E45000576C7B /* NinthViewController.m in Sources */,
 				1F647E801EA5EE110093E945 /* ShowMixtureStyleController.m in Sources */,
 				4D0354351CA2E45000576C7B /* FifthViewController.m in Sources */,

@@ -59,4 +59,12 @@
  */
 - (instancetype)initWithFrame:(CGRect)frame WithTopTabType:(NSInteger)topTabNum;
 
+
+/**
+ *  Reload toptab titles
+ *
+ @param newTitles new titles
+ */
+- (void)reloadTabItems:(NSArray *)newTitles;
+
 @end

@@ -1,46 +1,37 @@
 //
-//  ShowMixtureStyleController.m
+//  ReloadTabsObjectsController.m
 //  NinaPagerView
 //
-//  Created by RamWire on 2017/4/18.
-//  Copyright © 2017年 RamWire. All rights reserved.
+//  Created by Jeff Zhao on 2017/5/2.
+//  Copyright © 2017年 赵富阳. All rights reserved.
 //
 
-#import "ShowMixtureStyleController.h"
+#import "ReloadTabsObjectsController.h"
 #import "UIParameter.h"
 #import "NinaPagerView.h"
-#import "FirstViewController.h"
 #import "SecondViewController.h"
 #import "FirstTableView.h"
-#import "SecondTableView.h"
 #import "ForthCollectionView.h"
 #import "TopTabTestController.h"
 
-@interface ShowMixtureStyleController ()<NinaPagerViewDelegate,ScrollHiddenDelegate>
+@interface ReloadTabsObjectsController ()<NinaPagerViewDelegate,ScrollHiddenDelegate>
 @property (nonatomic, strong) NinaPagerView *ninaPagerView;
 @end
 
-@implementation ShowMixtureStyleController
+@implementation ReloadTabsObjectsController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"ShowMixtureWithNormalStyle";
+    self.title = @"ReloadTabsObjectsDemo";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.ninaPagerView];
-    //Reload Titles and Objects
-//    [self performSelector:@selector(reloadTopTabAndScrollView) withObject:nil afterDelay:5.0];
+    [self performSelector:@selector(reloadTopTabAndScrollView) withObject:nil afterDelay:5.0];
 }
 
 
 #pragma mark - NinaParaArrays
 - (NSArray *)ninaTitleArray {
     return @[
-             @"大连市",
-             @"甘井子",
-             @"星海广场",
-             @"西岗",
-             @"马栏子",
-             @"革镇堡",
              @"沙河口",
              @"人民广场",
              @"中山广场"
@@ -59,31 +50,10 @@
     firstVC.upScrollDelegate = self;
     SecondViewController *secondVC = [SecondViewController new];
     FirstTableView *firstTV = [[FirstTableView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT) style:UITableViewStylePlain];
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.minimumInteritemSpacing = 0;
-    layout.minimumLineSpacing = 0;
-    ForthCollectionView *forthCollectionView = [[ForthCollectionView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT) collectionViewLayout:layout];
-    UIStoryboard *FifthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
-    ChildBaseViewController *fifthVC = [FifthStory instantiateViewControllerWithIdentifier:@"111"];
-    UIStoryboard *sixthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
-    ChildBaseViewController *sixthVC = [sixthStory instantiateViewControllerWithIdentifier:@"222"];
-    UIStoryboard *seventhStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
-    ChildBaseViewController *seventhVC = [seventhStory instantiateViewControllerWithIdentifier:@"333"];
-    UIStoryboard *eighthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
-    ChildBaseViewController *eighthVC = [eighthStory instantiateViewControllerWithIdentifier:@"444"];
-    UIStoryboard *ninthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
-    ChildBaseViewController *ninthVC = [ninthStory instantiateViewControllerWithIdentifier:@"555"];
     return @[
              firstVC,
              secondVC,
              firstTV,
-             forthCollectionView,
-             fifthVC,
-             sixthVC,
-             seventhVC,
-             eighthVC,
-             ninthVC
              ];
 }
 
@@ -112,10 +82,12 @@
 
 - (NSArray *)ninasTitleArray {
     return @[
-             @"大连市",
-             @"甘井子",
-             @"星海广场",
-             ];
+                     @"大连市",
+                     @"甘井子",
+                     @"人民广场",
+                     @"中山广场",
+                     @"星海广场",
+                     ];
 }
 
 - (NSArray *)ninasVCsArray {
@@ -128,10 +100,16 @@
     ChildBaseViewController *fifthVC = [FifthStory instantiateViewControllerWithIdentifier:@"111"];
     UIStoryboard *sixthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
     ChildBaseViewController *sixthVC = [sixthStory instantiateViewControllerWithIdentifier:@"222"];
+    UIStoryboard *eighthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
+    ChildBaseViewController *eighthVC = [eighthStory instantiateViewControllerWithIdentifier:@"444"];
+    UIStoryboard *ninthStory = [UIStoryboard storyboardWithName:@"NinaXibVC" bundle:nil];
+    ChildBaseViewController *ninthVC = [ninthStory instantiateViewControllerWithIdentifier:@"555"];
     return @[
                      forthCollectionView,
                      fifthVC,
                      sixthVC,
+                     eighthVC,
+                     ninthVC
                      ];
 }
 

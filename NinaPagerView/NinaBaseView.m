@@ -56,6 +56,18 @@
     }];
 }
 
+- (void)reloadTabItems:(NSArray *)newTitles {
+    self.titleArray = newTitles;
+    for (UIView *subView in self.topTab.subviews) {
+        [subView removeFromSuperview];
+    }
+    _scrollView.contentOffset = CGPointMake(0, 0);
+    _topTab.contentOffset = CGPointMake(0, 0);
+    [self updateScrollViewUI];
+    [self updateTopTabUI];
+    [self initUI];
+}
+
 #pragma mark - LazyLoad
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
@@ -63,10 +75,7 @@
         _scrollView.delegate = self;
         _scrollView.tag = 318;
         _scrollView.backgroundColor = UIColorFromRGB(0xfafafa);
-        _scrollView.contentSize = CGSizeMake(FUll_VIEW_WIDTH * _titleArray.count, 0);
-        if (!_slideEnabled) {
-            _scrollView.scrollEnabled = NO;
-        }
+        [self updateScrollViewUI];
         _scrollView.pagingEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.alwaysBounceHorizontal = YES;
@@ -92,120 +101,7 @@
         _topTab.showsVerticalScrollIndicator = NO;
         _topTab.bounces = NO;
         _topTab.scrollsToTop = NO;
-        CGFloat additionCount = 0;
-        if (_titleArray.count > 5) {
-            additionCount = (_titleArray.count - 5.0) / 5.0;
-        }
-        _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, _topHeight - TabbarHeight);
-        if (_baseDefaultPage > 2 && _baseDefaultPage < _titleArray.count) {
-            if (_titleArray.count >= 5) {
-                _topTab.contentOffset = CGPointMake(1.0 / 5.0 * FUll_VIEW_WIDTH * (_baseDefaultPage - 2), 0);
-            }else {
-                _topTab.contentOffset = CGPointMake(1.0 / _titleArray.count * FUll_VIEW_WIDTH * (_baseDefaultPage - 2), 0);
-            }
-        }
-        btnArray = [NSMutableArray array];
-        bottomLineWidthArray = [NSMutableArray array];
-        topTabArray = [NSMutableArray array];
-        for (NSInteger i = 0; i < _titleArray.count; i++) {
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            button.tag = i;
-            if (_titleArray.count > 5) {
-                button.frame = CGRectMake(More5LineWidth * i, 0, More5LineWidth, _topHeight);
-            }else {
-                button.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * i, 0, FUll_VIEW_WIDTH / _titleArray.count, _topHeight);
-            }
-            if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count && (topTabType == 0 || topTabType == 2)) {
-                UIView *customTopView = _topArray[i];
-                customTopView.frame = button.bounds;
-                customTopView.userInteractionEnabled = NO;
-                customTopView.exclusiveTouch = NO;
-                [topTabArray addObject:customTopView];
-                [button addSubview:customTopView];
-            }else {
-                button.titleLabel.font = [UIFont systemFontOfSize:_titlesFont];
-                if ([_titleArray[i] isKindOfClass:[NSString class]]) {
-                    [bottomLineWidthArray addObject:[NSString stringWithFormat:@"%f",[_titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:_titlesFont]}].width]];
-                    [button setTitle:_titleArray[i] forState:UIControlStateNormal];
-                    button.titleLabel.numberOfLines = 0;
-                    button.titleLabel.textAlignment = NSTextAlignmentCenter;
-                }else {
-                    NSLog(@"Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1);
-                }
-            }
-            [_topTab addSubview:button];
-            [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
-            [btnArray addObject:button];
-            if (i == 0 && (topTabType == 0 || topTabType == 2)) {
-                if (_btnSelectColor) {
-                    [button setTitleColor:_btnSelectColor forState:UIControlStateNormal];
-                }else {
-                    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-                }
-                if (_titleScale > 0) {
-                    button.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
-                }
-                if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count) {
-                    for (NSInteger i = [button.subviews count] - 1; i >= 0; i--) {
-                        if ([[button.subviews objectAtIndex:i] isKindOfClass:[UIView class]]) {
-                            [[button.subviews objectAtIndex:i] removeFromSuperview];
-                        }
-                    }
-                    if (![button.subviews isKindOfClass:[UIView class]]) {
-                        UIView *whites = _changeTopArray[0];
-                        whites.frame = button.bounds;
-                        whites.userInteractionEnabled = NO;
-                        whites.exclusiveTouch = NO;
-                        [btnArray[0] addSubview:whites];
-                    }
-                }
-            } else {
-                if (_btnUnSelectColor) {
-                    [button setTitleColor:_btnUnSelectColor forState:UIControlStateNormal];
-                }else {
-                    [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-                }
-            }
-        }
-        //Create Toptab underline.
-        if (!_topTabUnderLineHidden) {
-            topTabBottomLine = [UIView new];
-            topTabBottomLine.backgroundColor = UIColorFromRGB(0xcecece);
-            [_topTab addSubview:topTabBottomLine];
-        }
-        //Create Toptab bottomline.
-        lineBottom = [UIView new];
-        if (_underlineBlockColor) {
-            lineBottom.backgroundColor = _underlineBlockColor;
-        }else {
-            lineBottom.backgroundColor = UIColorFromRGB(0xff6262);
-        }
-        lineBottom.clipsToBounds = YES;
-        lineBottom.userInteractionEnabled = YES;
-        [_topTab addSubview:lineBottom];
-        //Create ninaMaskView.
-        if (topTabType == 1) {
-            ninaMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (1 + additionCount) * FUll_VIEW_WIDTH, _blockHeight)];
-            ninaMaskView.backgroundColor = [UIColor clearColor];
-            for (NSInteger j = 0; j < _titleArray.count; j++) {
-                UILabel *maskLabel = [UILabel new];
-                if (_titleArray.count > 5) {
-                    maskLabel.frame = CGRectMake(More5LineWidth * j - More5LineWidth * (1 - _bottomLinePer) / 2, 0, More5LineWidth, _blockHeight);
-                }else {
-                    maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * j - FUll_VIEW_WIDTH / _titleArray.count * (1 - _bottomLinePer) / 2, 0, FUll_VIEW_WIDTH / _titleArray.count, _blockHeight);
-                }
-                maskLabel.text = _titleArray[j];
-                maskLabel.textColor = _btnSelectColor?_btnSelectColor:[UIColor whiteColor];
-                maskLabel.numberOfLines = 0;
-                maskLabel.textAlignment = NSTextAlignmentCenter;
-                maskLabel.font = [UIFont systemFontOfSize:_titlesFont];
-                [ninaMaskView addSubview:maskLabel];
-            }
-            [lineBottom addSubview:ninaMaskView];
-        }
-        if (topTabType == 2) {
-            lineBottom.hidden = YES;
-        }
+        [self updateTopTabUI];
     }
     return _topTab;
 }
@@ -332,6 +228,131 @@
                 }];
             }
         }
+    }
+}
+
+#pragma mark - Load scrollview and toptab
+- (void)updateScrollViewUI {
+    _scrollView.contentSize = CGSizeMake(FUll_VIEW_WIDTH * _titleArray.count, 0);
+    if (!_slideEnabled) {
+        _scrollView.scrollEnabled = NO;
+    }
+}
+
+- (void)updateTopTabUI {
+    CGFloat additionCount = 0;
+    if (_titleArray.count > 5) {
+        additionCount = (_titleArray.count - 5.0) / 5.0;
+    }
+    _topTab.contentSize = CGSizeMake((1 + additionCount) * FUll_VIEW_WIDTH, _topHeight - TabbarHeight);
+    if (_baseDefaultPage > 2 && _baseDefaultPage < _titleArray.count) {
+        if (_titleArray.count >= 5) {
+            _topTab.contentOffset = CGPointMake(1.0 / 5.0 * FUll_VIEW_WIDTH * (_baseDefaultPage - 2), 0);
+        }else {
+            _topTab.contentOffset = CGPointMake(1.0 / _titleArray.count * FUll_VIEW_WIDTH * (_baseDefaultPage - 2), 0);
+        }
+    }
+    btnArray = [NSMutableArray array];
+    bottomLineWidthArray = [NSMutableArray array];
+    topTabArray = [NSMutableArray array];
+    for (NSInteger i = 0; i < _titleArray.count; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.tag = i;
+        if (_titleArray.count > 5) {
+            button.frame = CGRectMake(More5LineWidth * i, 0, More5LineWidth, _topHeight);
+        }else {
+            button.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * i, 0, FUll_VIEW_WIDTH / _titleArray.count, _topHeight);
+        }
+        if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count && (topTabType == 0 || topTabType == 2)) {
+            UIView *customTopView = _topArray[i];
+            customTopView.frame = button.bounds;
+            customTopView.userInteractionEnabled = NO;
+            customTopView.exclusiveTouch = NO;
+            [topTabArray addObject:customTopView];
+            [button addSubview:customTopView];
+        }else {
+            button.titleLabel.font = [UIFont systemFontOfSize:_titlesFont];
+            if ([_titleArray[i] isKindOfClass:[NSString class]]) {
+                [bottomLineWidthArray addObject:[NSString stringWithFormat:@"%f",[_titleArray[i] sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:_titlesFont]}].width]];
+                [button setTitle:_titleArray[i] forState:UIControlStateNormal];
+                button.titleLabel.numberOfLines = 0;
+                button.titleLabel.textAlignment = NSTextAlignmentCenter;
+            }else {
+                NSLog(@"Your title%li not fit for topTab,please correct it to NSString!",(long)i + 1);
+            }
+        }
+        [_topTab addSubview:button];
+        [button addTarget:self action:@selector(touchAction:) forControlEvents:UIControlEventTouchUpInside];
+        [btnArray addObject:button];
+        if (i == 0 && (topTabType == 0 || topTabType == 2)) {
+            if (_btnSelectColor) {
+                [button setTitleColor:_btnSelectColor forState:UIControlStateNormal];
+            }else {
+                [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            }
+            if (_titleScale > 0) {
+                button.transform = CGAffineTransformMakeScale(_titleScale, _titleScale);
+            }
+            if (_topArray.count == _titleArray.count && _changeTopArray.count == _titleArray.count) {
+                for (NSInteger i = [button.subviews count] - 1; i >= 0; i--) {
+                    if ([[button.subviews objectAtIndex:i] isKindOfClass:[UIView class]]) {
+                        [[button.subviews objectAtIndex:i] removeFromSuperview];
+                    }
+                }
+                if (![button.subviews isKindOfClass:[UIView class]]) {
+                    UIView *whites = _changeTopArray[0];
+                    whites.frame = button.bounds;
+                    whites.userInteractionEnabled = NO;
+                    whites.exclusiveTouch = NO;
+                    [btnArray[0] addSubview:whites];
+                }
+            }
+        } else {
+            if (_btnUnSelectColor) {
+                [button setTitleColor:_btnUnSelectColor forState:UIControlStateNormal];
+            }else {
+                [button setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+            }
+        }
+    }
+    //Create Toptab underline.
+    if (!_topTabUnderLineHidden) {
+        topTabBottomLine = [UIView new];
+        topTabBottomLine.backgroundColor = UIColorFromRGB(0xcecece);
+        [_topTab addSubview:topTabBottomLine];
+    }
+    //Create Toptab bottomline.
+    lineBottom = [UIView new];
+    if (_underlineBlockColor) {
+        lineBottom.backgroundColor = _underlineBlockColor;
+    }else {
+        lineBottom.backgroundColor = UIColorFromRGB(0xff6262);
+    }
+    lineBottom.clipsToBounds = YES;
+    lineBottom.userInteractionEnabled = YES;
+    [_topTab addSubview:lineBottom];
+    //Create ninaMaskView.
+    if (topTabType == 1) {
+        ninaMaskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (1 + additionCount) * FUll_VIEW_WIDTH, _blockHeight)];
+        ninaMaskView.backgroundColor = [UIColor clearColor];
+        for (NSInteger j = 0; j < _titleArray.count; j++) {
+            UILabel *maskLabel = [UILabel new];
+            if (_titleArray.count > 5) {
+                maskLabel.frame = CGRectMake(More5LineWidth * j - More5LineWidth * (1 - _bottomLinePer) / 2, 0, More5LineWidth, _blockHeight);
+            }else {
+                maskLabel.frame = CGRectMake(FUll_VIEW_WIDTH / _titleArray.count * j - FUll_VIEW_WIDTH / _titleArray.count * (1 - _bottomLinePer) / 2, 0, FUll_VIEW_WIDTH / _titleArray.count, _blockHeight);
+            }
+            maskLabel.text = _titleArray[j];
+            maskLabel.textColor = _btnSelectColor?_btnSelectColor:[UIColor whiteColor];
+            maskLabel.numberOfLines = 0;
+            maskLabel.textAlignment = NSTextAlignmentCenter;
+            maskLabel.font = [UIFont systemFontOfSize:_titlesFont];
+            [ninaMaskView addSubview:maskLabel];
+        }
+        [lineBottom addSubview:ninaMaskView];
+    }
+    if (topTabType == 2) {
+        lineBottom.hidden = YES;
     }
 }
 

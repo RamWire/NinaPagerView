@@ -145,6 +145,30 @@ static NSString *const kObserverPage = @"currentPage";
     self.viewController.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
+
+#pragma mark - Reload Data
+- (void)reloadTopTabByTitles:(NSArray *)updatedTitles WithObjects:(NSArray *)updatedObjects {
+    titlesArray = updatedTitles;
+    classArray = updatedObjects;
+    if (firstVC) {
+        [firstVC.view removeFromSuperview];
+        firstVC.view = nil;
+        [firstVC removeFromParentViewController];
+    }
+    for (UIViewController *subVC in self.viewController.childViewControllers) {
+        [subVC.view removeFromSuperview];
+        subVC.view = nil;
+        [subVC removeFromParentViewController];
+    }
+    if (!_loadWholePages) {
+        for (NSInteger i = 0; i < classArray.count; i++) {
+            viewAlloc[i] = NO;
+        }
+    }
+    [self loadDataForView];
+    [self.ninaBaseView reloadTabItems:updatedTitles];
+}
+
 #pragma mark - NSCache
 - (NSCache *)limitControllerCache {
     if (!_limitControllerCache) {
