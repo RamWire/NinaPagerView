@@ -65,6 +65,10 @@ static NSString *const kObserverPage = @"currentPage";
 }
 
 - (void)setNinaChosenPage:(NSInteger)ninaChosenPage {
+    if (ninaChosenPage > titlesArray.count) {
+        NSLog(@"You can't set chosen page greater than titles count!");
+        return;
+    }
     self.ninaBaseView.scrollView.contentOffset = CGPointMake(FUll_VIEW_WIDTH * (ninaChosenPage - 1) - 1, 0);
     self.ninaBaseView.currentPage = ninaChosenPage - 1;
 }
