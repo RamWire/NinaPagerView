@@ -16,6 +16,7 @@
 - [x] Edit everything in TopTab as you wish,you can custom your own views here.
 - [x] Not only fits UIViewController,but also fits UIView.
 - [x] Select NinaPagerStyle as you wish.
+- [x] Easily reload titles and objects(views,controllers and xibs).
 
 ## Preview
 
