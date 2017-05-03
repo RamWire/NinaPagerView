@@ -108,7 +108,7 @@ self.navigationController.navigationBar.translucent = NO;
 
 ## Change Log
 #### v1.6.0
-Add **ninaChosenPage** function and reload data function.<br />
+Add **ninaChosenPage** and reload data function.<br />
 #### v1.5.3
 Add **topTabScrollHidden** function.<br />
 #### v1.5.1
