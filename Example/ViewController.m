@@ -81,6 +81,7 @@
             CostomTopStyleController *costomTopVC = [CostomTopStyleController new];
             [self.navigationController pushViewController:costomTopVC animated:YES];
         }
+            break;
         case 4: {
             ReloadTabsObjectsController *reloadDataVC = [ReloadTabsObjectsController new];
             [self.navigationController pushViewController:reloadDataVC animated:YES];
