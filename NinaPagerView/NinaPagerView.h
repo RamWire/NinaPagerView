@@ -111,6 +111,11 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  Set default loading page,you can set this for index of your page.Not only loads first page,but also choose other pages as default page.More flexible.
  **/
 @property (assign, nonatomic) NSInteger ninaDefaultPage;
+/**<
+ *  动态跳转相应的tab界面。
+ *  Set index to move your chosen tab page.
+ **/
+@property (assign, nonatomic) NSInteger ninaChosenPage;
 /**
  *  上方TopTab的高度值，如果不设置默认值为40，请设置值大于25。
  *  TopTab height,default height is 40,please set it above 25.

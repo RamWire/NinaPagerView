@@ -64,6 +64,11 @@ static NSString *const kObserverPage = @"currentPage";
     _ninaDefaultPage = (_ninaDefaultPage > 0 && _ninaDefaultPage < titlesArray.count)?_ninaDefaultPage:0;
 }
 
+- (void)setNinaChosenPage:(NSInteger)ninaChosenPage {
+    self.ninaBaseView.scrollView.contentOffset = CGPointMake(FUll_VIEW_WIDTH * (ninaChosenPage - 1) - 1, 0);
+    self.ninaBaseView.currentPage = ninaChosenPage - 1;
+}
+
 - (void)setSelectBottomLinePer:(CGFloat)selectBottomLinePer {
     _selectBottomLinePer = selectBottomLinePer;
     _hasSettingLinePer = YES;
