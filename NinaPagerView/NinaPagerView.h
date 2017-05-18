@@ -46,7 +46,7 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *
  *  @param currentPage Current page when you scroll to or choose the view or controller.
  */
-- (void)ninaCurrentPageIndex:(NSString *)currentPage;
+- (void)ninaCurrentPageIndex:(NSString *)currentPage currentObject:(id)currentObject;
 @end
 
 @interface NinaPagerView : UIView

@@ -33,6 +33,7 @@ static NSString *const kObserverPage = @"currentPage";
 @property (nonatomic, strong) NinaBaseView *ninaBaseView;
 @property (nonatomic, assign) BOOL hasSettingScrollEnabled;
 @property (nonatomic, assign) BOOL hasSettingLinePer;
+@property (nonatomic, strong) id currentObject;
 @end
 
 @implementation NinaPagerView
@@ -210,10 +211,13 @@ static NSString *const kObserverPage = @"currentPage";
         if (isDebugging) {
             NSLog(@"It's controller %li",(long)page + 1);
         }
-        self.PageIndex = @(page).stringValue;
-        if ([self.delegate respondsToSelector:@selector(ninaCurrentPageIndex:)]) {
-            [self.delegate ninaCurrentPageIndex:self.PageIndex];
+        for (NSInteger i = 0; i < vcsTagArray.count; i++) {
+            if ([vcsTagArray[i] isEqualToString:[NSString stringWithFormat:@"%li",[change[@"new"] integerValue]]]) {
+                self.currentObject = vcsArray[i];
+            }
         }
+        self.PageIndex = @(page).stringValue;
+        [self performSelector:@selector(currentPageAndObject) withObject:nil afterDelay:0.1];
         if (titlesArray.count > 5) {
             CGFloat topTabOffsetX = 0;
             if (page >= 2) {
@@ -315,6 +319,7 @@ static NSString *const kObserverPage = @"currentPage";
  */
 - (void)createFirstViewController:(UIViewController *)ctrl {
     firstVC = ctrl;
+    self.currentObject = ctrl;
     ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * _ninaDefaultPage, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
     [self.ninaBaseView.scrollView addSubview:ctrl.view];
     /**<  Add new test cache   **/
@@ -340,6 +345,7 @@ static NSString *const kObserverPage = @"currentPage";
  */
 - (void)createOtherViewControllers:(UIViewController *)ctrl WithControllerTag:(NSInteger)i {
     [self.viewController addChildViewController:ctrl];
+    self.currentObject = ctrl;
     [vcsArray addObject:ctrl];
     NSString *tagStr = @(i).stringValue;
     [vcsTagArray addObject:tagStr];
@@ -406,6 +412,12 @@ static NSString *const kObserverPage = @"currentPage";
             singleView.frame = CGRectMake(FUll_VIEW_WIDTH * ninaTag, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
             [self.ninaBaseView.scrollView addSubview:singleView];
         }
+    }
+}
+
+- (void)currentPageAndObject {
+    if ([self.delegate respondsToSelector:@selector(ninaCurrentPageIndex:currentObject:)]) {
+        [self.delegate ninaCurrentPageIndex:self.PageIndex currentObject:self.currentObject];
     }
 }
 
