@@ -56,7 +56,6 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  @param ninaPagerStyle NinaPagerView show style.
  *  @param titles         Titles in Toptab.
  *  @param childVCs       Controllers or views in NinaPagerView.
- *  @param colors         Several colors can set in NinaPagerView.
  *
  */
 - (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs;

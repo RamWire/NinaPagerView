@@ -36,7 +36,7 @@
 在您的podfile中加入`pod 'NinaPagerView'` 然后运行`pod install`。
 
 ```
-pod 'NinaPagerView'
+pod 'NinaPagerView', '~> 1.6.0'
 ```
 
 #### 使用 [Carthage](https://github.com/Carthage/Carthage)
