@@ -100,10 +100,10 @@ self.navigationController.navigationBar.translucent = NO;
 }
 ```
 #### Current Page
-* Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it. 
+* Get current page and objects by the delegate method, you can code here when you need it. 
 ```objc
-- (void)ninaCurrentPageIndex:(NSString *)currentPage {
-  NSLog(@"Current page is %@",currentPage);
+- (void)ninaCurrentPageIndex:(NSInteger)currentPage currentObject:(id)currentObject lastObject:(id)lastObject {
+    NSLog(@"Current page is %li",currentPage);
 }
 ```
 

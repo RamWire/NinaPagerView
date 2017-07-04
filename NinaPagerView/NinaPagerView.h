@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
 - (BOOL)deallocVCsIfUnnecessary;
 /**
  *  通过此代理方法您可以获取到当前页码、当前对象及上一个对象进而对相关的控制器进行操作。
- *  Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it.
+ *  Get current page and objects by the delegate method, you can code here when you need it.
  *
  *  @param currentPage      Current page when you scroll to or choose the view or controller.
  *  @param currentObject    Current object that you scroll to.

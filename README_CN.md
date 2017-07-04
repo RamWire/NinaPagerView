@@ -100,10 +100,10 @@ self.navigationController.navigationBar.translucent = NO;
 }
 ```
 #### 关于获取到当前显示的界面
-* 通过此代理方法您可以获取到当前页码进而对相关的控制器进行操作。
+* 由于子控制器的限制，您无法捕捉到对应的控制器的ViewWillAppear等生命周期里关于appear的方法，为了达到相同的功能，您可以通过此代理方法来获取到当前页码、当前对象及上一个对象进而对相关的控制器进行操作。
 ```objc
-- (void)ninaCurrentPageIndex:(NSString *)currentPage {
-  NSLog(@"Current page is %@",currentPage);
+- (void)ninaCurrentPageIndex:(NSInteger)currentPage currentObject:(id)currentObject lastObject:(id)lastObject {
+  NSLog(@"Current page is %li",currentPage);
 }
 ```
 
