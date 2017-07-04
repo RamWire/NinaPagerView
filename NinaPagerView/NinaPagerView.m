@@ -34,6 +34,7 @@ static NSString *const kObserverPage = @"currentPage";
 @property (nonatomic, assign) BOOL hasSettingScrollEnabled;
 @property (nonatomic, assign) BOOL hasSettingLinePer;
 @property (nonatomic, strong) id currentObject;
+@property (nonatomic, strong) id lastObject;
 @end
 
 @implementation NinaPagerView
@@ -213,10 +214,11 @@ static NSString *const kObserverPage = @"currentPage";
         }
         for (NSInteger i = 0; i < vcsTagArray.count; i++) {
             if ([vcsTagArray[i] isEqualToString:[NSString stringWithFormat:@"%li",[change[@"new"] integerValue]]]) {
+                self.lastObject = self.currentObject;
                 self.currentObject = vcsArray[i];
             }
         }
-        self.PageIndex = @(page).stringValue;
+        self.pageIndex = page;
         [self performSelector:@selector(currentPageAndObject) withObject:nil afterDelay:0.1];
         if (titlesArray.count > 5) {
             CGFloat topTabOffsetX = 0;
@@ -319,6 +321,7 @@ static NSString *const kObserverPage = @"currentPage";
  */
 - (void)createFirstViewController:(UIViewController *)ctrl {
     firstVC = ctrl;
+    self.lastObject = self.currentObject;
     self.currentObject = ctrl;
     ctrl.view.frame = CGRectMake(FUll_VIEW_WIDTH * _ninaDefaultPage, 0, FUll_VIEW_WIDTH, self.frame.size.height - _topTabHeight);
     [self.ninaBaseView.scrollView addSubview:ctrl.view];
@@ -334,7 +337,7 @@ static NSString *const kObserverPage = @"currentPage";
         NSLog(@"Controller or view %@",transString);
         NSLog(@"Use new created controller or view %@",transString);
     }
-    self.PageIndex = @"1";
+    self.pageIndex = _ninaDefaultPage;
 }
 
 /**
@@ -345,6 +348,7 @@ static NSString *const kObserverPage = @"currentPage";
  */
 - (void)createOtherViewControllers:(UIViewController *)ctrl WithControllerTag:(NSInteger)i {
     [self.viewController addChildViewController:ctrl];
+    self.lastObject = self.currentObject;
     self.currentObject = ctrl;
     [vcsArray addObject:ctrl];
     NSString *tagStr = @(i).stringValue;
@@ -416,8 +420,8 @@ static NSString *const kObserverPage = @"currentPage";
 }
 
 - (void)currentPageAndObject {
-    if ([self.delegate respondsToSelector:@selector(ninaCurrentPageIndex:currentObject:)]) {
-        [self.delegate ninaCurrentPageIndex:self.PageIndex currentObject:self.currentObject];
+    if ([self.delegate respondsToSelector:@selector(ninaCurrentPageIndex:currentObject:lastObject:)]) {
+        [self.delegate ninaCurrentPageIndex:self.pageIndex currentObject:self.currentObject lastObject:self.lastObject];
     }
 }
 

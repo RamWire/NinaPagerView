@@ -41,12 +41,14 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  */
 - (BOOL)deallocVCsIfUnnecessary;
 /**
- *  通过此代理方法您可以获取到当前页码进而对相关的控制器进行操作。
+ *  通过此代理方法您可以获取到当前页码、当前对象及上一个对象进而对相关的控制器进行操作。
  *  Get current page of your views or viewcontrollers by the delegate method, you can code here when you need it.
  *
- *  @param currentPage Current page when you scroll to or choose the view or controller.
+ *  @param currentPage      Current page when you scroll to or choose the view or controller.
+ *  @param currentObject    Current object that you scroll to.
+ *  @param lastObject       Last object that you scroll to.
  */
-- (void)ninaCurrentPageIndex:(NSString *)currentPage currentObject:(id)currentObject;
+- (void)ninaCurrentPageIndex:(NSInteger)currentPage currentObject:(id)currentObject lastObject:(id)lastObject;
 @end
 
 @interface NinaPagerView : UIView
@@ -104,7 +106,7 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  *  所在的控制器index或点击上方button的index。
  *  Current controller's or view's index and click button's index.
  **/
-@property (copy, nonatomic) NSString *PageIndex;
+@property (assign, nonatomic) NSInteger pageIndex;
 /**<
  *  设置默认加载的界面，默认加载的界面是第一页，您可以选择要加载第几页的页面，不仅仅局限于第一页这样的展示方法，更加灵活。
  *  Set default loading page,you can set this for index of your page.Not only loads first page,but also choose other pages as default page.More flexible.
