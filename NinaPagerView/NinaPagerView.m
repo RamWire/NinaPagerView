@@ -216,6 +216,9 @@ static NSString *const kObserverPage = @"currentPage";
             if ([vcsTagArray[i] isEqualToString:[NSString stringWithFormat:@"%li",[change[@"new"] integerValue]]]) {
                 self.lastObject = self.currentObject;
                 self.currentObject = vcsArray[i];
+                if ([vcsArray[i] isKindOfClass:[UIViewController class]]) {
+                    [vcsArray[i] viewDidAppear:YES];
+                }
             }
         }
         self.pageIndex = page;
