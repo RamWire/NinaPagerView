@@ -81,6 +81,9 @@
         _scrollView.alwaysBounceHorizontal = YES;
         _scrollView.scrollsToTop = NO;
         _scrollView.bounces = NO;
+        if (@available(iOS 11.0, *)) {
+            _scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     return _scrollView;
 }
@@ -102,6 +105,9 @@
         _topTab.bounces = NO;
         _topTab.scrollsToTop = NO;
         [self updateTopTabUI];
+        if (@available(iOS 11.0, *)) {
+            _topTab.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     return _topTab;
 }

@@ -102,7 +102,9 @@ static NSString *const kObserverPage = @"currentPage";
 #pragma mark - LayOutSubViews
 - (void)layoutSubviews {
     [super layoutSubviews];
-    [self loadDataForView];
+    if (!_ninaBaseView) {
+        [self loadDataForView];
+    }
 }
 
 #pragma mark - LoadData

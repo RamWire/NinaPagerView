@@ -37,6 +37,9 @@
         _ninaPagerStyleTV.separatorStyle = UITableViewCellSeparatorStyleNone;
         _ninaPagerStyleTV.delegate = self;
         _ninaPagerStyleTV.dataSource = self;
+        if (@available(iOS 11.0, *)) {
+            _ninaPagerStyleTV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+        }
     }
     return _ninaPagerStyleTV;
 }
