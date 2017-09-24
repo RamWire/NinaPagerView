@@ -36,7 +36,7 @@ You can also use cocoapods or Carthage.
 Add `pod 'NinaPagerView'` to your `Podfile` and run `pod install`.
 
 ```
-pod 'NinaPagerView', '~> 1.6.0'
+pod 'NinaPagerView', '~> 1.6.1'
 ```
 
 #### Using [Carthage](https://github.com/Carthage/Carthage)
@@ -108,6 +108,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ## Change Log
+#### v1.6.1
+Updated codes for iOS 11，and other improvements.<br />
 #### v1.6.0
 Add **ninaChosenPage** and reload data function.<br />
 #### v1.5.3

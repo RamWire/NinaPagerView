@@ -36,7 +36,7 @@
 在您的podfile中加入`pod 'NinaPagerView'` 然后运行`pod install`。
 
 ```
-pod 'NinaPagerView', '~> 1.6.0'
+pod 'NinaPagerView', '~> 1.6.1'
 ```
 
 #### 使用 [Carthage](https://github.com/Carthage/Carthage)
@@ -108,6 +108,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ### 版本更新说明
+#### v1.6.1
+适配iOS 11，修复11下出现的一些问题，同时提升了其他的一些细节。 <br />
 #### v1.6.0
 新增动态切换到指定页面的属性ninaChosenPage，同时添加重载标题和内容的功能，动态化订制您的标题和内容。 <br />
 #### v1.5.3
