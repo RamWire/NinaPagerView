@@ -215,7 +215,7 @@ static NSString *const kObserverPage = @"currentPage";
             NSLog(@"It's controller %li",(long)page + 1);
         }
         for (NSInteger i = 0; i < vcsTagArray.count; i++) {
-            if ([vcsTagArray[i] isEqualToString:[NSString stringWithFormat:@"%li",[change[@"new"] integerValue]]]) {
+            if ([vcsTagArray[i] isEqualToString:[NSString stringWithFormat:@"%i",[change[@"new"] intValue]]]) {
                 self.lastObject = self.currentObject;
                 self.currentObject = vcsArray[i];
                 if ([vcsArray[i] isKindOfClass:[UIViewController class]]) {

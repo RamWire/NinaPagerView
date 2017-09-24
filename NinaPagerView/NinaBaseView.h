@@ -50,10 +50,6 @@
  *  Init Method.
  *
  *  @param frame          NinaBaseView frame.
- *  @param selectColor    Toptab button's select color.
- *  @param unselectColor  Toptab button's unselect color.
- *  @param underlineColor Toptab underline color.
- *  @param topTabColor    Toptab background color.
  *  @param topTabNum      Toptab styles.
  *
  */
