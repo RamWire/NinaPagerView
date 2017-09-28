@@ -127,7 +127,7 @@ static NSString *const kObserverPage = @"currentPage";
     self.ninaBaseView.bottomLinePer = (_selectBottomLinePer > 0 && _selectBottomLinePer < 1 && _hasSettingLinePer)?_selectBottomLinePer:1;
     self.ninaBaseView.autoFitTitleLine = (_nina_autoBottomLineEnable && !_hasSettingLinePer)?_nina_autoBottomLineEnable:NO;
     self.ninaBaseView.bottomLineHeight = _selectBottomLineHeight > 0?_selectBottomLineHeight:2;
-    self.ninaBaseView.sliderCornerRadius = _slideBlockCornerRadius > 0?_slideBlockCornerRadius:0;
+    self.ninaBaseView.cornerRadiusRatio = _sliderCornerRadiusRatio > 0?_sliderCornerRadiusRatio:0;
     self.ninaBaseView.titleArray = titlesArray;
     if (_nina_navigationBarHidden == YES) {
         self.viewController.automaticallyAdjustsScrollViewInsets = NO;

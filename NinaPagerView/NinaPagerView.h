@@ -148,10 +148,10 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  **/
 @property (assign, nonatomic) CGFloat sliderHeight;
 /**<
- *  滑块的layer.cornerRadius属性，默认的计算公式是(滑块宽度 / SlideBlockCornerRadius)，若您想要自定义调整，请修改此参数，如果不想要圆角，请设置此参数为0。
- *  Sliderblock's layer.cornerRadius,if you don't want cornerRadius,please set this to 0.
+ *  滑块的layer.cornerRadius属性，默认的计算公式是(滑块高度 / SlideBlockCornerRadius)，若您想要自定义调整，请修改此参数，如果不想要圆角，请设置此参数为0。
+ *  Sliderblock's layer.cornerRadius,it equals to sliderHeight / SlideBlockCornerRadius,if you don't want cornerRadius,please set this to 0.
  **/
-@property (assign, nonatomic) CGFloat slideBlockCornerRadius;
+@property (assign, nonatomic) CGFloat sliderCornerRadiusRatio;
 /**<
  *  是否隐藏了导航栏，您的导航栏如果隐藏或者没有，需要将此属性设置为YES。
  *  Hide NavigationBar or not,if you wanna set this to YES,you must hide your NavigationBar first.

@@ -393,8 +393,8 @@
             break;
         case 1: {
             lineBottom.frame = CGRectMake(lineBottomDis + FUll_VIEW_WIDTH * yourCount * defaultPage, (_topHeight - _blockHeight) / 2.0, yourCount * FUll_VIEW_WIDTH * _bottomLinePer, _blockHeight);
-            if (_sliderCornerRadius > 0) {
-                lineBottom.layer.cornerRadius = _blockHeight / _sliderCornerRadius;
+            if (_cornerRadiusRatio > 0) {
+                lineBottom.layer.cornerRadius = _blockHeight / _cornerRadiusRatio;
             }
         }
             break;
