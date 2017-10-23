@@ -56,7 +56,7 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect Wi
 ### 其他设置和补充
 * 庞大的**自定义属性**您可以在NinaPagerView中设置。
 * NinaPagerView支持**顶部菜单栏自定义配置**，创建自己想要的样式，加入到NinaPagerView中吧(具体说明配置请看Example中的注释)。
-* 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
+* 在配置**NinaPagerView**所需的两个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
 NSArray *titles = @[
                     @"大连市",
@@ -93,7 +93,7 @@ self.navigationController.navigationBar.translucent = NO;
 
 ### NinaPagerViewDelegate
 #### 关于内存管理
-* 如果您觉得创建的控制器过多(>5)占用内存过大，可以尝试遵守**<NinaPagerViewDelegate>**代理方法，默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。<br />
+* 如果您觉得创建的控制器过多(>5)占用内存过大，请使用NinaPagerViewDelegate。默认只保留5个最近滑到的控制器，剩下的控制器将被释放，直到您再滑到相应位置才会被重新加载，如果不执行此代理，则默认为不释放。<br />
 ```objc
 - (BOOL)deallocVCsIfUnnecessary {
   return YES;

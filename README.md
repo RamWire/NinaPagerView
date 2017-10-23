@@ -56,7 +56,7 @@ That's all!
 ### Other Settings and Tips
 * Numerous **properties** in NinaPagerView you can set as you wish.
 * NinaPagerView now supports **custom topTab menus**.Creating your own views into NinaPagerView!(read the Example notes if you wanna to know more)
-* You can set three necessary Array by following codes(please read the Example notes if you wanna to know more).
+* You can set two necessary Array by following codes(please read the Example notes if you wanna to know more).
 ```objc
 NSArray *titles = @[
                     @"Dalian",
