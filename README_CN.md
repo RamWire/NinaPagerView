@@ -59,16 +59,16 @@ NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect Wi
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
 NSArray *titles = @[
-                        @"大连市",
-                        @"甘井子",
-                        @"星海广场",
-                        @"西岗",
-                        @"马栏子",
-                        @"革镇堡",
-                        @"中山",
-                        @"人民广场",
-                        @"中山广场"
-                      ];
+                    @"大连市",
+                    @"甘井子",
+                    @"星海广场",
+                    @"西岗",
+                    @"马栏子",
+                    @"革镇堡",
+                    @"中山",
+                    @"人民广场",
+                    @"中山广场"
+                  ];
 NSArray *objects = @[
                       @"FirstView",
                       @"SecondView",
