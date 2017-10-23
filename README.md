@@ -48,37 +48,37 @@ github "RamWire/NinaPagerView"
 ## Usage
 You need add '**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/NinaPagerViewCarthage.h**>(**Carthage**) to your project.Then load the codes:
 ```objc
-NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
+NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithObjects:objects];
 [self.view addSubview:ninaPagerView];
 ```
 That's all!
 
 ### Other Settings and Tips
-* Numerous **properties** in NinaPagerView you can set as you wish.🍻🍻🍻
-* NinaPagerView now supports **custom topTab menus**.Creating your own views into NinaPagerView!(please read the Example notes if you wanna to know more)🍻🍻🍻
+* Numerous **properties** in NinaPagerView you can set as you wish.
+* NinaPagerView now supports **custom topTab menus**.Creating your own views into NinaPagerView!(read the Example notes if you wanna to know more)
 * You can set three necessary Array by following codes(please read the Example notes if you wanna to know more).
 ```objc
-NSArray *titleArray = @[
-                        @"Dalian",
-                        @"Tokyo",
-                        @"New York",
-                        @"Los Angeles",
-                        @"Kyoto",
-                        @"Osaka",
-                        @"Auckland",
-                        @"Miami",
-                        @"Houston"
-                      ];
-NSArray *vcsArray = @[
-                      @"FirstViewController",
-                      @"SecondViewController",
-                      @"ThirdViewController",
-                      @"ForthViewController",
-                      @"FifthViewController",
-                      @"SixthViewController",
-                      @"SeventhViewController",
-                      @"EighthViewController",
-                      @"NinthViewController",
+NSArray *titles = @[
+                    @"Dalian",
+                    @"Tokyo",
+                    @"New York",
+                    @"Los Angeles",
+                    @"Kyoto",
+                    @"Osaka",
+                    @"Auckland",
+                    @"Miami",
+                    @"Houston"
+                  ];
+NSArray *objects = @[
+                      @"FirstView",
+                      @"SecondView",
+                      @"ThirdView",
+                      @"ForthView",
+                      @"FifthView",
+                      @"SixthView",
+                      @"SeventhView",
+                      @"EighthView",
+                      @"NinthView",
                     ];
 ```
 * If your controller doesn't have navigationBar or you hide the navigationBar,you need set **nina_navigationBarHidden** to YES. 

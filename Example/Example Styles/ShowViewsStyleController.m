@@ -58,7 +58,7 @@
         NSArray *titleArray = [self ninaTitleArray];
         NSArray *vcsArray = [self ninaViewsArray];
         CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
-        _ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
+        _ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithObjects:vcsArray];
         _ninaPagerView.ninaPagerStyles = NinaPagerStyleSlideBlock;
     }
     return _ninaPagerView;

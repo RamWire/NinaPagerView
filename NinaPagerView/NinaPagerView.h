@@ -55,12 +55,12 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
 /**
  *  NinaPagerView init method.
  *
- *  @param frame          NinaPagerView's frame as you expect.
+ *  @param frame          NinaPagerView's frame.
  *  @param titles         Titles in Toptab.
- *  @param childVCs       Controllers or views in NinaPagerView.
+ *  @param objects        Controllers,views or storyboards.
  *
  */
-- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs;
+- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithObjects:(NSArray *)objects;
 
 
 /**

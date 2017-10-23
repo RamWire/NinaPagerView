@@ -48,7 +48,7 @@
 }
 
 /**
- *  WithVCs传入方法3：适用于IB创建或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可，具体实现可参照下方代码。
+ *  WithObjects传入方法3：适用于IB创建或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可，具体实现可参照下方代码。
  *  If you think vcs is not comfortable for your project, you can use view arrays to built.Just put views into array.
  *
  *  @return Array of views or controllers
@@ -99,7 +99,7 @@
         NSArray *titleArray = [self ninaTitleArray];
         NSArray *vcsArray = [self ninaDetailVCsArray];
         CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
-        _ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
+        _ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithObjects:vcsArray];
         _ninaPagerView.ninaPagerStyles = NinaPagerStyleStateNormal;
     }
     return _ninaPagerView;

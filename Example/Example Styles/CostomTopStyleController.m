@@ -100,7 +100,7 @@
         NSArray *titleArray = [self ninaTitleArray];
         NSArray *viewsArray = [self ninaViewsArray];
         CGRect pagerRect = CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_CONTENT_HEIGHT);
-        _ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:viewsArray];
+        _ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithObjects:viewsArray];
         _ninaPagerView.ninaPagerStyles = NinaPagerStyleBottomLine;
         _ninaPagerView.ninaDefaultPage = 0;
         _ninaPagerView.loadWholePages = NO;

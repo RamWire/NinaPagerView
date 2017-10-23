@@ -50,12 +50,12 @@ static NSString *const kObserverPage = @"currentPage";
     BOOL ableLoadData;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithVCs:(NSArray *)childVCs
+- (instancetype)initWithFrame:(CGRect)frame WithTitles:(NSArray *)titles WithObjects:(NSArray *)objects
 {
     if (self = [super init]) {
         self.frame = frame;
         titlesArray = titles;
-        classArray = childVCs;
+        classArray = objects;
     }
     return self;
 }
@@ -109,7 +109,7 @@ static NSString *const kObserverPage = @"currentPage";
 
 #pragma mark - LoadData
 - (void)loadDataForView {
-    [self createPagerView:titlesArray WithVCs:classArray];
+    [self createPagerView:titlesArray WithObjects:classArray];
     self.ninaBaseView.btnUnSelectColor = _unSelectTitleColor;
     self.ninaBaseView.btnSelectColor = _selectTitleColor;
     self.ninaBaseView.underlineBlockColor = (_ninaPagerStyles == 1)?_sliderBlockColor:_underlineColor;
@@ -194,11 +194,11 @@ static NSString *const kObserverPage = @"currentPage";
 }
 
 #pragma mark - CreateView
-- (void)createPagerView:(NSArray *)titles WithVCs:(NSArray *)childVCs {
+- (void)createPagerView:(NSArray *)titles WithObjects:(NSArray *)objects {
     viewNumArray = [NSMutableArray array];
     vcsArray = [NSMutableArray array];
     vcsTagArray = [NSMutableArray array];
-    if (titles.count > 0 && childVCs.count > 0) {
+    if (titles.count > 0 && objects.count > 0) {
         [self addSubview:self.ninaBaseView];
         //First ViewController present to the screen
         ableLoadData = YES;

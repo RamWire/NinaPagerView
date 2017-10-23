@@ -10,11 +10,11 @@
 * 一行代码搞定顶部菜单栏。类似网易新闻、今日头条、虎扑看球等app做的一个顶部菜单栏，每栏中有独立的控制器，可自己定制。
 
 ## 特点
-- [x] 低耦合，您只需创建自己的ViewController即可，后续的操作都在自己的ViewController中。
-- [x] 可分步加载您所添加的ViewController，实现类似网易新闻，虎扑看球的效果。
+- [x] 低耦合，您只需创建视图或控制器即可。
+- [x] 可分步加载您所添加的视图，实现类似网易新闻，虎扑看球的效果。
 - [x] 只需一行代码创建即可实现所有功能。
 - [x] 菜单栏可随需求自己定制，不仅仅局限于标题样式。
-- [x] 不仅仅是UIViewController，您可以根据您的需求创建UIView添加到NinaPagerView中。
+- [x] 支持storyboard。
 - [x] 可根据您的需求对上方的滑块进行选择，无论是背景颜色还是文字颜色。
 - [x] 像今日头条、网易新闻一样进行标题和内容的动态添加和删除。
 
@@ -48,17 +48,17 @@ github "RamWire/NinaPagerView"
 ## 使用
 您需要将'**NinaPagerView.h**'(**CocoaPods**) or <**NinaPagerViewCarthage/NinaPagerViewCarthage.h**>(**Carthage**) 加入到您的工程中，然后执行下列代码:
 ```objc
-NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithVCs:vcsArray];
+NinaPagerView *ninaPagerView = [[NinaPagerView alloc] initWithFrame:pagerRect WithTitles:titleArray WithObjects:objects];
 [self.view addSubview:ninaPagerView];
 ```
 即可完成~
 
 ### 其他设置和补充
-* 庞大的**自定义属性**您可以在NinaPagerView中设置🍻🍻🍻。
+* 庞大的**自定义属性**您可以在NinaPagerView中设置。
 * NinaPagerView支持**顶部菜单栏自定义配置**，创建自己想要的样式，加入到NinaPagerView中吧(具体说明配置请看Example中的注释)。
 * 在配置**NinaPagerView**所需的三个数组时，您可以参照下方的代码进行配置(具体说明请看Example中的注释)。
 ```objc
-NSArray *titleArray = @[
+NSArray *titles = @[
                         @"大连市",
                         @"甘井子",
                         @"星海广场",
@@ -69,16 +69,16 @@ NSArray *titleArray = @[
                         @"人民广场",
                         @"中山广场"
                       ];
-NSArray *vcsArray = @[
-                      @"FirstViewController",
-                      @"SecondViewController",
-                      @"ThirdViewController",
-                      @"ForthViewController",
-                      @"FifthViewController",
-                      @"SixthViewController",
-                      @"SeventhViewController",
-                      @"EighthViewController",
-                      @"NinthViewController",
+NSArray *objects = @[
+                      @"FirstView",
+                      @"SecondView",
+                      @"ThirdView",
+                      @"ForthView",
+                      @"FifthView",
+                      @"SixthView",
+                      @"SeventhView",
+                      @"EighthView",
+                      @"NinthView",
                     ];
 ```
 * 如果您将导航栏隐藏或者没有导航栏，您需要设置**nina_navigationBarHidden**为YES。<br />
