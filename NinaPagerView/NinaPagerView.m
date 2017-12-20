@@ -182,6 +182,11 @@ static NSString *const kObserverPage = @"currentPage";
     [self.ninaBaseView reloadTabItems:updatedTitles];
 }
 
+- (void)reloadTopTabByTitles:(NSArray *)updatedTitles {
+    titlesArray = updatedTitles;
+    [self.ninaBaseView reloadTabItems:updatedTitles];
+}
+
 #pragma mark - NSCache
 - (NSCache *)limitControllerCache {
     if (!_limitControllerCache) {

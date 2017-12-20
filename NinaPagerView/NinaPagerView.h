@@ -71,6 +71,14 @@ typedef NS_ENUM(NSInteger, NinaPagerStyle) {
  */
 - (void)reloadTopTabByTitles:(NSArray *)updatedTitles WithObjects:(NSArray *)updatedObjects;
 
+/**
+ *  Reload NinaPagerView with updated titles.
+ *  Warning:Titles count must equal to the origin titles count.
+ *
+ @param updatedTitles       update titles.
+ */
+- (void)reloadTopTabByTitles:(NSArray *)updatedTitles;
+
 /**<
  *  顶部菜单栏的展示样式。
  *  The style of TopTab.
