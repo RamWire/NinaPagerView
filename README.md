@@ -90,6 +90,7 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```objc
 self.navigationController.navigationBar.translucent = NO;
 ```
+* If you use controllers way, please make sure add subview in viewWillLayoutSubviews method, it's not work in viewDidLoad method, you can find more in demo.
 
 ### NinaPagerViewDelegate
 #### Memory Management

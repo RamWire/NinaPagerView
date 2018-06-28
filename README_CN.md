@@ -90,6 +90,7 @@ ninaPagerView.nina_navigationBarHidden = YES;
 ```objc
 self.navigationController.navigationBar.translucent = NO;
 ```
+* 如果使用的是控制器数组，并且控制器里需要添加视图，建议您在viewWillLayoutSubviews中进行addSubview操作，在viewDidLoad方法里并不奏效，具体请看demo中的代码。
 
 ### NinaPagerViewDelegate
 #### 关于内存管理
