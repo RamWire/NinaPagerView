@@ -17,9 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor blueColor];
-//    [self createLabel:@"4"];
+}
+
+- (void)viewWillLayoutSubviews {
     [self createTableViewFromVC:@"4"];
 }
 

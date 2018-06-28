@@ -103,6 +103,9 @@ static NSString *const kObserverPage = @"currentPage";
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (!_ninaBaseView) {
+        if (_topTabHeight <= 25) {
+            _topTabHeight = 40;
+        }
         [self loadDataForView];
     }
 }
