@@ -36,7 +36,7 @@
 在您的podfile中加入`pod 'NinaPagerView'` 然后运行`pod install`。
 
 ```
-pod 'NinaPagerView', '~> 1.6.2'
+pod 'NinaPagerView'
 ```
 
 #### 使用 [Carthage](https://github.com/Carthage/Carthage)
@@ -109,6 +109,8 @@ self.navigationController.navigationBar.translucent = NO;
 ```
 
 ### 版本更新说明
+#### v1.6.3
+修复存在的问题。<br />
 #### v1.6.2
 适配iOS 11，修复11下出现的一些问题，同时提升了其他的一些细节。 <br />
 #### v1.6.0
