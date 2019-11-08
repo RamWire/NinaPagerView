@@ -168,9 +168,6 @@ ninaPagerView.titleScale = 1.5;
 #### v0.5
 适用于**IB创建**或者需要代码实例化创建的VC，如果您有此需求，请传入对应的VC即可(在NinaPagerView的initWithVCs)，具体实现可参照Example中的代码。<br />
 
-## 反馈
-* 如果您在使用的过程中遇到任何问题或者建议，希望您issue我或者发邮件至zhaogengda@126.com，帮助我来完善它。
-
 ## Licence
 
 This project uses MIT License.
