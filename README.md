@@ -168,9 +168,6 @@ ninaPagerView.titleScale = 1.5;
 #### v0.5.0
 If you wanna create VCs by **IB** or code by yourself, you can put VCs into array.You can create them like the Example codes.
 
-## FeedBack
-* If you find bugs in this project or any suggestions,hope you can give me feedback by issues or Email me to zhaogengda@126.com.
-
 ## Licence
 
 This project uses MIT License.
